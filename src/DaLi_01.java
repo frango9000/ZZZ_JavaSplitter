@@ -1,11 +1,8 @@
-
-import lib.Misc.IO.*;
-
 import lib.Geometry.*;
 import lib.Math.*;
 import lib.Misc.*;
 
-import static lib.Misc.IO.*;
+import static lib.Misc.IO.println;
 
 
 public abstract class DaLi_01 {
@@ -55,13 +52,13 @@ public abstract class DaLi_01 {
     }
     public static void Ex08(){
         Circle circle = new Circle(6.5f);
-        println("Circle Perimeter: " + circle.getPerimeter());
-        println("Circle Area: "+circle.getArea());
+        println("Circle Perimeter: " + circle.perimeter());
+        println("Circle Area: "+circle.area());
     }
     public static void Ex09(){
         Rectangle rectangle = new Rectangle(5.3f,8.6f);
-        println("Rectangle Perimeter: " + rectangle.getPerimeter());
-        println("Rectangle Area: "+rectangle.getArea());
+        println("Rectangle Perimeter: " + rectangle.perimeter());
+        println("Rectangle Area: "+rectangle.area());
     }
     public static void Ex10(){
         println("Average Speed: " + (Scales.kilometerToMile(15f)/(50.5f/60f)) + "miles per hour.");
