@@ -1,6 +1,8 @@
 import lib.Geometry.Hexagon;
+import lib.Geometry.Point;
+import lib.Geometry.Triangle;
 import lib.Geometry.TriangleEquilateral;
-import lib.Math.Algebra;
+import lib.Math.Finance;
 import lib.Math.Physics;
 import lib.Math.Scales;
 import lib.Misc.IO;
@@ -12,11 +14,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_02 {
 
     public static void main(String[] args) {
-        Ex18();
-        Ex19();
-        Ex20();
-        Ex21();
-        Ex22();
+
         Ex23();
 
     }
@@ -175,7 +173,7 @@ public abstract class DaLi_02 {
         print("y2: ");
         float y2 = scanFloat();
 
-        println("The distance between the two points is :" + Algebra.distanceBetweenTwoPoints(x1,y1,x2,y2));
+        println("The distance between the two points is :" + Point.distanceBetweenTwoPoints(x1,y1,x2,y2));
     }
     public static void Ex16() {
         print("Enter the length of the hexagon side: ");
@@ -194,22 +192,98 @@ public abstract class DaLi_02 {
         println("The wind chill index is " + windChill);
     }
     public static void Ex18() {
-
+        ex18PrintMiddlePoint(0,0,2,1);
+        ex18PrintMiddlePoint(1,4,4,2);
+        ex18PrintMiddlePoint(2,7,6,3);
+        ex18PrintMiddlePoint(3,9,10,5);
+        ex18PrintMiddlePoint(4,11,12,7);
     }
+
     public static void Ex19() {
+        print("Enter point 1 x: ");
+        float ax = scanFloat();
+        print("Enter point 1 y: ");
+        float ay = scanFloat();
+        print("Enter point 2 x: ");
+        float bx = scanFloat();
+        print("Enter point 2 y: ");
+        float by = scanFloat();
+        print("Enter point 3 x: ");
+        float cx = scanFloat();
+        print("Enter point 3 y: ");
+        float cy = scanFloat();
+
+        Triangle triangle = new Triangle(new Point(ax,ay), new Point(bx, by), new Point(cx, cy));
+        println("Area is : " + triangle.area());
 
     }
     public static void Ex20() {
+        print("Enter balance: ");
+        float balance = scanFloat();
+        print("Enter interest rate: ");
+        float interestRate= scanFloat();
+        println("The interest is : " + Finance.getInterest(balance, interestRate));
 
     }
     public static void Ex21() {
+        print("Enter investment amount: ");
+        float investment = scanFloat();
+        print("Enter annual interest rate in percentage: ");
+        float anualInterestRate = scanFloat();
+        print("Enter number of years: ");
+        float years = scanFloat();
+        println("Future value is " + Finance.getFutureInvestmentValue(investment, anualInterestRate, years));
+
+
+
 
     }
     public static void Ex22() {
+        print("Enter amount: ");
+        float amount = scanFloat();
+
+        int remainingAmount = (int)(amount*100);
+
+        int numberOfOneDolars=remainingAmount/100;
+        remainingAmount%=100;
+
+        int numberOfQuarters=remainingAmount/25;
+        remainingAmount%=25;
+
+        int numberOfDimes=remainingAmount/10;
+        remainingAmount%=10;
+
+        int numberOfNickels=remainingAmount/5;
+        remainingAmount%=5;
+
+        int numberOfPennies = remainingAmount;
+        println("Your amount " + amount + " consists of");
+        println(" " + numberOfOneDolars + " dollars");;
+        println(" " + numberOfQuarters + " quarters ");
+        println(" " + numberOfDimes + " dimes");
+        println(" " + numberOfNickels + " nickels");
+        println(" " + numberOfPennies + " pennies");
 
     }
     public static void Ex23() {
+        print("Enter the driving distance: ");
+        float distance = scanFloat();
+        print("Enter miles per gallon: ");
+        float milesPerGallon = scanFloat();
+        print("Enter price per gallon: ");
+        float pricePerGalon = scanFloat();
+        println("The cost of driving is " + ((distance/milesPerGallon)*pricePerGalon));
 
+    }
+
+
+
+
+    // private methods
+    private static void ex18PrintMiddlePoint(float ax, float ay, float bx, float by){
+        float[] mp= Point.middlePoint(ax,ay,bx,by);
+        float mx =mp[0], my =mp[1];
+        println("( "+ax+", "+ay+" )      ( "+bx+", "+by+" )      ( "+mx+", "+my+" )");
     }
 
 }
