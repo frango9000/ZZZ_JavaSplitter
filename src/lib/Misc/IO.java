@@ -19,6 +19,9 @@ public abstract class IO {
     public static float scanFloat(){
         return scanner().nextFloat();
     }
+    public static double scanDouble(){
+        return scanner().nextDouble();
+    }
     public static int scanInt(){
         return scanner().nextInt();
     }

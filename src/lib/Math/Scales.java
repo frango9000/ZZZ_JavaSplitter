@@ -17,4 +17,7 @@ public abstract class Scales {
     public static float poundToKilogram(float pound) { return pound *  0.45359237f; }
     public static float inchToMeter(float inch){ return  inch * 0.0254f; }
     public static float meterToInch(float meter){ return  meter / 0.0254f; }
+    public static float inchToFeet(float inch){ return  inch / 12; }
+    public static float feetToInch(float feet){ return  feet * 12; }
+
 }
