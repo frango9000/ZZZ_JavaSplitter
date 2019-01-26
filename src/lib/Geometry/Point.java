@@ -4,9 +4,17 @@ public class Point {
     public float x;
     public float y;
 
+    public float[] point;
+
     public Point(float x, float y) {
         this.x = x;
         this.y = y;
+        this.point = new float[]{x,y};
+    }
+    public Point(float[] point){
+        this.x= point[0];
+        this.y= point[1];
+        this.point = new float[]{point[0], point[1]};
     }
 
     public static double distanceBetweenTwoPoints(Point p1, Point p2){

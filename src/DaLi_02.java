@@ -195,7 +195,7 @@ public abstract class DaLi_02 {
     public static void ex17() {
         print("Enter the temperature in Fahrenheit between -58°F and 41°F: ");
         float temp = scanFloat();
-        print("Enter the wind speed (7 = 2) in miles per hour: ");
+        print("Enter the wind speed (>= 2) in miles per hour: ");
         float windSpeed = scanFloat();
 
         double windChill = 35.74 + (0.6215 * temp) - (35.75 * Math.pow(windSpeed, 0.16)) + (0.4275 * temp * Math.pow(windSpeed, 0.16));

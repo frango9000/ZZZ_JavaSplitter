@@ -1,5 +1,6 @@
 package lib.Misc;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public abstract class IO {
@@ -30,6 +31,20 @@ public abstract class IO {
     }
     public static short scanShort(){
         return scanner().nextShort();
+    }
+    public static String scanNext(){
+        return scanner().next();
+    }
+
+
+
+    public static int randomInt(){
+        Random rand = new Random();
+        return rand.nextInt();
+    }
+    public static int randomInt(int bound){
+        Random rand = new Random();
+        return rand.nextInt(bound);
     }
 
 }

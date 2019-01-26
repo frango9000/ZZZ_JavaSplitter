@@ -6,6 +6,10 @@ public class Triangle {
     public Point pointB;
     public Point pointC;
 
+    public double sideAB;
+    public double sideBC;
+    public double sideCA;
+
     public Triangle() {
     }
 
@@ -13,21 +17,31 @@ public class Triangle {
         this.pointA = pointA;
         this.pointB = pointB;
         this.pointC = pointC;
-    }
-    public double sideH(){
-        return Point.distanceBetweenTwoPoints(pointA, pointB);
-    }
-    public double sideI(){
-        return Point.distanceBetweenTwoPoints(pointB, pointC);
-    }
-    public double sideJ(){
-        return Point.distanceBetweenTwoPoints(pointC, pointA);
+        sideAB = Point.distanceBetweenTwoPoints(pointA, pointB);
+        sideBC = Point.distanceBetweenTwoPoints(pointB, pointC);
+        sideCA = Point.distanceBetweenTwoPoints(pointC, pointA);
+
     }
 
-    public double area(){
-        double s = (sideH()+sideI()+sideJ())/2;
-        return Math.sqrt(s*(s-sideH())*(s-sideI())*(s-sideJ()));
+    public Triangle(double sideAB, double sideBC, double sideCA) {
+        if (isValidTriangle(sideAB, sideBC, sideCA)) {
+            this.sideAB = sideAB;
+            this.sideBC = sideBC;
+            this.sideCA = sideCA;
+        }
+    }
+
+    public double area() {
+        double s = (sideAB + sideBC + sideCA) / 2;
+        return Math.sqrt(s * (s - sideAB) * (s - sideBC) * (s - sideCA));
+    }
+
+    public double perimeter() {
+        return sideAB + sideBC + sideCA;
     }
 
 
+    public static boolean isValidTriangle(double sideAB, double sideBC, double sideCA) {
+        return (((sideAB + sideBC) > sideCA) && ((sideBC + sideCA) > sideAB) && ((sideCA + sideAB) > sideBC));
+    }
 }

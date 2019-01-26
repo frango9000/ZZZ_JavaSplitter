@@ -76,4 +76,31 @@ public abstract class Time {
         return monthName;
     }
 
+    public static int daysInMonth(int monthIndex, int year){
+        switch(monthIndex){
+            case 0:         //January
+            case 2:         //March
+            case 4:         //May
+            case 6:         //July
+            case 7:         //August
+            case 9:         //October
+            case 11:        //December
+                return 31;
+            case 3:         //April
+            case 5:         //June
+            case 8:         //September
+            case 10:        //November
+                return 30;
+            case 1:         //February
+                return isLeapYear(year) ?  29 : 28 ;
+        }
+        return -1;
+    }
+    public static boolean isLeapYear(int year){
+        if(year%4!=0)return false;
+        else if (year%100!=0)return true;
+        else if (year%400!=0)return false;
+        else return true;
+    }
+
 }
