@@ -17,9 +17,9 @@ public class Triangle {
         this.pointA = pointA;
         this.pointB = pointB;
         this.pointC = pointC;
-        sideAB = Point.distanceBetweenTwoPoints(pointA, pointB);
-        sideBC = Point.distanceBetweenTwoPoints(pointB, pointC);
-        sideCA = Point.distanceBetweenTwoPoints(pointC, pointA);
+        sideAB = Point.distanceBetweenPoints(pointA, pointB);
+        sideBC = Point.distanceBetweenPoints(pointB, pointC);
+        sideCA = Point.distanceBetweenPoints(pointC, pointA);
 
     }
 

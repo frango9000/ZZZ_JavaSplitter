@@ -102,5 +102,23 @@ public abstract class Time {
         else if (year%400!=0)return false;
         else return true;
     }
+    public static int dayOfWeek(int year, int month, int day){
+        int m;
+        if( month == 1 || month == 2){
+            m = month+12;
+            year-=1;
+        }else m = month;
+        int j = year / 100;
+        int k = year % 100;
+        int q = day;
+
+        int dayOfWeek = ( q + ( ( 26* (m+1) ) / 10 ) + k + (k/4) + (j/4) + (5*j) ) % 7;
+
+        return dayOfWeek<1 ? 6 : dayOfWeek-1;
+    }
+
+    public static String dayOfWeekString(int year, int month, int day){
+        return dayName(dayOfWeek(year,month,day));
+    }
 
 }

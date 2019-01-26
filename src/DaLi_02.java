@@ -181,7 +181,7 @@ public abstract class DaLi_02 {
         print("y2: ");
         float y2 = scanFloat();
 
-        println("The distance between the two points is :" + Point.distanceBetweenTwoPoints(x1, y1, x2, y2));
+        println("The distance between the two points is :" + Point.distanceBetweenPoints(x1, y1, x2, y2));
     }
 
     public static void ex16() {

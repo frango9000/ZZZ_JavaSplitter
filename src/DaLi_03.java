@@ -1,3 +1,4 @@
+import lib.Geometry.Circle;
 import lib.Geometry.Point;
 import lib.Geometry.Rectangle;
 import lib.Geometry.Triangle;
@@ -13,7 +14,7 @@ public class DaLi_03 {
 
     public static void main(String[] args) {
 
-        ex19();
+        ex22();
 
     }
 
@@ -277,11 +278,11 @@ public class DaLi_03 {
 
 
         int prize;
-        int matches = ex15matches(lottery,guess);
+        int matches = ex15matches(lottery, guess);
         if (lottery == guess) prize = 12000;
-        else if (matches==3) prize = 7000;
-        else if (matches==2) prize = 5000;
-        else if (matches==1) prize = 2000;
+        else if (matches == 3) prize = 7000;
+        else if (matches == 2) prize = 5000;
+        else if (matches == 1) prize = 2000;
         else prize = 0;
 
         println("Winning lottery number is " + lottery);
@@ -289,9 +290,9 @@ public class DaLi_03 {
     }
 
     public static void ex16() {
-        Point center = new Point(0,0);
+        Point center = new Point(0, 0);
         Rectangle rect = new Rectangle(50, 150, center);
-        float[] randPoint =rect.randomPoint();
+        float[] randPoint = rect.randomPoint();
         println("Random X : " + randPoint[0] + "\nRandom Y : " + randPoint[1]);
 
     }
@@ -301,30 +302,30 @@ public class DaLi_03 {
         int player = scanInt();
         int ai = randomInt(3);
 
-        println("You chose " +ex17string(player) );
-        println("AI chose " +ex17string(ai) );
+        println("You chose " + ex17string(player));
+        println("AI chose " + ex17string(ai));
 
         String reply;
-        if (player==ai)reply ="draw";
+        if (player == ai) reply = "draw";
         else {
-            if ( (ai == 0 && player == 1) || (ai==1 && player == 2) || (ai == 2 && player == 0) ) reply = "win";
-            else reply= "lose";
+            if ((ai == 0 && player == 1) || (ai == 1 && player == 2) || (ai == 2 && player == 0)) reply = "win";
+            else reply = "lose";
         }
-        println("You " + reply );
+        println("You " + reply);
     }
 
     public static void ex18() {
         print("Enter weight ");
         float weight = scanFloat();
 
-        if (weight>20)println("Package cannot be shipped.");
-        else{
+        if (weight > 20) println("Package cannot be shipped.");
+        else {
             float price;
-            if (weight<=2)price = 2.5f;
-            else if (weight<=4)price = 4.5f;
-            else if (weight<=10)price = 7.5f;
+            if (weight <= 2) price = 2.5f;
+            else if (weight <= 4) price = 4.5f;
+            else if (weight <= 10) price = 7.5f;
             else price = 10.5f;
-            print("Price is : "+ price);
+            print("Price is : " + price);
         }
     }
 
@@ -338,10 +339,10 @@ public class DaLi_03 {
 
         print("Enter CA: ");
         float sideCA = scanFloat();
-        if(Triangle.isValidTriangle(sideAB,sideBC,sideCA)){
+        if (Triangle.isValidTriangle(sideAB, sideBC, sideCA)) {
             Triangle triangle = new Triangle(sideAB, sideBC, sideCA);
             println("Perimeter is " + triangle.perimeter());
-        }else println("Invalid Triangle");
+        } else println("Invalid Triangle");
 
     }
 
@@ -350,11 +351,89 @@ public class DaLi_03 {
         float temp = scanFloat();
         print("Enter the wind speed (>= 2) in miles per hour: ");
         float windSpeed = scanFloat();
-        if ( temp > 41 || temp < -58 ||windSpeed < 2)println("Invalid Imput");
+        if (temp > 41 || temp < -58 || windSpeed < 2) println("Invalid Imput");
         else {
             double windChill = 35.74 + (0.6215 * temp) - (35.75 * Math.pow(windSpeed, 0.16)) + (0.4275 * temp * Math.pow(windSpeed, 0.16));
             println("The wind chill index is " + windChill);
         }
+    }
+
+    public static void ex21() {
+        print("Enter day number (1 - 31): ");
+        int day = scanInt();
+
+        print("Enter month number (1 - 12): ");
+        int month = scanInt();
+
+        print("Enter year: ");
+        int year = scanInt();
+
+        println("Day of week is " + Time.dayOfWeekString(year, month, day));
+    }
+
+    public static void ex22() {
+        Circle circle = new Circle(10, new Point(0, 0));
+
+        print("Enter X: ");
+        float x = scanFloat();
+
+        print("Enter Y: ");
+        float y = scanFloat();
+
+        Point point = new Point(x, y);
+        println(point.toString() + (circle.isInCircle(point) ? " is in circle" : "is not in circle"));
+    }
+
+    public static void ex23() {
+
+    }
+
+    public static void ex24() {
+
+    }
+
+    public static void ex25() {
+
+    }
+
+    public static void ex26() {
+
+    }
+
+    public static void ex27() {
+
+    }
+
+    public static void ex28() {
+
+    }
+
+    public static void ex29() {
+
+    }
+
+    public static void ex30() {
+
+    }
+
+    public static void ex31() {
+
+    }
+
+    public static void ex32() {
+
+    }
+
+    public static void ex33() {
+
+    }
+
+    public static void ex34() {
+
+    }
+
+    public static void ex35() {
+
     }
 
 
@@ -380,7 +459,6 @@ public class DaLi_03 {
                 incomeRange = new int[]{11950, 45500, 117450, 190200, 372950};
                 break;
         }
-
         if (income <= incomeRange[0])
             tax = income * 0.10;
         else if (income <= incomeRange[1])
@@ -413,12 +491,13 @@ public class DaLi_03 {
     private static int[] ex15array(int number) {
         int[] arr = new int[3];
         arr[0] = number / 100;
-        arr[1] = number/100 / 10;
-        arr[2] = number/100 % 10;
+        arr[1] = number / 100 / 10;
+        arr[2] = number / 100 % 10;
         return arr;
     }
-    private static String ex17string(int rps){
-        switch (rps){
+
+    private static String ex17string(int rps) {
+        switch (rps) {
             case 0:
                 return "Rock";
             case 1:
