@@ -1,7 +1,4 @@
-import lib.Geometry.Circle;
-import lib.Geometry.Point;
-import lib.Geometry.Rectangle;
-import lib.Geometry.Triangle;
+import lib.Geometry.*;
 import lib.Math.Algebra;
 import lib.Math.Scales;
 import lib.Misc.Time;
@@ -14,7 +11,7 @@ public class DaLi_03 {
 
     public static void main(String[] args) {
 
-        ex22();
+        ex25();
 
     }
 
@@ -259,6 +256,42 @@ public class DaLi_03 {
 
         println("Tax is " + ex13tax(status, income));
     }
+    private static float ex13tax(int status, double income) {
+        // Compute tax
+        double tax = 0;
+        int[] incomeRange;
+        float[] taxRange = {0.10f, 0.15f, 0.25f, 0.28f, 0.33f, 0.35f};
+        switch (status) {
+            default:
+            case 0:
+                incomeRange = new int[]{8350, 33950, 82250, 171550, 372950};
+                break;
+            case 1:
+                incomeRange = new int[]{16700, 67900, 137050, 208850, 372950};
+                break;
+            case 2:
+                incomeRange = new int[]{8350, 33950, 68525, 104425, 186475};
+                break;
+            case 3:
+                incomeRange = new int[]{11950, 45500, 117450, 190200, 372950};
+                break;
+        }
+        if (income <= incomeRange[0])
+            tax = income * 0.10;
+        else if (income <= incomeRange[1])
+            tax = incomeRange[0] * taxRange[0] + (income - incomeRange[0]) * taxRange[1];
+        else if (income <= incomeRange[2])
+            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (income - incomeRange[1]) * taxRange[2];
+        else if (income <= incomeRange[3])
+            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (incomeRange[2] - incomeRange[1]) * taxRange[2] + (income - incomeRange[2]) * taxRange[3];
+        else if (income <= incomeRange[4])
+            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (incomeRange[2] - incomeRange[1]) * taxRange[2] + (incomeRange[3] - incomeRange[2]) * taxRange[3] + (income - incomeRange[3]) * taxRange[4];
+        else
+            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (incomeRange[2] - incomeRange[1]) * taxRange[2] + (incomeRange[3] - incomeRange[2]) * taxRange[3] + (incomeRange[4] - incomeRange[3]) * taxRange[4] + (income - incomeRange[4]) * taxRange[5];
+
+        return (float) tax;
+
+    }
 
     public static void ex14() {
         print("Enter 0 for heads, 1 for tails : ");
@@ -296,6 +329,24 @@ public class DaLi_03 {
         println("Random X : " + randPoint[0] + "\nRandom Y : " + randPoint[1]);
 
     }
+    private static int ex15matches(int a, int b) {
+        int[] arrA = ex15array(a);
+        int[] arrB = ex15array(b);
+        int count = 0;
+        for (int i = 0; i < arrA.length; i++) {
+            for (int j = 0; j < arrB.length; j++) {
+                if (arrA[i] == arrB[j]) count++;
+            }
+        }
+        return count;
+    }
+    private static int[] ex15array(int number) {
+        int[] arr = new int[3];
+        arr[0] = number / 100;
+        arr[1] = number / 100 / 10;
+        arr[2] = number / 100 % 10;
+        return arr;
+    }
 
     public static void ex17() {
         print("0 rock\n1 paper\n2 scissor\n");
@@ -312,6 +363,17 @@ public class DaLi_03 {
             else reply = "lose";
         }
         println("You " + reply);
+    }
+    private static String ex17string(int rps) {
+        switch (rps) {
+            case 0:
+                return "Rock";
+            case 1:
+                return "Paper";
+            case 2:
+                return "Scissor";
+        }
+        return null;
     }
 
     public static void ex18() {
@@ -383,17 +445,63 @@ public class DaLi_03 {
         Point point = new Point(x, y);
         println(point.toString() + (circle.isInCircle(point) ? " is in circle" : "is not in circle"));
     }
-
     public static void ex23() {
+        Rectangle rectangle = new Rectangle( 10, 5, new Point(1,1));
 
+        print("Enter X: ");
+        float x = scanFloat();
+
+        print("Enter Y: ");
+        float y = scanFloat();
+
+        Point point = new Point(x, y);
+        println(point.toString() + (rectangle.isInRectangle(point) ? " is in rectangle" : "is not in rectangle"));
     }
 
+
     public static void ex24() {
+        String[] rank = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
+        String[] suit = {"Clubs", "Diamonds", "Hearts", "Spades"};
+
+        int randRank= randomInt(rank.length);
+        int randSuit= randomInt(suit.length);
+
+        print("Random card is " + rank[randRank] + " of " + suit[randSuit]);
 
     }
 
     public static void ex25() {
+        print("Enter x1: ");
+        float x1 = scanFloat();
 
+        print("Enter y1: ");
+        float y1 = scanFloat();
+
+        print("Enter x2: ");
+        float x2 = scanFloat();
+
+        print("Enter y2: ");
+        float y2 = scanFloat();
+
+        print("Enter x3: ");
+        float x3 = scanFloat();
+
+        print("Enter y3: ");
+        float y3 = scanFloat();
+
+        print("Enter x4: ");
+        float x4 = scanFloat();
+
+        print("Enter y4: ");
+        float y4 = scanFloat();
+
+        Line lineA = new Line(new Point(x1,y1), new Point(x2,y2));
+        Line lineB = new Line(new Point(x3,y3), new Point(x4,y4));
+
+        float[] xy = lineA.intersect(lineB);
+
+        if (xy == null) println("The lines are parallel");
+        else println("x: " + xy[0] + "\ny: " + xy[1]);
     }
 
     public static void ex26() {
@@ -434,77 +542,5 @@ public class DaLi_03 {
 
     public static void ex35() {
 
-    }
-
-
-    //Private methods
-
-    private static float ex13tax(int status, double income) {
-        // Compute tax
-        double tax = 0;
-        int[] incomeRange;
-        float[] taxRange = {0.10f, 0.15f, 0.25f, 0.28f, 0.33f, 0.35f};
-        switch (status) {
-            default:
-            case 0:
-                incomeRange = new int[]{8350, 33950, 82250, 171550, 372950};
-                break;
-            case 1:
-                incomeRange = new int[]{16700, 67900, 137050, 208850, 372950};
-                break;
-            case 2:
-                incomeRange = new int[]{8350, 33950, 68525, 104425, 186475};
-                break;
-            case 3:
-                incomeRange = new int[]{11950, 45500, 117450, 190200, 372950};
-                break;
-        }
-        if (income <= incomeRange[0])
-            tax = income * 0.10;
-        else if (income <= incomeRange[1])
-            tax = incomeRange[0] * taxRange[0] + (income - incomeRange[0]) * taxRange[1];
-        else if (income <= incomeRange[2])
-            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (income - incomeRange[1]) * taxRange[2];
-        else if (income <= incomeRange[3])
-            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (incomeRange[2] - incomeRange[1]) * taxRange[2] + (income - incomeRange[2]) * taxRange[3];
-        else if (income <= incomeRange[4])
-            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (incomeRange[2] - incomeRange[1]) * taxRange[2] + (incomeRange[3] - incomeRange[2]) * taxRange[3] + (income - incomeRange[3]) * taxRange[4];
-        else
-            tax = incomeRange[0] * taxRange[0] + (incomeRange[1] - incomeRange[0]) * taxRange[1] + (incomeRange[2] - incomeRange[1]) * taxRange[2] + (incomeRange[3] - incomeRange[2]) * taxRange[3] + (incomeRange[4] - incomeRange[3]) * taxRange[4] + (income - incomeRange[4]) * taxRange[5];
-
-        return (float) tax;
-
-    }
-
-    private static int ex15matches(int a, int b) {
-        int[] arrA = ex15array(a);
-        int[] arrB = ex15array(b);
-        int count = 0;
-        for (int i = 0; i < arrA.length; i++) {
-            for (int j = 0; j < arrB.length; j++) {
-                if (arrA[i] == arrB[j]) count++;
-            }
-        }
-        return count;
-    }
-
-    private static int[] ex15array(int number) {
-        int[] arr = new int[3];
-        arr[0] = number / 100;
-        arr[1] = number / 100 / 10;
-        arr[2] = number / 100 % 10;
-        return arr;
-    }
-
-    private static String ex17string(int rps) {
-        switch (rps) {
-            case 0:
-                return "Rock";
-            case 1:
-                return "Paper";
-            case 2:
-                return "Scissor";
-        }
-        return null;
     }
 }

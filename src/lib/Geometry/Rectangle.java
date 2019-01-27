@@ -40,5 +40,11 @@ public class Rectangle {
 
         return randPoint;
     }
+    public boolean isInRectangle(Point point){
+        center = center == null ? new Point(0,0) : center;
+        boolean xInBound = point.x < ((width/2)+center.x) && point.x > (-(width/2)-center.x);
+        boolean yInBound = point.y < ((width/2)+center.y) && point.y > (-(width/2)-center.y);
+        return xInBound && yInBound;
+    }
 
 }
