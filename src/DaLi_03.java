@@ -11,7 +11,7 @@ public class DaLi_03 {
 
     public static void main(String[] args) {
 
-        ex33();
+        ex35();
 
     }
 
@@ -609,14 +609,14 @@ public class DaLi_03 {
         float y3 = scanFloat();
 
         Line line = new Line( new Point(x1,y1), new Point(x2,y2));
-        double result = line.pointDistanceX( new Point(x3,y3));
+        double result = line.crossProduct( new Point(x3,y3));
         if (result == 0)println("p2 is on the same line");
         else if (result<0)println("p2  is on the right side of the line");
         else println("p2  is on the left side of the line");
     }
 
     public static void ex33() {
-        print("Enter wi: ");
+        print("Enter w1: ");
         float w1 = scanFloat();
         print("Enter p1: ");
         float p1 = scanFloat();
@@ -632,10 +632,30 @@ public class DaLi_03 {
     }
 
     public static void ex34() {
+        print("Enter x1: ");
+        float x1 = scanFloat();
+        print("Enter y1: ");
+        float y1 = scanFloat();
 
+        print("Enter x2: ");
+        float x2 = scanFloat();
+        print("Enter y2: ");
+        float y2 = scanFloat();
+        Line line = new Line( new Point(x1,y1), new Point(x2,y2));
+
+        print("Enter x3: ");
+        float x3 = scanFloat();
+        print("Enter y3: ");
+        float y3 = scanFloat();
+        Point point = new Point(x3,y3);
+
+        println("Point is" + (line.isOnSegment(point)? " ": " not ") + "on segment");
     }
 
     public static void ex35() {
+        print("Enter integer ");
+        int number = scanInt();
 
+        println("Number " + number + " is" + (number%2==0?" even":" odd"));
     }
 }
