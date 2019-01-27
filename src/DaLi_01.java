@@ -95,7 +95,7 @@ public abstract class DaLi_01 {
     }
 
     public static void ex13() {
-        float[] xy = Algebra.linear2x2Equation(3.4f, 50.2f, 2.1f, 0.55f, 44.5f, 5.9f);
+        double[] xy = Algebra.linear2x2Equation(3.4f, 50.2f, 2.1f, 0.55f, 44.5f, 5.9f);
         println("x: " + xy[0] + "\ny: " + xy[1]);
     }
 

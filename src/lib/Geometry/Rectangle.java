@@ -10,6 +10,9 @@ public class Rectangle extends Polygon{
 
     public static final int NUM_OF_SIDES = 4;
 
+    public Rectangle() {
+    }
+
     public Rectangle(float width, float height) {
         this.width = width;
         this.height = height;

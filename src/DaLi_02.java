@@ -2,6 +2,7 @@ import lib.Geometry.Hexagon;
 import lib.Geometry.Point;
 import lib.Geometry.Triangle;
 import lib.Geometry.TriangleEquilateral;
+import lib.Geometry.Tridimensional.Prism;
 import lib.Math.Finance;
 import lib.Math.Physics;
 import lib.Math.Scales;
@@ -15,8 +16,7 @@ public abstract class DaLi_02 {
 
     public static void main(String[] args) {
 
-        ex23();
-
+        ex16();
     }
 
     public static void ex00() {
@@ -30,10 +30,10 @@ public abstract class DaLi_02 {
     }
 
     public static void ex02() {
-        print("Enter length of the sides and height of the Equilateral\n" +
+        print("Enter length of the sideLength and height of the Equilateral\n" +
                 "triangle: ");
         float sides = IO.scanFloat();
-        TriangleEquilateral triangle = new TriangleEquilateral(sides, sides);
+        Prism triangle = new Prism(sides, sides);
         println("Area : " + triangle.area());
         println("Volume of prism : " + triangle.volume());
     }
@@ -185,10 +185,10 @@ public abstract class DaLi_02 {
     }
 
     public static void ex16() {
-        print("Enter the length of the hexagon side: ");
-        float sides = scanFloat();
+        print("Enter the length of the hexagon side length: ");
+        float sideLength = scanFloat();
 
-        Hexagon hexagon = new Hexagon(sides);
+        Hexagon hexagon = new Hexagon(sideLength);
         println("The area of the hexagon is " + hexagon.area());
     }
 
@@ -292,9 +292,9 @@ public abstract class DaLi_02 {
 
 
     // private methods
-    private static void ex18PrintMiddlePoint(float ax, float ay, float bx, float by) {
-        float[] mp = Point.middlePoint(ax, ay, bx, by);
-        float mx = mp[0], my = mp[1];
+    private static void ex18PrintMiddlePoint(double ax, double ay, double bx, double by) {
+        double[] mp = Point.middlePoint(ax, ay, bx, by);
+        double mx = mp[0], my = mp[1];
         println("( " + ax + ", " + ay + " )      ( " + bx + ", " + by + " )      ( " + mx + ", " + my + " )");
     }
 

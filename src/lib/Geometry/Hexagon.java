@@ -1,17 +1,16 @@
 package lib.Geometry;
 
 public class Hexagon extends Polygon{
-    public float sides;
-    public static final int NUM_OF_SIDES = 6;
+    public float sideLength;
+    public final int NUM_OF_SIDES = 6;
 
-    public Hexagon(float sides) {
-        this.sides = sides;
+    public Hexagon(float sideLength) {
+        this.sideLength = sideLength;
     }
-
     public double area(){
-        return ((3*Math.sqrt(3))/2)*(sides*sides);
+        return (NUM_OF_SIDES * sideLength * sideLength) / (4*Math.tan(Math.PI/NUM_OF_SIDES));
     }
     public double perimeter(){
-        return sides*NUM_OF_SIDES;
+        return sideLength *NUM_OF_SIDES;
     }
 }

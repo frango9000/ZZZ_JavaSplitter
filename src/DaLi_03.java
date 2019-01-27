@@ -69,7 +69,7 @@ public class DaLi_03 {
         print("Enter f: ");
         float f = scanFloat();
 
-        float[] xy = Algebra.linear2x2Equation(a, b, c, d, e, f);
+        double[] xy = Algebra.linear2x2Equation(a, b, c, d, e, f);
 
         if (xy == null) println("The equation has no solution");
         else println("x: " + xy[0] + "\ny: " + xy[1]);
@@ -344,7 +344,7 @@ public class DaLi_03 {
     public static void ex16() {
         Point center = new Point(0, 0);
         Rectangle rect = new Rectangle(50, 150, center);
-        float[] randPoint = rect.randomPoint();
+        double[] randPoint = rect.randomPoint();
         println("Random X : " + randPoint[0] + "\nRandom Y : " + randPoint[1]);
 
     }
@@ -497,7 +497,7 @@ public class DaLi_03 {
         Line lineA = new Line(new Point(x1, y1), new Point(x2, y2));
         Line lineB = new Line(new Point(x3, y3), new Point(x4, y4));
 
-        float[] xy = lineA.intersect(lineB);
+        double[] xy = lineA.intersect(lineB);
 
         if (xy == null) println("The lines are parallel");
         else println("x: " + xy[0] + "\ny: " + xy[1]);
@@ -609,8 +609,8 @@ public class DaLi_03 {
         Line line = new Line( new Point(x1,y1), new Point(x2,y2));
         double result = line.crossProduct( new Point(x3,y3));
         if (result == 0)println("p2 is on the same line");
-        else if (result<0)println("p2  is on the right side of the line");
-        else println("p2  is on the left side of the line");
+        else if (result<0)println("p2  is on the right sideLength of the line");
+        else println("p2  is on the left sideLength of the line");
     }
 
     public static void ex33() {
