@@ -11,7 +11,7 @@ public class DaLi_03 {
 
     public static void main(String[] args) {
 
-        ex25();
+        ex33();
 
     }
 
@@ -256,6 +256,7 @@ public class DaLi_03 {
 
         println("Tax is " + ex13tax(status, income));
     }
+
     private static float ex13tax(int status, double income) {
         // Compute tax
         double tax = 0;
@@ -329,6 +330,7 @@ public class DaLi_03 {
         println("Random X : " + randPoint[0] + "\nRandom Y : " + randPoint[1]);
 
     }
+
     private static int ex15matches(int a, int b) {
         int[] arrA = ex15array(a);
         int[] arrB = ex15array(b);
@@ -340,6 +342,7 @@ public class DaLi_03 {
         }
         return count;
     }
+
     private static int[] ex15array(int number) {
         int[] arr = new int[3];
         arr[0] = number / 100;
@@ -364,6 +367,7 @@ public class DaLi_03 {
         }
         println("You " + reply);
     }
+
     private static String ex17string(int rps) {
         switch (rps) {
             case 0:
@@ -445,8 +449,9 @@ public class DaLi_03 {
         Point point = new Point(x, y);
         println(point.toString() + (circle.isInCircle(point) ? " is in circle" : "is not in circle"));
     }
+
     public static void ex23() {
-        Rectangle rectangle = new Rectangle( 10, 5, new Point(1,1));
+        Rectangle rectangle = new Rectangle(10, 5, new Point(1, 1));
 
         print("Enter X: ");
         float x = scanFloat();
@@ -460,11 +465,11 @@ public class DaLi_03 {
 
 
     public static void ex24() {
-        String[] rank = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King"};
-        String[] suit = {"Clubs", "Diamonds", "Hearts", "Spades"};
+        String[] rank = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
+        String[] suit = {"Clubs", "Diamonds", "Hearts", "Spades" };
 
-        int randRank= randomInt(rank.length);
-        int randSuit= randomInt(suit.length);
+        int randRank = randomInt(rank.length);
+        int randSuit = randomInt(suit.length);
 
         print("Random card is " + rank[randRank] + " of " + suit[randSuit]);
 
@@ -473,30 +478,26 @@ public class DaLi_03 {
     public static void ex25() {
         print("Enter x1: ");
         float x1 = scanFloat();
-
         print("Enter y1: ");
         float y1 = scanFloat();
 
         print("Enter x2: ");
         float x2 = scanFloat();
-
         print("Enter y2: ");
         float y2 = scanFloat();
 
         print("Enter x3: ");
         float x3 = scanFloat();
-
         print("Enter y3: ");
         float y3 = scanFloat();
 
         print("Enter x4: ");
         float x4 = scanFloat();
-
         print("Enter y4: ");
         float y4 = scanFloat();
 
-        Line lineA = new Line(new Point(x1,y1), new Point(x2,y2));
-        Line lineB = new Line(new Point(x3,y3), new Point(x4,y4));
+        Line lineA = new Line(new Point(x1, y1), new Point(x2, y2));
+        Line lineB = new Line(new Point(x3, y3), new Point(x4, y4));
 
         float[] xy = lineA.intersect(lineB);
 
@@ -505,35 +506,129 @@ public class DaLi_03 {
     }
 
     public static void ex26() {
+        print("Enter an integer: ");
+        int n = scanInt();
 
+        println("Is " + n + " divisible by 4 and 5? " + (n % 4 == 0 && n % 5 == 0));
+        println("Is " + n + " divisible by 4 or 5? " + (n % 4 == 0 || n % 5 == 0));
+        println("Is " + n + " divisible by 4 or 5 but not both? " + ((n % 4 == 0 || n % 5 == 0) && !(n % 4 == 0 && n % 5 == 0)));
     }
 
     public static void ex27() {
+        Triangle triangle = new Triangle(new Point(0, 0), new Point(0, 100), new Point(200, 0));
 
+        print("Enter x: ");
+        float x = scanFloat();
+        print("Enter y: ");
+        float y = scanFloat();
+
+        Point point = new Point(x, y);
+
+        println("The point is" + (triangle.isInTriangle(point) ? " " : " not ") + "in the triangle.");
     }
 
     public static void ex28() {
+        print("Enter r1 center x: ");
+        float x1 = scanFloat();
+        print("Enter r1 center y: ");
+        float y1 = scanFloat();
+        print("Enter h1: ");
+        float h1 = scanFloat();
+        print("Enter w1: ");
+        float w1 = scanFloat();
+        Rectangle r1 = new Rectangle(w1, h1, new Point(x1, y1));
 
+        print("Enter r2 center x: ");
+        float x2 = scanFloat();
+        print("Enter r2 center y: ");
+        float y2 = scanFloat();
+        print("Enter h2: ");
+        float h2 = scanFloat();
+        print("Enter w2: ");
+        float w2 = scanFloat();
+        Rectangle r2 = new Rectangle(w2, h2, new Point(x2, y2));
+
+        println("The rectangle r2 is" + (r1.isInRectangle(r2) ? " " : " not ") + "in the rectangle r1.");
     }
 
     public static void ex29() {
+        print("Enter c1 center x: ");
+        float x1 = scanFloat();
+        print("Enter c1 center y: ");
+        float y1 = scanFloat();
+        print("Enter r1: ");
+        float r1 = scanFloat();
+        Circle c1 = new Circle(r1, new Point(x1, y1));
 
+        print("Enter c2 center x: ");
+        float x2 = scanFloat();
+        print("Enter c2 center y: ");
+        float y2 = scanFloat();
+        print("Enter r2: ");
+        float r2 = scanFloat();
+        Circle c2 = new Circle(r2, new Point(x2, y2));
+
+        println("The circle 2 does" + (c1.isInCircle(c2) ? " " : " not ") + "overlap c1");
     }
 
     public static void ex30() {
-
+        print("Enter the time zone offset to GMT: ");
+        byte offset = scanByte();
+        println(Time.timeToString(offset));
+        println(Time.timeToString());
     }
 
     public static void ex31() {
+        print("Enter rate dol to rmb: ");
+        float rate = scanFloat();
+        print("Enter 0 dol to rmb, 1 vice versa: ");
+        int currN = scanInt();
+        String currency = (currN == 0) ? "dollar" : "rmb";
 
+        print("Enter the " + currency + " amount: ");
+        float amount = scanFloat();
+
+        if (currN == 0) println(amount + currency + " is " + amount * rate);
+        else println(amount + currency + " is " + amount * (1 / rate));
     }
 
     public static void ex32() {
+        print("Enter x1: ");
+        float x1 = scanFloat();
+        print("Enter y1: ");
+        float y1 = scanFloat();
 
+        print("Enter x2: ");
+        float x2 = scanFloat();
+        print("Enter y2: ");
+        float y2 = scanFloat();
+
+        print("Enter x3: ");
+        float x3 = scanFloat();
+        print("Enter y3: ");
+        float y3 = scanFloat();
+
+        Line line = new Line( new Point(x1,y1), new Point(x2,y2));
+        double result = line.pointDistanceX( new Point(x3,y3));
+        if (result == 0)println("p2 is on the same line");
+        else if (result<0)println("p2  is on the right side of the line");
+        else println("p2  is on the left side of the line");
     }
 
     public static void ex33() {
+        print("Enter wi: ");
+        float w1 = scanFloat();
+        print("Enter p1: ");
+        float p1 = scanFloat();
 
+        print("Enter w2: ");
+        float w2 = scanFloat();
+        print("Enter p2: ");
+        float p2 = scanFloat();
+
+        if((p1/w1)<(p2/w2))println("p1 has better price");
+        else if((p1/w1)>(p2/w2))println("p2 has better price");
+        else println("same price");
     }
 
     public static void ex34() {

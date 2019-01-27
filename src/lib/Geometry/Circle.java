@@ -24,4 +24,7 @@ public class Circle {
     public boolean isInCircle(Point point){
         return radius > center.distanceBetweenPoints(point);
     }
+    public boolean isInCircle(Circle circle){
+        return this.radius+circle.radius > this.center.distanceBetweenPoints(circle.center);
+    }
 }

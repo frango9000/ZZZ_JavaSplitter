@@ -87,7 +87,7 @@ public abstract class DaLi_02 {
     public static void ex08() {
         print("Enter the time zone offset to GMT: ");
         byte offset = scanByte();
-        println(Time.timeToString(offset));
+        println(Time.timeToStringM(offset));
         println(Time.timeToString());
     }
 

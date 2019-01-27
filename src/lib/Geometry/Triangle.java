@@ -35,6 +35,9 @@ public class Triangle {
         double s = (sideAB + sideBC + sideCA) / 2;
         return Math.sqrt(s * (s - sideAB) * (s - sideBC) * (s - sideCA));
     }
+    public static double area(Point pointA, Point pointB, Point pointC){
+        return Math.abs(pointA.x * (pointB.y-pointC.y) + pointB.x * (pointC.y-pointA.y) + pointC.x * (pointA.y-pointB.y))/2;
+    }
 
     public double perimeter() {
         return sideAB + sideBC + sideCA;
@@ -43,5 +46,13 @@ public class Triangle {
 
     public static boolean isValidTriangle(double sideAB, double sideBC, double sideCA) {
         return (((sideAB + sideBC) > sideCA) && ((sideBC + sideCA) > sideAB) && ((sideCA + sideAB) > sideBC));
+    }
+
+    public boolean isInTriangle(Point point){
+        double ABC = area(pointA,pointB,pointC);
+        double ABP = area(pointA,pointB,point);
+        double APC = area(pointA,point,pointC);
+        double PBC = area(point,pointB,pointC);
+        return ABP + APC + PBC == ABC;
     }
 }

@@ -3,19 +3,19 @@ package lib.Geometry;
 
 public class TriangleEquilateral extends Triangle{
     private float sides;
-    private float lenght;//prism
+    private float length;//prism
 
     public TriangleEquilateral(float sides) {
         this.sides = sides;
     }
-    public TriangleEquilateral(float sides, float lenght) {
+    public TriangleEquilateral(float sides, float length) {
         this.sides = sides;
-        this.lenght = lenght;
+        this.length = length;
     }
     public double area(){
         return (Math.sqrt(3)/4)*Math.pow(sides,2);
     }
     public double volume(){
-        return area()*lenght;
+        return area()* length;
     }
 }

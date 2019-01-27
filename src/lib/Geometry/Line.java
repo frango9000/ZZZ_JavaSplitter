@@ -57,4 +57,12 @@ public class Line {
     public float[] intersect(Line line){
         return Algebra.linear2x2Equation(this.a, this.b, line.a, line.b, this.c, line.c);
     }
+
+    public boolean isOnLine(Point point){
+         return this.pointDistanceX(point)== 0;
+    }
+    public double pointDistanceX(Point point){
+        return  ((pointB.x - pointA.x) * (point.y - pointA.y) - (point.x - pointA.x) * (pointB.y - pointA.y));
+    }
+
 }

@@ -19,12 +19,22 @@ public abstract class Time {
     static long currentHour = totalHours % 24;
 
     public static String timeToString(){
-        return("Current time is " + currentHour + ":"+ currentMinute + ":" + currentSecond + " local ");
+        return("Current time is " + currentHour + ":"+ currentMinute + ":" + currentSecond + " GMT: ");
+    }
+    public static String timeToStringM(byte offset){
+        long offsetHour=currentHour + offset;
+        if (offsetHour>=24)offsetHour-=24;
+        return("Current time is " + offsetHour + ":" + currentMinute + ":" + currentSecond + " GMT: " + offset);
     }
     public static String timeToString(byte offset){
         long offsetHour=currentHour + offset;
+        String post="AM";
         if (offsetHour>=24)offsetHour-=24;
-        return("Current time is " + offsetHour + ":" + currentMinute + ":" + currentSecond + " local " + offset);
+        if (offsetHour>12){
+            offsetHour-=12;
+            post = "PM";
+        }
+        return("Current time is " + offsetHour + ":" + currentMinute + ":" + currentSecond + " "+post+" GMT: " + offset);
     }
 
     public static float secondsToHours(float seconds) {
