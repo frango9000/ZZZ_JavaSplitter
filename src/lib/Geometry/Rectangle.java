@@ -2,11 +2,13 @@ package lib.Geometry;
 
 import java.util.Random;
 
-public class Rectangle {
+public class Rectangle extends Polygon{
     private float width;
     private float height;
 
     private Point center;
+
+    public static final int NUM_OF_SIDES = 4;
 
     public Rectangle(float width, float height) {
         this.width = width;
@@ -44,16 +46,16 @@ public class Rectangle {
         return center.y - (height / 2);
     }
 
-    public float[] randomPoint() {
+    public double[] randomPoint() {
         Random rand = new Random();
-        float[] randPoint = new float[2];
+        double[] randPoint = new double[2];
 
         int boundX = (int) (width * 100f);
-        float randX = rand.nextInt(boundX);
+        double randX = rand.nextInt(boundX);
         randPoint[0] = (randX - (boundX / 2f)) / 100 + center.x;
 
         int boundY = (int) (height * 100f);
-        float randY = rand.nextInt(boundY);
+        double randY = rand.nextInt(boundY);
         randPoint[1] = (randY - (boundY / 2f)) / 100 + center.y;
 
         return randPoint;

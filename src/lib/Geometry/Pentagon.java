@@ -1,24 +1,25 @@
 package lib.Geometry;
 
-public class Pentagon {
-    public double r; //center to vertex
+public class Pentagon extends Polygon {
+    public double radius; //center to vertex
     public double side;
+    public static final int NUM_OF_SIDES = 5;
 
     public Pentagon() {
     }
 
     public Pentagon(double centerToVertex) {
-        this.r = centerToVertex;
+        this.radius = centerToVertex;
         this.side=side();
     }
     public Pentagon(boolean bool, double side){
         this.side=side;
-        this.r=centerToVertex();
+        this.radius =centerToVertex();
     }
 
 
     public double side(){
-        return 2*r*Math.sin(Math.PI/5);
+        return 2* radius *Math.sin(Math.PI/5);
     }
     public double centerToVertex(){
         return side / (2*Math.sin(Math.PI/5));
@@ -29,6 +30,6 @@ public class Pentagon {
         return (5*side()*side()) / (4*Math.tan(Math.PI/5));
     }
     public double perimeter(){
-        return 5*r;
+        return radius * NUM_OF_SIDES;
     }
 }

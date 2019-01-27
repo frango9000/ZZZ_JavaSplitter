@@ -1,6 +1,6 @@
 package lib.Geometry;
 
-public class Triangle {
+public class Triangle extends Polygon {
 
     public Point pointA;
     public Point pointB;
@@ -13,6 +13,9 @@ public class Triangle {
     public double angleA;
     public double angleB;
     public double angleC;
+
+
+    public static final int NUM_OF_SIDES = 3;
 
     public Triangle() {
     }

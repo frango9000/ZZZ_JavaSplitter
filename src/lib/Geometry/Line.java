@@ -6,13 +6,13 @@ public class Line {
     public Point pointA;
     public Point pointB;
 
-    public float a;
-    public float b;
-    public float c;
+    public double a;
+    public double b;
+    public double c;
 
-    public float slope;
-    public float yIntercept;
-    public float xIntercept;
+    public double slope;
+    public double yIntercept;
+    public double xIntercept;
 
 
     public Line() {
@@ -35,29 +35,29 @@ public class Line {
         xIntercept = xIntercept();
     }
 
-    public float slope(){
+    public double slope(){
         return (pointB.y - pointA.y) / (pointB.x - pointA.x);
     }
-    public float yIntercept() {
+    public double yIntercept() {
         return pointA.y - (slope() * pointA.x);
     }
-    public float xIntercept(){//??
+    public double xIntercept(){//??
         return pointA.x - ((1/slope()) * pointA.y);
     }
-    public float a(){
+    public double a(){
         return pointA.y-pointB.y;
     }
-    public float b(){
+    public double b(){
         return -(pointA.x-pointB.x);
     }
-    public float c() {
+    public double c() {
         return (pointA.y - pointB.y) * pointA.x - (pointA.x - pointB.x) * pointA.y;
     }
     public double squaredLength(){
         return (pointB.x-pointA.x)*(pointB.x-pointA.x)+(pointB.y-pointA.y)*(pointB.y-pointA.y);
     }
 
-    public float[] intersect(Line line){
+    public double[] intersect(Line line){
         return Algebra.linear2x2Equation(this.a, this.b, line.a, line.b, this.c, line.c);
     }
 
