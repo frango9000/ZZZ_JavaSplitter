@@ -322,15 +322,6 @@ public class DaLi_03 {
         println("Winning lottery number is " + lottery);
         println("Your prize is " + prize);
     }
-
-    public static void ex16() {
-        Point center = new Point(0, 0);
-        Rectangle rect = new Rectangle(50, 150, center);
-        float[] randPoint = rect.randomPoint();
-        println("Random X : " + randPoint[0] + "\nRandom Y : " + randPoint[1]);
-
-    }
-
     private static int ex15matches(int a, int b) {
         int[] arrA = ex15array(a);
         int[] arrB = ex15array(b);
@@ -342,13 +333,20 @@ public class DaLi_03 {
         }
         return count;
     }
-
     private static int[] ex15array(int number) {
         int[] arr = new int[3];
         arr[0] = number / 100;
         arr[1] = number / 100 / 10;
         arr[2] = number / 100 % 10;
         return arr;
+    }
+
+    public static void ex16() {
+        Point center = new Point(0, 0);
+        Rectangle rect = new Rectangle(50, 150, center);
+        float[] randPoint = rect.randomPoint();
+        println("Random X : " + randPoint[0] + "\nRandom Y : " + randPoint[1]);
+
     }
 
     public static void ex17() {

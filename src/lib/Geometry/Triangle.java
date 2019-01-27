@@ -10,6 +10,10 @@ public class Triangle {
     public double sideBC;
     public double sideCA;
 
+    public double angleA;
+    public double angleB;
+    public double angleC;
+
     public Triangle() {
     }
 
@@ -20,6 +24,10 @@ public class Triangle {
         sideAB = Point.distanceBetweenPoints(pointA, pointB);
         sideBC = Point.distanceBetweenPoints(pointB, pointC);
         sideCA = Point.distanceBetweenPoints(pointC, pointA);
+
+        angleA=angle(sideBC,sideCA,sideAB);
+        angleB=angle(sideCA,sideBC,sideAB);
+        angleC=angle(sideAB,sideCA,sideBC);
 
     }
 
@@ -41,6 +49,10 @@ public class Triangle {
 
     public double perimeter() {
         return sideAB + sideBC + sideCA;
+    }
+
+    public double angle(double a, double b, double c){
+        return Math.acos((a*a-b*b-c*c) / (-2*b*c));
     }
 
 

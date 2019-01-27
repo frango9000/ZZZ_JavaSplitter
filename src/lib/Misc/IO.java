@@ -35,6 +35,9 @@ public abstract class IO {
     public static String scanNext(){
         return scanner().next();
     }
+    public static String scanNextLine(){
+        return scanner().nextLine();
+    }
 
 
 
