@@ -6,6 +6,7 @@ import lib.Misc.Time;
 import java.util.Random;
 
 import static lib.Misc.IO.*;
+import static lib.Misc.Randomizer.*;
 
 public class DaLi_03 {
 

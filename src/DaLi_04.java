@@ -1,15 +1,17 @@
 import lib.Geometry.*;
 import lib.Geometry.Tridimensional.Sphere;
+import lib.Misc.Asserts;
 
 import java.util.Random;
 import java.util.Scanner;
 
 import static lib.Misc.IO.*;
+import static lib.Misc.Randomizer.*;
 
 public class DaLi_04 {
     public static void main(String[] args) {
 
-        ex22();
+        ex25();
 
     }
 
@@ -140,7 +142,7 @@ public class DaLi_04 {
     }
     public static void ex06() {
         Circle circle = new Circle(40);
-        float randomDegree1 = randomInt(35999)/100f;
+        float randomDegree1 =randomInt(35999)/100f;
         float randomDegree2 = randomInt(35999)/100f;
         float randomDegree3 = randomInt(35999)/100f;
 
@@ -171,7 +173,7 @@ public class DaLi_04 {
     }
     public static void ex10() {
         println("Enter Y for Yes; N for No: ");
-        println(consoleAssert() ? "Yes" : "No");
+        println(Asserts.consoleAssert() ? "Yes" : "No");
     }
     public static void ex11() {
         println("Enter Binary digits: ");
@@ -314,15 +316,69 @@ public class DaLi_04 {
 
     }
     public static void ex23() {
+        Scanner input = new Scanner(System.in);
 
+        // Prompt the user to enter payroll inforation
+        System.out.print("Enter employee’s name: ");
+        String name = input.next();
+        System.out.print("Enter number of hours worked in a week: ");
+        double hoursWorked = input.nextDouble();
+        System.out.print("Enter hourly pay rate: ");
+        double hourlyPayRate = input.nextDouble();
+        System.out.print("Enter federal tax withholding rate: ");
+        double federalTaxRate = input.nextDouble();
+        System.out.print("Enter state tax withholding rate: ");
+        double stateTaxRate = input.nextDouble();
+
+        // Display payroll statement
+        double grossPay, federal, state, totalDeduction;
+        System.out.printf(
+                "Employee Name: " + name +
+                        "\nHours Worked: " + hoursWorked +
+                        "\nPay Rate: $" + hourlyPayRate +
+                        "\nGross Pay: $" + (grossPay = hoursWorked * hourlyPayRate) +
+                        "\nDeductions:\n   Federal Witholding (20.0%): $" +
+                        (federal = grossPay * federalTaxRate) +
+                        "\n   State Witholding (9.0%): $" + (state = grossPay * stateTaxRate) +
+                        "\n   Total Deduction: $" + (totalDeduction = federal + state) +
+                        "\nNet Pay: $" + (grossPay - totalDeduction)
+        );
     }
     public static void ex24() {
+        print("Enter country 1: ");
+        String country1 = scanNext();
+
+        print("Enter country 1: ");
+        String country2 = scanNext();
+
+        print("Enter country 1: ");
+        String country3 = scanNext();
+
+        if(country1.compareTo(country2)<0&&country1.compareTo(country3)<0){
+            println(country1);
+            println("" + (country2.compareTo(country3)<0 ? country2+country3 : country3+"\n"+country2) );
+        }else if(country2.compareTo(country1)<0&&country2.compareTo(country3)<0){
+            println(country2);
+            println("" + (country3.compareTo(country1)<0 ? country3+country1 : country1+"\n"+country3) );
+        }else if(country3.compareTo(country2)<0&&country3.compareTo(country1)<0){
+            println(country3);
+            println("" + (country1.compareTo(country2)<0 ? country1+country2 : country2+"\n"+country1) );
+        }
+
 
     }
     public static void ex25() {
+        print((char)65 +""+ (char)90); // A - Z
 
+        int char1 = randomInt(25)+65;
+        int char2 = randomInt(25)+65;
+        int char3 = randomInt(25)+65;
+
+        int num = randomInt(10000);
+
+        printf("Plate is %s", num + " - " + (char)char1 + (char)char2 + (char)char3);
     }
     public static void ex26() {
-
+        DaLi_02.ex22();
     }
 }
