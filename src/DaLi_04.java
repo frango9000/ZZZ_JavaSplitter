@@ -9,7 +9,7 @@ import static lib.Misc.IO.*;
 public class DaLi_04 {
     public static void main(String[] args) {
 
-        ex05();
+        ex10();
 
     }
 
@@ -137,21 +137,40 @@ public class DaLi_04 {
 
         Polygon polygon = new Polygon(numOfSides, side);
         printf("Area is %4.8f", polygon.area());
-
     }
     public static void ex06() {
+        Circle circle = new Circle(40);
+        float randomDegree1 = randomInt(35999)/100f;
+        float randomDegree2 = randomInt(35999)/100f;
+        float randomDegree3 = randomInt(35999)/100f;
 
+        Point point1 = circle.pointOnAngle(randomDegree1);
+        Point point2 = circle.pointOnAngle(randomDegree2);
+        Point point3 = circle.pointOnAngle(randomDegree3);
+
+        Triangle triangle = new Triangle(point1,point2,point3);
+        println(triangle.toString());
     }
     public static void ex07() {
-
+        print("Enter radius of pentagon: ");
+        float radius = scanFloat();
+        Pentagon pentagon = new Pentagon (radius, new Point (0,0),0f);
+        println(pentagon.toString());
     }
     public static void ex08() {
+        print("Enter a ASCII code: ");
+        int code = scanInt();
+        printf("The character for the ASCII code %d is %s",code, (char)code);
 
     }
     public static void ex09() {
+        print("Enter a character: ");
+        char character = scanChar();
+        printf("The Unicode for character %s is %d",character, (int)character);
 
     }
     public static void ex10() {
-
+        println("Enter Y for Yes; N for No: ");
+        println(consoleAssert() ? "Yes" : "No");
     }
 }

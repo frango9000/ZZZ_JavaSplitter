@@ -6,6 +6,10 @@ public class Point {
 
     public double[] point;
 
+    public Point() {
+        x=0;
+        y=0;
+    }
     public Point(double x, double y) {
         this.x = x;
         this.y = y;
@@ -16,6 +20,7 @@ public class Point {
         this.y= point[1];
         this.point = new double[]{point[0], point[1]};
     }
+
 
     public static double distanceBetweenPoints(Point p1, Point p2){
         return distanceBetweenPoints(p1.x,p1.y,p2.x,p2.y);
@@ -34,4 +39,5 @@ public class Point {
     public String toString(){
         return "( " + x + ", " + y + " )";
     }
+
 }

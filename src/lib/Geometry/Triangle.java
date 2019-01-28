@@ -10,7 +10,7 @@ public class Triangle extends Polygon {
     public double sideBC;
     public double sideCA;
 
-    public double angleA;
+    public double angleA;//In radians
     public double angleB;
     public double angleC;
 
@@ -69,5 +69,22 @@ public class Triangle extends Polygon {
         double APC = area(pointA,point,pointC);
         double PBC = area(point,pointB,pointC);
         return ABP + APC + PBC == ABC;
+    }
+
+    @Override
+    public String toString() {
+        return "Triangle{\n" +
+                " pointA=" + pointA.toString() +
+                ",\n pointB=" + pointB.toString() +
+                ",\n pointC=" + pointC.toString() +
+                ",\n sideAB=" + sideAB +
+                ", sideBC=" + sideBC +
+                ", sideCA=" + sideCA +
+                ",\n angleA=" + Math.toDegrees(angleA) +
+                ", angleB=" + Math.toDegrees(angleB) +
+                ", angleC=" + Math.toDegrees(angleC) +
+                "\n area=" + area() +
+                "\n perimeter=" + perimeter() +
+                '}';
     }
 }
