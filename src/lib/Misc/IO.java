@@ -44,25 +44,4 @@ public abstract class IO {
         return character;
     }
 
-    public static int randomInt(){
-        Random rand = new Random();
-        return rand.nextInt();
-    }
-    public static int randomInt(int bound){
-        Random rand = new Random();
-        return rand.nextInt(bound);
-    }
-
-    public static Boolean consoleAssert(){
-        switch((int)scanChar()){
-            case 121: // 'y'
-            case 89:  // 'Y'
-                return true;
-            case 110: // 'n'
-            case 78:  // 'N'
-                return false;
-        }
-        return null;
-    }
-
 }
