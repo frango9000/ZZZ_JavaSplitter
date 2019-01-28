@@ -3,7 +3,7 @@ package lib.Geometry;
 import java.util.Arrays;
 
 public class Pentagon extends Polygon {
-    public double radius; //center to vertex
+    public double radius;                       //radius of the circle formed by this.pentagon points
     public double sideLength;
     public double angleOfPoint0;                //The point with the max Y, if top side is Y-bound, p0 is the one with positive X;
                                                 //angle relative to the y axis

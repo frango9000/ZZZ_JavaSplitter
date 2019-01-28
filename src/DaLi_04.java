@@ -9,7 +9,7 @@ import static lib.Misc.IO.*;
 public class DaLi_04 {
     public static void main(String[] args) {
 
-        ex10();
+        ex22();
 
     }
 
@@ -172,5 +172,157 @@ public class DaLi_04 {
     public static void ex10() {
         println("Enter Y for Yes; N for No: ");
         println(consoleAssert() ? "Yes" : "No");
+    }
+    public static void ex11() {
+        println("Enter Binary digits: ");
+        String binary = scanNext();
+        println("In decimal : " + Integer.parseInt(binary,2) );
+
+        println("Enter Decimal digits: ");
+        int decimal = scanInt();
+        println("In binary : " + Integer.toBinaryString(decimal));
+
+    }
+    public static void ex12() {
+        println("Enter Hexadecimal digits: ");
+        String binary = scanNext();
+        println("In decimal : " + Integer.parseInt(binary,16) );
+
+        println("Enter decimal digits: ");
+        int decimal = scanInt();
+        println("In Hexadecimal : " + Integer.toHexString(decimal));
+
+    }
+    public static void ex13() {
+        print("Enter a character: ");
+        char character = scanChar();
+        if(Character.isAlphabetic(character)) switch (Character.toUpperCase(character)) {
+                case 'A':
+                case 'E':
+                case 'I':
+                case 'O':
+                case 'U':println("Vocal");break;
+                default:println("Consonant");break;
+            }
+        else println("Invalid Input.");
+    }
+    public static void ex14() {
+        print("Enter a grade: ");
+        char grade = scanChar();
+        if(Character.isAlphabetic(grade)) {
+            switch (Character.toUpperCase(grade)) {
+                case 'A':println("5");break;
+                case 'B':println("4");break;
+                case 'C':println("3");break;
+                case 'D':println("2");break;
+                case 'F':println("1");break;
+                default:println("Invalid Input.");break;
+            }
+        }else println("Invalid Input.");
+    }
+    public static void ex15() {
+        print("Enter a letter: ");
+        char letter = scanChar();
+        int number=0;
+        if(Character.isLetter(letter)){
+            if     (letter>='W')number=9;
+            else if(letter>='T')number=8;
+            else if(letter>='P')number=7;
+            else if(letter>='M')number=6;
+            else if(letter>='J')number=5;
+            else if(letter>='G')number=4;
+            else if(letter>='D')number=3;
+            else if(letter>='A')number=2;
+        }
+        printf("Number is : %d", number);
+    }
+    public static void ex16() {
+        //print((char)97 +""+ (char)122); // a - z
+        printf("Random char is : %c" , (char)(randomInt(25)+97));
+    }
+    public static void ex17() {
+        print("Enter a year: ");
+        int year = scanInt();
+        print("Enter a month: ");
+        String month = scanNext();
+
+        boolean leapYear = ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+
+        print(month + " " + year + " has ");
+
+        if ( month.equals("Jan") || month.equals("Mar") ||
+                month.equals("May") || month.equals("Jul") ||
+                month.equals("Aug") || month.equals("Oct") ||
+                month.equals("Dec"))
+            println(31 + " days");
+        else if (month.equals("Apr") || month.equals("Jun") ||
+                month.equals("Sep") || month.equals("Nov"))
+            println(30 + " days");
+        else
+            println(((leapYear) ? 29 : 28) + " days");
+    }
+
+
+    public static void ex18() {
+        print("Enter two characters: ");
+        String code = scanNext();
+
+        String string1="", string2="0";
+
+        switch(code.charAt(0)){
+            case 'I':string1="Information Management";break;
+            case 'C':string1="Computer Science";break;
+            case 'A':string1="Accounting";break;
+        }
+        switch((int)code.charAt(1)){
+            case 49:string2="freshman";break;
+            case 50:string2="sophomore";break;
+            case 51:string2="junior";break;
+            case 52:string2="senior";break;
+        }
+        println(string1+" "+string2);
+    }
+    public static void ex19() {
+        DaLi_03.ex09();
+    }
+    public static void ex20() {
+        print("Enter string: ");
+        String code = scanNext();
+        printf("length %d, %c", code.length(), code.charAt(code.length()-1));
+    }
+    public static void ex21() {
+        print("Enter string: ");
+        String code = scanNext();
+        if ((code.charAt(3) != '-' && code.charAt(6) != '-')) {
+            print("Invalid format");
+        } else {
+            print("Valid format");
+        }
+    }
+    public static void ex22() {
+        print("Enter string: ");
+        String code1 = scanNext();
+
+        print("Enter string: ");
+        String code2 = scanNext();
+
+        if(code2.contains(code1)){
+            println("1 is substring of 2");
+        }else if(code1.contains(code2)){
+            println("2 is substring of 1");
+        }else println("no substrings");
+
+    }
+    public static void ex23() {
+
+    }
+    public static void ex24() {
+
+    }
+    public static void ex25() {
+
+    }
+    public static void ex26() {
+
     }
 }

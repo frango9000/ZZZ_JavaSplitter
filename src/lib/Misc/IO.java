@@ -11,8 +11,8 @@ public abstract class IO {
     public static void print(Object str){
         System.out.print(str);
     }
-    public static void printf(String str, Object ... args){
-        System.out.format(str, args);
+    public static void printf(String format, Object ... args){
+        System.out.format(format, args);
     }
     public static Scanner scanner(){
         return new Scanner(System.in);
