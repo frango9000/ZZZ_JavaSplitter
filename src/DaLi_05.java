@@ -1,10 +1,12 @@
+import lib.Math.Scales;
+
 import static lib.Misc.IO.*;
 import static lib.Misc.Randomizer.*;
 
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex02();
+        ex07();
 
     }
 
@@ -36,19 +38,42 @@ public class DaLi_05 {
         printf("\nCorrect answers = %d", count);
     }
     public static void ex03() {
-
+        printf("%s %19s", "Celsius", "Fahrenheit");
+        for (int i = 0; i <= 100; i+=2) {
+            printf("\n%s %25s", i, Scales.celsiusToFahrenheit(i));
+        }
     }
     public static void ex04() {
-
+        printf("%3s %19s", "Inches", "Centimeter");
+        for (int i = 0; i <= 100; i++) {
+            printf("\n%3d %20.2f", i, Scales.inchToMeter(i)*100 );
+        }
     }
     public static void ex05() {
-
+        printf("%s %14s    |    %10s %11s", "Celsius", "Fahrenheit","Fahrenheit","Celsius" );
+        for (int i = 0; i <= 100; i++) {
+            printf("\n%3d %18.2f    |    %3d %18.2f", i*2, Scales.celsiusToFahrenheit(i*2), i*5, Scales.fahrenheitToCelsius(i*5));
+        }
     }
     public static void ex06() {
+        printf("%s %17s    |    %12s %9s", "Ping", "Square Meter","Square Meter","Ping" );
+        for (int i = 10; i <= 80; i+=5) {
+            printf("\n%3d %18.2f    |    %3d %18.2f", i, Scales.pingToSquareMeter(i), i+20, Scales.fahrenheitToCelsius(i+20));
+        }
 
     }
     public static void ex07() {
+        float initialV = 10000f;
+        float deltaV = 1.06f; // 6%
+        float totalCost = 0f;
 
+
+        for(int i =1;i<=10;i++){
+            printf("\nYear %2d: %13.2f", i, initialV);
+            totalCost+=initialV;
+            initialV = initialV * deltaV;
+        }
+        print("\nTotal Cost : " + totalCost);
     }
     public static void ex08() {
 

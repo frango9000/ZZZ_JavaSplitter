@@ -20,4 +20,21 @@ public abstract class Scales {
     public static float inchToFeet(float inch){ return  inch / 12; }
     public static float feetToInch(float feet){ return  feet * 12; }
 
+    //temperature
+    public static float celsiusToFahrenheit(float celsius){
+        return celsius * 9 / 5 + 32;
+    }
+    public static float fahrenheitToCelsius(float fahrenheit){
+        return ( fahrenheit - 32 ) * (5f/9f);
+    }
+
+    //Area
+    public static float squareMeterToPing(float squareMeter){
+        return squareMeter/3305f;
+    }
+
+    public static float pingToSquareMeter(float ping){
+        return ping*3305f;
+    }
+
 }
