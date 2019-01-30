@@ -35,4 +35,19 @@ public abstract class Algebra {
         return r;
     }
 
+    public static int greatestCommonFactor(int a, int b){
+        int t=0;
+        if(a==b)return a;
+        else if (a==0||b==0)return 1;
+        else if (a<b){t=a;a=b;b=t;}
+        for (int i=a;i>0;i--){
+            if(a%i==0 && b%i==0)
+                return i;
+        }
+        return -1;//bug
+    }
+    public static void primeFactors(int number){
+
+    };
+
 }
