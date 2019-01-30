@@ -10,7 +10,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex16();
+        ex19();
 
     }
 
@@ -178,13 +178,60 @@ public class DaLi_05 {
             println(i + " : " + Arrays.toString(Primes.getPrimeFactors(i)));
     }
     public static void ex17() {
-
+        int number = 9;
+        while (number > 0) {
+            for (int i = -number; i <= number; i++) {
+                printf("%3d", Math.abs(i));
+                if (i == -1) i += 2;
+            }
+            println("");
+            number--;
+        }
     }
     public static void ex18() {
-
+        for(int i = 0; i<5;i++){
+            for(int j = 0; j<5;j++){
+                if(j<=i)
+                    print(" $ ");
+            }
+            println("");
+        }
+        for(int i = 0; i<5;i++){
+            for(int j = 0; j<5;j++){
+                if(j>=i)
+                    print(" $ ");
+            }
+            println("");
+        }
+        for(int i = 0; i<5;i++){
+            for(int j = 0; j<5;j++){
+                if(j<=i)
+                    print(" $ ");
+                else print("   ");
+            }
+            println("");
+        }
+        for(int i = 0; i<5;i++){
+            for(int j = 0; j<5;j++){
+                if(j>=i)
+                    print(" $ ");
+                else print("   ");
+            }
+            println("");
+        }
     }
     public static void ex19() {
+        int lines = 7;
 
+        for(int i = 0; i <= lines; i++) {
+            for (int j = 0; j < lines - i; j++)
+                printf("%4s", "");
+
+            for (int j = 0, k=-((i*2)); j < (i*2) +1; j++,k++) {
+                printf("%4d", (int) Math.pow(3, Math.abs(k)));
+            }
+            println("");
+        }
     }
     public static void ex20() {
 
