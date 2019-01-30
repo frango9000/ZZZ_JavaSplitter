@@ -1,12 +1,14 @@
 import lib.Math.Scales;
 
+import java.text.Format;
+
 import static lib.Misc.IO.*;
 import static lib.Misc.Randomizer.*;
 
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex07();
+        ex10();
 
     }
 
@@ -76,13 +78,56 @@ public class DaLi_05 {
         print("\nTotal Cost : " + totalCost);
     }
     public static void ex08() {
+        print("Enter num of students: ");
+        int numOfStudents = scanInt();
+        String bestName ="";
+        int bestGrade = 0;
+        for (int i = 1; numOfStudents > 0; numOfStudents--, i++) {
+            printf("Enter name of student %d: ", i);
+            String thisName = scanNextLine();
 
+            printf("Enter grade of student %s: ", i);
+            int thisGrade = scanInt();
+            if (thisGrade > bestGrade) {
+                bestGrade = thisGrade;
+                bestName = thisName;
+            }
+        }
+        printf("Best student is %s with grade %d", bestName, bestGrade);
     }
     public static void ex09() {
+        print("Enter num of students: ");
+        int numOfStudents = scanInt();
+        String worstName1 ="", worstName2="";
+        int worstGrade1 = 12, worstGrade2=12;
+        for (int i = 1; numOfStudents > 0; numOfStudents--, i++) {
+            printf("Enter name of student %d: ", i);
+            String thisName = scanNextLine();
 
+            printf("Enter grade of student %s: ", i);
+            int thisGrade = scanInt();
+            if (thisGrade < worstGrade1) {
+                worstGrade2=worstGrade1;
+                worstName2=worstName1;
+                worstGrade1 = thisGrade;
+                worstName1 = thisName;
+            }else if (thisGrade < worstGrade2) {
+                worstGrade2 = thisGrade;
+                worstName2 = thisName;
+            }
+        }
+        printf("Worst student is %s with grade %d\n", worstName1, worstGrade1);
+        printf("2nd Worst student is %s with grade %d", worstName2, worstGrade2);
     }
     public static void ex10() {
-
+        String log = "";
+        int count=0;
+        for(int i =1;count<100;i++)
+            if(i%12==0) {
+                log += String.format("%6d", i);
+                if(++count%10==0)log+="\n";
+            }
+        print(log);
     }
     public static void ex11() {
 
