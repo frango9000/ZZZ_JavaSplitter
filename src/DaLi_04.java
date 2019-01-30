@@ -41,7 +41,6 @@ public class DaLi_04 {
         println(Math.toDegrees(triangle.angleB));
         println(Math.toDegrees(triangle.angleC));
     }
-
     public static void ep05() {
         Random rand = new Random();
         String lottery = "" + rand.nextInt(10) + rand.nextInt(10) +  rand.nextInt(10);
@@ -79,7 +78,6 @@ public class DaLi_04 {
         arr[2] =string.charAt(2);
         return arr;
     }
-
     public static void ep06() {
         double amount = 12618.98;
         double interestRate = 0.0013;
@@ -122,7 +120,6 @@ public class DaLi_04 {
 
         printf("Area : %4.8f", (t1.area()+t2.area()) );
     }
-
     public static void ex04() {
         print("Enter sideLength of hexagon: ");
         float side = scanFloat();
@@ -263,8 +260,6 @@ public class DaLi_04 {
         else
             println(((leapYear) ? 29 : 28) + " days");
     }
-
-
     public static void ex18() {
         print("Enter two characters: ");
         String code = scanNext();
@@ -332,7 +327,7 @@ public class DaLi_04 {
 
         // Display payroll statement
         double grossPay, federal, state, totalDeduction;
-        System.out.printf(
+        System.out.println(
                 "Employee Name: " + name +
                         "\nHours Worked: " + hoursWorked +
                         "\nPay Rate: $" + hourlyPayRate +
