@@ -77,7 +77,7 @@ public class Primes {
         if (Primes.checkPrime(number))
             return new int[]{number};
 
-        int[] array = new int[number/2];
+        int[] array = new int[(int) Math.round(Math.sqrt(number))];
         int[] primes = listOfPrimesUntil((number));
         int count = 0, tempValue = number;
 

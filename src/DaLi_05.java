@@ -1,6 +1,8 @@
+import lib.Math.Algebra;
+import lib.Math.Primes;
 import lib.Math.Scales;
 
-import java.text.Format;
+import java.util.Arrays;
 
 import static lib.Misc.IO.*;
 import static lib.Misc.Randomizer.*;
@@ -8,7 +10,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex10();
+        ex16();
 
     }
 
@@ -130,22 +132,50 @@ public class DaLi_05 {
         print(log);
     }
     public static void ex11() {
+        String log = "";
+        int count=0;
+        for(int i =1;count<100;i++)
+            if( (i%3==0 || i%4==0) && !(i%3==0 && i%4==0) ){
+                log += String.format("%6d", i);
+                if(++count%10==0)log+="\n";
+            }
+        print(log);
 
     }
     public static void ex12() {
-
+        int i;
+        for(i=0; !(i*i*i>1200) ;i++){}
+        printf("Answer : %d", i);
     }
     public static void ex13() {
-
+        int i;
+        for(i=0; i*i<1200;i++){}
+        printf("Answer : %d", i);
     }
     public static void ex14() {
-
+        print("Enter num 1");
+        int n1 = scanInt();
+        print("Enter num 2");
+        int n2 = scanInt();
+        printf("GCD %d %d = %d\n", n1,n2,Algebra.greatestCommonFactor(n1,n2));
+        for (int i = 0; i < 100; i++) {
+            printf("GCD %d %d = %d", n1, i, Algebra.greatestCommonFactor(n1, i));
+            printf("GCD %d %d = %d\n", n1, i, Algebra.greatestCommonFactor(n2, i));
+        }
     }
     public static void ex15() {
-
+        int lineCount=0;
+        for (int i='!';i<='~';i++){
+            printf("%2c", (char)i);
+            if(++lineCount%10==0)println("");
+        }
     }
     public static void ex16() {
+        for(int i=120;i<130;i++)
+            println(i + " : " + Arrays.toString(Primes.getPrimeFactors(i)));
 
+        for(int i=2;i<1500000;i*=2)
+            println(i + " : " + Arrays.toString(Primes.getPrimeFactors(i)));
     }
     public static void ex17() {
 
