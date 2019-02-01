@@ -1,7 +1,5 @@
 package lib.Misc;
 
-
-
 public abstract class Time {
     // Obtain the total milliseconds since midnight, Jan 1, 1970
     static long totalMilliseconds = System.currentTimeMillis();
@@ -72,39 +70,39 @@ public abstract class Time {
         return monthName;
     }
     public static String dayName(int dayNumber){
-        String monthName="";
+        String dayName="";
         if(dayNumber>6)dayNumber=dayNumber%7;
         switch (dayNumber){
-            case  0:monthName="Sunday";     break;
-            case  1:monthName="Monday";     break;
-            case  2:monthName="Tuesday";    break;
-            case  3:monthName="Wednesday";  break;
-            case  4:monthName="Thursday";   break;
-            case  5:monthName="Friday";     break;
-            case  6:monthName="Saturday";   break;
+            case  0:dayName="Sunday";     break;
+            case  1:dayName="Monday";     break;
+            case  2:dayName="Tuesday";    break;
+            case  3:dayName="Wednesday";  break;
+            case  4:dayName="Thursday";   break;
+            case  5:dayName="Friday";     break;
+            case  6:dayName="Saturday";   break;
         }
-        return monthName;
+        return dayName;
     }
 
-    public static int daysInMonth(int monthIndex, int year){
-        switch(monthIndex){
-            case 0:         //January
-            case 2:         //March
-            case 4:         //May
-            case 6:         //July
-            case 7:         //August
-            case 9:         //October
-            case 11:        //December
+    public static int daysInMonth(int month, int year){
+        switch(month){
+            case 1:         //January
+            case 3:         //March
+            case 5:         //May
+            case 7:         //July
+            case 8:         //August
+            case 10:         //October
+            case 12:        //December
                 return 31;
-            case 3:         //April
-            case 5:         //June
-            case 8:         //September
-            case 10:        //November
+            case 4:         //April
+            case 6:         //June
+            case 9:         //September
+            case 11:        //November
                 return 30;
-            case 1:         //February
+            case 2:         //February
                 return isLeapYear(year) ?  29 : 28 ;
         }
-        return -1;
+        return 0;
     }
     public static boolean isLeapYear(int year){
         if(year%4!=0)return false;
@@ -124,11 +122,34 @@ public abstract class Time {
 
         int dayOfWeek = ( q + ( ( 26* (m+1) ) / 10 ) + k + (k/4) + (j/4) + (5*j) ) % 7;
 
-        return dayOfWeek<1 ? 6 : dayOfWeek-1;
+        return dayOfWeek<1 ? 6 : dayOfWeek-1; //this returns 0 for sat 1 for monday
     }
 
     public static String dayOfWeekString(int year, int month, int day){
         return dayName(dayOfWeek(year,month,day));
+    }
+
+    public static String consoleCalendar(int year, int month) {
+        StringBuilder calendar = new StringBuilder(String.format("%20s %d\n", monthName(month), year));
+        calendar.append("-------------------------------------\n");
+
+        //Days
+        for (int i = 0; i < 7; i++)
+            calendar.append(String.format("%5s", dayName(i).substring(0, 3)));
+        calendar.append("\n");
+
+
+        for (int index = 0, day = 1; day <= daysInMonth(month, year); index++) {
+            if (index == dayOfWeek(year, month, day))
+                calendar.append(String.format("%5d", day++));
+            else calendar.append(String.format("%5s", " "));
+
+            if (index > 5) {
+                calendar.append("\n");
+                index = -1;
+            }
+        }
+        return calendar.toString()+"\n";
     }
 
 }

@@ -233,10 +233,10 @@ public class DaLi_03 {
 
     public static void ex11() {
         print("Enter month number (Jan = 1 ; Dec = 12) ");
-        int monthIndex = scanInt() - 1;        //minus one to convert to monthIndex
+        int monthIndex = scanInt();        //minus one to convert to monthIndex
         print("Enter year number (ex. 1999) ");
         int year = scanInt();
-        println("Month : " + (monthIndex + 1) + " of year " + year + " has " + Time.daysInMonth(monthIndex, year) + " days.");
+        println("Month : " + (monthIndex) + " of year " + year + " has " + Time.daysInMonth(monthIndex, year) + " days.");
     }
 
     public static void ex12() {

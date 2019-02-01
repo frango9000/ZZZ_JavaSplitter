@@ -1,6 +1,7 @@
 import lib.Math.Algebra;
 import lib.Math.Primes;
 import lib.Math.Scales;
+import lib.Misc.Time;
 
 import java.util.Arrays;
 
@@ -10,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex21();
+        ex28();
 
     }
 
@@ -269,22 +270,50 @@ public class DaLi_05 {
         }
     }
     public static void ex23() {
+        double num = 1;
+        for (int i = 1; i < 20; i++) {
+            num = num + (num / i);
+        }
+        println(num);
 
+        num = 1;
+        for (int i = 19; i > 0; i--) {
+            num += (num / i);
+        }
+        println(num);
     }
     public static void ex24() {
-
+        println(Algebra.pi());
+        println(Math.PI);
     }
     public static void ex25() {
-
+        println(Algebra.calcE());
+        print(Math.E);
     }
     public static void ex26() {
-
+        int count =0;
+        for(int i = 2014,l=1; i<=2114; i++){
+            if(Time.isLeapYear(i)){
+                printf("%5d", i);
+                if(++l > 10){
+                    println("");
+                    l=1;
+                }
+                count++;
+            }
+        }
+        println("\nTotal: " + count);
     }
     public static void ex27() {
-
+        int year = scanInt("Enter year: ");
+        for(int i = 1; i<13;i++){
+            printf("%9s 1, %d is %s\n", Time.monthName(i), year, Time.dayOfWeekString(year,i,1));
+        }
     }
     public static void ex28() {
-
+        for(int i =1;i<=12;i++) {
+            print(Time.consoleCalendar(2119, i));
+        }
     }
     public static void ex29() {
 

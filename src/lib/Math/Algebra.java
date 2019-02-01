@@ -7,47 +7,67 @@ public abstract class Algebra {
 
         //ax+by=e
         //cx+dy=f
-        double discriminant=(a*d)-(b*c);
+        double discriminant = (a * d) - (b * c);
 
-        if (discriminant== 0)return null;
+        if (discriminant == 0) return null;
         double x = ((e * d) - (b * f)) / ((a * d) - (b * c));
         double y = ((a * f) - (e * c)) / ((a * d) - (b * c));
         double[] z = {x, y};
         return z;
     }
 
-    public static double[] quadraticEquation(double a, double b, double c){
+    public static double[] quadraticEquation(double a, double b, double c) {
         //
         //
         double[] r;
-        double discriminant=(b*b)-(4f*a*c);
-        if (discriminant>0){
+        double discriminant = (b * b) - (4f * a * c);
+        if (discriminant > 0) {
             r = new double[2];
-            r[0]=(-b+Math.sqrt(discriminant))/(2f*a);
-            r[1]=(-b-Math.sqrt(discriminant))/(2f*a);
+            r[0] = (-b + Math.sqrt(discriminant)) / (2f * a);
+            r[1] = (-b - Math.sqrt(discriminant)) / (2f * a);
 
-        }else if(discriminant==0){
+        } else if (discriminant == 0) {
             r = new double[1];
-            r[0]=(-b+Math.sqrt(discriminant))/(2f*a);
-        }else{
+            r[0] = (-b + Math.sqrt(discriminant)) / (2f * a);
+        } else {
             return null;
         }
         return r;
     }
 
-    public static int greatestCommonFactor(int a, int b){
-        int t=0;
-        if(a==b)return a;
-        else if (a==0||b==0)return 1;
-        else if (a<b){t=a;a=b;b=t;}
-        for (int i=a;i>0;i--){
-            if(a%i==0 && b%i==0)
+    public static int greatestCommonFactor(int a, int b) {
+        int t = 0;
+        if (a == b) return a;
+        else if (a == 0 || b == 0) return 1;
+        else if (a < b) {
+            t = a;
+            a = b;
+            b = t;
+        }
+        for (int i = a; i > 0; i--) {
+            if (a % i == 0 && b % i == 0)
                 return i;
         }
         return -1;//bug
     }
-    public static void primeFactors(int number){
 
-    };
+    public static double pi() {
+        double PI = 0.0;
+        for (int i = 100000; i > 0; i--)
+            PI += Math.pow(-1, i + 1) / (2 * i - 1);
+        return PI * 4;
+    }
 
+    public static long factorial(int number) {
+        long prod = 1;
+        for(int i = 1; i <= number; i++)
+            prod = prod * i;
+        return prod;
+    }
+    public static double calcE(){
+        double e = 1;
+        for(int i = 64; i > 0; i--)
+            e = e + 1/(double)(factorial(i));
+        return e;
+    }
 }
