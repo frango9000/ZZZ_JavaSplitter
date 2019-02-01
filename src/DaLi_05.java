@@ -10,7 +10,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex19();
+        ex21();
 
     }
 
@@ -221,26 +221,52 @@ public class DaLi_05 {
         }
     }
     public static void ex19() {
-        int lines = 7;
+        int lines = 15;
 
         for(int i = 0; i <= lines; i++) {
             for (int j = 0; j < lines - i; j++)
-                printf("%4s", "");
-
-            for (int j = 0, k=-((i*2)); j < (i*2) +1; j++,k++) {
-                printf("%4d", (int) Math.pow(3, Math.abs(k)));
-            }
+                printf("%6s", "");
+            for (int j = 0 ; j < (i) +1; j++)
+                printf("%6d", (int) Math.pow( 3, j ) );
+            for (int k = i; k > 0; k--)
+                printf("%6d", (int) Math.pow( 3, k-1 ) );
             println("");
         }
     }
     public static void ex20() {
-
+        print(Arrays.toString(Primes.listOfPrimesUntil(1200)));
     }
     public static void ex21() {
+        double loan = scanDouble("Loan Amount: ");
+        int years = scanInt("Years: ");
 
+        printf("%s %5s %5s\n", "Interest Rate", "Monthly Payment", "Total Payment");
+        for(double i =5.0;i<=10;i+=0.25){
+            double monthlyInterestRate = i/1200.0;
+            double monthlyPayment = (loan * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate , years * 12)));
+            printf("%5.2f     %5.2f          %8.2f\n",i, monthlyPayment, (monthlyPayment*12)*years);
+        }
     }
     public static void ex22() {
+        double loanAmount = scanDouble("Loan Amount: ");
+        int years = scanInt("Number of Years: ");
+        double annualRate = scanDouble("Annual Interest Rate: ");
 
+        double monthlyRate = annualRate / 1200;
+
+        double monthlyPayment = loanAmount * monthlyRate / (1 - 1 /Math.pow(1 + monthlyRate, years * 12));
+
+        printf("Monthly Payment: %.2f\n", monthlyPayment);
+        printf("Total Payment: %.2f\n", (monthlyPayment * 12) * years);
+
+        double balance = loanAmount, principal, interest;
+        println("Payment#     Interest     Principal     Balance");
+        for (int i = 1; i <= years * 12; i++) {
+            interest = monthlyRate * balance;
+            principal = monthlyPayment - interest;
+            balance = balance - principal;
+            printf("%-13d%-13.2f%-13.2f%.2f\n", i, interest, principal, balance);
+        }
     }
     public static void ex23() {
 
