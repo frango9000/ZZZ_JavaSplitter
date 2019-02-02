@@ -401,7 +401,8 @@ public class DaLi_05 {
         println("In binary " + Integer.toBinaryString(scanInt()) );
     }
     public static void ex38() {
-
+        int number = scanInt("Enter decimal ");
+        println("In octal " + Integer.toOctalString(scanInt()) );
     }
     public static void ex39() {
 
