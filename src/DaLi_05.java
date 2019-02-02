@@ -11,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex34();
+        ex35();
 
     }
 
@@ -382,7 +382,16 @@ public class DaLi_05 {
         }
     }
     public static void ex35() {
-
+        double sum= 0;
+        for(int i = 1000;i>0;i--){
+            sum += 1/(Math.sqrt(i)+Math.sqrt(i-1));
+        }
+        println(sum);
+        sum= 0;
+        for(int i = 1;i<=1000;i++){
+            sum += 1/(Math.sqrt(i)+Math.sqrt(i-1));
+        }
+        println(sum);
     }
     public static void ex36() {
 
