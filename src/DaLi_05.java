@@ -11,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex33();
+        ex34();
 
     }
 
@@ -355,7 +355,31 @@ public class DaLi_05 {
         }
     }
     public static void ex34() {
+        String results = "XXX";
+        while (!("AAA".equals(results)) && !("HHH".equals(results))) {
+            print("0 rock\n1 paper\n2 scissor\n");
+            int player = scanInt();
+            int ai = randomInt(3);
 
+            println("You chose " + DaLi_03.ex17string(player));
+            println("AI chose " + DaLi_03.ex17string(ai));
+
+            String reply;
+            if (player == ai){
+                reply = "draw";
+                results = (""+results.charAt(1)+results.charAt(2)+"D");
+            }
+            else {
+                if ((ai == 0 && player == 1) || (ai == 1 && player == 2) || (ai == 2 && player == 0)){
+                    reply = "win";
+                    results = (""+results.charAt(1)+results.charAt(2)+"H");
+                }else{
+                    reply = "lose";
+                    results = (""+results.charAt(1) +Character.toString(results.charAt(2))+"A");
+                }
+            }
+            println("You " + reply);
+        }
     }
     public static void ex35() {
 

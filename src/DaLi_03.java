@@ -367,7 +367,7 @@ public class DaLi_03 {
         println("You " + reply);
     }
 
-    private static String ex17string(int rps) {
+    public static String ex17string(int rps) {
         switch (rps) {
             case 0:
                 return "Rock";
