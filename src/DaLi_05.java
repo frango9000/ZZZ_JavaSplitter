@@ -394,7 +394,7 @@ public class DaLi_05 {
         println(sum);
     }
     public static void ex36() {
-
+        DaLi_03.ex09();
     }
     public static void ex37() {
 
