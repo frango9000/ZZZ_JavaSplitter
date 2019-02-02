@@ -133,11 +133,9 @@ public abstract class Time {
         StringBuilder calendar = new StringBuilder(String.format("%20s %d\n", monthName(month), year));
         calendar.append("-------------------------------------\n");
 
-        //Days
         for (int i = 0; i < 7; i++)
             calendar.append(String.format("%5s", dayName(i).substring(0, 3)));
         calendar.append("\n");
-
 
         for (int index = 0, day = 1; day <= daysInMonth(month, year); index++) {
             if (index == dayOfWeek(year, month, day))
@@ -149,7 +147,6 @@ public abstract class Time {
                 index = -1;
             }
         }
-        return calendar.toString()+"\n";
+        return calendar.toString()+"\n\n";
     }
-
 }

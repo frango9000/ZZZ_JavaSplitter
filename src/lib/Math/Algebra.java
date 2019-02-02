@@ -1,5 +1,6 @@
 package lib.Math;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public abstract class Algebra {
@@ -69,5 +70,21 @@ public abstract class Algebra {
         for(int i = 64; i > 0; i--)
             e = e + 1/(double)(factorial(i));
         return e;
+    }
+    public static int[] listOfDivisors(int number){
+        int[] list = new int[number/2];
+        int count=0;
+        for (int i = 1; i<=number/2;i++)
+            if(number % i == 0)
+                list[count++]=i;
+        return Arrays.copyOf(list, count);
+    }
+    public static boolean isPerfectNumber(int number){
+        int sum=0;
+        int[] divisors = listOfDivisors(number);
+        for (int divisor : divisors)
+            sum += divisor;
+        return sum == number;
+
     }
 }

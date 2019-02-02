@@ -11,14 +11,13 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex28();
+        ex33();
 
     }
 
     public static void ex00() {
 
     }
-
     public static void ex01() {
         int n = 0;
         while (n != -1) {
@@ -312,13 +311,119 @@ public class DaLi_05 {
     }
     public static void ex28() {
         for(int i =1;i<=12;i++) {
-            print(Time.consoleCalendar(2119, i));
+            print(Time.consoleCalendar(2019, i));
         }
     }
     public static void ex29() {
-
+        float amount = scanFloat("Enter amount ");
+        float anualRate = scanFloat("Enter annual interest rate ");
+        int months = scanInt("Enter months ");
+        float cumulative=0;
+        for (int i =0; i<months;i++){
+            cumulative=cumulative+amount*(1+(anualRate/100)/12);
+            println((i+1)+":"+cumulative);
+        }
     }
     public static void ex30() {
+        float amount = scanFloat("Enter amount ");
+        float yield = scanFloat("Enter percentage yield ");
+        int months = scanInt("Enter months ");
+        for (int i =0; i<months;i++){
+            amount+=amount*((yield/100)/12);
+            println((i+1)+":"+amount);
+        }
+    }
+    public static void ex31() {
+        int number = scanInt("Enter your number ");
+        int lotteryA = randomInt(9);
+        int lotteryB=lotteryA;
+        while(lotteryB==lotteryA){
+            lotteryB=randomInt(9);
+        }
+        if(number==(Integer.parseInt(lotteryA+""+lotteryB))){
+            print("You win");
+        }else print("You lose. Winner is " + lotteryA+""+lotteryB);
+    }
+    public static void ex32() {
+        println(Arrays.toString(Algebra.listOfDivisors(28)));
+    }
+    public static void ex33() {
+        for(int i =0;i<100000;i++){
+            if(Algebra.isPerfectNumber(i)){
+                println(i);
+            }
+        }
+    }
+    public static void ex34() {
+
+    }
+    public static void ex35() {
+
+    }
+    public static void ex36() {
+
+    }
+    public static void ex37() {
+
+    }
+    public static void ex38() {
+
+    }
+    public static void ex39() {
+
+    }
+    public static void ex40() {
+
+    }
+    public static void ex41() {
+
+    }
+    public static void ex42() {
+
+    }
+    public static void ex43() {
+
+    }
+    public static void ex44() {
+
+    }
+    public static void ex45() {
+
+    }
+    public static void ex46() {
+
+    }
+    public static void ex47() {
+
+    }
+    public static void ex48() {
+
+    }
+    public static void ex49() {
+
+    }
+    public static void ex50() {
+
+    }
+    public static void ex51() {
+
+    }
+    public static void ex52() {
+
+    }
+    public static void ex53() {
+
+    }
+    public static void ex54() {
+
+    }
+    public static void ex55() {
+
+    }
+    public static void ex56() {
+
+    }
+    public static void ex57() {
 
     }
 }
