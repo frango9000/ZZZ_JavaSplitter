@@ -397,7 +397,8 @@ public class DaLi_05 {
         DaLi_03.ex09();
     }
     public static void ex37() {
-
+        int number = scanInt("Enter decimal ");
+        println("In binary " + Integer.toBinaryString(scanInt()) );
     }
     public static void ex38() {
 
