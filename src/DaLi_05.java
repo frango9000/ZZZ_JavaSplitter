@@ -507,7 +507,7 @@ public class DaLi_05 {
         println(Statistics.standardDeviation(numbers));
     }
     public static void ex46() {
-
+        print(new StringBuilder(scanNextLine("Enter string ")).reverse());
     }
     public static void ex47() {
 
