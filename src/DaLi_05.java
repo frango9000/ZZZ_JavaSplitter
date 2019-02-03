@@ -12,7 +12,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex48();
+        ex49();
 
     }
 
@@ -529,7 +529,25 @@ public class DaLi_05 {
         print(oddChars);
     }
     public static void ex49() {
-
+        String string = scanNextLine("Enter a string ");
+        int vocal=0,consonant=0;
+        for (int i = 0; i < string.length(); i++) {
+            if(Character.isLetter(string.charAt(i))){
+                switch(Character.toUpperCase(string.charAt(i))){
+                    case 'A':
+                    case 'E':
+                    case 'I':
+                    case 'O':
+                    case 'U':
+                        vocal++;
+                        break;
+                    default:
+                        consonant++;
+                        break;
+                }
+            }
+        }
+        printf("%d vocals %d consonants", vocal, consonant);
     }
     public static void ex50() {
 
