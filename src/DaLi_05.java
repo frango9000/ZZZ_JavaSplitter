@@ -1,6 +1,7 @@
 import lib.Math.Algebra;
 import lib.Math.Primes;
 import lib.Math.Scales;
+import lib.Math.Statistics;
 import lib.Misc.Time;
 
 import java.util.Arrays;
@@ -11,7 +12,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex44();
+        ex45();
 
     }
 
@@ -501,7 +502,9 @@ public class DaLi_05 {
         printf("Bits are %s", bits);
     }
     public static void ex45() {
-
+        double[] numbers = {1,2,3,4.5,5.6,6,7,8,9,10};
+        println(Statistics.mean(numbers));
+        println(Statistics.standardDeviation(numbers));
     }
     public static void ex46() {
 
