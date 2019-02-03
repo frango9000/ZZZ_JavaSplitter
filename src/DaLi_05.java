@@ -12,7 +12,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex49();
+        ex50();
 
     }
 
@@ -550,7 +550,13 @@ public class DaLi_05 {
         printf("%d vocals %d consonants", vocal, consonant);
     }
     public static void ex50() {
-
+        int table = 0;
+        while (++table < 10) {
+            for (int i = 1; i < 10; i++) {
+                printf("%d x %d = %d  ", table, i, (i * table));
+            }
+            println("");
+        }
     }
     public static void ex51() {
 
