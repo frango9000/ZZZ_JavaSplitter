@@ -521,6 +521,12 @@ public class DaLi_05 {
         }else println("Invalid input");
     }
     public static void ex48() {
+        String string = scanNextLine("Enter a string ");
+        StringBuilder oddChars = new StringBuilder();
+        for (int i = 0; i < string.length(); i+=2) {
+            oddChars.append(string.charAt(i));
+        }
+        print(oddChars);
     }
     public static void ex49() {
 
