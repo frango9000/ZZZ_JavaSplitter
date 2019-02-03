@@ -12,7 +12,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex45();
+        ex48();
 
     }
 
@@ -510,10 +510,17 @@ public class DaLi_05 {
         print(new StringBuilder(scanNextLine("Enter string ")).reverse());
     }
     public static void ex47() {
-
+        String isbn13string = scanNextLine("Enter the first 12 digits of an ISBN-13 as a string: ");
+        int checksum = 0;
+        if(isbn13string.length() == 12){
+            for (int i = 0; i < 12; i++) {
+                checksum +=  (i % 2 == 1) ? Integer.parseInt( Character.toString(isbn13string.charAt(i) )) : 3*Integer.parseInt( Character.toString(isbn13string.charAt(i)) );
+            }
+            checksum = 10-(checksum%10);
+            printf("The ISBN-13 number is %s%d", isbn13string, checksum==10?0:checksum );
+        }else println("Invalid input");
     }
     public static void ex48() {
-
     }
     public static void ex49() {
 

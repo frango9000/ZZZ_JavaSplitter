@@ -33,6 +33,10 @@ public abstract class IO {
         return scanner().nextInt();
     }
 
+    public static long scanLong() {
+        return scanner().nextLong();
+    }
+
     public static byte scanByte() {
         return scanner().nextByte();
     }
@@ -55,42 +59,47 @@ public abstract class IO {
 
     public static float scanFloat(String message) {
         print(message);
-        return scanner().nextFloat();
+        return scanFloat();
     }
 
     public static double scanDouble(String message) {
         print(message);
-        return scanner().nextDouble();
+        return scanDouble();
     }
 
     public static int scanInt(String message) {
         print(message);
-        return scanner().nextInt();
+        return scanInt();
+    }
+
+    public static long scanLong(String message) {
+        print(message);
+        return scanLong();
     }
 
     public static byte scanByte(String message) {
         print(message);
-        return scanner().nextByte();
+        return scanByte();
     }
 
     public static short scanShort(String message) {
         print(message);
-        return scanner().nextShort();
+        return scanShort();
     }
 
     public static String scanNext(String message) {
         print(message);
-        return scanner().next();
+        return scanNext();
     }
 
     public static String scanNextLine(String message) {
         print(message);
-        return scanner().nextLine();
+        return scanNextLine();
     }
 
     public static char scanChar(String message) {
         print(message);
-        return scanNext().charAt(0);
+        return scanChar();
     }
 
 }
