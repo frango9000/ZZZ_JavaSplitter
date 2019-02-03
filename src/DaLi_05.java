@@ -442,7 +442,16 @@ public class DaLi_05 {
         printf("%d Heads\n%d Tails", heads,tails);
     }
     public static void ex41() {
-
+        int max=0, maxCount=0, newNumber;
+        do{
+            newNumber = scanInt("Enter a number ");
+            if (newNumber > max){
+                max=newNumber;
+                maxCount=1;
+            }else if(newNumber==max)
+                maxCount++;
+        }while(newNumber!=0);
+        printf("max number is %d, repeated %d times.", max, maxCount);
     }
     public static void ex42() {
 
