@@ -18,7 +18,6 @@ public class DaLi_04 {
     public static void ex00() {
 
     }
-
     public static void ep01() {
         print("Enter x1: ");
         float x1 = scanFloat();
@@ -35,7 +34,7 @@ public class DaLi_04 {
         print("Enter y3: ");
         float y3 = scanFloat();
 
-        Triangle triangle = new Triangle(new Point(x1,y1),new Point(x2,y2),new Point(x3,y3));
+        Triangle triangle = new Triangle(new Point(x1, y1), new Point(x2, y2), new Point(x3, y3));
 
         println(Math.toDegrees(triangle.angleA));
         println(Math.toDegrees(triangle.angleB));
@@ -43,7 +42,7 @@ public class DaLi_04 {
     }
     public static void ep05() {
         Random rand = new Random();
-        String lottery = "" + rand.nextInt(10) + rand.nextInt(10) +  rand.nextInt(10);
+        String lottery = "" + rand.nextInt(10) + rand.nextInt(10) + rand.nextInt(10);
         println(lottery);
         print("Enter your 3-digit lottery number: ");
         String guess = scanNextLine();
@@ -73,9 +72,9 @@ public class DaLi_04 {
     }
     private static char[] ep05array(String string) {
         char[] arr = new char[3];
-        arr[0] =string.charAt(0);
-        arr[1] =string.charAt(1);
-        arr[2] =string.charAt(2);
+        arr[0] = string.charAt(0);
+        arr[1] = string.charAt(1);
+        arr[2] = string.charAt(2);
         return arr;
     }
     public static void ep06() {
@@ -85,7 +84,6 @@ public class DaLi_04 {
         System.out.printf("Interest is $%4.2f", interest);
 
     }
-
     public static void ex01() {
         print("Enter radius: ");
         float r = scanFloat();
@@ -107,18 +105,18 @@ public class DaLi_04 {
 
         Sphere sphere = new Sphere(6371.01);
 
-        printf("Distance between points is %4.10f", sphere.distanceBetweenPoints(new Point(x1,y1),new Point(x2,y2)));
+        printf("Distance between points is %4.10f", sphere.distanceBetweenPoints(new Point(x1, y1), new Point(x2, y2)));
     }
     public static void ex03() {
-        Point charlotte = new Point(35.2270869,-80.8431267);
-        Point atlanta   = new Point(33.7489954,-84.3879824);
-        Point orlando   = new Point(28.5383355,-81.3792365);
-        Point savannah  = new Point(32.0835407,-81.0998342);
+        Point charlotte = new Point(35.2270869, -80.8431267);
+        Point atlanta = new Point(33.7489954, -84.3879824);
+        Point orlando = new Point(28.5383355, -81.3792365);
+        Point savannah = new Point(32.0835407, -81.0998342);
 
         Triangle t1 = new Triangle(charlotte, atlanta, orlando);
         Triangle t2 = new Triangle(charlotte, atlanta, savannah);
 
-        printf("Area : %4.8f", (t1.area()+t2.area()) );
+        printf("Area : %4.8f", (t1.area() + t2.area()));
     }
     public static void ex04() {
         print("Enter sideLength of hexagon: ");
@@ -139,33 +137,33 @@ public class DaLi_04 {
     }
     public static void ex06() {
         Circle circle = new Circle(40);
-        float randomDegree1 =randomInt(35999)/100f;
-        float randomDegree2 = randomInt(35999)/100f;
-        float randomDegree3 = randomInt(35999)/100f;
+        float randomDegree1 = randomInt(35999) / 100f;
+        float randomDegree2 = randomInt(35999) / 100f;
+        float randomDegree3 = randomInt(35999) / 100f;
 
         Point point1 = circle.pointOnAngle(randomDegree1);
         Point point2 = circle.pointOnAngle(randomDegree2);
         Point point3 = circle.pointOnAngle(randomDegree3);
 
-        Triangle triangle = new Triangle(point1,point2,point3);
+        Triangle triangle = new Triangle(point1, point2, point3);
         println(triangle.toString());
     }
     public static void ex07() {
         print("Enter radius of pentagon: ");
         float radius = scanFloat();
-        Pentagon pentagon = new Pentagon (radius, new Point (0,0),0f);
+        Pentagon pentagon = new Pentagon(radius, new Point(0, 0), 0f);
         println(pentagon.toString());
     }
     public static void ex08() {
         print("Enter a ASCII code: ");
         int code = scanInt();
-        printf("The character for the ASCII code %d is %s",code, (char)code);
+        printf("The character for the ASCII code %d is %s", code, (char) code);
 
     }
     public static void ex09() {
         print("Enter a character: ");
         char character = scanChar();
-        printf("The Unicode for character %s is %d",character, (int)character);
+        printf("The Unicode for character %s is %d", character, (int) character);
 
     }
     public static void ex10() {
@@ -175,7 +173,7 @@ public class DaLi_04 {
     public static void ex11() {
         println("Enter Binary digits: ");
         String binary = scanNext();
-        println("In decimal : " + Integer.parseInt(binary,2) );
+        println("In decimal : " + Integer.parseInt(binary, 2));
 
         println("Enter Decimal digits: ");
         int decimal = scanInt();
@@ -185,7 +183,7 @@ public class DaLi_04 {
     public static void ex12() {
         println("Enter Hexadecimal digits: ");
         String binary = scanNext();
-        println("In decimal : " + Integer.parseInt(binary,16) );
+        println("In decimal : " + Integer.parseInt(binary, 16));
 
         println("Enter decimal digits: ");
         int decimal = scanInt();
@@ -195,49 +193,65 @@ public class DaLi_04 {
     public static void ex13() {
         print("Enter a character: ");
         char character = scanChar();
-        if(Character.isAlphabetic(character)) switch (Character.toUpperCase(character)) {
-                case 'A':
-                case 'E':
-                case 'I':
-                case 'O':
-                case 'U':println("Vocal");break;
-                default:println("Consonant");break;
-            }
+        if (Character.isAlphabetic(character)) switch (Character.toUpperCase(character)) {
+            case 'A':
+            case 'E':
+            case 'I':
+            case 'O':
+            case 'U':
+                println("Vocal");
+                break;
+            default:
+                println("Consonant");
+                break;
+        }
         else println("Invalid Input.");
     }
     public static void ex14() {
         print("Enter a grade: ");
         char grade = scanChar();
-        if(Character.isAlphabetic(grade)) {
+        if (Character.isAlphabetic(grade)) {
             switch (Character.toUpperCase(grade)) {
-                case 'A':println("5");break;
-                case 'B':println("4");break;
-                case 'C':println("3");break;
-                case 'D':println("2");break;
-                case 'F':println("1");break;
-                default:println("Invalid Input.");break;
+                case 'A':
+                    println("5");
+                    break;
+                case 'B':
+                    println("4");
+                    break;
+                case 'C':
+                    println("3");
+                    break;
+                case 'D':
+                    println("2");
+                    break;
+                case 'F':
+                    println("1");
+                    break;
+                default:
+                    println("Invalid Input.");
+                    break;
             }
-        }else println("Invalid Input.");
+        } else println("Invalid Input.");
     }
     public static void ex15() {
         print("Enter a letter: ");
         char letter = scanChar();
-        int number=0;
-        if(Character.isLetter(letter)){
-            if     (letter>='W')number=9;
-            else if(letter>='T')number=8;
-            else if(letter>='P')number=7;
-            else if(letter>='M')number=6;
-            else if(letter>='J')number=5;
-            else if(letter>='G')number=4;
-            else if(letter>='D')number=3;
-            else if(letter>='A')number=2;
+        int number = 0;
+        if (Character.isLetter(letter)) {
+            if (letter >= 'W') number = 9;
+            else if (letter >= 'T') number = 8;
+            else if (letter >= 'P') number = 7;
+            else if (letter >= 'M') number = 6;
+            else if (letter >= 'J') number = 5;
+            else if (letter >= 'G') number = 4;
+            else if (letter >= 'D') number = 3;
+            else if (letter >= 'A') number = 2;
         }
         printf("Number is : %d", number);
     }
     public static void ex16() {
         //print((char)97 +""+ (char)122); // a - z
-        printf("Random char is : %c" , (char)(randomInt(25)+97));
+        printf("Random char is : %c", (char) (randomInt(25) + 97));
     }
     public static void ex17() {
         print("Enter a year: ");
@@ -249,7 +263,7 @@ public class DaLi_04 {
 
         print(month + " " + year + " has ");
 
-        if ( month.equals("Jan") || month.equals("Mar") ||
+        if (month.equals("Jan") || month.equals("Mar") ||
                 month.equals("May") || month.equals("Jul") ||
                 month.equals("Aug") || month.equals("Oct") ||
                 month.equals("Dec"))
@@ -264,20 +278,34 @@ public class DaLi_04 {
         print("Enter two characters: ");
         String code = scanNext();
 
-        String string1="", string2="0";
+        String string1 = "", string2 = "0";
 
-        switch(code.charAt(0)){
-            case 'I':string1="Information Management";break;
-            case 'C':string1="Computer Science";break;
-            case 'A':string1="Accounting";break;
+        switch (code.charAt(0)) {
+            case 'I':
+                string1 = "Information Management";
+                break;
+            case 'C':
+                string1 = "Computer Science";
+                break;
+            case 'A':
+                string1 = "Accounting";
+                break;
         }
-        switch((int)code.charAt(1)){
-            case 49:string2="freshman";break;
-            case 50:string2="sophomore";break;
-            case 51:string2="junior";break;
-            case 52:string2="senior";break;
+        switch ((int) code.charAt(1)) {
+            case 49:
+                string2 = "freshman";
+                break;
+            case 50:
+                string2 = "sophomore";
+                break;
+            case 51:
+                string2 = "junior";
+                break;
+            case 52:
+                string2 = "senior";
+                break;
         }
-        println(string1+" "+string2);
+        println(string1 + " " + string2);
     }
     public static void ex19() {
         DaLi_03.ex09();
@@ -285,7 +313,7 @@ public class DaLi_04 {
     public static void ex20() {
         print("Enter string: ");
         String code = scanNext();
-        printf("length %d, %c", code.length(), code.charAt(code.length()-1));
+        printf("length %d, %c", code.length(), code.charAt(code.length() - 1));
     }
     public static void ex21() {
         print("Enter string: ");
@@ -303,11 +331,11 @@ public class DaLi_04 {
         print("Enter string: ");
         String code2 = scanNext();
 
-        if(code2.contains(code1)){
+        if (code2.contains(code1)) {
             println("1 is substring of 2");
-        }else if(code1.contains(code2)){
+        } else if (code1.contains(code2)) {
             println("2 is substring of 1");
-        }else println("no substrings");
+        } else println("no substrings");
 
     }
     public static void ex23() {
@@ -349,29 +377,29 @@ public class DaLi_04 {
         print("Enter country 1: ");
         String country3 = scanNext();
 
-        if(country1.compareTo(country2)<0&&country1.compareTo(country3)<0){
+        if (country1.compareTo(country2) < 0 && country1.compareTo(country3) < 0) {
             println(country1);
-            println("" + (country2.compareTo(country3)<0 ? country2+country3 : country3+"\n"+country2) );
-        }else if(country2.compareTo(country1)<0&&country2.compareTo(country3)<0){
+            println("" + (country2.compareTo(country3) < 0 ? country2 + country3 : country3 + "\n" + country2));
+        } else if (country2.compareTo(country1) < 0 && country2.compareTo(country3) < 0) {
             println(country2);
-            println("" + (country3.compareTo(country1)<0 ? country3+country1 : country1+"\n"+country3) );
-        }else if(country3.compareTo(country2)<0&&country3.compareTo(country1)<0){
+            println("" + (country3.compareTo(country1) < 0 ? country3 + country1 : country1 + "\n" + country3));
+        } else if (country3.compareTo(country2) < 0 && country3.compareTo(country1) < 0) {
             println(country3);
-            println("" + (country1.compareTo(country2)<0 ? country1+country2 : country2+"\n"+country1) );
+            println("" + (country1.compareTo(country2) < 0 ? country1 + country2 : country2 + "\n" + country1));
         }
 
 
     }
     public static void ex25() {
-        print((char)65 +""+ (char)90); // A - Z
+        print((char) 65 + "" + (char) 90); // A - Z
 
-        int char1 = randomInt(25)+65;
-        int char2 = randomInt(25)+65;
-        int char3 = randomInt(25)+65;
+        int char1 = randomInt(25) + 65;
+        int char2 = randomInt(25) + 65;
+        int char3 = randomInt(25) + 65;
 
         int num = randomInt(10000);
 
-        printf("Plate is %s", num + " - " + (char)char1 + (char)char2 + (char)char3);
+        printf("Plate is %s", num + " - " + (char) char1 + (char) char2 + (char) char3);
     }
     public static void ex26() {
         DaLi_02.ex22();
