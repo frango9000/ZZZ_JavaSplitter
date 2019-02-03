@@ -433,7 +433,13 @@ public class DaLi_05 {
         System.out.printf("Minimum sales to earn $30,000: $%.0f\n", salesAmount/10);
     }
     public static void ex40() {
-
+        int heads=0,tails=0;
+        for (int i = 0; i < 2000000; i++) {
+            int coin = randomInt(2);
+            if(coin == 0)heads++;
+            else tails++;
+        }
+        printf("%d Heads\n%d Tails", heads,tails);
     }
     public static void ex41() {
 
