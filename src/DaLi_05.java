@@ -11,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex43();
+        ex44();
 
     }
 
@@ -492,7 +492,13 @@ public class DaLi_05 {
         println(count);
     }
     public static void ex44() {
-
+        byte number = scanByte("Enter a number ");
+        String bits = "";
+        for (int i = 0; i < 8; i++) {
+            bits = (number & 1) + bits;
+            number >>= 1;
+        }
+        printf("Bits are %s", bits);
     }
     public static void ex45() {
 
