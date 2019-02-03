@@ -11,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex41();
+        ex43();
 
     }
 
@@ -482,7 +482,14 @@ public class DaLi_05 {
         System.out.printf("Minimum sales to earn $30,000: $%.0f\n", salesAmount/10);
     }
     public static void ex43() {
-
+        int count=0;
+        for (int i = 1; i < 8; i++) {
+            for (int j = 1; j < 8; j++) {
+                printf("%d, %d\n", i, j);
+                count++;
+            }
+        }
+        println(count);
     }
     public static void ex44() {
 
