@@ -12,7 +12,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_05 {
     public static void main(String[] args) {
 
-        ex50();
+        ex51();
 
     }
 
@@ -559,6 +559,13 @@ public class DaLi_05 {
         }
     }
     public static void ex51() {
-
+        String stringA = scanNextLine("Enter string A ");
+        String stringB = scanNextLine("Enter string B ");
+        int index =0;
+        StringBuilder prefix = new StringBuilder();
+        while (stringA.charAt(index) == stringB.charAt(index)){
+            prefix.append(stringA.charAt(index++));
+        }
+        printf("Prefix : %s", prefix);
     }
 }
