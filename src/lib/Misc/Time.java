@@ -34,6 +34,16 @@ public abstract class Time {
         }
         return("Current time is " + offsetHour + ":" + currentMinute + ":" + currentSecond + " "+post+" GMT: " + offset);
     }
+    public static String converMillis(long millis){
+        long totalMilliseconds = millis;
+        long totalSeconds = totalMilliseconds / 1000;
+        long currentSecond = totalSeconds % 60;
+        long totalMinutes = totalSeconds / 60;
+        long currentMinute = totalMinutes % 60;
+        long totalHours = totalMinutes / 60;
+        long currentHour = totalHours % 24;
+        return totalHours + ":" + currentMinute + ":" + currentSecond;
+    }
 
     public static float secondsToHours(float seconds) {
         return (seconds / 60) / 60;

@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex23();
+        ex25();
 
     }
 
@@ -182,7 +182,7 @@ public class DaLi_06 {
         println(gc.get(5));
     }
     public static void ex25() {
-
+        println(Time.converMillis(555550000));
     }
     public static void ex26() {
 
