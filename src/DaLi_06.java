@@ -1,4 +1,5 @@
 import lib.Geometry.Pentagon;
+import lib.Geometry.Polygon;
 import lib.Geometry.Triangle;
 import lib.Math.Algebra;
 import lib.Math.Extras;
@@ -17,7 +18,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex35();
+        ex36();
 
     }
 
@@ -266,7 +267,8 @@ public class DaLi_06 {
         print(pentagon.area());
     }
     public static void ex36() {
-
+        Polygon polygon = new Polygon(5, 6.5);
+        print(polygon.area());
     }
     public static void ex37() {
 
