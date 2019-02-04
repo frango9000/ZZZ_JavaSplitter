@@ -90,4 +90,9 @@ public class Primes {
         //System.out.println(number+":"+Arrays.toString(Arrays.copyOf(array, count)));
         return Arrays.copyOf(array, count);
     }
+
+    public static int mersennePrime(int index){
+        int mersenne = (int) (Math.pow(2, index) -1);
+        return isPrime(mersenne) ? mersenne : 0 ;
+    }
 }

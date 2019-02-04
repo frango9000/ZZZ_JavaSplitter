@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex27();
+        ex28();
 
     }
 
@@ -202,7 +202,11 @@ public class DaLi_06 {
         }
     }
     public static void ex28() {
-
+        for (int i = 1; i <= 31; i++) {
+            if(Primes.mersennePrime(i) != 0){
+                printf("%8d %8d %n", i,Primes.mersennePrime(i));
+            }
+        }
     }
     public static void ex29() {
 
