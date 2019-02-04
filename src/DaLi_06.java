@@ -1,4 +1,3 @@
-import lib.Geometry.Point;
 import lib.Geometry.Triangle;
 import lib.Math.Algebra;
 import lib.Math.Extras;
@@ -15,7 +14,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex21();
+        ex22();
 
     }
 
@@ -163,7 +162,7 @@ public class DaLi_06 {
         print(number);
     }
     public static void ex22() {
-
+        print(Extras.babylonianSquareRoot(9));
     }
     public static void ex23() {
 
