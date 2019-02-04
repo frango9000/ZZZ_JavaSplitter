@@ -7,11 +7,12 @@ import lib.Misc.Time;
 import java.util.Arrays;
 
 import static lib.Misc.IO.*;
+import static lib.Misc.Randomizer.*;
 
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex16();
+        ex17(4);
 
     }
 
@@ -127,8 +128,13 @@ public class DaLi_06 {
         }
         print(sum);
     }
-    public static void ex17() {
-
+    public static void ex17(int n) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                printf("%3d", randomInt(2));
+            }
+        println("");
+        }
     }
     public static void ex18() {
 
