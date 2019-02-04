@@ -7,6 +7,7 @@ import lib.Misc.StringManip;
 import lib.Misc.Time;
 
 import java.util.Arrays;
+import java.util.GregorianCalendar;
 
 import static lib.Misc.IO.*;
 import static lib.Misc.Randomizer.*;
@@ -175,7 +176,10 @@ public class DaLi_06 {
         return count;
     }
     public static void ex24() {
-
+        GregorianCalendar gc = new GregorianCalendar();
+        println(gc.get(1));
+        println(gc.get(2));
+        println(gc.get(5));
     }
     public static void ex25() {
 
