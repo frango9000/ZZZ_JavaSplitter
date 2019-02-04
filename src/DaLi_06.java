@@ -1,3 +1,5 @@
+import lib.Geometry.Point;
+import lib.Geometry.Triangle;
 import lib.Math.Algebra;
 import lib.Math.Extras;
 import lib.Math.Primes;
@@ -13,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex18();
+        ex19();
 
     }
 
@@ -144,7 +146,7 @@ public class DaLi_06 {
         }else print("Invalid");
     }
     public static void ex19() {
-
+        print(Triangle.isValidTriangle(5, 6, 2));
     }
     public static void ex20() {
 
