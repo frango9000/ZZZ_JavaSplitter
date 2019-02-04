@@ -1,11 +1,12 @@
 import lib.Math.Algebra;
+import lib.Math.Extras;
 
 import static lib.Misc.IO.*;
 
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex02();
+        ex03();
 
     }
 
@@ -22,7 +23,8 @@ public class DaLi_06 {
         println(Algebra.sumOfDigits(225416222));
     }
     public static void ex03() {
-
+        println(Extras.isPalindrome(12321));
+        println(Extras.isPalindrome(1421));
     }
     public static void ex04() {
 
