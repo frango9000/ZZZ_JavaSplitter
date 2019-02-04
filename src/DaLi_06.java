@@ -19,7 +19,7 @@ public class DaLi_06 {
         }
     }
     public static void ex02() {
-
+        println(Algebra.sumOfDigits(225416222));
     }
     public static void ex03() {
 

@@ -90,4 +90,13 @@ public abstract class Algebra {
     public static int pentagonalNumber(int index){
         return index * ( ( 3 * index ) - 1 ) / 2;
     }
+    public static long sumOfDigits(long number){
+        int sum = 0;
+        int size = String.valueOf(number).length();
+        for (int i = 0; i <= size; i++) {
+            sum += number%10;
+            number /= 10;
+        }
+        return sum+number;
+    }
 }
