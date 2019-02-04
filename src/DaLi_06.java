@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex30();
+        ex32();
 
     }
 
@@ -215,20 +215,25 @@ public class DaLi_06 {
             }
         }
     }
-    public static void ex30() {
+    public static boolean ex30() {
         int roll=ex30rolls();
         switch(roll){
             case 2:
             case 3:
             case 12:
-                println("You lose");break;
+                println("You lose");return false;
             case 7:
             case 11:
-                println("You win");break;
+                println("You win");return true;
             default:
                 printf("Point is %d\n", roll);
-                if(ex30rolls() == roll)println("You win");
-                else println("You lose");
+                if(ex30rolls() == roll) {
+                    println("You win");
+                    return true;
+                }else{
+                    println("You lose");
+                    return false;
+                }
         }
     }
     public static int ex30rolls(){
@@ -242,7 +247,11 @@ public class DaLi_06 {
 
     }
     public static void ex32() {
-
+        int wins =0;
+        for (int i = 0; i < 15000; i++) {
+            if(ex30())wins++;
+        }
+        println(wins);
     }
     public static void ex33() {
 
