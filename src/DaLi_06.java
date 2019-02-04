@@ -1,7 +1,11 @@
+import lib.Math.Algebra;
+
+import static lib.Misc.IO.*;
+
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex00();
+        ex01();
 
     }
 
@@ -9,7 +13,10 @@ public class DaLi_06 {
 
     }
     public static void ex01() {
-
+        for (int i = 0; i < 100; i++) {
+            printf("%7d", Algebra.penthagonalNumber(i) );
+            if  (i%10 == 9 )println("");
+        }
     }
     public static void ex02() {
 

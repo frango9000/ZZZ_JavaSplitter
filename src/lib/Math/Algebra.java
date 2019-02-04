@@ -87,4 +87,7 @@ public abstract class Algebra {
         return sum == number;
 
     }
+    public static int penthagonalNumber(int index){
+        return index * ( ( 3 * index ) - 1 ) / 2;
+    }
 }
