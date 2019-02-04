@@ -1,3 +1,4 @@
+import lib.Geometry.Pentagon;
 import lib.Geometry.Triangle;
 import lib.Math.Algebra;
 import lib.Math.Extras;
@@ -16,7 +17,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex31();
+        ex35();
 
     }
 
@@ -261,7 +262,8 @@ public class DaLi_06 {
         println("Day of week is " + Time.dayOfWeekString(2019, 2, 4));
     }
     public static void ex35() {
-
+        Pentagon pentagon = new Pentagon(true, 5.5);
+        print(pentagon.area());
     }
     public static void ex36() {
 
