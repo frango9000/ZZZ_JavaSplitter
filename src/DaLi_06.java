@@ -93,6 +93,10 @@ public class DaLi_06 {
         return commission;
     }
     public static void ex12(int num1, int num2, int numbersPerLine) {
+        for (int i = num1, j=0; i <= num2; i++) {
+            printf("%3d", i);
+            if(j++%numbersPerLine==numbersPerLine-1)println("");
+        }
     }
     public static void ex13() {
 
