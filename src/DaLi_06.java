@@ -185,7 +185,7 @@ public class DaLi_06 {
         println(Time.converMillis(555550000));
     }
     public static void ex26() {
-        for (long i = 0,j=1; j <= 150; i++) {
+        for (long i = 1,j=1; j <= 150; i++) {
             if(Primes.isPrime(i) && Extras.isPalindrome(i)){
                 printf("%8d", i);
                 if(j++%10==0)println("");
