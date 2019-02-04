@@ -10,7 +10,7 @@ import static lib.Misc.IO.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex12(10,20,4);
+        ex13(10);
 
     }
 
@@ -98,8 +98,12 @@ public class DaLi_06 {
             if(j++%numbersPerLine==numbersPerLine-1)println("");
         }
     }
-    public static void ex13() {
-
+    public static void ex13(int i) {
+        float sum = 0;
+        for (int j=1; j<=i ; j++) {
+            sum += j/(j+2f);
+            printf("%-4d %f %n", j, sum);
+        }
     }
     public static void ex14() {
 
