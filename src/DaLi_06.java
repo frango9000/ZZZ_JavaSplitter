@@ -27,7 +27,7 @@ public class DaLi_06 {
         println(Extras.isPalindrome(1421));
     }
     public static void ex04() {
-
+        println(Extras.reverse(1234));
     }
     public static void ex05() {
 
