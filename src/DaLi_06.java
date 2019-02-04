@@ -41,7 +41,7 @@ public class DaLi_06 {
         }
     }
     public static void ex07() {
-
+        DaLi_02.ex21();
     }
     public static void ex08() {
 
