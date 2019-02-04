@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex20();
+        ex21();
 
     }
 
@@ -152,7 +152,15 @@ public class DaLi_06 {
         print(StringManip.countLetters("Hello 01"));
     }
     public static void ex21() {
+        String string = scanNext("Enter a string ");
+        StringBuilder number= new StringBuilder();
 
+        for (int i = 0; i < string.length(); i++) {
+            if(DaLi_04.ex15(string.charAt(i)) != -1){
+                number.append(DaLi_04.ex15(string.charAt(i)));
+            }else number.append(string.charAt(i));
+        }
+        print(number);
     }
     public static void ex22() {
 

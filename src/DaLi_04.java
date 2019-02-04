@@ -237,17 +237,22 @@ public class DaLi_04 {
         print("Enter a letter: ");
         char letter = scanChar();
         int number = 0;
-        if (Character.isLetter(letter)) {
-            if (letter >= 'W') number = 9;
-            else if (letter >= 'T') number = 8;
-            else if (letter >= 'P') number = 7;
-            else if (letter >= 'M') number = 6;
-            else if (letter >= 'J') number = 5;
-            else if (letter >= 'G') number = 4;
-            else if (letter >= 'D') number = 3;
-            else if (letter >= 'A') number = 2;
-        }
+        number = ex15(letter);
         printf("Number is : %d", number);
+    }
+    public static int ex15(char letter){
+        if(Character.isLetter(letter)) {
+            letter = Character.toUpperCase(letter);
+            if (letter >= 'W') return 9;
+            else if (letter >= 'T') return 8;
+            else if (letter >= 'P') return 7;
+            else if (letter >= 'M') return 6;
+            else if (letter >= 'J') return 5;
+            else if (letter >= 'G') return 4;
+            else if (letter >= 'D') return 3;
+            else if (letter >= 'A') return 2;
+            else return -1;
+        }else return -1;
     }
     public static void ex16() {
         //print((char)97 +""+ (char)122); // a - z
