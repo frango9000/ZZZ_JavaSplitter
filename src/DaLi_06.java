@@ -5,7 +5,7 @@ import static lib.Misc.IO.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex01();
+        ex02();
 
     }
 
@@ -14,7 +14,7 @@ public class DaLi_06 {
     }
     public static void ex01() {
         for (int i = 0; i < 100; i++) {
-            printf("%7d", Algebra.penthagonalNumber(i) );
+            printf("%7d", Algebra.pentagonalNumber(i) );
             if  (i%10 == 9 )println("");
         }
     }
