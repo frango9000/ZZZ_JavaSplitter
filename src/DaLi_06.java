@@ -2,6 +2,7 @@ import lib.Math.Algebra;
 import lib.Math.Extras;
 import lib.Math.Primes;
 import lib.Math.Scales;
+import lib.Misc.StringManip;
 import lib.Misc.Time;
 
 import java.util.Arrays;
@@ -12,7 +13,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex17(4);
+        ex18();
 
     }
 
@@ -137,7 +138,10 @@ public class DaLi_06 {
         }
     }
     public static void ex18() {
-
+        String password = scanNext("Enter Password\n   at least 10 chars\n   only letters and digits\n   at least 3 digits \n");
+        if( StringManip.countDigits(password) >= 3 && StringManip.countLetters(password) >= 10 && (StringManip.countDigits(password)+StringManip.countLetters(password) == password.length())){
+            print("Valid");
+        }else print("Invalid");
     }
     public static void ex19() {
 
