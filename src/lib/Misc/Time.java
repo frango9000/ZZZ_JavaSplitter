@@ -104,6 +104,10 @@ public abstract class Time {
         }
         return 0;
     }
+    public static int daysInYear(int year){
+        if(isLeapYear(year))return 366;
+        else return 365;
+    }
     public static boolean isLeapYear(int year){
         return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
     }

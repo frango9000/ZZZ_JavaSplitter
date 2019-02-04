@@ -2,6 +2,7 @@ import lib.Math.Algebra;
 import lib.Math.Extras;
 import lib.Math.Primes;
 import lib.Math.Scales;
+import lib.Misc.Time;
 
 import java.util.Arrays;
 
@@ -10,7 +11,7 @@ import static lib.Misc.IO.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex14();
+        ex16();
 
     }
 
@@ -116,11 +117,15 @@ public class DaLi_06 {
             PI += Math.pow(-1, i + 1) / (2 * i - 1);
         return PI * 4;
     }
-    public static void ex15() {
-
+    private static void ex15() {
+        /* ToDo */
     }
     public static void ex16() {
-
+        int sum = 0;
+        for (int year = 2014; year <= 2034 ; year++) {
+            sum += Time.daysInYear(year);
+        }
+        print(sum);
     }
     public static void ex17() {
 
