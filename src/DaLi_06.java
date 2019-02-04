@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex19();
+        ex20();
 
     }
 
@@ -149,7 +149,7 @@ public class DaLi_06 {
         print(Triangle.isValidTriangle(5, 6, 2));
     }
     public static void ex20() {
-
+        print(StringManip.countLetters("Hello 01"));
     }
     public static void ex21() {
 
