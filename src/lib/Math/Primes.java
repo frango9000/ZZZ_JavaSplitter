@@ -16,6 +16,7 @@ public class Primes {
     public static long calcsDone = 0L;
 
     public static boolean isPrime(long number) {
+        if (number == 1) return false;
         if (number == 2) return true;
         if (number > 2 && isEven(number)) return false;
         if (number > 3 && isDivisible3(number)) return false;
