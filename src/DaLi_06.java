@@ -16,7 +16,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex33();
+        ex31();
 
     }
 
@@ -245,7 +245,6 @@ public class DaLi_06 {
 
     }
     public static void ex31() {
-
     }
     public static void ex32() {
         int wins =0;
@@ -259,7 +258,7 @@ public class DaLi_06 {
         println(date.toString());
     }
     public static void ex34() {
-
+        println("Day of week is " + Time.dayOfWeekString(2019, 2, 4));
     }
     public static void ex35() {
 
