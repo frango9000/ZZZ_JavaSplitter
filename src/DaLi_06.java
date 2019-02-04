@@ -1,13 +1,16 @@
 import lib.Math.Algebra;
 import lib.Math.Extras;
+import lib.Math.Primes;
 import lib.Math.Scales;
+
+import java.util.Arrays;
 
 import static lib.Misc.IO.*;
 
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex09();
+        ex10(100000);
 
     }
 
@@ -57,8 +60,8 @@ public class DaLi_06 {
         }
 
     }
-    public static void ex10() {
-
+    public static void ex10(int number) {
+        print(Arrays.toString(Primes.listOfPrimesUntil(number)));
     }
     public static void ex11() {
 
