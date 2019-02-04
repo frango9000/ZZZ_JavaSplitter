@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex28();
+        ex29();
 
     }
 
@@ -209,7 +209,11 @@ public class DaLi_06 {
         }
     }
     public static void ex29() {
-
+        for (int i = 1; i < 1200; i++) {
+            if(Primes.isPrime(i) && Primes.isPrime(i+2)){
+                printf("( %d , %d )%n", i,i+2);
+            }
+        }
     }
     public static void ex30() {
 
