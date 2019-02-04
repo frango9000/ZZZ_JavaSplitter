@@ -33,5 +33,8 @@ public abstract class Extras {
         return nextGuess = (lastGuess + n / lastGuess) / 2.0;
     }
 
+    public static boolean isEmirP(long number){
+        return Primes.isPrime(number) && Primes.isPrime(reverse(number));
+    }
 
 }

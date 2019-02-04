@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex26();
+        ex27();
 
     }
 
@@ -193,7 +193,13 @@ public class DaLi_06 {
         }
     }
     public static void ex27() {
-
+        //List Emirp
+        for (int i = 1,j=1; j <= 120; i++) {
+            if(Extras.isEmirP(i)){
+                printf("%8d", i);
+                if(j++%10==0)println("");
+            }
+        }
     }
     public static void ex28() {
 
