@@ -286,6 +286,6 @@ public class DaLi_06 {
         }
     }
     public static void ex39() {
-
+        DaLi_03.ex32();
     }
 }
