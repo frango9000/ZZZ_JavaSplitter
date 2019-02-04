@@ -7,6 +7,7 @@ import lib.Misc.StringManip;
 import lib.Misc.Time;
 
 import java.util.Arrays;
+import java.util.Date;
 import java.util.GregorianCalendar;
 
 import static lib.Misc.IO.*;
@@ -15,7 +16,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex32();
+        ex33();
 
     }
 
@@ -254,7 +255,8 @@ public class DaLi_06 {
         println(wins);
     }
     public static void ex33() {
-
+        Date date = new Date(System.currentTimeMillis());
+        println(date.toString());
     }
     public static void ex34() {
 
