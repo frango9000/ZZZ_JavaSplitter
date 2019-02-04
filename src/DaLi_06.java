@@ -7,7 +7,7 @@ import static lib.Misc.IO.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex08();
+        ex09();
 
     }
 
@@ -51,6 +51,10 @@ public class DaLi_06 {
         }
     }
     public static void ex09() {
+        printf("%s %s %3s %s %5s\n", "Kilogram", "Pound", "|", "Pound", "Kilogram");
+        for (int k = 1, p=20; k <= 10; k+=2, p+=5) {
+            printf("%-8d %-7.3f %s %-5d %.3f\n",  k, Scales.kilogramToPound(k),"|", p, Scales.poundToKilogram(p));
+        }
 
     }
     public static void ex10() {
