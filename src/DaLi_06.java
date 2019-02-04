@@ -14,7 +14,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex22();
+        ex23();
 
     }
 
@@ -165,7 +165,14 @@ public class DaLi_06 {
         print(Extras.babylonianSquareRoot(9));
     }
     public static void ex23() {
-
+        print(ex23("Hello", 'l'));
+    }
+    public static int ex23(String string, char character) {
+        int count = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if(string.charAt(i) == character)count++;
+        }
+        return count;
     }
     public static void ex24() {
 
