@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex25();
+        ex26();
 
     }
 
@@ -185,7 +185,12 @@ public class DaLi_06 {
         println(Time.converMillis(555550000));
     }
     public static void ex26() {
-
+        for (long i = 0,j=1; j <= 150; i++) {
+            if(Primes.isPrime(i) && Extras.isPalindrome(i)){
+                printf("%8d", i);
+                if(j++%10==0)println("");
+            }
+        }
     }
     public static void ex27() {
 

@@ -2,7 +2,7 @@ package lib.Math;
 
 public abstract class Extras {
 
-    public static int reverse(int number){
+    public static int reverse(long number){
         int size = String.valueOf(number).length();
         StringBuilder string = new StringBuilder();
         for (int i = 1; i <= size; i++) {
@@ -12,7 +12,7 @@ public abstract class Extras {
         return Integer.parseInt(string.toString());
     }
 
-    public static boolean isPalindrome(int number){
+    public static boolean isPalindrome(long number){
         return number == reverse(number);
     }
 

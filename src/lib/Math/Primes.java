@@ -5,10 +5,7 @@
  */
 package lib.Math;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * @author NarF
@@ -18,7 +15,7 @@ public class Primes {
     public static boolean debug = false;
     public static long calcsDone = 0L;
 
-    public static boolean checkPrime(int number) {
+    public static boolean isPrime(long number) {
         if (number == 2) return true;
         if (number > 2 && isEven(number)) return false;
         if (number > 3 && isDivisible3(number)) return false;
@@ -26,7 +23,7 @@ public class Primes {
         return countDivisors(number) == 0;
     }
 
-    public static int countDivisors(int bNum) {
+    public static int countDivisors(long bNum) {
         int count = 0;
         for (int f = 3; f <= bNum / 3; f += 2) {
             calcsDone++;
@@ -37,7 +34,7 @@ public class Primes {
         return count;
     }
 
-    public static boolean hasDivisors(int bNum) {
+    public static boolean hasDivisors(long bNum) {
         for (int f = 3; f <= bNum / 3; f += 2) {
             if (bNum % f == 0) {
                 return true;
@@ -46,15 +43,15 @@ public class Primes {
         return false;
     }
 
-    public static boolean isEven(int n) {
+    public static boolean isEven(long n) {
         return (n % 2 == 0);
     }
 
-    public static boolean isDivisible3(int n) {
+    public static boolean isDivisible3(long n) {
         return (n % 3 == 0);
     }
 
-    public static boolean isDivisible5(int n) {
+    public static boolean isDivisible5(long n) {
         return (n % 5 == 0);
     }
 
@@ -64,7 +61,7 @@ public class Primes {
 
         pr[0] = 2;
         for (int i = 3, j = 1; i <= n; i += 2) {
-            if (checkPrime(i)) {
+            if (isPrime(i)) {
                 pr[j++] = i;
                 count++;
             }
@@ -74,7 +71,7 @@ public class Primes {
     }
 
     public static int[] getPrimeFactors(int number) {
-        if (Primes.checkPrime(number))
+        if (Primes.isPrime(number))
             return new int[]{number};
 
         int[] array = new int[(int) Math.round(Math.sqrt(number))];
