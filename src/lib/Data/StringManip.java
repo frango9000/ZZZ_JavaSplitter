@@ -1,4 +1,4 @@
-package lib.Misc;
+package lib.Data;
 
 public abstract class StringManip {
 

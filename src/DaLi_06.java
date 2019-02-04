@@ -5,7 +5,8 @@ import lib.Math.Algebra;
 import lib.Math.Extras;
 import lib.Math.Primes;
 import lib.Math.Scales;
-import lib.Misc.StringManip;
+import lib.Data.StringManip;
+import lib.Data.CharManip;
 import lib.Misc.Time;
 
 import java.util.Arrays;
@@ -18,7 +19,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex37();
+        ex38();
 
     }
 
@@ -274,7 +275,15 @@ public class DaLi_06 {
         println(StringManip.format(34, 6));
     }
     public static void ex38() {
-
+        for (int i = 1; i <= 200; i++) {
+            printf("%c", CharManip.getRandomUpperCaseLetter());
+            if (i%10==0)println("");
+        }
+        println("");
+        for (int i = 1; i <= 200; i++) {
+            printf("%c", CharManip.getRandomDigitCharacter());
+            if (i%10==0)println("");
+        }
     }
     public static void ex39() {
 
