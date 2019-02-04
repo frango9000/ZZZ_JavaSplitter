@@ -20,4 +20,8 @@ public abstract class StringManip {
         }
         return count;
     }
+
+    public static String format(int number, int width){
+        return String.format("%0"+width+"d", number);
+    }
 }

@@ -18,7 +18,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex36();
+        ex37();
 
     }
 
@@ -271,7 +271,7 @@ public class DaLi_06 {
         print(polygon.area());
     }
     public static void ex37() {
-
+        println(StringManip.format(34, 6));
     }
     public static void ex38() {
 
