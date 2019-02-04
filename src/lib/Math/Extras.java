@@ -23,5 +23,15 @@ public abstract class Extras {
         return max(max(number1,number2),number3);
     }
 
+    public static double babylonianSquareRoot(int n){
+        double lastGuess= 1.0, nextGuess = (lastGuess + n / lastGuess) / 2.0;
+        while (nextGuess - lastGuess > 0.0000000000001){
+            lastGuess = nextGuess;
+            nextGuess = (lastGuess + n / lastGuess) / 2.0;
+        }
+        lastGuess = nextGuess;
+        return nextGuess = (lastGuess + n / lastGuess) / 2.0;
+    }
+
 
 }
