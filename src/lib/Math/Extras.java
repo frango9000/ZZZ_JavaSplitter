@@ -16,4 +16,12 @@ public abstract class Extras {
         return number == reverse(number);
     }
 
+    public static double max(double number1, double number2){
+        return number1 > number2 ? number1 : number2;
+    }
+    public static double max(double number1, double number2, double number3){
+        return max(max(number1,number2),number3);
+    }
+
+
 }

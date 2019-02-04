@@ -6,7 +6,7 @@ import static lib.Misc.IO.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex03();
+        ex05();
 
     }
 
@@ -30,7 +30,7 @@ public class DaLi_06 {
         println(Extras.reverse(1234));
     }
     public static void ex05() {
-
+        println((int)Extras.max(5,6,7));
     }
     public static void ex06() {
 
