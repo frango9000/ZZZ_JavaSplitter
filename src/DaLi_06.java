@@ -345,6 +345,9 @@ public class DaLi_06 {
 
     }
     public static void ex31() {
+        long number = scanLong("Enter a credit card number as a long integer: ");
+
+        println(number + " is " + (auxp.ch06.CreditCard.isValid(number) ? "valid" : "invalid"));
     }
     public static void ex32() {
         int wins =0;
