@@ -10,7 +10,7 @@ import static lib.Misc.IO.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex13(10);
+        ex14();
 
     }
 
@@ -106,7 +106,15 @@ public class DaLi_06 {
         }
     }
     public static void ex14() {
-
+        for (int i = 1; i < 1000; i+=100) {
+            printf("%-6d %.5f%n",i, ex14pi(i));
+        }
+    }
+    public static double ex14pi(int precision) {
+        double PI = 0.0;
+        for (int i = precision; i > 0; i--)
+            PI += Math.pow(-1, i + 1) / (2 * i - 1);
+        return PI * 4;
     }
     public static void ex15() {
 
