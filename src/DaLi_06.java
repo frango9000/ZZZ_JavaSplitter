@@ -6,7 +6,7 @@ import static lib.Misc.IO.*;
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex05();
+        ex06(10);
 
     }
 
@@ -32,8 +32,13 @@ public class DaLi_06 {
     public static void ex05() {
         println((int)Extras.max(5,6,7));
     }
-    public static void ex06() {
-
+    public static void ex06(int lines) {
+        for (int i = 1; i <= lines; i++) {
+            for (int j = 1; j <= i; j++) {
+                printf("%3d",j);
+            }
+            println("");
+        }
     }
     public static void ex07() {
 
