@@ -1,12 +1,13 @@
 import lib.Math.Algebra;
 import lib.Math.Extras;
+import lib.Math.Scales;
 
 import static lib.Misc.IO.*;
 
 public class DaLi_06 {
     public static void main(String[] args) {
 
-        ex06(10);
+        ex08();
 
     }
 
@@ -44,7 +45,10 @@ public class DaLi_06 {
         DaLi_02.ex21();
     }
     public static void ex08() {
-
+        printf("%s %s %s %s %s\n", "Miles", "Kilometers", "|", "Kilometers", "Miles");
+        for (int i = 1, k=20; i <= 10; i++, k+=5) {
+            printf("%-8d %-7.3f %s %-10d %.3f\n",  i, Scales.mileToKilometer(i),"|", k, Scales.kilometerToMile(k));
+        }
     }
     public static void ex09() {
 
