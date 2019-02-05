@@ -9,7 +9,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex12();
+        ex13();
 
     }
 
@@ -132,6 +132,9 @@ public class DaLi_07 {
         ArrayTool.printArray(ArrayTool.reverseArray(rands));
     }
     public static void ex13() {
+        int[] rands = randomIntsArray(10, 10);
+        ArrayTool.printArray(rands);
+        printf("%n%d",ArrayTool.getRandom(rands));
     }
     public static void ex14() {
     }

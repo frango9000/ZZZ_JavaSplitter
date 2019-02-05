@@ -1,5 +1,7 @@
 package lib.Data;
 
+import lib.Misc.Randomizer;
+
 import java.util.Arrays;
 
 public class ArrayTool {
@@ -110,5 +112,8 @@ public class ArrayTool {
             reversed[j] = array[i];
         }
         return reversed;
+    }
+    public static int getRandom(int... numbers){
+        return numbers[Randomizer.randomInt(numbers.length-1)];
     }
 }
