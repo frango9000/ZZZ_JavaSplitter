@@ -18,7 +18,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex09();
+        ex10();
 
     }
 
@@ -127,6 +127,7 @@ public class DaLi_07 {
         print(ArrayTool.max(randomDoublesArray(5, 0, 5)));
     }
     public static void ex10() {
+        print(ArrayTool.indexOfMax(randomDoublesArray(50, 0, 5)));
     }
     public static void ex11() {
     }

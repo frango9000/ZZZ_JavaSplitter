@@ -87,4 +87,13 @@ public class ArrayTool {
         }
         return max;
     }
+    public static int indexOfMax(double[] array) {
+        int max = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > array[max]) {
+                max = i;
+            }
+        }
+        return max;
+    }
 }
