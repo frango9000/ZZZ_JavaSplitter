@@ -1,3 +1,4 @@
+import lib.Data.ArrayTool;
 import lib.Geometry.Pentagon;
 import lib.Geometry.Polygon;
 import lib.Geometry.Triangle;
@@ -17,7 +18,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex08();
+        ex09();
 
     }
 
@@ -123,6 +124,7 @@ public class DaLi_07 {
         print(Algebra.average(randomDoublesArray(5, 0, 5)));
     }
     public static void ex09() {
+        print(ArrayTool.max(randomDoublesArray(5, 0, 5)));
     }
     public static void ex10() {
     }
