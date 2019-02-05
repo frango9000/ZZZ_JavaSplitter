@@ -17,7 +17,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex06();
+        ex07();
 
     }
 
@@ -110,6 +110,14 @@ public class DaLi_07 {
                 printf("%d is prime\n", i);
     }
     public static void ex07() {
+        int[] rands = randomIntsArray(200, 9);
+        int[] counts= new int[10];
+        for (int i = 0; i < rands.length; i++) {
+            counts[rands[i]]++;
+        }
+        for (int i = 0; i < counts.length; i++) {
+            printf("%d %d\n",i, counts[i]);
+        }
     }
     public static void ex08() {
     }
