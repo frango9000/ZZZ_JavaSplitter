@@ -99,5 +99,38 @@ public abstract class Algebra {
         }
         return sum+number;
     }
+    private static int leastCommonMultiple(int a, int b){
+        return a * (b / greatestCommonDivisor(a, b));
+    }
+    public static int leastCommonMultiple(int... numbers){
+        return Arrays.stream(numbers).reduce(1, (x, y) -> x * (y / (int)greatestCommonDivisor(x, y)));
+    }
+    private static int greatestCommonDivisor(int a, int b){
+        if (b == 0) return a;
+        else return (greatestCommonDivisor(b, a % b));
+    }
 
+    public static int greatestCommonDivisor(int... numbers) {
+        int result = numbers[0];
+        for(int i = 1; i < numbers.length; i++) {
+            result = greatestCommonDivisor(result, numbers[i]);
+        }
+        return result;
+    }
+    public static int min(int... numbers) {
+        int min = numbers[0];
+        for (int e: numbers) {
+            if (e < min)
+                min = e;
+        }
+        return min;
+    }
+    public static int max(int... numbers) {
+        int max = numbers[0];
+        for (int e: numbers) {
+            if (e > max)
+                max = e;
+        }
+        return max;
+    }
 }

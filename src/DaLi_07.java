@@ -9,7 +9,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex13();
+        ex14();
 
     }
 
@@ -137,6 +137,10 @@ public class DaLi_07 {
         printf("%n%d",ArrayTool.getRandom(rands));
     }
     public static void ex14() {
+        int[] rands = randomIntsArray(10, 5,100);
+        ArrayTool.printArray(rands);
+        printf("%n%d",Algebra.greatestCommonDivisor(rands));
+        printf("%n%d",Algebra.leastCommonMultiple(rands));
     }
     public static void ex15() {
     }
