@@ -9,13 +9,15 @@ import lib.Data.StringManip;
 import lib.Data.CharManip;
 import lib.Misc.Time;
 
+import java.util.Arrays;
+
 import static lib.Misc.IO.*;
 import static lib.Misc.Randomizer.*;
 
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex05();
+        ex06();
 
     }
 
@@ -97,6 +99,15 @@ public class DaLi_07 {
         printf("%d odds%n%d evens", odd, even);
     }
     public static void ex06() {
+        boolean[] primes = new boolean[50];
+        Arrays.fill(primes, true);
+        for (int i = 2; i < primes.length; i++)
+            for (int j = i+1; j < primes.length; j++)
+                if(j % i == 0)
+                    primes[j]=false;
+        for (int i = 0; i < primes.length; i++)
+            if (primes[i])
+                printf("%d is prime\n", i);
     }
     public static void ex07() {
     }
