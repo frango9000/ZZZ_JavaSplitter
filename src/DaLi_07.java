@@ -15,13 +15,28 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex00();
+        ex01();
 
     }
 
     public static void ex00() {
     }
     public static void ex01() {
+        byte number = scanByte("Number of students ");
+        int[] students = new int[number];
+        int best =0;
+        for (int i = 0; i < students.length; i++) {
+            students[i]= scanByte("Enter grade for student " + (i+1));
+            if(students[i]>best)best=students[i];
+        }
+        for (int i = 1; i <= students.length ; i++) {
+            if(students[i] >= best - 5 ) printf("Student %d grade A", i);
+            else if(students[i] >= best - 10 ) printf("Student %d grade B", i);
+            else if(students[i] >= best - 15 ) printf("Student %d grade C", i);
+            else if(students[i] >= best - 20 ) printf("Student %d grade D", i);
+            else printf("Student %d grade F", i);
+            println("");
+        }
     }
     public static void ex02() {
     }
