@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex03();
+        ex04();
 
     }
 
@@ -64,6 +64,28 @@ public class DaLi_07 {
         }
     }
     public static void ex04() {
+        int[] numbers = new int[100];
+        int num = -1;
+        int count = 0;
+        for (int i = 0; num != 0; i++) {
+            num = scanInt("Enter numbers; 0 to break;");
+            if (num > 0 && num < 101) {
+                count++;
+                numbers[num]++;
+            }
+        }
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i] * i;
+        }
+        float average = sum / (float) count;
+        int above = 0;
+        for (int i = 1; i < numbers.length; i++) {
+            if (i >= average && numbers[i] > 0) {
+                above += numbers[i];
+            }
+        }
+        printf("average: %f,%n above avg count:%d", average, above);
     }
     public static void ex05() {
     }
