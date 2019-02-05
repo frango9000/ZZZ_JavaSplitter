@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex04();
+        ex05();
 
     }
 
@@ -88,6 +88,13 @@ public class DaLi_07 {
         printf("average: %f,%n above avg count:%d", average, above);
     }
     public static void ex05() {
+        int[] nums = randomIntsArray(20, 1,9);
+        int odd=0,even=0;
+        for (int i = 0; i < nums.length; i++) {
+            if(nums[i] % 2 == 0)even++;
+            else odd++;
+        }
+        printf("%d odds%n%d evens", odd, even);
     }
     public static void ex06() {
     }
