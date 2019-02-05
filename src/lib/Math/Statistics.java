@@ -16,4 +16,12 @@ public abstract class Statistics {
         }
         return Math.sqrt((deviation - (Math.pow(mean(numbers)*numbers.length, 2) / numbers.length)) / (numbers.length - 1));
     }
+    public static double standardDeviationAlt(double[] x) {
+        double deviation = 0;
+        double mean = mean(x);
+        for (double e: x) {
+            deviation += Math.pow(e - mean, 2);
+        }
+        return Math.sqrt(deviation / (x.length - 1));
+    }
 }

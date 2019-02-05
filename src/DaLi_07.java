@@ -1,14 +1,5 @@
 import lib.Data.ArrayTool;
-import lib.Geometry.Pentagon;
-import lib.Geometry.Polygon;
-import lib.Geometry.Triangle;
-import lib.Math.Algebra;
-import lib.Math.Extras;
-import lib.Math.Primes;
-import lib.Math.Scales;
-import lib.Data.StringManip;
-import lib.Data.CharManip;
-import lib.Misc.Time;
+import lib.Math.*;
 
 import java.util.Arrays;
 
@@ -18,7 +9,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex10();
+        ex11();
 
     }
 
@@ -121,7 +112,7 @@ public class DaLi_07 {
         }
     }
     public static void ex08() {
-        print(Algebra.average(randomDoublesArray(5, 0, 5)));
+        print(Statistics.mean(randomDoublesArray(5, 0, 5)));
     }
     public static void ex09() {
         print(ArrayTool.max(randomDoublesArray(5, 0, 5)));
@@ -130,6 +121,10 @@ public class DaLi_07 {
         print(ArrayTool.indexOfMax(randomDoublesArray(50, 0, 5)));
     }
     public static void ex11() {
+        double[] rands = randomDoublesArray(10, 0, 10);
+        println(Statistics.mean(rands));
+        println(Statistics.standardDeviation(rands));
+        println(Statistics.standardDeviationAlt(rands));
     }
     public static void ex12() {
     }

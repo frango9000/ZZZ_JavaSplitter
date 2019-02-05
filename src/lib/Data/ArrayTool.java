@@ -63,8 +63,8 @@ public class ArrayTool {
         return array;
     }
 
-    public static void mostrar(int[] array) {
-        for (int i = 0; i > array.length; i++) {
+    public static void printArray(double[] array) {
+        for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
     }
