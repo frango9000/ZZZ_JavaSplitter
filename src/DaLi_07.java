@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex02();
+        ex03();
 
     }
 
@@ -50,6 +50,18 @@ public class DaLi_07 {
         }
     }
     public static void ex03() {
+        int[] numbers = new int[100];
+        int num = -1;
+        for (int i = 0; num != 0; i++) {
+            num = scanInt("Enter numbers; 0 to break;");
+            if (num > 0 && num < 101)
+                numbers[num]++;
+        }
+        for (int i = 0; i < numbers.length; i++) {
+            if(numbers[i] != 0)
+                printf(" number %d appears %d time%s\n", i, numbers[i], numbers[i]>1?"s":"");
+
+        }
     }
     public static void ex04() {
     }
