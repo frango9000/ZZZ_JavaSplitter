@@ -17,7 +17,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex07();
+        ex08();
 
     }
 
@@ -120,6 +120,7 @@ public class DaLi_07 {
         }
     }
     public static void ex08() {
+        print(Algebra.average(randomDoublesArray(5, 0, 5)));
     }
     public static void ex09() {
     }

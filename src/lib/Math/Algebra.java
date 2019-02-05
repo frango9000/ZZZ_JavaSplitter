@@ -99,4 +99,16 @@ public abstract class Algebra {
         }
         return sum+number;
     }
+    public static int average(int[] array){
+        return average(array);
+    }
+
+    public static double average(double[] array){
+        double sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum/array.length;
+
+    }
 }
