@@ -1,5 +1,7 @@
 package lib.Data;
 
+import java.util.Arrays;
+
 public class ArrayTool {
 
     public static int[] arrayDeRepetidos(int[] array, int num) {
@@ -68,6 +70,11 @@ public class ArrayTool {
             System.out.println(array[i]);
         }
     }
+    public static void printArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
 
     public static int buscarIndice(int[] array, int num) {
         for (int i = 0; i < array.length; i++) {
@@ -95,5 +102,13 @@ public class ArrayTool {
             }
         }
         return max;
+    }
+    public static int[] reverseArray(int[] array){
+        int[] reversed = new int [array.length];
+        for (int i = 0, j = array.length-1; i < array.length/2; i++, j--) {
+            reversed[i] = array[j];
+            reversed[j] = array[i];
+        }
+        return reversed;
     }
 }
