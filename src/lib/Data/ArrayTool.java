@@ -116,4 +116,21 @@ public class ArrayTool {
     public static int getRandom(int... numbers){
         return numbers[Randomizer.randomInt(numbers.length-1)];
     }
+    public static boolean contains(int[] array, int number){
+        for (int i = 0; i < array.length; i++) {
+            if(array[i]==number)return true;
+        }
+        return false;
+    }
+    public static int[] removeDuplicates(int[] array){
+        int count = 0;
+        int[] unique = new int [array.length];
+        for (int i = 0; i < array.length; i++) {
+            if( !(contains(unique, array[i])) ) {
+                unique[count] = array[i];
+                count++;
+            }
+        }
+        return Arrays.copyOfRange(unique, 0, count);
+    }
 }

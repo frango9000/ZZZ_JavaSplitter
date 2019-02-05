@@ -9,7 +9,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex14();
+        ex15();
 
     }
 
@@ -143,6 +143,11 @@ public class DaLi_07 {
         printf("%n%d",Algebra.leastCommonMultiple(rands));
     }
     public static void ex15() {
+        int[] rands = randomIntsArray(10, 5,9);
+        ArrayTool.printArray(rands);
+        println("");
+        rands =ArrayTool.removeDuplicates(rands);
+        ArrayTool.printArray(rands);
     }
     public static void ex16() {
     }
