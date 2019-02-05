@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex01();
+        ex02();
 
     }
 
@@ -39,6 +39,15 @@ public class DaLi_07 {
         }
     }
     public static void ex02() {
+        int[] eleven = new int[11];
+        for (int i = 0; i < eleven.length; i++) {
+            eleven[i]=scanInt("Enter number " + (i+1) + " ");
+        }
+        for (int i = 0; i < eleven.length -1; i++) {
+            if ( eleven[i] < eleven[10] )println("lesser");
+            else if ( eleven[i] > eleven[10] )println("greater");
+            else println("equal");
+        }
     }
     public static void ex03() {
     }
