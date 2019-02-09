@@ -2,6 +2,7 @@ import auxp.ch07.DeckOfCards;
 import lib.Data.ArrayTool;
 import lib.Math.*;
 import lib.Misc.IO;
+import lib.Misc.Time;
 
 import java.util.Arrays;
 
@@ -11,7 +12,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex32();
+        ex33();
 
     }
 
@@ -323,6 +324,8 @@ public class DaLi_07 {
         return ArrayTool.binarySearch(array, pivot);
     }
     public static void ex33() {
+        int month = scanInt("Enter month number ");
+        print(Time.monthName(month));
     }
     public static void ex34() {
     }
