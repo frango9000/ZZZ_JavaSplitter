@@ -249,6 +249,7 @@ public class DaLi_07 {
         DaLi_03.ex01();
     }
     public static void ex26() {
+        ex19();
     }
     public static void ex27() {
     }
