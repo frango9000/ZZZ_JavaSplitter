@@ -10,7 +10,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex21();
+        ex22();
 
     }
 
@@ -218,6 +218,15 @@ public class DaLi_07 {
         }
     }
     public static void ex22() {
+        String string = scanNext("Enter string ");
+        int countHigh = 0, countLow = 0;
+        for (int i = 0; i < string.length(); i++) {
+            if( string.charAt(i) >= 'A' && string.charAt(i) <= 'Z' )
+                countHigh++;
+            else if ( string.charAt(i) >= 'a' && string.charAt(i) <= 'z' )
+                countLow++;
+        }
+        print("%d Uppercases,%n%d Lowercases.", countHigh,countLow);
     }
     public static void ex23() {
     }
