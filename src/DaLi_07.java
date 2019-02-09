@@ -11,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex31();
+        ex32();
 
     }
 
@@ -312,6 +312,15 @@ public class DaLi_07 {
         return ArrayTool.bubbleSort(merged);
     }
     public static void ex32() {
+        int[] numbers = {5,2,9,3,6,8};
+        ArrayTool.printArray(numbers);
+        println(ex32partition(numbers));
+        ArrayTool.printArray(numbers);
+    }
+    public static int ex32partition(int[] array){
+        int pivot = array[0];
+        ArrayTool.bubbleSort(array);
+        return ArrayTool.binarySearch(array, pivot);
     }
     public static void ex33() {
     }
