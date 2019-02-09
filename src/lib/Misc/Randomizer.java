@@ -1,5 +1,7 @@
 package lib.Misc;
 
+import lib.Data.ArrayTool;
+
 import java.util.Random;
 
 public abstract class Randomizer {
@@ -31,7 +33,28 @@ public abstract class Randomizer {
         return randomIntsArray(elements, 0, highBound);
     }
     public static int[] randomIntsArray(int elements){
-        return randomIntsArray(elements, 100);
+        return randomIntsArray(elements, elements);
+    }
+
+    public static int[] randomUniqueIntsArray(int elements, int lowBound, int highBound){
+        int range = highBound-lowBound+1;
+        if(range <= elements) {
+            int[] randoms = new int[elements];
+            for (int i = 0; i < randoms.length;) {
+                int randomCandidate = randomInt(range) + lowBound;
+                if(!ArrayTool.contains(randoms, randomCandidate)){
+                    randoms[i] = randomCandidate;
+                    i++;
+                }
+            }
+            return randoms;
+        }else return null;
+    }
+    public static int[] randomUniqueIntsArray(int elements, int highBound){
+        return randomUniqueIntsArray(elements, 0, highBound);
+    }
+    public static int[] randomUniqueIntsArray(int elements){
+        return randomUniqueIntsArray(elements, elements);
     }
 
     public static double[] randomDoublesArray(int elements, double lowBound, double highBound){
@@ -47,7 +70,7 @@ public abstract class Randomizer {
         return randomDoublesArray(elements, 0, highBound);
     }
     public static double[] randomDoublesArray(int elements){
-        return randomDoublesArray(elements, 100);
+        return randomDoublesArray(elements, elements);
     }
 
 }
