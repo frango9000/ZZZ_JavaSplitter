@@ -1,3 +1,4 @@
+import auxp.ch06.DeckOfCards;
 import lib.Data.ArrayTool;
 import lib.Math.*;
 import lib.Misc.IO;
@@ -10,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex23();
+        ex24();
 
     }
 
@@ -242,6 +243,7 @@ public class DaLi_07 {
         }
     }
     public static void ex24() {
+        DeckOfCards.main();
     }
     public static void ex25() {
     }
