@@ -22,16 +22,16 @@ public class DaLi_07 {
     public static void ex01() {
         byte number = scanByte("Number of students ");
         int[] students = new int[number];
-        int best =0;
+        int best = 0;
         for (int i = 0; i < students.length; i++) {
-            students[i]= scanByte("Enter grade for student " + (i+1));
-            if(students[i]>best)best=students[i];
+            students[i] = scanByte("Enter grade for student " + (i + 1));
+            if (students[i] > best) best = students[i];
         }
-        for (int i = 1; i <= students.length ; i++) {
-            if(students[i] >= best - 5 ) IO.print("Student %d grade A", i);
-            else if(students[i] >= best - 10 ) IO.print("Student %d grade B", i);
-            else if(students[i] >= best - 15 ) IO.print("Student %d grade C", i);
-            else if(students[i] >= best - 20 ) IO.print("Student %d grade D", i);
+        for (int i = 1; i <= students.length; i++) {
+            if (students[i] >= best - 5) IO.print("Student %d grade A", i);
+            else if (students[i] >= best - 10) IO.print("Student %d grade B", i);
+            else if (students[i] >= best - 15) IO.print("Student %d grade C", i);
+            else if (students[i] >= best - 20) IO.print("Student %d grade D", i);
             else IO.print("Student %d grade F", i);
             println("");
         }
@@ -39,11 +39,11 @@ public class DaLi_07 {
     public static void ex02() {
         int[] eleven = new int[11];
         for (int i = 0; i < eleven.length; i++) {
-            eleven[i]=scanInt("Enter number " + (i+1) + " ");
+            eleven[i] = scanInt("Enter number " + (i + 1) + " ");
         }
-        for (int i = 0; i < eleven.length -1; i++) {
-            if ( eleven[i] < eleven[10] )println("lesser");
-            else if ( eleven[i] > eleven[10] )println("greater");
+        for (int i = 0; i < eleven.length - 1; i++) {
+            if (eleven[i] < eleven[10]) println("lesser");
+            else if (eleven[i] > eleven[10]) println("greater");
             else println("equal");
         }
     }
@@ -56,8 +56,8 @@ public class DaLi_07 {
                 numbers[num]++;
         }
         for (int i = 0; i < numbers.length; i++) {
-            if(numbers[i] != 0)
-                IO.print(" number %d appears %d time%s\n", i, numbers[i], numbers[i]>1?"s":"");
+            if (numbers[i] != 0)
+                IO.print(" number %d appears %d time%s\n", i, numbers[i], numbers[i] > 1 ? "s" : "");
 
         }
     }
@@ -86,10 +86,10 @@ public class DaLi_07 {
         IO.print("average: %f,%n above avg count:%d", average, above);
     }
     public static void ex05() {
-        int[] nums = randomIntsArray(20, 1,9);
-        int odd=0,even=0;
+        int[] nums = randomIntsArray(20, 1, 9);
+        int odd = 0, even = 0;
         for (int i = 0; i < nums.length; i++) {
-            if(nums[i] % 2 == 0)even++;
+            if (nums[i] % 2 == 0) even++;
             else odd++;
         }
         IO.print("%d odds%n%d evens", odd, even);
@@ -98,21 +98,21 @@ public class DaLi_07 {
         boolean[] primes = new boolean[50];
         Arrays.fill(primes, true);
         for (int i = 2; i < primes.length; i++)
-            for (int j = i+1; j < primes.length; j++)
-                if(j % i == 0)
-                    primes[j]=false;
+            for (int j = i + 1; j < primes.length; j++)
+                if (j % i == 0)
+                    primes[j] = false;
         for (int i = 0; i < primes.length; i++)
             if (primes[i])
                 IO.print("%d is prime\n", i);
     }
     public static void ex07() {
         int[] rands = randomIntsArray(200, 9);
-        int[] counts= new int[10];
+        int[] counts = new int[10];
         for (int i = 0; i < rands.length; i++) {
             counts[rands[i]]++;
         }
         for (int i = 0; i < counts.length; i++) {
-            IO.print("%d %d\n",i, counts[i]);
+            IO.print("%d %d\n", i, counts[i]);
         }
     }
     public static void ex08() {
@@ -138,19 +138,19 @@ public class DaLi_07 {
     public static void ex13() {
         int[] rands = randomIntsArray(10, 10);
         ArrayTool.printArray(rands);
-        IO.print("%n%d",ArrayTool.getRandom(rands));
+        IO.print("%n%d", ArrayTool.getRandom(rands));
     }
     public static void ex14() {
-        int[] rands = randomIntsArray(10, 5,100);
+        int[] rands = randomIntsArray(10, 5, 100);
         ArrayTool.printArray(rands);
-        IO.print("%n%d",Algebra.greatestCommonDivisor(rands));
-        IO.print("%n%d",Algebra.leastCommonMultiple(rands));
+        IO.print("%n%d", Algebra.greatestCommonDivisor(rands));
+        IO.print("%n%d", Algebra.leastCommonMultiple(rands));
     }
     public static void ex15() {
-        int[] rands = randomIntsArray(10, 5,9);
+        int[] rands = randomIntsArray(10, 5, 9);
         ArrayTool.printArray(rands);
         println("");
-        rands =ArrayTool.removeDuplicates(rands);
+        rands = ArrayTool.removeDuplicates(rands);
         ArrayTool.printArray(rands);
     }
     public static void ex16() {
@@ -160,7 +160,7 @@ public class DaLi_07 {
         }
         long startTime, endTime, totalTime;
         int search, index;
-        int[] searches = {1,25000000,50000000,75000000,10000000};
+        int[] searches = {1, 25000000, 50000000, 75000000, 10000000};
 
         for (int i = 0; i < searches.length; i++) {
 
@@ -168,14 +168,14 @@ public class DaLi_07 {
             startTime = System.nanoTime();
             index = ArrayTool.linearSearch(array, search);
             endTime = System.nanoTime();
-            totalTime = endTime-startTime;
-            IO.print("Linear search of number %d took %dns found in index %d%n", search, totalTime,index);
+            totalTime = endTime - startTime;
+            IO.print("Linear search of number %d took %dns found in index %d%n", search, totalTime, index);
 
             startTime = System.nanoTime();
             index = ArrayTool.binarySearch(array, search);
             endTime = System.nanoTime();
-            totalTime = endTime-startTime;
-            IO.print("Binary search of number %d took %dns found in index %d%n%n", search, totalTime,index);
+            totalTime = endTime - startTime;
+            IO.print("Binary search of number %d took %dns found in index %d%n%n", search, totalTime, index);
         }
     }
     public static void ex17() {
@@ -184,13 +184,13 @@ public class DaLi_07 {
         String[] names = new String[numberOfStudents];
 
         for (int i = 0; i < numberOfStudents; i++) {
-            grades[i]=scanInt("Enter Grade of student %d:", (i+1));
-            names[i]=scanNext("Enter Name of student %d:", (i+1));
+            grades[i] = scanInt("Enter Grade of student %d:", (i + 1));
+            names[i] = scanNext("Enter Name of student %d:", (i + 1));
         }
         int[] sortedIndexes = ArrayTool.bubbleSortIndex(grades);
 
         for (int i = 0; i < sortedIndexes.length; i++) {
-            print("%d Name: %s grade: %d%n", i,names[sortedIndexes[i]], grades[sortedIndexes[i]] );
+            print("%d Name: %s grade: %d%n", i, names[sortedIndexes[i]], grades[sortedIndexes[i]]);
         }
     }
     public static void ex18() {
@@ -217,31 +217,31 @@ public class DaLi_07 {
         int max = rands[ArrayTool.indexOfMax(rands)];
 
         for (int i = 0; i < rands.length; i++) {
-            println(Extras.map(rands[i], 0,max, 0, 1));
+            println(Extras.map(rands[i], 0, max, 0, 1));
         }
     }
     public static void ex22() {
         String string = scanNext("Enter string ");
         int countHigh = 0, countLow = 0;
         for (int i = 0; i < string.length(); i++) {
-            if( string.charAt(i) >= 'A' && string.charAt(i) <= 'Z' )
+            if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z')
                 countHigh++;
-            else if ( string.charAt(i) >= 'a' && string.charAt(i) <= 'z' )
+            else if (string.charAt(i) >= 'a' && string.charAt(i) <= 'z')
                 countLow++;
         }
-        print("%d Uppercases,%n%d Lowercases.", countHigh,countLow);
+        print("%d Uppercases,%n%d Lowercases.", countHigh, countLow);
     }
     public static void ex23() {
         boolean[] lockers = new boolean[100];
 
         for (int student = 1; student <= 100; student++) {
             for (int locker = 0; locker < lockers.length; locker++) {
-                if( (locker+1) % student == 0 )
+                if ((locker + 1) % student == 0)
                     lockers[locker] = !(lockers[locker]);
             }
         }
         for (int locker = 0; locker < lockers.length; locker++) {
-            print("Locker %d is %s%n", locker+1, lockers[locker]?"open":"closed");
+            print("Locker %d is %s%n", locker + 1, lockers[locker] ? "open" : "closed");
         }
     }
     public static void ex24() {
@@ -259,7 +259,7 @@ public class DaLi_07 {
         ArrayTool.bubbleSortDesc(rands);
         println(ArrayTool.isSortedConstantInterval(rands));
 
-        int[] constants = {-1,-3,-5,-7,-9};
+        int[] constants = {-1, -3, -5, -7, -9};
         println(ArrayTool.isSortedConstantInterval(constants));
     }
     public static void ex28() {
@@ -276,28 +276,28 @@ public class DaLi_07 {
         for (int i = 1; i <= 6; i++) {
             for (int j = 1; j <= 6; j++) {
                 for (int k = 1; k <= 6; k++) {
-                    if(i+j+k == 9)
-                        print("Dice 1: %d | Dice 2: %d | Dice 3: %d = 9%n", i,j,k);
+                    if (i + j + k == 9)
+                        print("Dice 1: %d | Dice 2: %d | Dice 3: %d = 9%n", i, j, k);
                 }
             }
         }
     }
     public static void ex30() {
-        int[] numbers = {2,5,4,7,8,9,6,5,4,1,2,3,5,8,7,4,2,5,3,4,1,1,1,1};
+        int[] numbers = {2, 5, 4, 7, 8, 9, 6, 5, 4, 1, 2, 3, 5, 8, 7, 4, 2, 5, 3, 4, 1, 1, 1, 1};
         print(ex30isConsecutiveFour(numbers));
     }
-    public static boolean ex30isConsecutiveFour(int[] array){
+    public static boolean ex30isConsecutiveFour(int[] array) {
         for (int i = 0; i < array.length - 3; i++)
-            if( array[i] == array[i+1] && array[i] == array[i+2] && array[i] == array[i+3] )
+            if (array[i] == array[i + 1] && array[i] == array[i + 2] && array[i] == array[i + 3])
                 return true;
         return false;
     }
     public static void ex31() {
-        int[] numbers1 = {5,1,5,16,61,111};
-        int[] numbers2 = {4,2,4,5,6};
-        ArrayTool.printArray(ex31merge(numbers1,numbers2));
+        int[] numbers1 = {5, 1, 5, 16, 61, 111};
+        int[] numbers2 = {4, 2, 4, 5, 6};
+        ArrayTool.printArray(ex31merge(numbers1, numbers2));
     }
-    public static int[] ex31merge(int[] list1, int[] list2){
+    public static int[] ex31merge(int[] list1, int[] list2) {
         list1 = ArrayTool.bubbleSort(ArrayTool.removeDuplicates(list1));
         list2 = ArrayTool.bubbleSort(ArrayTool.removeDuplicates(list2));
         int[] merged = new int[list1.length + list2.length];
@@ -314,12 +314,12 @@ public class DaLi_07 {
         return ArrayTool.bubbleSort(merged);
     }
     public static void ex32() {
-        int[] numbers = {5,2,9,3,6,8};
+        int[] numbers = {5, 2, 9, 3, 6, 8};
         ArrayTool.printArray(numbers);
         println(ex32partition(numbers));
         ArrayTool.printArray(numbers);
     }
-    public static int ex32partition(int[] array){
+    public static int ex32partition(int[] array) {
         int pivot = array[0];
         ArrayTool.bubbleSort(array);
         return ArrayTool.binarySearch(array, pivot);
@@ -333,12 +333,12 @@ public class DaLi_07 {
         print(StringManip.sort(unsorted));
     }
     public static void ex35() {//HANGMAN
-        String[] words = {"water", "fishing", "natural","programming"};
+        String[] words = {"water", "fishing", "natural", "programming"};
         String word = words[randomInt(4)];
         char[] covered = new char[word.length()];
         Arrays.fill(covered, '*');
         int tries = 0;
-        while(ArrayTool.contains(covered, '*') && tries < 10) {
+        while (ArrayTool.contains(covered, '*') && tries < 10) {
 
             char guess = Character.toLowerCase(scanChar("(Guess) %d/10 Enter a letter in word %s", tries, String.valueOf(covered)));
             boolean miss = true;
@@ -353,21 +353,21 @@ public class DaLi_07 {
             if (miss) tries++;
 
         }
-        if(ArrayTool.contains(covered, '*'))
-            print("You lose, word is %s your best %s", word, String.valueOf(covered) );
+        if (ArrayTool.contains(covered, '*'))
+            print("You lose, word is %s your best %s", word, String.valueOf(covered));
         else
-            print("You win word %s",  String.valueOf(covered) );
+            print("You win word %s", String.valueOf(covered));
     }
     public static void ex36() {//Eight Queens
         String[] table = new String[8];
         for (int row = 0; row < table.length; row++) {
             StringBuilder insertNext = new StringBuilder();
             for (int col = 0; col < table.length; col++) {
-                insertNext.append( (row == col) ? "|Q" : "| " );
+                insertNext.append((row == col) ? "|Q" : "| ");
             }
-            table[row]= insertNext.toString();
+            table[row] = insertNext.toString();
         }
-        int[] randoms = randomUniqueIntsArray(8,7);
+        int[] randoms = randomUniqueIntsArray(8, 7);
         for (int i = 0; i < randoms.length; i++) {
             println(table[randoms[i]]);
         }
@@ -376,10 +376,10 @@ public class DaLi_07 {
         int[] slots = new int[8];
         int balls = 10;
         for (int i = 0; i < balls; i++) {
-            int slot=0;
-            String randomPath = Integer.toBinaryString(randomInt((int) Math.pow(2,slots.length)));
-            while(randomPath.length() != slots.length)
-                randomPath = "0"+randomPath;
+            int slot = 0;
+            String randomPath = Integer.toBinaryString(randomInt((int) Math.pow(2, slots.length)));
+            while (randomPath.length() != slots.length)
+                randomPath = "0" + randomPath;
             println(randomPath);
 
             for (int j = 0; j < randomPath.length(); j++) {
