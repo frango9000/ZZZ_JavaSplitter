@@ -201,6 +201,12 @@ public class ArrayTool {
         }
         return false;
     }
+    public static boolean contains(char[] array, char character){
+        for (int i = 0; i < array.length; i++) {
+            if(array[i]==character)return true;
+        }
+        return false;
+    }
     public static int[] removeDuplicates(int[] array){
         int count = 0;
         int[] unique = new int [array.length];

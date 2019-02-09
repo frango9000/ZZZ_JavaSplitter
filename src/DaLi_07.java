@@ -13,7 +13,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex34();
+        ex35();
 
     }
 
@@ -332,7 +332,31 @@ public class DaLi_07 {
         String unsorted = scanNextLine("Enter string to sort ");
         print(StringManip.sort(unsorted));
     }
-    public static void ex35() {
+    public static void ex35() {//HANGMAN
+        String[] words = {"water", "fishing", "natural","programming"};
+        String word = words[randomInt(4)];
+        char[] covered = new char[word.length()];
+        Arrays.fill(covered, '*');
+        int tries = 0;
+        while(ArrayTool.contains(covered, '*') && tries < 10) {
+
+            char guess = Character.toLowerCase(scanChar("(Guess) %d/10 Enter a letter in word %s", tries, String.valueOf(covered)));
+            boolean miss = true;
+            if (!ArrayTool.contains(covered, Character.toLowerCase(guess))) {
+                for (int i = 0; i < word.length(); i++) {
+                    if (Character.toLowerCase(guess) == word.charAt(i)) {
+                        covered[i] = guess;
+                        miss = false;
+                    }
+                }
+            }
+            if (miss) tries++;
+
+        }
+        if(ArrayTool.contains(covered, '*'))
+            print("You lose, word is %s your best %s", word, String.valueOf(covered) );
+        else
+            print("You win word %s",  String.valueOf(covered) );
     }
     public static void ex36() {
     }
