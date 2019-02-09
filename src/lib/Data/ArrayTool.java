@@ -6,8 +6,8 @@ import java.util.Arrays;
 
 public class ArrayTool {
 
-    public static int[] arrayDeRepetidos(int[] array, int num) {
-        int size = contarRepetidos(array, num);
+    public static int[] arrayOfDuplicateElements(int[] array, int num) {
+        int size = countRepeated(array, num);
         int[] j = new int[size];
         int h = 0;
         for (int i = 0; i < array.length; i++) {
@@ -19,7 +19,7 @@ public class ArrayTool {
         return j;
     }
 
-    public static int[] agregarIndice(int[] array, int indice, int elemento) {
+    public static int[] appendNewElement(int[] array, int indice, int elemento) {
         int[] nuevoArray = new int[array.length + 1];
         for (int i = 0; i < nuevoArray.length; i++) {
             if (i < indice) {
@@ -33,7 +33,7 @@ public class ArrayTool {
         return nuevoArray;
     }
 
-    public static int contarRepetidos(int[] array, int num) {
+    public static int countRepeated(int[] array, int num) {
         int j = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] == num) {
@@ -43,18 +43,17 @@ public class ArrayTool {
         return j;
     }
 
-    public static int[] eliminarIndice(int[] array, int indice) {
+    public static int[] removeFromArray(int[] array, int index) {
         int[] newArray = new int[array.length - 1];
-        for (int i = 0, j = 0; i < array.length; i++) {
-            if (i != indice) {
+        for (int i = 0, j = 0; i < array.length; i++)
+            if (i != index) {
                 newArray[j] = array[i];
                 j++;
             }
-        }
         return newArray;
     }
 
-    public static int[] arrayOrdenado(int[] array) {
+    public static int[] bubbleSort(int[] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if (array[i] > array[j]) {
@@ -66,6 +65,24 @@ public class ArrayTool {
         }
         return array;
     }
+    public static int[] bubbleSortIndex(int[] array) {
+        int[] indexes = new int[array.length];
+        for (int i = 0; i < indexes.length; i++) {
+            indexes[i]=i;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if ( array[indexes[i]] > array[indexes[j]] ) {
+                    int aux = indexes[i];
+                    indexes[i] = indexes[j];
+                    indexes[j] = aux;
+                }
+            }
+        }
+        return indexes;
+    }
+
 
     public static void printArray(double[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -76,15 +93,6 @@ public class ArrayTool {
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
         }
-    }
-
-    public static int buscarIndice(int[] array, int num) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == num) {
-                return i;
-            }
-        }
-        return -1;
     }
 
     public static double max(double[] array) {
