@@ -10,7 +10,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex17();
+        ex18();
 
     }
 
@@ -189,10 +189,11 @@ public class DaLi_07 {
         for (int i = 0; i < sortedIndexes.length; i++) {
             print("%d Name: %s grade: %d%n", i,names[sortedIndexes[i]], grades[sortedIndexes[i]] );
         }
-
-
     }
     public static void ex18() {
+        int[] rands = randomIntsArray(10, 0, 50);
+        ArrayTool.bubbleSort(rands);
+        ArrayTool.printArray(rands);
     }
     public static void ex19() {
     }
