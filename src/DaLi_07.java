@@ -11,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex27();
+        ex28();
 
     }
 
@@ -261,6 +261,14 @@ public class DaLi_07 {
         println(ArrayTool.isSortedConstantInterval(constants));
     }
     public static void ex28() {
+        int[] rands = randomUniqueIntsArray(4, 0, 10);
+        ArrayTool.printArray(rands);
+        for (int i = 0; i < rands.length; i++) {
+            for (int j = 0; j < rands.length; j++) {
+                if (i != j)
+                    println(rands[i] + " " + rands[j]);
+            }
+        }
     }
     public static void ex29() {
     }

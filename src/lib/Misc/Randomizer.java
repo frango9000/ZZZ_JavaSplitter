@@ -2,6 +2,7 @@ package lib.Misc;
 
 import lib.Data.ArrayTool;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public abstract class Randomizer {
@@ -38,8 +39,9 @@ public abstract class Randomizer {
 
     public static int[] randomUniqueIntsArray(int elements, int lowBound, int highBound){
         int range = highBound-lowBound+1;
-        if(range <= elements) {
+        if(range >= elements) {
             int[] randoms = new int[elements];
+            Arrays.fill(randoms, -2147483648);
             for (int i = 0; i < randoms.length;) {
                 int randomCandidate = randomInt(range) + lowBound;
                 if(!ArrayTool.contains(randoms, randomCandidate)){
