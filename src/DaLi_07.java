@@ -13,7 +13,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex36();
+        ex37();
 
     }
 
@@ -373,5 +373,23 @@ public class DaLi_07 {
         }
     }
     public static void ex37() {
+        int[] slots = new int[8];
+        int balls = 10;
+        for (int i = 0; i < balls; i++) {
+            int slot=0;
+            String randomPath = Integer.toBinaryString(randomInt((int) Math.pow(2,slots.length)));
+            while(randomPath.length() != slots.length)
+                randomPath = "0"+randomPath;
+            println(randomPath);
+
+            for (int j = 0; j < randomPath.length(); j++) {
+                if (randomPath.charAt(j) == '1')
+                    slot++;
+            }
+            slots[slot]++;
+        }
+        ArrayTool.printArray(slots);
+
+
     }
 }
