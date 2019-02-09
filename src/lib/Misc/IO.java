@@ -1,6 +1,5 @@
 package lib.Misc;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public abstract class IO {
@@ -11,7 +10,7 @@ public abstract class IO {
     public static void print(Object str) {
         System.out.print(str);
     }
-    public static void printf(String format, Object... args) {
+    public static void print(String format, Object... args) {
         System.out.format(format, args);
     }
 
@@ -94,44 +93,44 @@ public abstract class IO {
     }
 
     public static byte scanByte(String message, Object... args) {
-        printf(message,args);
+        print(message,args);
         return scanByte();
     }
     public static short scanShort(String message, Object... args) {
-        printf(message,args);
+        print(message,args);
         return scanShort();
     }
     public static int scanInt(String message, Object... args) {
-        printf(message,args);
+        print(message,args);
         return scanInt();
     }
     public static long scanLong(String message, Object... args) {
-        printf(message,args);
+        print(message,args);
         return scanLong();
     }
     public static float scanFloat(String message, Object... args) {
-        printf(message,args);
+        print(message,args);
         return scanFloat();
     }
     public static double scanDouble(String message, Object... args) {
-        printf(message, args);
+        print(message, args);
         return scanDouble();
     }
     public static char scanChar(String message, Object... args) {
-        printf(message,args);
+        print(message,args);
         return scanChar();
     }
     public static boolean scanBoolean(String message,Object... args){
         String answerFormat = " [( Y )es / ( T )rue / ( 1 )] ";
-        printf(message + answerFormat, args);
+        print(message + answerFormat, args);
         return scanBoolean();
     }
     public static String scanNext(String message, Object... args) {
-        printf(message,args);
+        print(message,args);
         return scanNext();
     }
     public static String scanNextLine(String message, Object... args) {
-        printf(message,args);
+        print(message,args);
         return scanNextLine();
     }
 

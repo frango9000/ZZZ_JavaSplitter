@@ -1,5 +1,6 @@
 import lib.Data.ArrayTool;
 import lib.Math.*;
+import lib.Misc.IO;
 
 import java.util.Arrays;
 
@@ -24,11 +25,11 @@ public class DaLi_07 {
             if(students[i]>best)best=students[i];
         }
         for (int i = 1; i <= students.length ; i++) {
-            if(students[i] >= best - 5 ) printf("Student %d grade A", i);
-            else if(students[i] >= best - 10 ) printf("Student %d grade B", i);
-            else if(students[i] >= best - 15 ) printf("Student %d grade C", i);
-            else if(students[i] >= best - 20 ) printf("Student %d grade D", i);
-            else printf("Student %d grade F", i);
+            if(students[i] >= best - 5 ) IO.print("Student %d grade A", i);
+            else if(students[i] >= best - 10 ) IO.print("Student %d grade B", i);
+            else if(students[i] >= best - 15 ) IO.print("Student %d grade C", i);
+            else if(students[i] >= best - 20 ) IO.print("Student %d grade D", i);
+            else IO.print("Student %d grade F", i);
             println("");
         }
     }
@@ -53,7 +54,7 @@ public class DaLi_07 {
         }
         for (int i = 0; i < numbers.length; i++) {
             if(numbers[i] != 0)
-                printf(" number %d appears %d time%s\n", i, numbers[i], numbers[i]>1?"s":"");
+                IO.print(" number %d appears %d time%s\n", i, numbers[i], numbers[i]>1?"s":"");
 
         }
     }
@@ -79,7 +80,7 @@ public class DaLi_07 {
                 above += numbers[i];
             }
         }
-        printf("average: %f,%n above avg count:%d", average, above);
+        IO.print("average: %f,%n above avg count:%d", average, above);
     }
     public static void ex05() {
         int[] nums = randomIntsArray(20, 1,9);
@@ -88,7 +89,7 @@ public class DaLi_07 {
             if(nums[i] % 2 == 0)even++;
             else odd++;
         }
-        printf("%d odds%n%d evens", odd, even);
+        IO.print("%d odds%n%d evens", odd, even);
     }
     public static void ex06() {
         boolean[] primes = new boolean[50];
@@ -99,7 +100,7 @@ public class DaLi_07 {
                     primes[j]=false;
         for (int i = 0; i < primes.length; i++)
             if (primes[i])
-                printf("%d is prime\n", i);
+                IO.print("%d is prime\n", i);
     }
     public static void ex07() {
         int[] rands = randomIntsArray(200, 9);
@@ -108,7 +109,7 @@ public class DaLi_07 {
             counts[rands[i]]++;
         }
         for (int i = 0; i < counts.length; i++) {
-            printf("%d %d\n",i, counts[i]);
+            IO.print("%d %d\n",i, counts[i]);
         }
     }
     public static void ex08() {
@@ -134,13 +135,13 @@ public class DaLi_07 {
     public static void ex13() {
         int[] rands = randomIntsArray(10, 10);
         ArrayTool.printArray(rands);
-        printf("%n%d",ArrayTool.getRandom(rands));
+        IO.print("%n%d",ArrayTool.getRandom(rands));
     }
     public static void ex14() {
         int[] rands = randomIntsArray(10, 5,100);
         ArrayTool.printArray(rands);
-        printf("%n%d",Algebra.greatestCommonDivisor(rands));
-        printf("%n%d",Algebra.leastCommonMultiple(rands));
+        IO.print("%n%d",Algebra.greatestCommonDivisor(rands));
+        IO.print("%n%d",Algebra.leastCommonMultiple(rands));
     }
     public static void ex15() {
         int[] rands = randomIntsArray(10, 5,9);
@@ -165,13 +166,13 @@ public class DaLi_07 {
             index = ArrayTool.linearSearch(array, search);
             endTime = System.nanoTime();
             totalTime = endTime-startTime;
-            printf("Linear search of number %d took %dns found in index %d%n", search, totalTime,index);
+            IO.print("Linear search of number %d took %dns found in index %d%n", search, totalTime,index);
 
             startTime = System.nanoTime();
             index = ArrayTool.binarySearch(array, search);
             endTime = System.nanoTime();
             totalTime = endTime-startTime;
-            printf("Binary search of number %d took %dns found in index %d%n%n", search, totalTime,index);
+            IO.print("Binary search of number %d took %dns found in index %d%n%n", search, totalTime,index);
         }
     }
     public static void ex17() {
@@ -179,8 +180,8 @@ public class DaLi_07 {
         int[] grades = new int[numberOfStudents];
         String[] names = new String[numberOfStudents];
 
-        for (int i = 0; i < numberOfStudents; i++) {
-            grades[i]=scanInt("Enter Grade of student 1:");
+        for (int i = 1; i <= numberOfStudents; i++) {
+            grades[i]=scanInt("Enter Grade of student %d:", i);
         }
 
     }

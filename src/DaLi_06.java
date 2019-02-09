@@ -7,6 +7,7 @@ import lib.Math.Primes;
 import lib.Math.Scales;
 import lib.Data.StringManip;
 import lib.Data.CharManip;
+import lib.Misc.IO;
 import lib.Misc.Time;
 
 import java.util.Arrays;
@@ -28,7 +29,7 @@ public class DaLi_06 {
     }
     public static void ex01() {
         for (int i = 0; i < 100; i++) {
-            printf("%7d", Algebra.pentagonalNumber(i));
+            IO.print("%7d", Algebra.pentagonalNumber(i));
             if (i % 10 == 9) println("");
         }
     }
@@ -48,7 +49,7 @@ public class DaLi_06 {
     public static void ex06(int lines) {
         for (int i = 1; i <= lines; i++) {
             for (int j = 1; j <= i; j++) {
-                printf("%3d", j);
+                IO.print("%3d", j);
             }
             println("");
         }
@@ -57,15 +58,15 @@ public class DaLi_06 {
         DaLi_02.ex21();
     }
     public static void ex08() {
-        printf("%s %s %s %s %s\n", "Miles", "Kilometers", "|", "Kilometers", "Miles");
+        IO.print("%s %s %s %s %s\n", "Miles", "Kilometers", "|", "Kilometers", "Miles");
         for (int i = 1, k = 20; i <= 10; i++, k += 5) {
-            printf("%-8d %-7.3f %s %-10d %.3f\n", i, Scales.mileToKilometer(i), "|", k, Scales.kilometerToMile(k));
+            IO.print("%-8d %-7.3f %s %-10d %.3f\n", i, Scales.mileToKilometer(i), "|", k, Scales.kilometerToMile(k));
         }
     }
     public static void ex09() {
-        printf("%s %s %3s %s %5s\n", "Kilogram", "Pound", "|", "Pound", "Kilogram");
+        IO.print("%s %s %3s %s %5s\n", "Kilogram", "Pound", "|", "Pound", "Kilogram");
         for (int k = 1, p = 20; k <= 10; k += 2, p += 5) {
-            printf("%-8d %-7.3f %s %-5d %.3f\n", k, Scales.kilogramToPound(k), "|", p, Scales.poundToKilogram(p));
+            IO.print("%-8d %-7.3f %s %-5d %.3f\n", k, Scales.kilogramToPound(k), "|", p, Scales.poundToKilogram(p));
         }
 
     }
@@ -103,7 +104,7 @@ public class DaLi_06 {
     }
     public static void ex12(int num1, int num2, int numbersPerLine) {
         for (int i = num1, j = 0; i <= num2; i++) {
-            printf("%3d", i);
+            IO.print("%3d", i);
             if (j++ % numbersPerLine == numbersPerLine - 1) println("");
         }
     }
@@ -111,12 +112,12 @@ public class DaLi_06 {
         float sum = 0;
         for (int j = 1; j <= i; j++) {
             sum += j / (j + 2f);
-            printf("%-4d %f %n", j, sum);
+            IO.print("%-4d %f %n", j, sum);
         }
     }
     public static void ex14() {
         for (int i = 1; i < 1000; i += 100) {
-            printf("%-6d %.5f%n", i, ex14pi(i));
+            IO.print("%-6d %.5f%n", i, ex14pi(i));
         }
     }
     public static double ex14pi(int precision) {
@@ -234,7 +235,7 @@ public class DaLi_06 {
     public static void ex17(int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                printf("%3d", randomInt(2));
+                IO.print("%3d", randomInt(2));
             }
             println("");
         }
@@ -287,7 +288,7 @@ public class DaLi_06 {
     public static void ex26() {
         for (long i = 1, j = 1; j <= 150; i++) {
             if (Primes.isPrime(i) && Extras.isPalindrome(i)) {
-                printf("%8d", i);
+                IO.print("%8d", i);
                 if (j++ % 10 == 0) println("");
             }
         }
@@ -296,7 +297,7 @@ public class DaLi_06 {
         //List Emirp
         for (int i = 1, j = 1; j <= 120; i++) {
             if (Extras.isEmirP(i)) {
-                printf("%8d", i);
+                IO.print("%8d", i);
                 if (j++ % 10 == 0) println("");
             }
         }
@@ -304,14 +305,14 @@ public class DaLi_06 {
     public static void ex28() {
         for (int i = 1; i <= 31; i++) {
             if (Primes.mersennePrime(i) != 0) {
-                printf("%8d %8d %n", i, Primes.mersennePrime(i));
+                IO.print("%8d %8d %n", i, Primes.mersennePrime(i));
             }
         }
     }
     public static void ex29() {
         for (int i = 1; i < 1200; i++) {
             if (Primes.isPrime(i) && Primes.isPrime(i + 2)) {
-                printf("( %d , %d )%n", i, i + 2);
+                IO.print("( %d , %d )%n", i, i + 2);
             }
         }
     }
@@ -328,7 +329,7 @@ public class DaLi_06 {
                 println("You win");
                 return true;
             default:
-                printf("Point is %d\n", roll);
+                IO.print("Point is %d\n", roll);
                 if (ex30rolls() == roll) {
                     println("You win");
                     return true;
@@ -341,7 +342,7 @@ public class DaLi_06 {
     public static int ex30rolls() {
         int dice1 = randomInt(6) + 1;
         int dice2 = randomInt(6) + 1;
-        printf("You rolled %d + %d = %d\n", dice1, dice2, dice1 + dice2);
+        IO.print("You rolled %d + %d = %d\n", dice1, dice2, dice1 + dice2);
         return dice1 + dice2;
 
     }
@@ -377,12 +378,12 @@ public class DaLi_06 {
     }
     public static void ex38() {
         for (int i = 1; i <= 200; i++) {
-            printf("%c", CharManip.getRandomUpperCaseLetter());
+            IO.print("%c", CharManip.getRandomUpperCaseLetter());
             if (i % 10 == 0) println("");
         }
         println("");
         for (int i = 1; i <= 200; i++) {
-            printf("%c", CharManip.getRandomDigitCharacter());
+            IO.print("%c", CharManip.getRandomDigitCharacter());
             if (i % 10 == 0) println("");
         }
     }

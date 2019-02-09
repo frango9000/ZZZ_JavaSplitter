@@ -2,6 +2,7 @@ import lib.Math.Algebra;
 import lib.Math.Primes;
 import lib.Math.Scales;
 import lib.Math.Statistics;
+import lib.Misc.IO;
 import lib.Misc.Time;
 
 import java.util.Arrays;
@@ -34,36 +35,36 @@ public class DaLi_05 {
             if (a < b) t = a;
             a = b;
             b = t;
-            printf("\n%d : Enter result of %d - %d", count++, a, b);
+            IO.print("\n%d : Enter result of %d - %d", count++, a, b);
             int result = scanInt();
             if (result == a - b)
                 print("You win.");
-            else printf("You lose: %d - %d = %d", a, b, (a - b));
+            else IO.print("You lose: %d - %d = %d", a, b, (a - b));
         }
-        printf("\nCorrect answers = %d", count);
+        IO.print("\nCorrect answers = %d", count);
     }
     public static void ex03() {
-        printf("%s %19s", "Celsius", "Fahrenheit");
+        IO.print("%s %19s", "Celsius", "Fahrenheit");
         for (int i = 0; i <= 100; i += 2) {
-            printf("\n%s %25s", i, Scales.celsiusToFahrenheit(i));
+            IO.print("\n%s %25s", i, Scales.celsiusToFahrenheit(i));
         }
     }
     public static void ex04() {
-        printf("%3s %19s", "Inches", "Centimeter");
+        IO.print("%3s %19s", "Inches", "Centimeter");
         for (int i = 0; i <= 100; i++) {
-            printf("\n%3d %20.2f", i, Scales.inchToMeter(i) * 100);
+            IO.print("\n%3d %20.2f", i, Scales.inchToMeter(i) * 100);
         }
     }
     public static void ex05() {
-        printf("%s %14s    |    %10s %11s", "Celsius", "Fahrenheit", "Fahrenheit", "Celsius");
+        IO.print("%s %14s    |    %10s %11s", "Celsius", "Fahrenheit", "Fahrenheit", "Celsius");
         for (int i = 0; i <= 100; i++) {
-            printf("\n%3d %18.2f    |    %3d %18.2f", i * 2, Scales.celsiusToFahrenheit(i * 2), i * 5, Scales.fahrenheitToCelsius(i * 5));
+            IO.print("\n%3d %18.2f    |    %3d %18.2f", i * 2, Scales.celsiusToFahrenheit(i * 2), i * 5, Scales.fahrenheitToCelsius(i * 5));
         }
     }
     public static void ex06() {
-        printf("%s %17s    |    %12s %9s", "Ping", "Square Meter", "Square Meter", "Ping");
+        IO.print("%s %17s    |    %12s %9s", "Ping", "Square Meter", "Square Meter", "Ping");
         for (int i = 10; i <= 80; i += 5) {
-            printf("\n%3d %18.2f    |    %3d %18.2f", i, Scales.pingToSquareMeter(i), i + 20, Scales.fahrenheitToCelsius(i + 20));
+            IO.print("\n%3d %18.2f    |    %3d %18.2f", i, Scales.pingToSquareMeter(i), i + 20, Scales.fahrenheitToCelsius(i + 20));
         }
 
     }
@@ -74,7 +75,7 @@ public class DaLi_05 {
 
 
         for (int i = 1; i <= 10; i++) {
-            printf("\nYear %2d: %13.2f", i, initialV);
+            IO.print("\nYear %2d: %13.2f", i, initialV);
             totalCost += initialV;
             initialV = initialV * deltaV;
         }
@@ -86,17 +87,17 @@ public class DaLi_05 {
         String bestName = "";
         int bestGrade = 0;
         for (int i = 1; numOfStudents > 0; numOfStudents--, i++) {
-            printf("Enter name of student %d: ", i);
+            IO.print("Enter name of student %d: ", i);
             String thisName = scanNextLine();
 
-            printf("Enter grade of student %s: ", i);
+            IO.print("Enter grade of student %s: ", i);
             int thisGrade = scanInt();
             if (thisGrade > bestGrade) {
                 bestGrade = thisGrade;
                 bestName = thisName;
             }
         }
-        printf("Best student is %s with grade %d", bestName, bestGrade);
+        IO.print("Best student is %s with grade %d", bestName, bestGrade);
     }
     public static void ex09() {
         print("Enter num of students: ");
@@ -104,10 +105,10 @@ public class DaLi_05 {
         String worstName1 = "", worstName2 = "";
         int worstGrade1 = 12, worstGrade2 = 12;
         for (int i = 1; numOfStudents > 0; numOfStudents--, i++) {
-            printf("Enter name of student %d: ", i);
+            IO.print("Enter name of student %d: ", i);
             String thisName = scanNextLine();
 
-            printf("Enter grade of student %s: ", i);
+            IO.print("Enter grade of student %s: ", i);
             int thisGrade = scanInt();
             if (thisGrade < worstGrade1) {
                 worstGrade2 = worstGrade1;
@@ -119,8 +120,8 @@ public class DaLi_05 {
                 worstName2 = thisName;
             }
         }
-        printf("Worst student is %s with grade %d\n", worstName1, worstGrade1);
-        printf("2nd Worst student is %s with grade %d", worstName2, worstGrade2);
+        IO.print("Worst student is %s with grade %d\n", worstName1, worstGrade1);
+        IO.print("2nd Worst student is %s with grade %d", worstName2, worstGrade2);
     }
     public static void ex10() {
         String log = "";
@@ -147,29 +148,29 @@ public class DaLi_05 {
         int i;
         for (i = 0; !(i * i * i > 1200); i++) {
         }
-        printf("Answer : %d", i);
+        IO.print("Answer : %d", i);
     }
     public static void ex13() {
         int i;
         for (i = 0; i * i < 1200; i++) {
         }
-        printf("Answer : %d", i);
+        IO.print("Answer : %d", i);
     }
     public static void ex14() {
         print("Enter num 1");
         int n1 = scanInt();
         print("Enter num 2");
         int n2 = scanInt();
-        printf("GCD %d %d = %d\n", n1, n2, Algebra.greatestCommonFactor(n1, n2));
+        IO.print("GCD %d %d = %d\n", n1, n2, Algebra.greatestCommonFactor(n1, n2));
         for (int i = 0; i < 100; i++) {
-            printf("GCD %d %d = %d", n1, i, Algebra.greatestCommonFactor(n1, i));
-            printf("GCD %d %d = %d\n", n1, i, Algebra.greatestCommonFactor(n2, i));
+            IO.print("GCD %d %d = %d", n1, i, Algebra.greatestCommonFactor(n1, i));
+            IO.print("GCD %d %d = %d\n", n1, i, Algebra.greatestCommonFactor(n2, i));
         }
     }
     public static void ex15() {
         int lineCount = 0;
         for (int i = '!'; i <= '~'; i++) {
-            printf("%2c", (char) i);
+            IO.print("%2c", (char) i);
             if (++lineCount % 10 == 0) println("");
         }
     }
@@ -184,7 +185,7 @@ public class DaLi_05 {
         int number = 9;
         while (number > 0) {
             for (int i = -number; i <= number; i++) {
-                printf("%3d", Math.abs(i));
+                IO.print("%3d", Math.abs(i));
                 if (i == -1) i += 2;
             }
             println("");
@@ -228,11 +229,11 @@ public class DaLi_05 {
 
         for (int i = 0; i <= lines; i++) {
             for (int j = 0; j < lines - i; j++)
-                printf("%6s", "");
+                IO.print("%6s", "");
             for (int j = 0; j < (i) + 1; j++)
-                printf("%6d", (int) Math.pow(3, j));
+                IO.print("%6d", (int) Math.pow(3, j));
             for (int k = i; k > 0; k--)
-                printf("%6d", (int) Math.pow(3, k - 1));
+                IO.print("%6d", (int) Math.pow(3, k - 1));
             println("");
         }
     }
@@ -243,11 +244,11 @@ public class DaLi_05 {
         double loan = scanDouble("Loan Amount: ");
         int years = scanInt("Years: ");
 
-        printf("%s %5s %5s\n", "Interest Rate", "Monthly Payment", "Total Payment");
+        IO.print("%s %5s %5s\n", "Interest Rate", "Monthly Payment", "Total Payment");
         for (double i = 5.0; i <= 10; i += 0.25) {
             double monthlyInterestRate = i / 1200.0;
             double monthlyPayment = (loan * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate, years * 12)));
-            printf("%5.2f     %5.2f          %8.2f\n", i, monthlyPayment, (monthlyPayment * 12) * years);
+            IO.print("%5.2f     %5.2f          %8.2f\n", i, monthlyPayment, (monthlyPayment * 12) * years);
         }
     }
     public static void ex22() {
@@ -259,8 +260,8 @@ public class DaLi_05 {
 
         double monthlyPayment = loanAmount * monthlyRate / (1 - 1 / Math.pow(1 + monthlyRate, years * 12));
 
-        printf("Monthly Payment: %.2f\n", monthlyPayment);
-        printf("Total Payment: %.2f\n", (monthlyPayment * 12) * years);
+        IO.print("Monthly Payment: %.2f\n", monthlyPayment);
+        IO.print("Total Payment: %.2f\n", (monthlyPayment * 12) * years);
 
         double balance = loanAmount, principal, interest;
         println("Payment#     Interest     Principal     Balance");
@@ -268,7 +269,7 @@ public class DaLi_05 {
             interest = monthlyRate * balance;
             principal = monthlyPayment - interest;
             balance = balance - principal;
-            printf("%-13d%-13.2f%-13.2f%.2f\n", i, interest, principal, balance);
+            IO.print("%-13d%-13.2f%-13.2f%.2f\n", i, interest, principal, balance);
         }
     }
     public static void ex23() {
@@ -296,7 +297,7 @@ public class DaLi_05 {
         int count = 0;
         for (int i = 2014, l = 1; i <= 2114; i++) {
             if (Time.isLeapYear(i)) {
-                printf("%5d", i);
+                IO.print("%5d", i);
                 if (++l > 10) {
                     println("");
                     l = 1;
@@ -309,7 +310,7 @@ public class DaLi_05 {
     public static void ex27() {
         int year = scanInt("Enter year: ");
         for (int i = 1; i < 13; i++) {
-            printf("%9s 1, %d is %s\n", Time.monthName(i), year, Time.dayOfWeekString(year, i, 1));
+            IO.print("%9s 1, %d is %s\n", Time.monthName(i), year, Time.dayOfWeekString(year, i, 1));
         }
     }
     public static void ex28() {
@@ -441,7 +442,7 @@ public class DaLi_05 {
             if (coin == 0) heads++;
             else tails++;
         }
-        printf("%d Heads\n%d Tails", heads, tails);
+        IO.print("%d Heads\n%d Tails", heads, tails);
     }
     public static void ex41() {
         int max = 0, maxCount = 0, newNumber;
@@ -453,7 +454,7 @@ public class DaLi_05 {
             } else if (newNumber == max)
                 maxCount++;
         } while (newNumber != 0);
-        printf("max number is %d, repeated %d times.", max, maxCount);
+        IO.print("max number is %d, repeated %d times.", max, maxCount);
     }
     public static void ex42() {
         final double COMMISSION_SOUGHT = 30000;
@@ -487,7 +488,7 @@ public class DaLi_05 {
         int count = 0;
         for (int i = 1; i < 8; i++) {
             for (int j = 1; j < 8; j++) {
-                printf("%d, %d\n", i, j);
+                IO.print("%d, %d\n", i, j);
                 count++;
             }
         }
@@ -500,7 +501,7 @@ public class DaLi_05 {
             bits = (number & 1) + bits;
             number >>= 1;
         }
-        printf("Bits are %s", bits);
+        IO.print("Bits are %s", bits);
     }
     public static void ex45() {
         double[] numbers = {1, 2, 3, 4.5, 5.6, 6, 7, 8, 9, 10};
@@ -518,7 +519,7 @@ public class DaLi_05 {
                 checksum += (i % 2 == 1) ? Integer.parseInt(Character.toString(isbn13string.charAt(i))) : 3 * Integer.parseInt(Character.toString(isbn13string.charAt(i)));
             }
             checksum = 10 - (checksum % 10);
-            printf("The ISBN-13 number is %s%d", isbn13string, checksum == 10 ? 0 : checksum);
+            IO.print("The ISBN-13 number is %s%d", isbn13string, checksum == 10 ? 0 : checksum);
         } else println("Invalid input");
     }
     public static void ex48() {
@@ -548,13 +549,13 @@ public class DaLi_05 {
                 }
             }
         }
-        printf("%d vocals %d consonants", vocal, consonant);
+        IO.print("%d vocals %d consonants", vocal, consonant);
     }
     public static void ex50() {
         int table = 0;
         while (++table < 10) {
             for (int i = 1; i < 10; i++) {
-                printf("%d x %d = %d  ", table, i, (i * table));
+                IO.print("%d x %d = %d  ", table, i, (i * table));
             }
             println("");
         }
@@ -567,6 +568,6 @@ public class DaLi_05 {
         while (stringA.charAt(index) == stringB.charAt(index)) {
             prefix.append(stringA.charAt(index++));
         }
-        printf("Prefix : %s", prefix);
+        IO.print("Prefix : %s", prefix);
     }
 }

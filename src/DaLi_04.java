@@ -1,6 +1,7 @@
 import lib.Geometry.*;
 import lib.Geometry.Tridimensional.Sphere;
 import lib.Misc.Asserts;
+import lib.Misc.IO;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -89,7 +90,7 @@ public class DaLi_04 {
         float r = scanFloat();
         Pentagon pentagon = new Pentagon(r);
 
-        printf("Area of the pentagon is %4.2f", pentagon.area());
+        IO.print("Area of the pentagon is %4.2f", pentagon.area());
 
     }
     public static void ex02() {
@@ -105,7 +106,7 @@ public class DaLi_04 {
 
         Sphere sphere = new Sphere(6371.01);
 
-        printf("Distance between points is %4.10f", sphere.distanceBetweenPoints(new Point(x1, y1), new Point(x2, y2)));
+        IO.print("Distance between points is %4.10f", sphere.distanceBetweenPoints(new Point(x1, y1), new Point(x2, y2)));
     }
     public static void ex03() {
         Point charlotte = new Point(35.2270869, -80.8431267);
@@ -116,14 +117,14 @@ public class DaLi_04 {
         Triangle t1 = new Triangle(charlotte, atlanta, orlando);
         Triangle t2 = new Triangle(charlotte, atlanta, savannah);
 
-        printf("Area : %4.8f", (t1.area() + t2.area()));
+        IO.print("Area : %4.8f", (t1.area() + t2.area()));
     }
     public static void ex04() {
         print("Enter sideLength of hexagon: ");
         float side = scanFloat();
 
         Hexagon hexagon = new Hexagon(side);
-        printf("Area is %4.8f", hexagon.area());
+        IO.print("Area is %4.8f", hexagon.area());
     }
     public static void ex05() {
         print("Enter num of sides ");
@@ -133,7 +134,7 @@ public class DaLi_04 {
         float side = scanFloat();
 
         Polygon polygon = new Polygon(numOfSides, side);
-        printf("Area is %4.8f", polygon.area());
+        IO.print("Area is %4.8f", polygon.area());
     }
     public static void ex06() {
         Circle circle = new Circle(40);
@@ -157,13 +158,13 @@ public class DaLi_04 {
     public static void ex08() {
         print("Enter a ASCII code: ");
         int code = scanInt();
-        printf("The character for the ASCII code %d is %s", code, (char) code);
+        IO.print("The character for the ASCII code %d is %s", code, (char) code);
 
     }
     public static void ex09() {
         print("Enter a character: ");
         char character = scanChar();
-        printf("The Unicode for character %s is %d", character, (int) character);
+        IO.print("The Unicode for character %s is %d", character, (int) character);
 
     }
     public static void ex10() {
@@ -238,7 +239,7 @@ public class DaLi_04 {
         char letter = scanChar();
         int number = 0;
         number = ex15(letter);
-        printf("Number is : %d", number);
+        IO.print("Number is : %d", number);
     }
     public static int ex15(char letter){
         if(Character.isLetter(letter)) {
@@ -256,7 +257,7 @@ public class DaLi_04 {
     }
     public static void ex16() {
         //print((char)97 +""+ (char)122); // a - z
-        printf("Random char is : %c", (char) (randomInt(25) + 97));
+        IO.print("Random char is : %c", (char) (randomInt(25) + 97));
     }
     public static void ex17() {
         print("Enter a year: ");
@@ -318,7 +319,7 @@ public class DaLi_04 {
     public static void ex20() {
         print("Enter string: ");
         String code = scanNext();
-        printf("length %d, %c", code.length(), code.charAt(code.length() - 1));
+        IO.print("length %d, %c", code.length(), code.charAt(code.length() - 1));
     }
     public static void ex21() {
         print("Enter string: ");
@@ -404,7 +405,7 @@ public class DaLi_04 {
 
         int num = randomInt(10000);
 
-        printf("Plate is %s", num + " - " + (char) char1 + (char) char2 + (char) char3);
+        IO.print("Plate is %s", num + " - " + (char) char1 + (char) char2 + (char) char3);
     }
     public static void ex26() {
         DaLi_02.ex22();
