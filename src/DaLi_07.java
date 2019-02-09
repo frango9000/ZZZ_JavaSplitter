@@ -207,6 +207,7 @@ public class DaLi_07 {
         println(ArrayTool.isSortedDesc(rands));
     }
     public static void ex20() {
+        ex19();
     }
     public static void ex21() {
     }
