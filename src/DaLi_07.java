@@ -10,7 +10,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex19();
+        ex21();
 
     }
 
@@ -210,6 +210,12 @@ public class DaLi_07 {
         ex19();
     }
     public static void ex21() {
+        int[] rands = randomIntsArray(10, 0, 50);
+        int max = rands[ArrayTool.indexOfMax(rands)];
+
+        for (int i = 0; i < rands.length; i++) {
+            println(Extras.map(rands[i], 0,max, 0, 1));
+        }
     }
     public static void ex22() {
     }

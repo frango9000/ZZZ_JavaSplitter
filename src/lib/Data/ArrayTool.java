@@ -134,6 +134,24 @@ public class ArrayTool {
         }
     }
 
+    public static int max(int[] array) {
+        int max = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+        return max;
+    }
+    public static int indexOfMax(int[] array) {
+        int max = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] > array[max]) {
+                max = i;
+            }
+        }
+        return max;
+    }
     public static double max(double[] array) {
         double max = array[0];
         for (int i = 0; i < array.length; i++) {
@@ -152,6 +170,7 @@ public class ArrayTool {
         }
         return max;
     }
+
     public static int[] reverseArray(int[] array){
         int[] reversed = new int [array.length];
         for (int i = 0, j = array.length-1; i < array.length/2; i++, j--) {
