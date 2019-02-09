@@ -13,7 +13,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex35();
+        ex36();
 
     }
 
@@ -358,7 +358,19 @@ public class DaLi_07 {
         else
             print("You win word %s",  String.valueOf(covered) );
     }
-    public static void ex36() {
+    public static void ex36() {//Eight Queens
+        String[] table = new String[8];
+        for (int row = 0; row < table.length; row++) {
+            StringBuilder insertNext = new StringBuilder();
+            for (int col = 0; col < table.length; col++) {
+                insertNext.append( (row == col) ? "|Q" : "| " );
+            }
+            table[row]= insertNext.toString();
+        }
+        int[] randoms = randomUniqueIntsArray(8,7);
+        for (int i = 0; i < randoms.length; i++) {
+            println(table[randoms[i]]);
+        }
     }
     public static void ex37() {
     }
