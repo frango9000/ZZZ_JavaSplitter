@@ -11,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex28();
+        ex29();
 
     }
 
@@ -271,6 +271,14 @@ public class DaLi_07 {
         }
     }
     public static void ex29() {
+        for (int i = 1; i <= 6; i++) {
+            for (int j = 1; j <= 6; j++) {
+                for (int k = 1; k <= 6; k++) {
+                    if(i+j+k == 9)
+                        print("Dice 1: %d | Dice 2: %d | Dice 3: %d = 9%n", i,j,k);
+                }
+            }
+        }
     }
     public static void ex30() {
     }
