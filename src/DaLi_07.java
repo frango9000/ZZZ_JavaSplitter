@@ -9,7 +9,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex15();
+        ex16();
 
     }
 
@@ -150,6 +150,29 @@ public class DaLi_07 {
         ArrayTool.printArray(rands);
     }
     public static void ex16() {
+        int[] array = new int[100000000];
+        for (int i = 1; i < array.length; i++) {
+            array[i] = i;
+        }
+        long startTime, endTime, totalTime;
+        int search, index;
+        int[] searches = {1,25000000,50000000,75000000,10000000};
+
+        for (int i = 0; i < searches.length; i++) {
+
+            search = searches[i];
+            startTime = System.nanoTime();
+            index = ArrayTool.linearSearch(array, search);
+            endTime = System.nanoTime();
+            totalTime = endTime-startTime;
+            printf("Linear search of number %d took %dns found in index %d%n", search, totalTime,index);
+
+            startTime = System.nanoTime();
+            index = ArrayTool.binarySearch(array, search);
+            endTime = System.nanoTime();
+            totalTime = endTime-startTime;
+            printf("Binary search of number %d took %dns found in index %d%n%n", search, totalTime,index);
+        }
     }
     public static void ex17() {
     }

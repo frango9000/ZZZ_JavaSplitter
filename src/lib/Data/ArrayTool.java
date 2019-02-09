@@ -133,4 +133,27 @@ public class ArrayTool {
         }
         return Arrays.copyOfRange(unique, 0, count);
     }
+
+    public static int linearSearch(int[] array,int number){
+        for (int i = 0; i < array.length; i++)
+            if(array[i] == number)
+                return i;
+        return -1;
+    }
+
+
+    public static int binarySearch(int[] array, int number){
+        int low = 0;
+        int high = array.length-1;
+        while( high >= low){
+            int mid = (low + high) / 2;
+            if(number < array[mid])
+                high = mid - 1;
+            else if( number == array[mid] )
+                return mid;
+            else
+                low = mid + 1;
+        }
+        return -1;
+    }
 }
