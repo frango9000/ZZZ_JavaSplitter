@@ -1,4 +1,5 @@
 import auxp.ch06.DeckOfCards;
+import auxp.ch06.Misc06;
 import lib.Data.ArrayTool;
 import lib.Math.*;
 import lib.Misc.IO;
@@ -11,7 +12,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex29();
+        ex30();
 
     }
 
@@ -281,6 +282,8 @@ public class DaLi_07 {
         }
     }
     public static void ex30() {
+        int[] numbers = {2,5,4,7,8,9,6,5,4,1,2,3,5,8,7,4,2,5,3,4,1,1,1,1};
+        print(Misc06.isConsecutiveFour(numbers));
     }
     public static void ex31() {
     }
