@@ -10,7 +10,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex22();
+        ex23();
 
     }
 
@@ -229,6 +229,17 @@ public class DaLi_07 {
         print("%d Uppercases,%n%d Lowercases.", countHigh,countLow);
     }
     public static void ex23() {
+        boolean[] lockers = new boolean[100];
+
+        for (int student = 1; student <= 100; student++) {
+            for (int locker = 0; locker < lockers.length; locker++) {
+                if( (locker+1) % student == 0 )
+                    lockers[locker] = !(lockers[locker]);
+            }
+        }
+        for (int locker = 0; locker < lockers.length; locker++) {
+            print("Locker %d is %s%n", locker+1, lockers[locker]?"open":"closed");
+        }
     }
     public static void ex24() {
     }
