@@ -19,11 +19,11 @@ public abstract class IO {
         return new Scanner(System.in);
     }
 
-    public static float scanFloat() {
-        return scanner().nextFloat();
+    public static byte scanByte() {
+        return scanner().nextByte();
     }
-    public static double scanDouble() {
-        return scanner().nextDouble();
+    public static short scanShort() {
+        return scanner().nextShort();
     }
     public static int scanInt() {
         return scanner().nextInt();
@@ -31,11 +31,14 @@ public abstract class IO {
     public static long scanLong() {
         return scanner().nextLong();
     }
-    public static byte scanByte() {
-        return scanner().nextByte();
+    public static float scanFloat() {
+        return scanner().nextFloat();
     }
-    public static short scanShort() {
-        return scanner().nextShort();
+    public static double scanDouble() {
+        return scanner().nextDouble();
+    }
+    public static char scanChar() {
+        return scanNext().charAt(0);
     }
     public static String scanNext() {
         return scanner().next();
@@ -43,17 +46,14 @@ public abstract class IO {
     public static String scanNextLine() {
         return scanner().nextLine();
     }
-    public static char scanChar() {
-        return scanNext().charAt(0);
-    }
 
-    public static float scanFloat(String message) {
+    public static byte scanByte(String message) {
         print(message);
-        return scanFloat();
+        return scanByte();
     }
-    public static double scanDouble(String message) {
+    public static short scanShort(String message) {
         print(message);
-        return scanDouble();
+        return scanShort();
     }
     public static int scanInt(String message) {
         print(message);
@@ -63,13 +63,17 @@ public abstract class IO {
         print(message);
         return scanLong();
     }
-    public static byte scanByte(String message) {
+    public static float scanFloat(String message) {
         print(message);
-        return scanByte();
+        return scanFloat();
     }
-    public static short scanShort(String message) {
+    public static double scanDouble(String message) {
         print(message);
-        return scanShort();
+        return scanDouble();
+    }
+    public static char scanChar(String message) {
+        print(message);
+        return scanChar();
     }
     public static String scanNext(String message) {
         print(message);
@@ -78,10 +82,6 @@ public abstract class IO {
     public static String scanNextLine(String message) {
         print(message);
         return scanNextLine();
-    }
-    public static char scanChar(String message) {
-        print(message);
-        return scanChar();
     }
 
     public static byte scanByte(String message, Object... args) {
@@ -96,11 +96,11 @@ public abstract class IO {
         printf(message,args);
         return scanInt();
     }
-    public static long scanLongF(String message, Object... args) {
+    public static long scanLong(String message, Object... args) {
         printf(message,args);
         return scanLong();
     }
-    public static float scanFloatF(String message, Object... args) {
+    public static float scanFloat(String message, Object... args) {
         printf(message,args);
         return scanFloat();
     }

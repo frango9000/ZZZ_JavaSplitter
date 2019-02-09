@@ -175,6 +175,14 @@ public class DaLi_07 {
         }
     }
     public static void ex17() {
+        int numberOfStudents = scanInt("Enter number of students: ");
+        int[] grades = new int[numberOfStudents];
+        String[] names = new String[numberOfStudents];
+
+        for (int i = 0; i < numberOfStudents; i++) {
+            grades[i]=scanInt("Enter Grade of student 1:");
+        }
+
     }
     public static void ex18() {
     }
