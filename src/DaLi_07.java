@@ -1,5 +1,4 @@
-import auxp.ch06.DeckOfCards;
-import auxp.ch06.Misc06;
+import auxp.ch07.DeckOfCards;
 import lib.Data.ArrayTool;
 import lib.Math.*;
 import lib.Misc.IO;
@@ -12,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex30();
+        ex31();
 
     }
 
@@ -283,9 +282,34 @@ public class DaLi_07 {
     }
     public static void ex30() {
         int[] numbers = {2,5,4,7,8,9,6,5,4,1,2,3,5,8,7,4,2,5,3,4,1,1,1,1};
-        print(Misc06.isConsecutiveFour(numbers));
+        print(ex30isConsecutiveFour(numbers));
+    }
+    public static boolean ex30isConsecutiveFour(int[] array){
+        for (int i = 0; i < array.length - 3; i++)
+            if( array[i] == array[i+1] && array[i] == array[i+2] && array[i] == array[i+3] )
+                return true;
+        return false;
     }
     public static void ex31() {
+        int[] numbers1 = {5,1,5,16,61,111};
+        int[] numbers2 = {4,2,4,5,6};
+        ArrayTool.printArray(ex31merge(numbers1,numbers2));
+    }
+    public static int[] ex31merge(int[] list1, int[] list2){
+        list1 = ArrayTool.bubbleSort(ArrayTool.removeDuplicates(list1));
+        list2 = ArrayTool.bubbleSort(ArrayTool.removeDuplicates(list2));
+        int[] merged = new int[list1.length + list2.length];
+
+        for (int i = 0, j = 0, k = 0; i < merged.length; i++) {
+            if (i < list1.length) {
+                merged[i] = list1[j];
+                j++;
+            } else {
+                merged[i] = list2[k];
+                k++;
+            }
+        }
+        return ArrayTool.bubbleSort(merged);
     }
     public static void ex32() {
     }

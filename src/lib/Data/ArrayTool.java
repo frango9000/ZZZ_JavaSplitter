@@ -63,7 +63,7 @@ public class ArrayTool {
                     return false;
         return true;
     }
-    public static int[] bubbleSort(int[] array) {
+    public static int[] bubbleSort(int... array) {
         for (int i = 0; i < array.length; i++)
             for (int j = i + 1; j < array.length; j++)
                 if (array[i] > array[j]) {

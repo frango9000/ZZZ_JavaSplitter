@@ -1,4 +1,4 @@
-package auxp.ch06;
+package auxp.ch07;
 
 public class DeckOfCards {
     public static void main() {
