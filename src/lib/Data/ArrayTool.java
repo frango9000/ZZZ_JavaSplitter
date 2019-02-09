@@ -1,5 +1,6 @@
 package lib.Data;
 
+import lib.Math.Algebra;
 import lib.Misc.Randomizer;
 
 import java.util.Arrays;
@@ -52,8 +53,10 @@ public class ArrayTool {
             }
         return newArray;
     }
-
     public static boolean isSorted(int[] array){
+        return isSortedAsc(array) || isSortedDesc(array);
+    }
+    public static boolean isSortedAsc(int[] array){
         for (int i = 0; i < array.length; i++)
             for (int j = i + 1; j < array.length; j++)
                 if (array[i] > array[j])
@@ -121,7 +124,17 @@ public class ArrayTool {
         }
         return indexes;
     }
-
+    public static boolean isSortedConstantInterval(int[] array){
+        if(isSortedAsc(array) || isSortedDesc(array)){
+            int constant = Math.abs(Algebra.max(array[0],array[1]) - Algebra.min(array[0],array[1]));
+            for (int i = 0; i < array.length-1; i++) {
+                if( (Math.abs(Algebra.max(array[i],array[i+1]) - Algebra.min(array[i],array[i+1]))) != constant ){
+                    return false;
+                }
+            }
+            return true;
+        }else return false;
+    }
 
     public static void printArray(double[] array) {
         for (int i = 0; i < array.length; i++) {

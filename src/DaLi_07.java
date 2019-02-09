@@ -11,7 +11,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex25();
+        ex27();
 
     }
 
@@ -200,11 +200,11 @@ public class DaLi_07 {
         int[] rands = randomIntsArray(10, 0, 50);
         ArrayTool.bubbleSort(rands);
         ArrayTool.printArray(rands);
-        println(ArrayTool.isSorted(rands));
+        println(ArrayTool.isSortedAsc(rands));
         println(ArrayTool.isSortedDesc(rands));
 
         ArrayTool.bubbleSortDesc(rands);
-        println(ArrayTool.isSorted(rands));
+        println(ArrayTool.isSortedAsc(rands));
         println(ArrayTool.isSortedDesc(rands));
     }
     public static void ex20() {
@@ -252,6 +252,13 @@ public class DaLi_07 {
         ex19();
     }
     public static void ex27() {
+        int[] rands = randomIntsArray(10, 0, 50);
+        println(ArrayTool.isSortedConstantInterval(rands));
+        ArrayTool.bubbleSortDesc(rands);
+        println(ArrayTool.isSortedConstantInterval(rands));
+
+        int[] constants = {-1,-3,-5,-7,-9};
+        println(ArrayTool.isSortedConstantInterval(constants));
     }
     public static void ex28() {
     }
