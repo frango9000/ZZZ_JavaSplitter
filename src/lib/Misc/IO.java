@@ -40,6 +40,10 @@ public abstract class IO {
     public static char scanChar() {
         return scanNext().charAt(0);
     }
+    public static boolean scanBoolean(){
+        char answer = scanNext().charAt(0);
+        return Character.isLetterOrDigit(answer) && (Character.toUpperCase(answer) == 'Y' || Character.toUpperCase(answer) == 'T' || Character.digit(answer, 2) == 1);
+    }
     public static String scanNext() {
         return scanner().next();
     }
@@ -74,6 +78,11 @@ public abstract class IO {
     public static char scanChar(String message) {
         print(message);
         return scanChar();
+    }
+    public static boolean scanBoolean(String message){
+        String answerFormat = " [( Y )es / ( T )rue / ( 1 )] ";
+        print(message + answerFormat);
+        return scanBoolean();
     }
     public static String scanNext(String message) {
         print(message);
@@ -111,6 +120,11 @@ public abstract class IO {
     public static char scanChar(String message, Object... args) {
         printf(message,args);
         return scanChar();
+    }
+    public static boolean scanBoolean(String message,Object... args){
+        String answerFormat = " [( Y )es / ( T )rue / ( 1 )] ";
+        printf(message + answerFormat, args);
+        return scanBoolean();
     }
     public static String scanNext(String message, Object... args) {
         printf(message,args);
