@@ -33,4 +33,11 @@ public abstract class CharManip {
     public static char getRandomCharacter() {
         return getRandomCharacter('\u0000', '\uFFFF');
     }
+
+    public static boolean isLowerCase(char c){
+        return (c >= 'a' && c <= 'z');
+    }
+    public static boolean isUpperCase(char c){
+        return (c >= 'A' && c <= 'Z');
+    }
 }
