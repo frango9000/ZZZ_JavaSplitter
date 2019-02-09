@@ -7,9 +7,9 @@ import java.util.Random;
 import java.util.Scanner;
 
 import static lib.Misc.IO.*;
-import static lib.Misc.Randomizer.*;
+import static lib.Misc.Randomizer.randomInt;
 
-public class DaLi_04 {
+public abstract class DaLi_04 {
     public static void main(String[] args) {
 
         ex25();
@@ -241,8 +241,8 @@ public class DaLi_04 {
         number = ex15(letter);
         IO.print("Number is : %d", number);
     }
-    public static int ex15(char letter){
-        if(Character.isLetter(letter)) {
+    public static int ex15(char letter) {
+        if (Character.isLetter(letter)) {
             letter = Character.toUpperCase(letter);
             if (letter >= 'W') return 9;
             else if (letter >= 'T') return 8;
@@ -253,7 +253,7 @@ public class DaLi_04 {
             else if (letter >= 'D') return 3;
             else if (letter >= 'A') return 2;
             else return -1;
-        }else return -1;
+        } else return -1;
     }
     public static void ex16() {
         //print((char)97 +""+ (char)122); // a - z

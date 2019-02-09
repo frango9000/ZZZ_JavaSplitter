@@ -1,3 +1,5 @@
+import lib.Data.CharManip;
+import lib.Data.StringManip;
 import lib.Geometry.Pentagon;
 import lib.Geometry.Polygon;
 import lib.Geometry.Triangle;
@@ -5,8 +7,6 @@ import lib.Math.Algebra;
 import lib.Math.Extras;
 import lib.Math.Primes;
 import lib.Math.Scales;
-import lib.Data.StringManip;
-import lib.Data.CharManip;
 import lib.Misc.IO;
 import lib.Misc.Time;
 
@@ -15,9 +15,9 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import static lib.Misc.IO.*;
-import static lib.Misc.Randomizer.*;
+import static lib.Misc.Randomizer.randomInt;
 
-public class DaLi_06 {
+public abstract class DaLi_06 {
     public static void main(String[] args) {
 
         ex38();

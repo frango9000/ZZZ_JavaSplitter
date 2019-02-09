@@ -11,7 +11,8 @@ public class Prism extends Triangle {
         this.sideCA = sides;
         this.length = length;
     }
-    public double volume(){
-        return area()* length;
+
+    public double volume() {
+        return area() * length;
     }
 }

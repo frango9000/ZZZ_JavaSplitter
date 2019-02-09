@@ -1,7 +1,6 @@
 import lib.Geometry.Hexagon;
 import lib.Geometry.Point;
 import lib.Geometry.Triangle;
-import lib.Geometry.TriangleEquilateral;
 import lib.Geometry.Tridimensional.Prism;
 import lib.Math.Finance;
 import lib.Math.Physics;
@@ -252,7 +251,6 @@ public abstract class DaLi_02 {
         int numberOfPennies = remainingAmount;
         println("Your amount " + amount + " consists of");
         println(" " + numberOfOneDolars + " dollars");
-        ;
         println(" " + numberOfQuarters + " quarters ");
         println(" " + numberOfDimes + " dimes");
         println(" " + numberOfNickels + " nickels");

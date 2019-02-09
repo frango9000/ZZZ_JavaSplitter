@@ -1,8 +1,8 @@
 package lib.Misc;
 
 public abstract class Asserts {
-    public static Boolean consoleAssert(){
-        switch((int) IO.scanChar()){
+    public static Boolean consoleAssert() {
+        switch ((int) IO.scanChar()) {
             case 121: // 'y'
             case 89:  // 'Y'
                 return true;

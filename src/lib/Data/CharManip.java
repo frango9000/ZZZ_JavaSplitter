@@ -1,7 +1,9 @@
 package lib.Data;
 
 public abstract class CharManip {
-    /** Generate a random character between ch1 and ch2 */
+    /**
+     * Generate a random character between ch1 and ch2
+     */
     public static char getRandomCharacter(char ch1, char ch2) {
         return (char) (ch1 + Math.random() * (ch2 - ch1 + 1));
     }
@@ -34,10 +36,11 @@ public abstract class CharManip {
         return getRandomCharacter('\u0000', '\uFFFF');
     }
 
-    public static boolean isLowerCase(char c){
+    public static boolean isLowerCase(char c) {
         return (c >= 'a' && c <= 'z');
     }
-    public static boolean isUpperCase(char c){
+
+    public static boolean isUpperCase(char c) {
         return (c >= 'A' && c <= 'Z');
     }
 }

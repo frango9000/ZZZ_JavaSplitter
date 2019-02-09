@@ -2,13 +2,11 @@ package lib.Geometry;
 
 import java.util.Random;
 
-public class Rectangle extends Polygon{
+public class Rectangle extends Polygon {
+    public static final int NUM_OF_SIDES = 4;
     private float width;
     private float height;
-
     private Point center;
-
-    public static final int NUM_OF_SIDES = 4;
 
     public Rectangle() {
     }

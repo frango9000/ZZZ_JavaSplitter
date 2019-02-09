@@ -1,7 +1,9 @@
 import auxp.ch07.DeckOfCards;
 import lib.Data.ArrayTool;
 import lib.Data.StringManip;
-import lib.Math.*;
+import lib.Math.Algebra;
+import lib.Math.Extras;
+import lib.Math.Statistics;
 import lib.Misc.IO;
 import lib.Misc.Time;
 
@@ -10,7 +12,7 @@ import java.util.Arrays;
 import static lib.Misc.IO.*;
 import static lib.Misc.Randomizer.*;
 
-public class DaLi_07 {
+public abstract class DaLi_07 {
     public static void main(String[] args) {
 
         ex37();

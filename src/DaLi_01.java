@@ -1,6 +1,8 @@
-import lib.Geometry.*;
-import lib.Math.*;
-import lib.Misc.*;
+import lib.Geometry.Circle;
+import lib.Geometry.Rectangle;
+import lib.Math.Algebra;
+import lib.Math.Scales;
+import lib.Misc.Time;
 
 import static lib.Misc.IO.println;
 

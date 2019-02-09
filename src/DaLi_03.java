@@ -6,9 +6,9 @@ import lib.Misc.Time;
 import java.util.Random;
 
 import static lib.Misc.IO.*;
-import static lib.Misc.Randomizer.*;
+import static lib.Misc.Randomizer.randomInt;
 
-public class DaLi_03 {
+public abstract class DaLi_03 {
 
     public static void main(String[] args) {
 

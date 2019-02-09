@@ -12,10 +12,11 @@ public class Polygon {
         this.sideLength = sideLength;
     }
 
-    public double area(){
-        return (numOfSides * sideLength * sideLength) / (4*Math.tan(Math.PI/ numOfSides));
+    public double area() {
+        return (numOfSides * sideLength * sideLength) / (4 * Math.tan(Math.PI / numOfSides));
     }
-    public double perimeter(){
+
+    public double perimeter() {
         return sideLength * numOfSides;
     }
 

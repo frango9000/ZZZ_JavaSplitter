@@ -61,73 +61,83 @@ public abstract class Algebra {
 
     public static long factorial(int number) {
         long prod = 1;
-        for(int i = 1; i <= number; i++)
+        for (int i = 1; i <= number; i++)
             prod = prod * i;
         return prod;
     }
-    public static double calcE(){
+
+    public static double calcE() {
         double e = 1;
-        for(int i = 64; i > 0; i--)
-            e = e + 1/(double)(factorial(i));
+        for (int i = 64; i > 0; i--)
+            e = e + 1 / (double) (factorial(i));
         return e;
     }
-    public static int[] listOfDivisors(int number){
-        int[] list = new int[number/2];
-        int count=0;
-        for (int i = 1; i<=number/2;i++)
-            if(number % i == 0)
-                list[count++]=i;
+
+    public static int[] listOfDivisors(int number) {
+        int[] list = new int[number / 2];
+        int count = 0;
+        for (int i = 1; i <= number / 2; i++)
+            if (number % i == 0)
+                list[count++] = i;
         return Arrays.copyOf(list, count);
     }
-    public static boolean isPerfectNumber(int number){
-        int sum=0;
+
+    public static boolean isPerfectNumber(int number) {
+        int sum = 0;
         int[] divisors = listOfDivisors(number);
         for (int divisor : divisors)
             sum += divisor;
         return sum == number;
 
     }
-    public static int pentagonalNumber(int index){
-        return index * ( ( 3 * index ) - 1 ) / 2;
+
+    public static int pentagonalNumber(int index) {
+        return index * ((3 * index) - 1) / 2;
     }
-    public static long sumOfDigits(long number){
+
+    public static long sumOfDigits(long number) {
         int sum = 0;
         int size = String.valueOf(number).length();
         for (int i = 0; i <= size; i++) {
-            sum += number%10;
+            sum += number % 10;
             number /= 10;
         }
-        return sum+number;
+        return sum + number;
     }
-    private static int leastCommonMultiple(int a, int b){
+
+    private static int leastCommonMultiple(int a, int b) {
         return a * (b / greatestCommonDivisor(a, b));
     }
-    public static int leastCommonMultiple(int... numbers){
-        return Arrays.stream(numbers).reduce(1, (x, y) -> x * (y / (int)greatestCommonDivisor(x, y)));
+
+    public static int leastCommonMultiple(int... numbers) {
+        return Arrays.stream(numbers).reduce(1, (x, y) -> x * (y / (int) greatestCommonDivisor(x, y)));
     }
-    private static int greatestCommonDivisor(int a, int b){
+
+    private static int greatestCommonDivisor(int a, int b) {
         if (b == 0) return a;
         else return (greatestCommonDivisor(b, a % b));
     }
 
     public static int greatestCommonDivisor(int... numbers) {
         int result = numbers[0];
-        for(int i = 1; i < numbers.length; i++) {
+        for (int i = 1; i < numbers.length; i++) {
             result = greatestCommonDivisor(result, numbers[i]);
         }
         return result;
     }
+
     public static int min(int... numbers) {
         int min = numbers[0];
-        for (int e: numbers) {
+        for (int e : numbers) {
             if (e < min)
                 min = e;
         }
         return min;
     }
+
     public static int max(int... numbers) {
         int max = numbers[0];
-        for (int e: numbers) {
+        for (int e : numbers) {
             if (e > max)
                 max = e;
         }

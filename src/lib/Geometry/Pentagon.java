@@ -3,28 +3,27 @@ package lib.Geometry;
 import java.util.Arrays;
 
 public class Pentagon extends Polygon {
+    //angle relative to the y axis
+    //Max =  17.999999999 // Min = -18; (72-90)
+    public final int numOfSides = 5;
     public double radius;                       //radius of the circle formed by this.pentagon points
     public double sideLength;
     public double angleOfPoint0;                //The point with the max Y, if top side is Y-bound, p0 is the one with positive X;
-                                                //angle relative to the y axis
-                                                //Max =  17.999999999 // Min = -18; (72-90)
-    public final int numOfSides = 5;
-
     public Point center;
-    public Point[] points= new Point[numOfSides];
+    public Point[] points = new Point[numOfSides];
 
     public Pentagon() {
     }
 
 
-
     public Pentagon(double radius) {
         this.radius = radius;
-        this.sideLength =side();
+        this.sideLength = side();
     }
+
     public Pentagon(double radius, Point center) {
         this.radius = radius;
-        this.sideLength =side();
+        this.sideLength = side();
         this.center = center;
     }
 
@@ -32,36 +31,38 @@ public class Pentagon extends Polygon {
         this.radius = radius;
         this.angleOfPoint0 = angleOfPoint0;
         this.center = center;
-        this.sideLength =side();
+        this.sideLength = side();
         setPoints();
     }
 
-    public Pentagon(boolean bool, double sideLength){
+    public Pentagon(boolean bool, double sideLength) {
         this.sideLength = sideLength;
-        this.radius =centerToVertex();
+        this.radius = centerToVertex();
     }
 
-    private void setPoints(){
+    private void setPoints() {
         Circle circle = new Circle(radius, center);
-        points[0] = circle.pointOnAngle(90+angleOfPoint0);
-        points[1] = circle.pointOnAngle(90+angleOfPoint0+72);
-        points[2] = circle.pointOnAngle(90+angleOfPoint0+72+72);
-        points[3] = circle.pointOnAngle(90+angleOfPoint0+72+72+72);
-        points[4] = circle.pointOnAngle(90+angleOfPoint0+72+72+72+72);
+        points[0] = circle.pointOnAngle(90 + angleOfPoint0);
+        points[1] = circle.pointOnAngle(90 + angleOfPoint0 + 72);
+        points[2] = circle.pointOnAngle(90 + angleOfPoint0 + 72 + 72);
+        points[3] = circle.pointOnAngle(90 + angleOfPoint0 + 72 + 72 + 72);
+        points[4] = circle.pointOnAngle(90 + angleOfPoint0 + 72 + 72 + 72 + 72);
     }
 
-    public double side(){
-        return 2 * radius * Math.sin(Math.PI/numOfSides);
+    public double side() {
+        return 2 * radius * Math.sin(Math.PI / numOfSides);
     }
-    public double centerToVertex(){
-        return sideLength / (2*Math.sin(Math.PI/5));
+
+    public double centerToVertex() {
+        return sideLength / (2 * Math.sin(Math.PI / 5));
     }
 
 
-    public double area(){
-        return (numOfSides * sideLength * sideLength) / (4f*Math.tan(Math.PI/numOfSides));
+    public double area() {
+        return (numOfSides * sideLength * sideLength) / (4f * Math.tan(Math.PI / numOfSides));
     }
-    public double perimeter(){
+
+    public double perimeter() {
         return radius * numOfSides;
     }
 

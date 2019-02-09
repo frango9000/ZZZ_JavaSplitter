@@ -8,9 +8,9 @@ import lib.Misc.Time;
 import java.util.Arrays;
 
 import static lib.Misc.IO.*;
-import static lib.Misc.Randomizer.*;
+import static lib.Misc.Randomizer.randomInt;
 
-public class DaLi_05 {
+public abstract class DaLi_05 {
     public static void main(String[] args) {
 
         ex51();
@@ -378,7 +378,7 @@ public class DaLi_05 {
                     results = ("" + results.charAt(1) + results.charAt(2) + "H");
                 } else {
                     reply = "lose";
-                    results = ("" + results.charAt(1) + Character.toString(results.charAt(2)) + "A");
+                    results = ("" + results.charAt(1) + results.charAt(2) + "A");
                 }
             }
             println("You " + reply);
