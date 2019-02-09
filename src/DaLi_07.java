@@ -10,7 +10,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex18();
+        ex19();
 
     }
 
@@ -196,6 +196,15 @@ public class DaLi_07 {
         ArrayTool.printArray(rands);
     }
     public static void ex19() {
+        int[] rands = randomIntsArray(10, 0, 50);
+        ArrayTool.bubbleSort(rands);
+        ArrayTool.printArray(rands);
+        println(ArrayTool.isSorted(rands));
+        println(ArrayTool.isSortedDesc(rands));
+
+        ArrayTool.bubbleSortDesc(rands);
+        println(ArrayTool.isSorted(rands));
+        println(ArrayTool.isSortedDesc(rands));
     }
     public static void ex20() {
     }
