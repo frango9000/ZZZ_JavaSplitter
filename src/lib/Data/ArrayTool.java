@@ -53,16 +53,21 @@ public class ArrayTool {
         return newArray;
     }
 
+    public static boolean isSorted(int[] array){
+        for (int i = 0; i < array.length; i++)
+            for (int j = i + 1; j < array.length; j++)
+                if (array[i] > array[j])
+                    return false;
+        return true;
+    }
     public static int[] bubbleSort(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            for (int j = i + 1; j < array.length; j++) {
+        for (int i = 0; i < array.length; i++)
+            for (int j = i + 1; j < array.length; j++)
                 if (array[i] > array[j]) {
                     int aux = array[i];
                     array[i] = array[j];
                     array[j] = aux;
                 }
-            }
-        }
         return array;
     }
     public static int[] bubbleSortIndex(int[] array) {
@@ -74,6 +79,40 @@ public class ArrayTool {
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if ( array[indexes[i]] > array[indexes[j]] ) {
+                    int aux = indexes[i];
+                    indexes[i] = indexes[j];
+                    indexes[j] = aux;
+                }
+            }
+        }
+        return indexes;
+    }
+    public static boolean isSortedDesc(int[] array){
+        for (int i = 0; i < array.length; i++)
+            for (int j = i + 1; j < array.length; j++)
+                if (array[i] < array[j])
+                    return false;
+        return true;
+    }
+    public static int[] bubbleSortDesc(int[] array) {
+        for (int i = 0; i < array.length; i++)
+            for (int j = i + 1; j < array.length; j++)
+                if (array[i] < array[j]) {
+                    int aux = array[i];
+                    array[i] = array[j];
+                    array[j] = aux;
+                }
+        return array;
+    }
+    public static int[] bubbleSortIndexDesc(int[] array) {
+        int[] indexes = new int[array.length];
+        for (int i = 0; i < indexes.length; i++) {
+            indexes[i]=i;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if ( array[indexes[i]] < array[indexes[j]] ) {
                     int aux = indexes[i];
                     indexes[i] = indexes[j];
                     indexes[j] = aux;
