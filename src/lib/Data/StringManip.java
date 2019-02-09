@@ -24,4 +24,20 @@ public abstract class StringManip {
     public static String format(int number, int width){
         return String.format("%0"+width+"d", number);
     }
+    public static String sort(String string){
+        StringBuilder unsorted = new StringBuilder(string);
+        StringBuilder sorted = new StringBuilder();
+        for (int i = 0; i < unsorted.length(); i++) {
+            char lowestChar=unsorted.charAt(i);
+            for (int j = i+1; j < unsorted.length(); j++) {
+                if(unsorted.charAt(i) > unsorted.charAt(j)){
+                    lowestChar = unsorted.charAt(j);
+                    unsorted.setCharAt(j, unsorted.charAt(i));
+                    unsorted.setCharAt(i, lowestChar);
+                }
+            }
+            sorted.append(lowestChar);
+        }
+        return sorted.toString();
+    }
 }

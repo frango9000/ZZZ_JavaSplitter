@@ -1,5 +1,6 @@
 import auxp.ch07.DeckOfCards;
 import lib.Data.ArrayTool;
+import lib.Data.StringManip;
 import lib.Math.*;
 import lib.Misc.IO;
 import lib.Misc.Time;
@@ -12,7 +13,7 @@ import static lib.Misc.Randomizer.*;
 public class DaLi_07 {
     public static void main(String[] args) {
 
-        ex33();
+        ex34();
 
     }
 
@@ -328,6 +329,8 @@ public class DaLi_07 {
         print(Time.monthName(month));
     }
     public static void ex34() {
+        String unsorted = scanNextLine("Enter string to sort ");
+        print(StringManip.sort(unsorted));
     }
     public static void ex35() {
     }
