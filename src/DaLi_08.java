@@ -1,3 +1,11 @@
+import lib.Data.ArrayTool;
+
+
+import java.util.Arrays;
+
+import static lib.Misc.IO.*;
+import static lib.Misc.Randomizer.*;
+
 public class DaLi_08 {
     public static void main(String[] args) {
         ex00();
@@ -5,8 +13,19 @@ public class DaLi_08 {
     public static void ex00(){
     }
     public static void ex01(){
+        int[][] table = randomIntsTable(3, 4, 1, 10);
+        ArrayTool.printTable(table, 6);
+        for (int i = 0; i < table.length; i++) {
+            print("Sum of row %d  = %d\n", i, ex01sumOfRow(table[i]));
+
+        }
     }
-    public static void ex02(){
+    public static int ex01sumOfRow(int[] array){
+        int sum = 0;
+        for (int i = 0; i < array.length; i++) {
+            sum += array[i];
+        }
+        return sum;
     }
     public static void ex03(){
     }

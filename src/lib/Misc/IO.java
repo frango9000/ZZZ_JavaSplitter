@@ -16,6 +16,10 @@ public abstract class IO {
         System.out.format(format, args);
     }
 
+    public static void printf(String format, Object... args) {
+        print(format, args);
+    }
+
     public static Scanner scanner() {
         return new Scanner(System.in);
     }

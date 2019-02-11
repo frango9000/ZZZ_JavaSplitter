@@ -40,6 +40,21 @@ public abstract class Randomizer {
         return randomIntsArray(elements, elements);
     }
 
+    public static int[][] randomIntsTable(int rows, int columns, int lowBound, int highBound) {
+        int[][] table = new int[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            table[i] =  randomIntsArray(columns, lowBound, highBound);
+        }
+        return table;
+    }
+
+    public static int[][] randomIntsTable(int rows, int columns, int highBound){
+        return randomIntsTable(rows, columns, 0, highBound);
+    }
+     public static int[][] randomIntsTable(int rows, int columns){
+        return randomIntsTable(rows, columns, 0, rows*columns);
+     }
+
     public static int[] randomUniqueIntsArray(int elements, int lowBound, int highBound) {
         int range = highBound - lowBound + 1;
         if (range >= elements) {

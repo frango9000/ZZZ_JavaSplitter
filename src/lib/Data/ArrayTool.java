@@ -1,9 +1,11 @@
 package lib.Data;
 
+import javafx.scene.transform.MatrixType;
 import lib.Math.Algebra;
 import lib.Misc.Randomizer;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
 public class ArrayTool {
 
@@ -153,6 +155,18 @@ public class ArrayTool {
     public static void printArray(int[] array) {
         for (int i = 0; i < array.length; i++) {
             System.out.println(array[i]);
+        }
+    }
+
+    public static void printTable(int[][] table) {
+        printTable(table, 4);
+    }
+    public static void printTable(int[][] table, int spacing) {
+        for (int[] row : table) {
+            for (int cell : row ) {
+                System.out.printf("%"+spacing+"d", cell);
+            }
+            System.out.println();
         }
     }
 
