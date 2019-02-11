@@ -8,7 +8,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex00();
+        ex02();
     }
     public static void ex00(){
     }
@@ -26,6 +26,20 @@ public class DaLi_08 {
             sum += array[i];
         }
         return sum;
+    }
+    public static void ex02(){
+        int[][] table = randomIntsTable(4, 4, 1, 10);
+        ArrayTool.printTable(table, 6);
+        print(ex02averageMajorDiagonal(table));
+
+    }
+    public static double ex02averageMajorDiagonal(int[][] table){
+        int sum = 0;
+        int diagonalLength = (table.length <= table[0].length) ? table.length : table[0].length;
+        for (int i = 0; i < diagonalLength; i++) {
+            sum += table[i][i];
+        }
+        return sum/(float)diagonalLength;
     }
     public static void ex03(){
     }
