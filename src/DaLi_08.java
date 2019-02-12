@@ -1,4 +1,5 @@
 import lib.Data.ArrayTool;
+import lib.Math.Algebra;
 
 import java.util.Arrays;
 
@@ -97,6 +98,21 @@ public class DaLi_08 {
         }else return null;
     }
     public static void ex06(){
+        double[][] matrix1 = randomDoublesTable(3, 3, 1, 4);
+        ArrayTool.printTable(matrix1);
+        double[][] matrix2 = randomDoublesTable(3, 3, 1, 4);
+        ArrayTool.printTable(matrix2);
+        ArrayTool.printTable(ex06multiplyMatrix(matrix1, matrix2));
+
+    }
+    public static double[][] ex06multiplyMatrix(double[][] matrix1, double[][] matrix2){
+        double[][] dotProduct = new double[Algebra.min(matrix1.length, matrix2.length)][Algebra.min(matrix1[0].length, matrix2[0].length)];
+        for (int i = 0; i < dotProduct.length; i++) {
+            for (int j = 0; j < dotProduct[0].length; j++) {
+                dotProduct[i][j] += matrix1[i][j] * matrix2[j][i];
+            }
+        }
+        return dotProduct;
     }
     public static void ex07(){
     }
