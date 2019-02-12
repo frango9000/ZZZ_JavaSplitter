@@ -1,14 +1,11 @@
 import lib.Data.ArrayTool;
 
-
-import java.util.Arrays;
-
 import static lib.Misc.IO.*;
 import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex02();
+        ex03();
     }
     public static void ex00(){
     }
@@ -42,6 +39,35 @@ public class DaLi_08 {
         return sum/(float)diagonalLength;
     }
     public static void ex03(){
+        char[][] answers = {
+                {'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},
+                {'E', 'D', 'D', 'A', 'C', 'B', 'E', 'E', 'A', 'D'},
+                {'C', 'B', 'A', 'E', 'D', 'C', 'E', 'E', 'A', 'D'},
+                {'A', 'B', 'D', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'B', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'B', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
+                {'E', 'B', 'E', 'C', 'C', 'D', 'E', 'E', 'A', 'D'}};
+
+        // Key to the questions
+        char[] keys = {'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'};
+        int[] correct= new int[answers.length];
+        // Grade all answers
+        for (int i = 0; i < answers.length; i++) {
+            // Grade one student
+
+            for (int j = 0; j < answers[i].length; j++) {
+                if (answers[i][j] == keys[j])
+                    correct[i]++;
+            }
+
+            System.out.println("Student " + i + "'s correct count is " +
+                    correct[i]);
+        }
+        int[] ordered = ArrayTool.bubbleSortIndexDesc(correct);
+        for (int i = 0; i < ordered.length; i++) {
+            printf("Student %d correct count is %d\n", ordered[i], correct[ordered[i]]);
+        }
     }
     public static void ex04(){
     }
