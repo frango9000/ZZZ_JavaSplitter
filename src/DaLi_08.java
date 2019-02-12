@@ -1,5 +1,7 @@
 import lib.Data.ArrayTool;
 
+import java.util.Arrays;
+
 import static lib.Misc.IO.*;
 import static lib.Misc.Randomizer.*;
 
@@ -70,8 +72,11 @@ public class DaLi_08 {
         }
     }
     public static void ex04(){
-    }
-    public static void ex05(){
+        int[][] table = randomIntsTable(7, 8, 1, 9);
+        for (int i = 0; i < table.length; i++) {
+
+            println(Arrays.toString(table[i]) + " " + ex01sumOfRow(table[i]));
+        }
     }
     public static void ex06(){
     }
