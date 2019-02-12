@@ -169,6 +169,17 @@ public class ArrayTool {
             System.out.println();
         }
     }
+    public static void printTable(double[][] table) {
+        printTable(table, 8, 2);
+    }
+    public static void printTable(double[][] table, int spacing, int decimalDigits) {
+        for (double[] row : table) {
+            for (double cell : row ) {
+                System.out.printf("%"+spacing+"."+decimalDigits+"f", cell);
+            }
+            System.out.println();
+        }
+    }
 
     public static int max(int[] array) {
         int max = array[0];

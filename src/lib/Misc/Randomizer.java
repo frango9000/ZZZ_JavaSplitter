@@ -43,17 +43,18 @@ public abstract class Randomizer {
     public static int[][] randomIntsTable(int rows, int columns, int lowBound, int highBound) {
         int[][] table = new int[rows][columns];
         for (int i = 0; i < rows; i++) {
-            table[i] =  randomIntsArray(columns, lowBound, highBound);
+            table[i] = randomIntsArray(columns, lowBound, highBound);
         }
         return table;
     }
 
-    public static int[][] randomIntsTable(int rows, int columns, int highBound){
+    public static int[][] randomIntsTable(int rows, int columns, int highBound) {
         return randomIntsTable(rows, columns, 0, highBound);
     }
-     public static int[][] randomIntsTable(int rows, int columns){
-        return randomIntsTable(rows, columns, 0, rows*columns);
-     }
+
+    public static int[][] randomIntsTable(int rows, int columns) {
+        return randomIntsTable(rows, columns, 0, rows * columns);
+    }
 
     public static int[] randomUniqueIntsArray(int elements, int lowBound, int highBound) {
         int range = highBound - lowBound + 1;
@@ -95,6 +96,22 @@ public abstract class Randomizer {
 
     public static double[] randomDoublesArray(int elements) {
         return randomDoublesArray(elements, elements);
+    }
+
+    public static double[][] randomDoublesTable(int rows, int columns, int lowBound, int highBound) {
+        double[][] table = new double[rows][columns];
+        for (int i = 0; i < rows; i++) {
+            table[i] = randomDoublesArray(columns, lowBound, highBound);
+        }
+        return table;
+    }
+
+    public static double[][] randomDoublesTable(int rows, int columns, int highBound) {
+        return randomDoublesTable(rows, columns, 0, highBound);
+    }
+
+    public static double[][] randomDoublesTable(int rows, int columns) {
+        return randomDoublesTable(rows, columns, 0, rows * columns);
     }
 
 }

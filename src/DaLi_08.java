@@ -7,7 +7,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex03();
+        ex05();
     }
     public static void ex00(){
     }
@@ -77,6 +77,24 @@ public class DaLi_08 {
 
             println(Arrays.toString(table[i]) + " " + ex01sumOfRow(table[i]));
         }
+    }
+    public static void ex05(){
+        double[][] matrix1 = randomDoublesTable(3, 3, 1, 4);
+        ArrayTool.printTable(matrix1);
+        double[][] matrix2 = randomDoublesTable(3, 3, 1, 4);
+        ArrayTool.printTable(matrix2);
+        ArrayTool.printTable(ex05addMatrixes(matrix1, matrix2));
+    }
+    public static double[][] ex05addMatrixes(double[][] matrix1, double[][] matrix2){
+        if(matrix1.length == matrix2.length && matrix1[0].length == matrix2[0].length){
+            double[][] addition = new double[matrix1.length][matrix2[0].length];
+            for (int i = 0; i < addition.length; i++) {
+                for (int j = 0; j < addition[i].length; j++) {
+                    addition[i][j] = matrix1[i][j] + matrix2[i][j];
+                }
+            }
+            return addition;
+        }else return null;
     }
     public static void ex06(){
     }
