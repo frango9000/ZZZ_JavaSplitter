@@ -1,5 +1,7 @@
 package lib.Data;
 
+import lib.Misc.Asserts;
+
 public abstract class StringManip {
 
     public static int countLetters(String string) {
@@ -22,7 +24,7 @@ public abstract class StringManip {
         return count;
     }
 
-    public static String format(int number, int width) {
+    public static String formatString(int number, int width) {
         return String.format("%0" + width + "d", number);
     }
 
@@ -45,5 +47,16 @@ public abstract class StringManip {
             else sorted.append(Character.toLowerCase(lowestChar));
         }
         return sorted.toString();
+    }
+
+    /**
+     * Comprueba si el parametro str es parseable a int, si lo es, devuelve
+     * el int, de lo contrario devuelve null
+     *
+     * @param str string a parsear a int
+     * @return str parseado a int
+     */
+    public static Integer stringToInt(String str) {
+        return Asserts.isInteger(str) ? Integer.parseInt(str) : null;
     }
 }
