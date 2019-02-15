@@ -116,6 +116,9 @@ public class DaLi_08 {
         return dotProduct;
     }
     public static void ex07(){
+        Point[] points = {new Point(-1,3), new Point(-1,-1 ), new Point(1,1), new Point(2,0.5), new Point(2, -1), new Point(3,3), new Point(4,2), new Point(4,-0.5)};
+        int[] cp = Point.closestPoints(points);
+        println(points[cp[0]]+" "+points[cp[1]]);
     }
     public static void ex08(){
     }
