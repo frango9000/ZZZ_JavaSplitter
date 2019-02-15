@@ -1,3 +1,4 @@
+import auxp.ch08.TicTacToe;
 import lib.Data.ArrayTool;
 import lib.Geometry.Point;
 import lib.Math.Algebra;
@@ -9,7 +10,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex08();
+        ex09();
     }
     public static void ex00(){
     }
@@ -126,6 +127,7 @@ public class DaLi_08 {
         println(Point.closestPoints(points));
     }
     public static void ex09(){
+        TicTacToe.main();
     }
     public static void ex10(){
     }
