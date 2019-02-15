@@ -116,11 +116,13 @@ public class DaLi_08 {
         return dotProduct;
     }
     public static void ex07(){
-        Point[] points = {new Point(-1,3), new Point(-1,-1 ), new Point(1,1), new Point(2,0.5), new Point(2, -1), new Point(3,3), new Point(4,2), new Point(4,-0.5)};
+        double[][] ps = {{-1, 0, 3}, {-1, -1, -1}, {4, 1, 1}, {2, 0.5, 9}, {3.5, 2, -1}, {3, 1.5, 3}, {-1.5, 4, 2}, {5.5, 4, -0.5}};
+        Point[] points = Point.toPointsArray(ps);
         int[] cp = Point.closestPoints(points);
-        println(points[cp[0]]+" "+points[cp[1]]);
+        println(points[cp[0]].toString3()+" "+points[cp[1]].toString3());
     }
     public static void ex08(){
+        Point[] points = {new Point(-1,3), new Point(-1,-1 ), new Point(1,1), new Point(2,0.5), new Point(2, -1), new Point(3,3), new Point(4,2), new Point(4,-0.5)};
     }
     public static void ex09(){
     }

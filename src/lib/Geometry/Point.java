@@ -35,6 +35,13 @@ public class Point {
         point = new double[]{x, y, z};
     }
 
+    public static Point[] toPointsArray(double[][] points){
+        Point[] array = new Point[points.length];
+        for (int i = 0; i < points.length; i++) {
+            array[i] = new Point(points[i][0], points[i][1], points[i].length >= 3 ? points[i][2] : 0);
+        }
+        return array;
+    }
 
     public static double distanceBetweenPoints(double x1, double y1, double z1, double x2, double y2, double z2) {
         return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2) + Math.pow(z2 - z1, 2));
@@ -71,7 +78,7 @@ public class Point {
     }
 
     public static int[] closestPoints(Point... points) {
-        int[] indexesOfClosestPoints = new int[2];
+        int[] indexesOfClosestPoints = new int[3];
         int p1 = 0, p2 = 1;
         double shortestDistance = distanceBetweenPoints(points[p1], points[p2]);
         for (int i = 0; i < points.length; i++) {
@@ -86,5 +93,6 @@ public class Point {
         }
         return new int[]{p1, p2};
     }
+
 
 }
