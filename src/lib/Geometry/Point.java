@@ -1,5 +1,8 @@
 package lib.Geometry;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Point {
     public double x;
     public double y;
@@ -77,8 +80,7 @@ public class Point {
         return "( " + x + ", " + y + ", " + z + " )";
     }
 
-    public static int[] closestPoints(Point... points) {
-        int[] indexesOfClosestPoints = new int[3];
+    public static int[] closestPointsIndex(Point... points) {
         int p1 = 0, p2 = 1;
         double shortestDistance = distanceBetweenPoints(points[p1], points[p2]);
         for (int i = 0; i < points.length; i++) {
@@ -92,6 +94,20 @@ public class Point {
             }
         }
         return new int[]{p1, p2};
+    }
+    public static double closestPointsDistance(Point... points) {
+        return distanceBetweenPoints(points[closestPointsIndex(points)[0]], points[closestPointsIndex(points)[1]]);
+    }
+    public static HashMap<Point,Point> closestPoints(Point... points){
+        HashMap<Point,Point> list = new HashMap<>();
+        for (int i = 0; i < points.length; i++) {
+            for (int j = i + 1; j < points.length; j++) {
+                if(distanceBetweenPoints(points[i], points[j]) == closestPointsDistance(points)){
+                    list.put(points[i], points[j]);
+                }
+            }
+        }
+        return list;
     }
 
 

@@ -9,7 +9,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex07();
+        ex08();
     }
     public static void ex00(){
     }
@@ -118,11 +118,12 @@ public class DaLi_08 {
     public static void ex07(){
         double[][] ps = {{-1, 0, 3}, {-1, -1, -1}, {4, 1, 1}, {2, 0.5, 9}, {3.5, 2, -1}, {3, 1.5, 3}, {-1.5, 4, 2}, {5.5, 4, -0.5}};
         Point[] points = Point.toPointsArray(ps);
-        int[] cp = Point.closestPoints(points);
+        int[] cp = Point.closestPointsIndex(points);
         println(points[cp[0]].toString3()+" "+points[cp[1]].toString3());
     }
     public static void ex08(){
-        Point[] points = {new Point(-1,3), new Point(-1,-1 ), new Point(1,1), new Point(2,0.5), new Point(2, -1), new Point(3,3), new Point(4,2), new Point(4,-0.5)};
+        Point[] points = {new Point(0,0), new Point(1,1 ), new Point(-1,-1), new Point(2,2), new Point(-2, -2), new Point(-3,-3), new Point(-4,-4), new Point(5,5)};
+        println(Point.closestPoints(points));
     }
     public static void ex09(){
     }
