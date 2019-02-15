@@ -1,4 +1,5 @@
 import lib.Data.ArrayTool;
+import lib.Geometry.Point;
 import lib.Math.Algebra;
 
 import java.util.Arrays;
@@ -8,7 +9,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex05();
+        ex07();
     }
     public static void ex00(){
     }
@@ -84,9 +85,9 @@ public class DaLi_08 {
         ArrayTool.printTable(matrix1);
         double[][] matrix2 = randomDoublesTable(3, 3, 1, 4);
         ArrayTool.printTable(matrix2);
-        ArrayTool.printTable(ex05addMatrixes(matrix1, matrix2));
+        ArrayTool.printTable(ex05addMatrix(matrix1, matrix2));
     }
-    public static double[][] ex05addMatrixes(double[][] matrix1, double[][] matrix2){
+    public static double[][] ex05addMatrix(double[][] matrix1, double[][] matrix2){
         if(matrix1.length == matrix2.length && matrix1[0].length == matrix2[0].length){
             double[][] addition = new double[matrix1.length][matrix2[0].length];
             for (int i = 0; i < addition.length; i++) {

@@ -44,4 +44,21 @@ public class Point {
         return "( " + x + ", " + y + " )";
     }
 
+    public static int[] closestPoints(Point... points){
+        int[] indexesOfClosestPoints = new int[2];
+        int p1 = 0, p2 = 1;
+        double shortestDistance = distanceBetweenPoints(points[p1],points[p2]);
+        for (int i = 0; i < points.length; i++) {
+            for (int j = i + 1; j < points.length; j++) {
+                double distance = distanceBetweenPoints(points[i], points[j]);
+                if(shortestDistance > distance){
+                    p1 = i;
+                    p2 = j;
+                    shortestDistance = distance;
+                }
+            }
+        }
+        return new int[]{p1,p2};
+    }
+
 }
