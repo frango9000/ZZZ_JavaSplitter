@@ -8,6 +8,10 @@ public abstract class IO {
         System.out.println(str);
     }
 
+    public static void println(String format, Object... args) {
+        System.out.printf(format+"%n",args);
+    }
+
     public static void print(Object str) {
         System.out.print(str);
     }

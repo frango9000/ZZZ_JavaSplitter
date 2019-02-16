@@ -40,6 +40,43 @@ public class MatrixManip {
         }
     }
 
+    public static int[][] buildTable(int rows, int cols, int... numbers){
+        int[][] table = new int[rows][cols];
+        int t = 0;
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length; j++) {
+                if(numbers.length > t)
+                    table[i][j] = numbers[t++];
+                else table[i][j] = 0;
+            }
+        }
+        return table;
+    }
+    public static double[][] buildTable(int rows, int cols, double... numbers){
+        double[][] table = new double[rows][cols];
+        int t = 0;
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length; j++) {
+                if(numbers.length > t)
+                    table[i][j] = numbers[t++];
+                else table[i][j] = 0;
+            }
+        }
+        return table;
+    }
+    public static char[][] buildTable(int rows, int cols, char... chars){
+        char[][] table = new char[rows][cols];
+        int t = 0;
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length; j++) {
+                if(chars.length > t)
+                    table[i][j] = chars[t++];
+                else table[i][j] = 0;
+            }
+        }
+        return table;
+    }
+
     public static double max(double[][] table) {
         double max = table[0][0];
         for (int i = 0; i < table.length; i++) {

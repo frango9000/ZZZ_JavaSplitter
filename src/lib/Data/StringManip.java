@@ -70,6 +70,16 @@ public abstract class StringManip {
     }
 
     public static String toBinaryString(int number, int bits){
-        return formatInt(bits, Integer.parseInt(Integer.toBinaryString(number)));
+        StringBuilder binary = new StringBuilder();
+
+        String unformated = Integer.toBinaryString(number);
+
+        for (int i = 0, j =0; i < bits; i++) {
+            if(unformated.length()+i >= bits) {
+                binary.append(unformated.charAt(j++));
+            }else binary.append('0');
+
+        }
+        return binary.toString();
     }
 }

@@ -8,12 +8,11 @@ import lib.Math.Algebra;
 import java.util.Arrays;
 
 import static lib.Misc.IO.*;
-import static lib.Misc.Randomizer.randomDoublesTable;
-import static lib.Misc.Randomizer.randomIntsTable;
+import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex13();
+        ex14();
     }
     public static void ex00(){
     }
@@ -182,6 +181,59 @@ public class DaLi_08 {
         print(MatrixManip.indexOfMax(table)[0]+" "+MatrixManip.indexOfMax(table)[1]);
     }
     public static void ex14(){
+        short size = 3;//scanShort("Enter size: ");
+        int random = randomInt((int) Math.pow(2, size * size));
+        String bin = StringManip.toBinaryString(random, size * size);
+        char[][] table = MatrixManip.buildTable(size, size, bin.toCharArray());
+        MatrixManip.printTable(table);
+        ex14rows(table);
+        ex14cols(table);
+        ex14diag(table);
+
+    }
+    public static void ex14rows(char[][] table) {
+        for (int i = 0; i < table.length; i++) {
+            char t = table[i][0];
+            int count = 0;
+            for (int j = 0; j < table[i].length; j++) {
+                if (t == table[i][j])
+                    count++;
+            }
+            if (count == table[i].length) {
+                println("All %cs on row %d", t, i);
+            }
+        }
+    }
+    public static void ex14cols(char[][] table) {
+        for (int i = 0; i < table.length; i++) {
+            char t = table[0][i];
+            int count = 0;
+            for (int j = 0; j < table[i].length; j++) {
+                if (t == table[j][i])
+                    count++;
+            }
+            if (count == table[i].length)
+                println("All %cs on col %d", t, i);
+        }
+    }
+    public static void ex14diag(char[][] table) {
+        char t = table[0][0];
+        int count = 0;
+        for (int i = 0; i < table.length; i++) {
+            if (t == table[i][i])
+                count++;
+        }
+        if (count == table.length)
+            println("All %cs on major diag", t);
+
+        t = table[table.length - 1][table[table.length - 1].length - 1];
+        count = 0;
+        for (int i = 0, j = table[i].length - 1; i < table.length; i++, j--) {
+            if (t == table[i][j])
+                count++;
+        }
+        if (count == table.length)
+            println("All %cs on minor diag", t);
     }
     public static void ex15(){
     }
