@@ -2,6 +2,7 @@ import auxp.ch08.TicTacToe;
 import lib.Data.ArrayTool;
 import lib.Data.MatrixManip;
 import lib.Data.StringManip;
+import lib.Geometry.Line;
 import lib.Geometry.Point;
 import lib.Math.Algebra;
 
@@ -12,7 +13,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex14();
+        ex15();
     }
     public static void ex00(){
     }
@@ -236,6 +237,14 @@ public class DaLi_08 {
             println("All %cs on minor diag", t);
     }
     public static void ex15(){
+        Point[] points1 = { new Point(3.4,2),new Point(6.5,9.5),new Point(2.3,2.3),new Point(5.5,5),new Point(-5,4)};
+        Point[] points2 = { new Point(1,1),  new Point(2,2),    new Point(3,3),    new Point(4,4),  new Point(5,5) };
+
+        Line lineA = new Line(points1[0],points1[1]);
+        Line lineB = new Line(points2[0],points2[1]);
+
+        ArrayTool.printArray(lineA.crossProduct(points1));
+        ArrayTool.printArray(lineB.crossProduct(points2));
     }
     public static void ex16(){
     }

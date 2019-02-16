@@ -76,6 +76,18 @@ public class Line {
         return ((pointB.x - pointA.x) * (point.y - pointA.y) - (point.x - pointA.x) * (pointB.y - pointA.y));
     }
 
+    public double crossProduct(double x, double y) {
+        return crossProduct(new Point(x,y));
+    }
+
+    public double[] crossProduct(Point... points) {
+        double[] crosss = new double[points.length];
+        for (int i = 0; i < points.length; i++) {
+            crosss[i] = crossProduct(points[i]);
+        }
+        return crosss;
+    }
+
     public double dotProduct(Point point) {
         return ((pointB.x - pointA.x) * (point.x - pointA.x) - (point.y - pointA.y) * (pointB.y - pointA.y));
     }
