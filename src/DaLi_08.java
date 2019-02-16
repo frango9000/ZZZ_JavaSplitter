@@ -1,5 +1,6 @@
 import auxp.ch08.TicTacToe;
 import lib.Data.ArrayTool;
+import lib.Data.MatrixManip;
 import lib.Data.StringManip;
 import lib.Geometry.Point;
 import lib.Math.Algebra;
@@ -12,13 +13,13 @@ import static lib.Misc.Randomizer.randomIntsTable;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex11();
+        ex13();
     }
     public static void ex00(){
     }
     public static void ex01(){
         int[][] table = randomIntsTable(3, 4, 1, 10);
-        ArrayTool.printTable(table, 6);
+        MatrixManip.printTable(table, 6);
         for (int i = 0; i < table.length; i++) {
             print("Sum of row %d  = %d\n", i, ex01sumOfRow(table[i]));
 
@@ -33,7 +34,7 @@ public class DaLi_08 {
     }
     public static void ex02(){
         int[][] table = randomIntsTable(4, 4, 1, 10);
-        ArrayTool.printTable(table, 6);
+        MatrixManip.printTable(table, 6);
         print(ex02averageMajorDiagonal(table));
 
     }
@@ -85,10 +86,10 @@ public class DaLi_08 {
     }
     public static void ex05(){
         double[][] matrix1 = randomDoublesTable(3, 3, 1, 4);
-        ArrayTool.printTable(matrix1);
+        MatrixManip.printTable(matrix1);
         double[][] matrix2 = randomDoublesTable(3, 3, 1, 4);
-        ArrayTool.printTable(matrix2);
-        ArrayTool.printTable(ex05addMatrix(matrix1, matrix2));
+        MatrixManip.printTable(matrix2);
+        MatrixManip.printTable(ex05addMatrix(matrix1, matrix2));
     }
     public static double[][] ex05addMatrix(double[][] matrix1, double[][] matrix2){
         if(matrix1.length == matrix2.length && matrix1[0].length == matrix2[0].length){
@@ -103,10 +104,10 @@ public class DaLi_08 {
     }
     public static void ex06(){
         double[][] matrix1 = randomDoublesTable(3, 3, 1, 4);
-        ArrayTool.printTable(matrix1);
+        MatrixManip.printTable(matrix1);
         double[][] matrix2 = randomDoublesTable(3, 3, 1, 4);
-        ArrayTool.printTable(matrix2);
-        ArrayTool.printTable(ex06multiplyMatrix(matrix1, matrix2));
+        MatrixManip.printTable(matrix2);
+        MatrixManip.printTable(ex06multiplyMatrix(matrix1, matrix2));
 
     }
     public static double[][] ex06multiplyMatrix(double[][] matrix1, double[][] matrix2){
@@ -133,7 +134,7 @@ public class DaLi_08 {
     }
     public static void ex10(){
         int[][] table = randomIntsTable(5, 5, 0, 1);
-        ArrayTool.printTable(table, 2);
+        MatrixManip.printTable(table, 2);
         int largeRow = -1, largeCol = -1, tempRow = 0, tempCol = 0;
         int rowIndx = -1, colIndx = -1;
         for (int i = 0; i < table.length; i++) {
@@ -171,11 +172,14 @@ public class DaLi_08 {
                 table[i][j] = bin.charAt(t++);
             }
         }
-        ArrayTool.printTable(table);
+        MatrixManip.printTable(table);
     }
     public static void ex12(){
     }
     public static void ex13(){
+        double[][] table = randomDoublesTable(10,10,0,10);
+        MatrixManip.printTable(table);
+        print(MatrixManip.indexOfMax(table)[0]+" "+MatrixManip.indexOfMax(table)[1]);
     }
     public static void ex14(){
     }

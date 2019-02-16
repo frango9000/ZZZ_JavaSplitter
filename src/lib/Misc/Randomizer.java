@@ -81,8 +81,8 @@ public abstract class Randomizer {
     }
 
     public static double[] randomDoublesArray(int elements, double lowBound, double highBound) {
-        int precision = 1000000;
-        double range = (highBound - lowBound + 1) * precision;
+        int precision = 100000000;
+        double range = ( highBound - lowBound ) * precision;
         double[] randoms = new double[elements];
         for (int i = 0; i < randoms.length; i++) {
             randoms[i] = (randomInt((int) range) + (precision * lowBound)) / precision;

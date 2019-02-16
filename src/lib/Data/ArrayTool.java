@@ -1,11 +1,9 @@
 package lib.Data;
 
-import javafx.scene.transform.MatrixType;
 import lib.Math.Algebra;
 import lib.Misc.Randomizer;
 
 import java.util.Arrays;
-import java.util.Iterator;
 
 public class ArrayTool {
 
@@ -164,40 +162,6 @@ public class ArrayTool {
         }
     }
 
-    public static void printTable(int[][] table) {
-        printTable(table, 4);
-    }
-    public static void printTable(int[][] table, int spacing) {
-        for (int[] row : table) {
-            for (int cell : row ) {
-                System.out.printf("%"+spacing+"d", cell);
-            }
-            System.out.println();
-        }
-    }
-    public static void printTable(char[][] table) {
-        printTable(table, 4);
-    }
-    public static void printTable(char[][] table, int spacing) {
-        for (char[] row : table) {
-            for (char cell : row ) {
-                System.out.printf("%"+spacing+"c", cell);
-            }
-            System.out.println();
-        }
-    }
-    public static void printTable(double[][] table) {
-        printTable(table, 8, 2);
-    }
-    public static void printTable(double[][] table, int spacing, int decimalDigits) {
-        for (double[] row : table) {
-            for (double cell : row ) {
-                System.out.printf("%"+spacing+"."+decimalDigits+"f", cell);
-            }
-            System.out.println();
-        }
-    }
-
     public static int max(int[] array) {
         int max = array[0];
         for (int i = 0; i < array.length; i++) {
@@ -236,6 +200,26 @@ public class ArrayTool {
             }
         }
         return max;
+    }
+
+    public static double min(double[] array) {
+        double min = array[0];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+        return min;
+    }
+
+    public static int indexOfMin(double[] array) {
+        int min = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < array[min]) {
+                min = i;
+            }
+        }
+        return min;
     }
 
     public static int[] reverseArray(int[] array) {
@@ -283,7 +267,6 @@ public class ArrayTool {
                 return i;
         return -1;
     }
-
 
     public static int binarySearch(int[] array, int number) {
         int low = 0;
