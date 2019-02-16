@@ -1,5 +1,6 @@
 import auxp.ch08.TicTacToe;
 import lib.Data.ArrayTool;
+import lib.Data.StringManip;
 import lib.Geometry.Point;
 import lib.Math.Algebra;
 
@@ -11,7 +12,7 @@ import static lib.Misc.Randomizer.randomIntsTable;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex10();
+        ex11();
     }
     public static void ex00(){
     }
@@ -157,8 +158,20 @@ public class DaLi_08 {
         }
         print("Max row %d%nMax col %d", rowIndx, colIndx);
     }
-
     public static void ex11(){
+        short number = scanShort("Enter a number ( 0 - 511 )");
+        char[][] table = new char[3][3];
+        number = (short) Algebra.min(number,511);
+        number = (short) Algebra.max(number,0);
+        String bin = StringManip.toBinaryString(number, 9);
+        println(bin);
+        int t =0;
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length; j++) {
+                table[i][j] = bin.charAt(t++);
+            }
+        }
+        ArrayTool.printTable(table);
     }
     public static void ex12(){
     }

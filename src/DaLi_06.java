@@ -374,7 +374,7 @@ public abstract class DaLi_06 {
         print(polygon.area());
     }
     public static void ex37() {
-        println(StringManip.formatString(34, 6));
+        println(StringManip.formatInt(6, 34));
     }
     public static void ex38() {
         for (int i = 1; i <= 200; i++) {

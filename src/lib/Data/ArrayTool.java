@@ -158,6 +158,12 @@ public class ArrayTool {
         }
     }
 
+    public static void printArray(char[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
+
     public static void printTable(int[][] table) {
         printTable(table, 4);
     }
@@ -165,6 +171,17 @@ public class ArrayTool {
         for (int[] row : table) {
             for (int cell : row ) {
                 System.out.printf("%"+spacing+"d", cell);
+            }
+            System.out.println();
+        }
+    }
+    public static void printTable(char[][] table) {
+        printTable(table, 4);
+    }
+    public static void printTable(char[][] table, int spacing) {
+        for (char[] row : table) {
+            for (char cell : row ) {
+                System.out.printf("%"+spacing+"c", cell);
             }
             System.out.println();
         }

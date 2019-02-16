@@ -23,9 +23,18 @@ public abstract class StringManip {
         }
         return count;
     }
+    public static String format(String format, Object... args){
+        return String.format(format,args);
+    }
 
-    public static String formatString(int number, int width) {
-        return String.format("%0" + width + "d", number);
+    public static String formatInt(int width, int number) {
+        return format("%0" + width + "d", number);
+    }
+    public static String formatString(int width, String string) {
+        return format("%" + width + "s", string);
+    }
+    public static String formatDouble( int spacing, int decimals, double number){
+        return format("%" + spacing + "." + decimals + "f", number);
     }
 
     public static String sort(String string) {
@@ -58,5 +67,9 @@ public abstract class StringManip {
      */
     public static Integer stringToInt(String str) {
         return Asserts.isInteger(str) ? Integer.parseInt(str) : null;
+    }
+
+    public static String toBinaryString(int number, int bits){
+        return formatInt(bits, Integer.parseInt(Integer.toBinaryString(number)));
     }
 }
