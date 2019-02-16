@@ -6,11 +6,12 @@ import lib.Math.Algebra;
 import java.util.Arrays;
 
 import static lib.Misc.IO.*;
-import static lib.Misc.Randomizer.*;
+import static lib.Misc.Randomizer.randomDoublesTable;
+import static lib.Misc.Randomizer.randomIntsTable;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex09();
+        ex10();
     }
     public static void ex00(){
     }
@@ -130,7 +131,33 @@ public class DaLi_08 {
         TicTacToe.main();
     }
     public static void ex10(){
+        int[][] table = randomIntsTable(5, 5, 0, 1);
+        ArrayTool.printTable(table, 2);
+        int largeRow = -1, largeCol = -1, tempRow = 0, tempCol = 0;
+        int rowIndx = -1, colIndx = -1;
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length; j++) {
+                tempRow += table[i][j];
+            }
+            if (tempRow > largeRow) {
+                largeRow = tempRow;
+                rowIndx = i;
+            }
+            tempRow = 0;
+        }
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length; j++) {
+                tempCol += table[j][i];
+            }
+            if (tempCol > largeCol) {
+                largeCol = tempCol;
+                colIndx = i;
+            }
+            tempCol = 0;
+        }
+        print("Max row %d%nMax col %d", rowIndx, colIndx);
     }
+
     public static void ex11(){
     }
     public static void ex12(){
