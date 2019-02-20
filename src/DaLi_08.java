@@ -14,7 +14,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex17();
+        ex19();
     }
     public static void ex00(){
     }
@@ -272,6 +272,33 @@ public class DaLi_08 {
         }
     }
     public static void ex19(){
+        int[][] table ={ {1,2,3,4},
+                         {1,4,4,1},
+                         {1,4,4,2},
+                         {4,4,4,4} };
+        print(ex19HasConsecutiveFour(table));
+    }
+    public static boolean ex19HasConsecutiveFour(int[][] table){
+        //pre-check
+        if( table.length < 4 || table[0].length < 4 )
+            return false;
+        //Rows
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length - 3; j++) {
+                if( table[i][j] == table[i][j+1] && table[i][j] == table[i][j+2] && table[i][j] == table[i][j+3] ){
+                    return true;
+                }
+            }
+        }
+        //Cols
+        for (int i = 0; i < table.length - 3; i++) {
+            for (int j = 0; j < table[i].length; j++) {
+                if( table[i][j] == table[i+1][j] && table[i][j] == table[i+2][j] && table[i][j] == table[i+3][j] ){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
     public static void ex20(){
     }
