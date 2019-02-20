@@ -249,30 +249,11 @@ public class DaLi_08 {
     public static void ex16(){
         int[][] table = randomIntsTable(16, 5, 0, 1);
         MatrixManip.printTable(table);
-        ex16sort(table);
+        MatrixManip.sort(table);
         println("");
         MatrixManip.printTable(table);
     }
-    public static void ex16sort(int[][] table) {
-        int[] min;
-        for (int h = 0; h < table[h].length; h++) {
 
-            for (int i = 0; i < table.length; i++) {
-                for (int j = i + 1; j < table.length; j++) {
-                    boolean isBrother = true;
-                    for (int k = 0; k < h ; k++) {
-                        if(table[i][k] != table[j][k])
-                            isBrother = false;
-                    }
-                    if ( table[i][h] > table[j][h] && ( h == 0 || isBrother ) ) {
-                        min = table[j];
-                        table[j] = table[i];
-                        table[i] = min;
-                    }
-                }
-            }
-        }
-    }
     public static void ex17(){
     }
     public static void ex18(){

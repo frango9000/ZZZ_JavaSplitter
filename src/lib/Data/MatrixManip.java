@@ -130,4 +130,25 @@ public class MatrixManip {
         }
         return indexOfMin;
     }
+
+    public static void sort(int[][] table) {
+        int[] min;
+        for (int h = 0; h < table[h].length; h++) {
+
+            for (int i = 0; i < table.length; i++) {
+                for (int j = i + 1; j < table.length; j++) {
+                    boolean isBrother = true;
+                    for (int k = 0; k < h ; k++) {
+                        if(table[i][k] != table[j][k])
+                            isBrother = false;
+                    }
+                    if ( table[i][h] > table[j][h] && ( h == 0 || isBrother ) ) {
+                        min = table[j];
+                        table[j] = table[i];
+                        table[i] = min;
+                    }
+                }
+            }
+        }
+    }
 }
