@@ -272,10 +272,10 @@ public class DaLi_08 {
         }
     }
     public static void ex19(){
-        int[][] table ={ {1,2,3,4},
+        int[][] table ={ {2,2,3,4},
                          {1,4,4,1},
                          {1,4,4,2},
-                         {4,4,4,4} };
+                         {4,2,4,4} };
         print(ex19HasConsecutiveFour(table));
     }
     public static boolean ex19HasConsecutiveFour(int[][] table){
@@ -298,6 +298,23 @@ public class DaLi_08 {
                 }
             }
         }
+        //Diag
+        for (int i = 0; i < table.length - 3; i++) {
+            for (int j = 0; j < table[i].length - 3; j++) {
+                if( table[i][j] == table[i+1][j+1] && table[i][j] == table[i+2][j+2] && table[i][j] == table[i+3][j+3] ){
+                    return true;
+                }
+            }
+        }
+        //Diag
+        for (int i = 0; i < table.length - 3; i++) {
+            for (int j = 3; j < table[i].length; j++) {
+                if( table[i][j] == table[i+1][j-1] && table[i][j] == table[i+2][j-2] && table[i][j] == table[i+3][j-3] ){
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
     public static void ex20(){
