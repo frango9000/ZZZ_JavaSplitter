@@ -5,6 +5,7 @@ import lib.Data.StringManip;
 import lib.Geometry.Line;
 import lib.Geometry.Point;
 import lib.Math.Algebra;
+import lib.Misc.Randomizer;
 
 import java.util.Arrays;
 
@@ -13,7 +14,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex16();
+        ex17();
     }
     public static void ex00(){
     }
@@ -253,8 +254,20 @@ public class DaLi_08 {
         println("");
         MatrixManip.printTable(table);
     }
-
     public static void ex17(){
+        int[][] table = randomIntsTable(5, 2, 0, 5);
+        MatrixManip.printTable(table);
+        ex17shuffle(table);
+        println("");
+        MatrixManip.printTable(table);
+    }
+    public static void ex17shuffle(int[][] table){
+        for (int i = 0; i < table.length; i++) {
+            int random = Randomizer.randomInt(table.length-1);
+            int[] temp = table[i];
+            table[i] = table[random];
+            table[random] = temp;
+        }
     }
     public static void ex18(){
     }
