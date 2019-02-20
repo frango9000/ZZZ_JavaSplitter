@@ -255,21 +255,21 @@ public class DaLi_08 {
         MatrixManip.printTable(table);
     }
     public static void ex17(){
+    }
+    public static void ex18(){
         int[][] table = randomIntsTable(5, 2, 0, 5);
         MatrixManip.printTable(table);
-        ex17shuffle(table);
+        ex18shuffle(table);
         println("");
         MatrixManip.printTable(table);
     }
-    public static void ex17shuffle(int[][] table){
+    public static void ex18shuffle(int[][] table){
         for (int i = 0; i < table.length; i++) {
             int random = Randomizer.randomInt(table.length-1);
             int[] temp = table[i];
             table[i] = table[random];
             table[random] = temp;
         }
-    }
-    public static void ex18(){
     }
     public static void ex19(){
     }
