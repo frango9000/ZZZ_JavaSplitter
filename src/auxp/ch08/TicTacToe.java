@@ -3,7 +3,7 @@ package auxp.ch08;
 import lib.Misc.IO;
 
 public class TicTacToe {
-    public static void main() {
+    public static void main(String[] args) {
         TicTacToe game = new TicTacToe();
         game.startGame();
     }

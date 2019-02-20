@@ -1,3 +1,4 @@
+import auxp.ch08.ConnectFour;
 import auxp.ch08.TicTacToe;
 import lib.Data.ArrayTool;
 import lib.Data.MatrixManip;
@@ -14,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex19();
+        ex20();
     }
     public static void ex00(){
     }
@@ -131,7 +132,7 @@ public class DaLi_08 {
         println(Point.closestPoints(points));
     }
     public static void ex09(){
-        TicTacToe.main();
+        TicTacToe.main(new String[0] );
     }
     public static void ex10(){
         int[][] table = randomIntsTable(5, 5, 0, 1);
@@ -318,6 +319,7 @@ public class DaLi_08 {
         return false;
     }
     public static void ex20(){
+        ConnectFour.main(new String[0]);
     }
     public static void ex21(){
     }
@@ -353,4 +355,5 @@ public class DaLi_08 {
     }
     public static void ex37(){
     }
+
 }
