@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex21();
+        ex22();
     }
     public static void ex00(){
     }
@@ -335,6 +335,25 @@ public class DaLi_08 {
         print("%s %n %.2f", cities[indx].toString(), totalDistances[indx]);
     }
     public static void ex22(){
+        int[][] table = Randomizer.randomIntsTable(6, 6, 0, 1);
+        MatrixManip.printTable(table);
+        for (int i = 0; i < table.length; i++) {
+            int sum = 0;
+            for (int j = 0; j < table[i].length; j++) {
+                sum += table[i][j];
+            }
+            if(sum % 2 == 0)
+                System.out.println("Row " + i + " is even");
+        }
+        for (int i = 0; i < table[0].length; i++) {
+            int sum = 0;
+            for (int j = 0; j < table.length; j++) {
+                sum += table[j][i];
+            }
+            if(sum % 2 == 0)
+                System.out.println("Column " + i + " is even");
+        }
+
     }
     public static void ex23(){
     }
