@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex20();
+        ex21();
     }
     public static void ex00(){
     }
@@ -322,6 +322,17 @@ public class DaLi_08 {
         ConnectFour.main(new String[0]);
     }
     public static void ex21(){
+        Point[] cities = new Point[] { new Point(2.5,5),new Point(5.1,3),new Point(1,9),new Point(5.4, 54),new Point(5.5,2.1) };
+        double[] totalDistances = new double[cities.length];
+
+        for (int i = 0; i < cities.length; i++) {
+            for (int j = 0; j < cities.length; j++) {
+                totalDistances[i] += cities[i].distanceBetweenPoints(cities[j]);
+            }
+        }
+
+        int indx = ArrayTool.indexOfMin(totalDistances);
+        print("%s %n %.2f", cities[indx].toString(), totalDistances[indx]);
     }
     public static void ex22(){
     }

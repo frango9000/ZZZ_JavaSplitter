@@ -143,4 +143,21 @@ public abstract class Algebra {
         }
         return max;
     }
+    public static double min(double... numbers) {
+        double min = numbers[0];
+        for (double e : numbers) {
+            if (e < min)
+                min = e;
+        }
+        return min;
+    }
+
+    public static double max(double... numbers) {
+        double max = numbers[0];
+        for (double e : numbers) {
+            if (e > max)
+                max = e;
+        }
+        return max;
+    }
 }
