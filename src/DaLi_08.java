@@ -383,8 +383,32 @@ public class DaLi_08 {
         Sudoku.main(null);
     }
     public static void ex25(){
+        double[][] markov = {
+                { 0.15, 0.875 ,0.375 },
+                { 0.55, 0.005 ,0.225 },
+                { 0.3 , 0.12  ,0.4   }  };
+        print(ex25isMarkovMatrix(markov));
+
+        double[][] markov2 = {
+                { 0.95, -0.875 , 0.375 },
+                { 0.65,  0.005 , 0.225 },
+                { 0.3 ,  0.22  ,-0.4   }  };
+        print(ex25isMarkovMatrix(markov2));
     }
-    public static void ex26(){
+    public static boolean ex25isMarkovMatrix(double[][] table){
+        if(table.length != 3 || table[0].length !=3)
+            return false;
+        for (int column = 0; column < table[0].length; column++) {
+            double sum = 0;
+            for (int row = 0; row < table.length; row++) {
+                sum += table[row][column];
+            }
+            if (sum != 1)
+                return false;
+        }
+        return true;
+    }
+    public static void ex26() {
     }
     public static void ex27(){
     }
