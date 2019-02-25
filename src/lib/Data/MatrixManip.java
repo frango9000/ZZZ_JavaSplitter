@@ -151,4 +151,19 @@ public class MatrixManip {
             }
         }
     }
+
+    public static int sumRow(int[][] table, int rowIndex){
+        if(rowIndex >= table.length || rowIndex < 0)
+            return 0;
+        return ArrayTool.sum(table[rowIndex]);
+    }
+    public static int sumColumn(int[][] table, int columnIndex){
+        if(columnIndex >= table.length || columnIndex < 0)
+            return 0;
+        int sum = 0;
+        for (int row = 0; row < table[0].length; row++) {
+            sum += table[row][columnIndex];
+        }
+        return sum;
+    }
 }

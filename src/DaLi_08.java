@@ -15,7 +15,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex22();
+        ex23();
     }
     public static void ex00(){
     }
@@ -23,16 +23,8 @@ public class DaLi_08 {
         int[][] table = randomIntsTable(3, 4, 1, 10);
         MatrixManip.printTable(table, 6);
         for (int i = 0; i < table.length; i++) {
-            print("Sum of row %d  = %d\n", i, ex01sumOfRow(table[i]));
-
+            print("Sum of row %d  = %d\n", i, ArrayTool.sum(table[i]));
         }
-    }
-    public static int ex01sumOfRow(int[] array){
-        int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
-        }
-        return sum;
     }
     public static void ex02(){
         int[][] table = randomIntsTable(4, 4, 1, 10);
@@ -82,8 +74,7 @@ public class DaLi_08 {
     public static void ex04(){
         int[][] table = randomIntsTable(7, 8, 1, 9);
         for (int i = 0; i < table.length; i++) {
-
-            println(Arrays.toString(table[i]) + " " + ex01sumOfRow(table[i]));
+            println(Arrays.toString(table[i]) + " " + ArrayTool.sum(table[i]));
         }
     }
     public static void ex05(){
@@ -356,6 +347,41 @@ public class DaLi_08 {
 
     }
     public static void ex23(){
+        int[][] table = {
+                {1,0,1,0,1,1},
+                {1,1,1,1,0,0},
+                {0,1,0,1,1,1},
+                {1,1,1,1,1,1},
+                {0,1,1,1,1,0},
+                {1,0,0,0,0,1}   };
+        MatrixManip.printTable(table);
+
+        int flipX, flipY;
+
+        do {
+            flipX = scanInt("Flip X : ");
+            flipY = scanInt("Flip Y : ");
+        }while( flipX > 5 || flipX < 0 || flipY > 5 || flipY < 0 );
+        table[flipX][flipY] = table[flipX][flipY] == 0 ? 1 : 0;
+
+        MatrixManip.printTable(table);
+        for (int i = 0; i < table.length; i++) {
+            if (MatrixManip.sumRow(table, i) % 2 != 0) {
+                flipX = i;
+                break;
+            }
+        }
+        for (int i = 0; i < table[0].length; i++) {
+            if (MatrixManip.sumColumn(table, i) % 2 != 0) {
+                flipY = i;
+                break;
+            }
+        }
+        print("Flipped x : %d %nFlipped Y : %d", flipX,flipY);
+
+
+
+
     }
     public static void ex24(){
     }
