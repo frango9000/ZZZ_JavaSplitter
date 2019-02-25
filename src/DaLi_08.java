@@ -1,4 +1,5 @@
 import auxp.ch08.ConnectFour;
+import auxp.ch08.Sudoku;
 import auxp.ch08.TicTacToe;
 import lib.Data.ArrayTool;
 import lib.Data.MatrixManip;
@@ -15,7 +16,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex23();
+        ex24();
     }
     public static void ex00(){
     }
@@ -357,7 +358,6 @@ public class DaLi_08 {
         MatrixManip.printTable(table);
 
         int flipX, flipY;
-
         do {
             flipX = scanInt("Flip X : ");
             flipY = scanInt("Flip Y : ");
@@ -378,12 +378,9 @@ public class DaLi_08 {
             }
         }
         print("Flipped x : %d %nFlipped Y : %d", flipX,flipY);
-
-
-
-
     }
     public static void ex24(){
+        Sudoku.main(null);
     }
     public static void ex25(){
     }
