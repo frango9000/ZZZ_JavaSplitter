@@ -466,6 +466,7 @@ public class DaLi_08 {
         DaLi_03.ex25();
     }
     public static void ex32(){
+        DaLi_03.ex27();
     }
     public static void ex33(){
     }
