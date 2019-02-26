@@ -294,7 +294,7 @@ public class ArrayTool {
         return -1;
     }
 
-    public static int sum(int[] array){
+    public static int sum(int[] array) {
         int sum = 0;
         for (int i1 : array) {
             sum += i1;
@@ -302,11 +302,43 @@ public class ArrayTool {
         return sum;
     }
 
-    public static int[] indieClone(int[] array){
-        int[] clone = new int [array.length];
+    public static int[] indieClone(int[] array) {
+        int[] clone = new int[array.length];
         for (int i = 0; i < array.length; i++) {
-            clone[i]=array[i];
+            clone[i] = array[i];
         }
         return clone;
+    }
+
+    public static boolean isStrictIdentical(int[] array1, int[] array2) {
+        if (array1.length != array2.length)
+            return false;
+        for (int i = 0; i < array1.length; i++) {
+            if (array1[i] != array2[i])
+                return false;
+        }
+        return true;
+    }
+
+    public static boolean isIdentical(int[] array1, int[] array2) {
+        if (array1.length != array2.length)
+            return false;
+        boolean[] hasValueOnIndex = new boolean[array1.length];
+
+        for (int i = 0; i < array1.length; i++) {
+            for (int j = 0; j < array2.length; j++) {
+                if (array1[i] == array2[j] && !hasValueOnIndex[j])
+                    hasValueOnIndex[j] = true;
+            }
+        }
+        return isAllTrue(hasValueOnIndex);
+    }
+
+    public static boolean isAllTrue(boolean[] marks) {
+        for (int i = 0; i < marks.length; i++) {
+            if (!marks[i])
+                return false;
+        }
+        return true;
     }
 }

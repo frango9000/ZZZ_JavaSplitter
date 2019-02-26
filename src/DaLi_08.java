@@ -16,7 +16,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex27();
+        ex29();
     }
     public static void ex00(){
     }
@@ -430,31 +430,29 @@ public class DaLi_08 {
         MatrixManip.printTable(MatrixManip.sortColumns(table),7,3);
     }
     public static void ex28(){
-
         int[][] table = Randomizer.randomIntsTable(6, 6, 0, 9);
         int[][] table2 =MatrixManip.indieClone(table);
 
-        println(ex28equals(table, table2) );
+        println(MatrixManip.isStrictIdentical(table, table2) );
         MatrixManip.printTable(table2);
         table2[0][0] += 1;
 
-        println(ex28equals(table, table2) );
+        println(MatrixManip.isStrictIdentical(table, table2) );
         MatrixManip.printTable(table2);
     }
-    public static boolean ex28equals(int[][] m1, int[][] m2){
-        if(m1.length != m2.length)
-            return false;
-        for (int i = 0; i < m1.length; i++) {
-            if(m1[i].length != m2[i].length)
-                return false;
-            for (int j = 0; j < m1[i].length; j++) {
-                if(m1[i][j] != m2[i][j])
-                    return false;
-            }
-        }
-        return true;
-    }
+
     public static void ex29(){
+        int[][] table = Randomizer.randomIntsTable(6, 6, 0, 9);
+        int[][] table2 =MatrixManip.indieClone(table);
+
+        println(MatrixManip.isIdentical(table, table2) );
+        MatrixManip.printTable(table2);
+        int temp = table2[0][1];
+        table2[0][1] = table2[1][0];
+        table2[1][0] = temp;
+
+        println(MatrixManip.isIdentical(table, table2) );
+        MatrixManip.printTable(table2);
     }
     public static void ex30(){
     }
