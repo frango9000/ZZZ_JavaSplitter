@@ -17,7 +17,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex35();
+        ex37();
     }
     public static void ex00(){
     }
@@ -585,6 +585,17 @@ public class DaLi_08 {
     public static void ex36(){
     }
     public static void ex37(){
+        String[][] sc = new String[][] {{"Alabama", "Montgomery"}, {"Alaska", "Juneau"}, {"Arizona","Phoenix"}};
+        int count = 0;
+        for (int i = 0; i < sc.length; i++) {
+            String answer = scanNext("What is the capital of %s?", sc[i][0]);
+            if(answer.equalsIgnoreCase(sc[i][1])) {
+                println("Your answer is correct");
+                count++;
+            }
+            else println("Correct answer is %s", sc[i][1]);
+        }
+        println("Correct count is %d", count);
     }
 
 }
