@@ -160,11 +160,25 @@ public class ArrayTool {
             System.out.println(v);
         }
     }
+    public static void printArray(double[] array, int decimals, int spacing){
+        for (double v : array) {
+            System.out.printf("%"+spacing+"."+decimals+"f%n",v);
+        }
+    }
+    public static void printArray(double[] array, int decimals){
+        printArray(array,decimals,1);
+    }
 
     public static void printArray(int[] array) {
         for (int i1 : array) {
             System.out.println(i1);
         }
+    }
+    public static void printArray(int[] array, int spacing){
+        for (int il : array) {
+            System.out.printf("%"+spacing+"d",il);
+        }
+
     }
 
     public static void printArray(char[] array) {

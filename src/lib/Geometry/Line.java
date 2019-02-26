@@ -67,6 +67,9 @@ public class Line {
     public double[] intersect(Line line) {
         return Algebra.linear2x2Equation(this.a, this.b, line.a, line.b, this.c, line.c);
     }
+    public static  double[] intersect(Line line1, Line line2) {
+        return Algebra.linear2x2Equation(line1.a, line1.b, line2.a, line2.b, line1.c, line2.c);
+    }
 
     public boolean isOnLine(Point point) {
         return this.crossProduct(point) == 0;

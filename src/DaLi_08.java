@@ -6,6 +6,7 @@ import lib.Data.MatrixManip;
 import lib.Data.StringManip;
 import lib.Geometry.Line;
 import lib.Geometry.Point;
+import lib.Geometry.Triangle;
 import lib.Math.Algebra;
 import lib.Misc.Randomizer;
 
@@ -16,7 +17,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex30();
+        ex33();
     }
     public static void ex00(){
     }
@@ -469,6 +470,27 @@ public class DaLi_08 {
         DaLi_03.ex27();
     }
     public static void ex33(){
+        Point p1 = new Point(-2.5,2);
+        Point p2 = new Point(4,4);
+        Point p3 = new Point(3,-2);
+        Point p4 = new Point(-2,-3.5);
+
+        Point intersect = new Point(Line.intersect(new Line (p1,p3), new Line(p2,p4)));
+
+        Triangle[] triangles = new Triangle[4];
+        triangles[0] = new Triangle(p1,p2,intersect);
+        triangles[1] = new Triangle(p2,p3,intersect);
+        triangles[2] = new Triangle(p3,p4,intersect);
+        triangles[3] = new Triangle(p4,p1,intersect);
+
+        double[] areas = new double[triangles.length];
+
+        for (int i = 0; i < triangles.length; i++) {
+            areas[i] = triangles[i].area();
+        }
+        ArrayTool.bubbleSort(areas);
+        ArrayTool.printArray(areas,3);
+
     }
     public static void ex34(){
     }
