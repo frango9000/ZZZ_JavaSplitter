@@ -463,6 +463,7 @@ public class DaLi_08 {
         return Algebra.linear2x2Equation( a[0][0], a[0][1], a[1][0], a[1][1], b[0], b[1] );
     }
     public static void ex31(){
+        DaLi_03.ex25();
     }
     public static void ex32(){
     }
