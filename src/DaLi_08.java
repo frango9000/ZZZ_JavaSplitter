@@ -583,6 +583,33 @@ public class DaLi_08 {
         return xy;
     }
     public static void ex36(){
+        int number = scanInt("Enter number ");
+        println("enter %d rows of %d letters", number,number);
+
+        char[][] letters = new char[number][number];
+        for (int row = 0; row < letters.length; row++) {
+            for (int col = 0; col < letters[row].length; col++) {
+                letters[row][col] = scanChar();
+            }
+        }
+
+
+    }
+    public static boolean ex36isLatinSquare(char[][] table){
+        char[] letters = new char[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+        letters = Arrays.copyOf(letters, table.length);
+
+        char[] letters2 = new char[table.length];
+        for (int i = 0; i < letters2.length; i++)
+            letters2[i] = (char)(64+i);
+        for (int i = 0; i < letters2.length; i++) {
+            for (int j = 0; j < letters2.length; j++) {
+
+
+            }
+
+        }
+        return true;//To Do
     }
     public static void ex37(){
         String[][] sc = new String[][] {{"Alabama", "Montgomery"}, {"Alaska", "Juneau"}, {"Arizona","Phoenix"}};
