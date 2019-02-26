@@ -27,7 +27,7 @@ public class ArrayTool {
                 nuevoArray[i] = array[i];
             } else if (i == indice) {
                 nuevoArray[i] = elemento;
-            } else if (i > indice) {
+            } else {
                 nuevoArray[i] = array[i - 1];
             }
         }
@@ -36,8 +36,8 @@ public class ArrayTool {
 
     public static int countRepeated(int[] array, int num) {
         int j = 0;
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == num) {
+        for (int i1 : array) {
+            if (i1 == num) {
                 j++;
             }
         }
@@ -156,28 +156,28 @@ public class ArrayTool {
     }
 
     public static void printArray(double[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
+        for (double v : array) {
+            System.out.println(v);
         }
     }
 
     public static void printArray(int[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
+        for (int i1 : array) {
+            System.out.println(i1);
         }
     }
 
     public static void printArray(char[] array) {
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
+        for (char c : array) {
+            System.out.println(c);
         }
     }
 
     public static int max(int[] array) {
         int max = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > max) {
-                max = array[i];
+        for (int i1 : array) {
+            if (i1 > max) {
+                max = i1;
             }
         }
         return max;
@@ -195,9 +195,9 @@ public class ArrayTool {
 
     public static double max(double[] array) {
         double max = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] > max) {
-                max = array[i];
+        for (double v : array) {
+            if (v > max) {
+                max = v;
             }
         }
         return max;
@@ -215,9 +215,9 @@ public class ArrayTool {
 
     public static double min(double[] array) {
         double min = array[0];
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] < min) {
-                min = array[i];
+        for (double v : array) {
+            if (v < min) {
+                min = v;
             }
         }
         return min;
@@ -247,15 +247,15 @@ public class ArrayTool {
     }
 
     public static boolean contains(int[] array, int number) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == number) return true;
+        for (int i1 : array) {
+            if (i1 == number) return true;
         }
         return false;
     }
 
     public static boolean contains(char[] array, char character) {
-        for (int i = 0; i < array.length; i++) {
-            if (array[i] == character) return true;
+        for (char c : array) {
+            if (c == character) return true;
         }
         return false;
     }
@@ -263,9 +263,9 @@ public class ArrayTool {
     public static int[] removeDuplicates(int[] array) {
         int count = 0;
         int[] unique = new int[array.length];
-        for (int i = 0; i < array.length; i++) {
-            if (!(contains(unique, array[i]))) {
-                unique[count] = array[i];
+        for (int i1 : array) {
+            if (!(contains(unique, i1))) {
+                unique[count] = i1;
                 count++;
             }
         }
@@ -296,11 +296,12 @@ public class ArrayTool {
 
     public static int sum(int[] array){
         int sum = 0;
-        for (int i = 0; i < array.length; i++) {
-            sum += array[i];
+        for (int i1 : array) {
+            sum += i1;
         }
         return sum;
     }
+
     public static int[] indieClone(int[] array){
         int[] clone = new int [array.length];
         for (int i = 0; i < array.length; i++) {

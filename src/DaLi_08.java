@@ -451,7 +451,6 @@ public class DaLi_08 {
                 if(m1[i][j] != m2[i][j])
                     return false;
             }
-
         }
         return true;
     }
