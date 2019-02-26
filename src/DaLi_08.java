@@ -17,7 +17,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex33();
+        ex34();
     }
     public static void ex00(){
     }
@@ -441,7 +441,6 @@ public class DaLi_08 {
         println(MatrixManip.isStrictIdentical(table, table2) );
         MatrixManip.printTable(table2);
     }
-
     public static void ex29(){
         int[][] table = Randomizer.randomIntsTable(6, 6, 0, 9);
         int[][] table2 =MatrixManip.indieClone(table);
@@ -493,6 +492,32 @@ public class DaLi_08 {
 
     }
     public static void ex34(){
+        Line vert = new Line(0,-1,0,1);
+        Line horizont = new Line(-1,0,1,0);
+
+        Point[] points = ex34arrayOfPoints(new double[]{1.5,2.5,-3,4.5,5.6,-7,6.5,-7,8,1,10,2.5});
+        double[] sumOfCrossProducts = new double[points.length];
+        for (int point = 0; point < points.length; point++) {
+            sumOfCrossProducts[point] += vert.crossProduct(points[point]);
+        }
+        for (int point = 0; point < points.length; point++) {
+            sumOfCrossProducts[point] += horizont.crossProduct(points[point]);
+        }
+        int[] indexesSorted = ArrayTool.bubbleSortIndex(sumOfCrossProducts);
+        println("Rightmost lowest point is %s" , points[indexesSorted[0]].toString());
+
+    }
+    public static Point[] ex34arrayOfPoints(double[] coords){
+        if (coords.length % 2 != 0)
+            return null;
+        Point[] points = new Point[coords.length/2];
+        double x=0;
+        for (int coord = 0; coord < coords.length; coord++) {
+            if (coord % 2 == 0)
+                x = coords[coord];
+            else points[coord/2] = new Point(x,coords[coord]);
+        }
+        return points;
     }
     public static void ex35(){
     }

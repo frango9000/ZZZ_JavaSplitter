@@ -106,6 +106,24 @@ public class ArrayTool {
         return indexes;
     }
 
+    public static int[] bubbleSortIndex(double[] array) {
+        int[] indexes = new int[array.length];
+        for (int i = 0; i < indexes.length; i++) {
+            indexes[i] = i;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[indexes[i]] > array[indexes[j]]) {
+                    int aux = indexes[i];
+                    indexes[i] = indexes[j];
+                    indexes[j] = aux;
+                }
+            }
+        }
+        return indexes;
+    }
+
     public static boolean isSortedDesc(int[] array) {
         for (int i = 0; i < array.length; i++)
             for (int j = i + 1; j < array.length; j++)
@@ -125,7 +143,36 @@ public class ArrayTool {
         return array;
     }
 
+    public static double[] bubbleSortDesc(double[] array) {
+        for (int i = 0; i < array.length; i++)
+            for (int j = i + 1; j < array.length; j++)
+                if (array[i] < array[j]) {
+                    double aux = array[i];
+                    array[i] = array[j];
+                    array[j] = aux;
+                }
+        return array;
+    }
+
     public static int[] bubbleSortIndexDesc(int[] array) {
+        int[] indexes = new int[array.length];
+        for (int i = 0; i < indexes.length; i++) {
+            indexes[i] = i;
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[indexes[i]] < array[indexes[j]]) {
+                    int aux = indexes[i];
+                    indexes[i] = indexes[j];
+                    indexes[j] = aux;
+                }
+            }
+        }
+        return indexes;
+    }
+
+    public static int[] bubbleSortIndexDesc(double[] array) {
         int[] indexes = new int[array.length];
         for (int i = 0; i < indexes.length; i++) {
             indexes[i] = i;
@@ -160,11 +207,13 @@ public class ArrayTool {
             System.out.println(v);
         }
     }
+
     public static void printArray(double[] array, int decimals, int spacing){
         for (double v : array) {
             System.out.printf("%"+spacing+"."+decimals+"f%n",v);
         }
     }
+
     public static void printArray(double[] array, int decimals){
         printArray(array,decimals,1);
     }
@@ -174,6 +223,7 @@ public class ArrayTool {
             System.out.println(i1);
         }
     }
+
     public static void printArray(int[] array, int spacing){
         for (int il : array) {
             System.out.printf("%"+spacing+"d",il);
