@@ -16,7 +16,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex29();
+        ex30();
     }
     public static void ex00(){
     }
@@ -455,6 +455,12 @@ public class DaLi_08 {
         MatrixManip.printTable(table2);
     }
     public static void ex30(){
+        double[] xy = ex30linearEquation(new double[][]{{1,2},{3,4}}, new double[]{5,6});
+        if (xy == null) println("The equation has no solution");
+        else println("x: " + xy[0] + "\ny: " + xy[1]);
+    }
+    public static double[] ex30linearEquation(double[][] a, double[] b){
+        return Algebra.linear2x2Equation( a[0][0], a[0][1], a[1][0], a[1][1], b[0], b[1] );
     }
     public static void ex31(){
     }
