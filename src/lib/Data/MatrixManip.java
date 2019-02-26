@@ -1,5 +1,8 @@
 package lib.Data;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class MatrixManip {
     public static void printTable(int[][] table) {
         printTable(table, 4);
@@ -151,6 +154,18 @@ public class MatrixManip {
             }
         }
     }
+    public static void sortRows(double[][] table){
+        for (int row = 0; row < table.length; row++) {
+            ArrayTool.bubbleSort(table[row]);
+        }
+    }
+    public static double[][] sortColumns(double[][] table){
+        double[][] inverted = invertXY(table);
+        for (int row = 0; row < inverted.length; row++) {
+            ArrayTool.bubbleSort(inverted[row]);
+        }
+        return invertXY(inverted);
+    }
 
     public static int sumRow(int[][] table, int rowIndex){
         if(rowIndex >= table.length || rowIndex < 0)
@@ -165,5 +180,25 @@ public class MatrixManip {
             sum += table[row][columnIndex];
         }
         return sum;
+    }
+
+    public static int[][] indieClone(int[][] table){
+        int[][] clone = new int[table.length][table[0].length];
+        for (int i = 0; i < table.length; i++) {
+            for (int j = 0; j < table[i].length; j++) {
+                clone[i][j] = table[i][j];
+            }
+        }
+        return clone;
+    }
+
+    public static double[][] invertXY(double[][] table){
+        double[][] invertedTable = new double[table[0].length][table.length];
+        for (int column = 0; column < table[0].length; column++) {
+            for (int row = 0; row < table.length; row++) {
+                invertedTable[column][row]= table[row][column];
+            }
+        }
+        return invertedTable;
     }
 }

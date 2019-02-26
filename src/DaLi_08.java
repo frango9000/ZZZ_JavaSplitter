@@ -16,7 +16,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex26();
+        ex27();
     }
     public static void ex00(){
     }
@@ -415,16 +415,19 @@ public class DaLi_08 {
                 {0.30, 0.12 , 0.4  , 0.008},
                 {0.07, 0.021, 0.14 , 0.2  }   };
 
-        double[][] t2 = new double[table.length][table[0].length];
-        for (int row = 0; row < table.length; row++) {
-            t2[row] = table[row].clone();
-            Arrays.sort(t2[row]);
-        }
-
         MatrixManip.printTable(table);
-        MatrixManip.printTable(t2);
+        MatrixManip.sortRows(table);
+        MatrixManip.printTable(table);
     }
     public static void ex27(){
+        double[][] table = {
+                {0.15, 0.875, 0.375, 0.225},
+                {0.55, 0.005, 0.225, 0.015},
+                {0.30, 0.12 , 0.4  , 0.008},
+                {0.07, 0.021, 0.14 , 0.2  }   };
+
+        MatrixManip.printTable(table,7,3);
+        MatrixManip.printTable(MatrixManip.sortColumns(table),7,3);
     }
     public static void ex28(){
     }

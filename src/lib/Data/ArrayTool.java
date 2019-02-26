@@ -77,6 +77,17 @@ public class ArrayTool {
         return array;
     }
 
+    public static double[] bubbleSort(double... array) {
+        for (int i = 0; i < array.length; i++)
+            for (int j = i + 1; j < array.length; j++)
+                if (array[i] > array[j]) {
+                    double aux = array[i];
+                    array[i] = array[j];
+                    array[j] = aux;
+                }
+        return array;
+    }
+
     public static int[] bubbleSortIndex(int[] array) {
         int[] indexes = new int[array.length];
         for (int i = 0; i < indexes.length; i++) {
@@ -289,5 +300,12 @@ public class ArrayTool {
             sum += array[i];
         }
         return sum;
+    }
+    public static int[] indieClone(int[] array){
+        int[] clone = new int [array.length];
+        for (int i = 0; i < array.length; i++) {
+            clone[i]=array[i];
+        }
+        return clone;
     }
 }
