@@ -17,7 +17,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex34();
+        ex35();
     }
     public static void ex00(){
     }
@@ -520,6 +520,67 @@ public class DaLi_08 {
         return points;
     }
     public static void ex35(){
+        int[][] table = MatrixManip.buildTable(6,6,
+      1,2,3,4,5,5,
+                1,2,3,4,5,5,
+                1,2,3,3,3,3,
+                1,2,3,3,3,3,
+                1,2,3,3,3,3,
+                1,2,3,3,3,3);
+        MatrixManip.printTable(table);
+        ex35findLargestBlock(table);
+
+    }
+    public static int[] ex35findLargestBlock(int[][] table){
+        int maxSize = 0, xMax = 0, yMax = 0;
+        for (int row = 0; row < table.length; row++) {
+            for (int col = 0; col < table.length; col++) {
+                int thisSize = ex35isBlockValid(table, row, col);
+                if (thisSize > maxSize) {
+                    maxSize = thisSize;
+                    yMax = row;
+                    xMax = col;
+                }
+            }
+        }
+        println("Largest block is at %d , %d and is %dx%d", xMax, yMax, maxSize, maxSize);
+        return new int[]{xMax,yMax};
+
+    }
+    public static int ex35isBlockValid(int[][] table, int row, int col){
+        int x = 1, y = 1, xy = 1;
+
+        for (int rcol = col + 1; rcol < table[row].length; rcol++) {
+            if (table[row][col] == table[row][rcol])
+                x++;
+        }
+        for (int crow = row + 1; crow < table.length; crow++) {
+            if (table[row][col] == table[crow][col])
+                y++;
+        }
+
+        for (int diagRow = row + 1, diagCol = col + 1; diagRow < table.length && diagCol < table[diagRow].length; diagRow++,diagCol++) {
+            if (table[row][col] == table[diagRow][diagCol])
+                xy++;
+        }
+        x = y = xy = Algebra.min(x,y,xy);
+
+        while(xy>0){
+            boolean isValid = true;
+            verify:
+            for (int sCol = col; sCol < xy; sCol++) {
+                for (int sRow = row; sRow < xy; sRow++) {
+                    if (table[row][col] != table[sRow][sCol]){
+                        isValid = false;
+                        break verify;
+                    }
+                }
+            }
+            if( isValid )
+                return xy;
+            else xy--;
+        }
+        return xy;
     }
     public static void ex36(){
     }
