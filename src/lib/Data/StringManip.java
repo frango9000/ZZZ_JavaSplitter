@@ -23,17 +23,20 @@ public abstract class StringManip {
         }
         return count;
     }
-    public static String format(String format, Object... args){
-        return String.format(format,args);
+
+    public static String format(String format, Object... args) {
+        return String.format(format, args);
     }
 
     public static String formatInt(int width, int number) {
         return format("%0" + width + "d", number);
     }
+
     public static String formatString(int width, String string) {
         return format("%" + width + "s", string);
     }
-    public static String formatDouble( int spacing, int decimals, double number){
+
+    public static String formatDouble(int spacing, int decimals, double number) {
         return format("%" + spacing + "." + decimals + "f", number);
     }
 
@@ -69,15 +72,15 @@ public abstract class StringManip {
         return Asserts.isInteger(str) ? Integer.parseInt(str) : null;
     }
 
-    public static String toBinaryString(int number, int bits){
+    public static String toBinaryString(int number, int bits) {
         StringBuilder binary = new StringBuilder();
 
         String unformated = Integer.toBinaryString(number);
 
-        for (int i = 0, j =0; i < bits; i++) {
-            if(unformated.length()+i >= bits) {
+        for (int i = 0, j = 0; i < bits; i++) {
+            if (unformated.length() + i >= bits) {
                 binary.append(unformated.charAt(j++));
-            }else binary.append('0');
+            } else binary.append('0');
 
         }
         return binary.toString();

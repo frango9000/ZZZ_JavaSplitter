@@ -16,7 +16,7 @@ public class Sudoku {
                 {7, 3, 5, 9, 6, 1, 8, 2, 4},
                 {5, 8, 9, 7, 1, 3, 4, 6, 2},
                 {3, 1, 7, 2, 4, 6, 9, 8, 5},
-                {6, 4, 2, 5, 9, 8, 1, 7, 3}     };
+                {6, 4, 2, 5, 9, 8, 1, 7, 3}};
 
         /*
         int[][] grid = readASolution();
@@ -76,15 +76,15 @@ public class Sudoku {
         return true; // The current value at grid[i][j] is valid
     }
 
-    public static boolean isUnique(int[][] grid){
+    public static boolean isUnique(int[][] grid) {
 
         boolean[] rows = new boolean[9];
         for (int row = 0; row < grid.length; row++) {
             boolean[] cells = new boolean[9];
             for (int cell = 0; cell < grid[0].length; cell++) {
-                cells[grid[row][cell]-1] = true;
+                cells[grid[row][cell] - 1] = true;
             }
-            if(isAllTrue(cells))
+            if (isAllTrue(cells))
                 rows[row] = true;
         }
 
@@ -92,9 +92,9 @@ public class Sudoku {
         for (int column = 0; column < grid[0].length; column++) {
             boolean[] cells = new boolean[9];
             for (int cell = 0; cell < grid.length; cell++) {
-                cells[grid[cell][column]-1] = true;
+                cells[grid[cell][column] - 1] = true;
             }
-            if(isAllTrue(cells))
+            if (isAllTrue(cells))
                 columns[column] = true;
         }
 
@@ -103,24 +103,22 @@ public class Sudoku {
 
         for (int block = 0; block < blocks.length; block++) {
             boolean[] cells = new boolean[9];
-            for (int blockX = firstCellInBlock[block][0]; blockX < firstCellInBlock[block][0]+3; blockX++) {
-                for (int blockY = firstCellInBlock[block][1]; blockY < firstCellInBlock[block][1]+3; blockY++) {
-                    cells[grid[blockX][blockY]-1] = true;
+            for (int blockX = firstCellInBlock[block][0]; blockX < firstCellInBlock[block][0] + 3; blockX++) {
+                for (int blockY = firstCellInBlock[block][1]; blockY < firstCellInBlock[block][1] + 3; blockY++) {
+                    cells[grid[blockX][blockY] - 1] = true;
                 }
             }
             if (isAllTrue(cells))
                 blocks[block] = true;
         }
 
-        if(isAllTrue(columns) && isAllTrue(rows) && isAllTrue(blocks))
-            return true;
-        else return false;
+        return isAllTrue(columns) && isAllTrue(rows) && isAllTrue(blocks);
 
     }
 
-    public static boolean isAllTrue(boolean[] marks){
+    public static boolean isAllTrue(boolean[] marks) {
         for (int i = 0; i < marks.length; i++) {
-            if( !marks[i] )
+            if (!marks[i])
                 return false;
         }
         return true;

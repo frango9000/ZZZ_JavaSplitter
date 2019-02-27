@@ -21,6 +21,7 @@ public abstract class DaLi_07 {
 
     public static void ex00() {
     }
+
     public static void ex01() {
         byte number = scanByte("Number of students ");
         int[] students = new int[number];
@@ -38,6 +39,7 @@ public abstract class DaLi_07 {
             println("");
         }
     }
+
     public static void ex02() {
         int[] eleven = new int[11];
         for (int i = 0; i < eleven.length; i++) {
@@ -49,6 +51,7 @@ public abstract class DaLi_07 {
             else println("equal");
         }
     }
+
     public static void ex03() {
         int[] numbers = new int[100];
         int num = -1;
@@ -63,6 +66,7 @@ public abstract class DaLi_07 {
 
         }
     }
+
     public static void ex04() {
         int[] numbers = new int[100];
         int num = -1;
@@ -87,6 +91,7 @@ public abstract class DaLi_07 {
         }
         IO.print("average: %f,%n above avg count:%d", average, above);
     }
+
     public static void ex05() {
         int[] nums = randomIntsArray(20, 1, 9);
         int odd = 0, even = 0;
@@ -96,6 +101,7 @@ public abstract class DaLi_07 {
         }
         IO.print("%d odds%n%d evens", odd, even);
     }
+
     public static void ex06() {
         boolean[] primes = new boolean[50];
         Arrays.fill(primes, true);
@@ -107,6 +113,7 @@ public abstract class DaLi_07 {
             if (primes[i])
                 IO.print("%d is prime\n", i);
     }
+
     public static void ex07() {
         int[] rands = randomIntsArray(200, 9);
         int[] counts = new int[10];
@@ -117,37 +124,45 @@ public abstract class DaLi_07 {
             IO.print("%d %d\n", i, counts[i]);
         }
     }
+
     public static void ex08() {
         print(Statistics.mean(randomDoublesArray(5, 0, 5)));
     }
+
     public static void ex09() {
         print(ArrayTool.max(randomDoublesArray(5, 0, 5)));
     }
+
     public static void ex10() {
         print(ArrayTool.indexOfMax(randomDoublesArray(50, 0, 5)));
     }
+
     public static void ex11() {
         double[] rands = randomDoublesArray(10, 0, 10);
         println(Statistics.mean(rands));
         println(Statistics.standardDeviation(rands));
         println(Statistics.standardDeviationAlt(rands));
     }
+
     public static void ex12() {
         int[] rands = randomIntsArray(10, 10);
         ArrayTool.printArray(rands);
         ArrayTool.printArray(ArrayTool.reverseArray(rands));
     }
+
     public static void ex13() {
         int[] rands = randomIntsArray(10, 10);
         ArrayTool.printArray(rands);
         IO.print("%n%d", ArrayTool.getRandom(rands));
     }
+
     public static void ex14() {
         int[] rands = randomIntsArray(10, 5, 100);
         ArrayTool.printArray(rands);
         IO.print("%n%d", Algebra.greatestCommonDivisor(rands));
         IO.print("%n%d", Algebra.leastCommonMultiple(rands));
     }
+
     public static void ex15() {
         int[] rands = randomIntsArray(10, 5, 9);
         ArrayTool.printArray(rands);
@@ -155,6 +170,7 @@ public abstract class DaLi_07 {
         rands = ArrayTool.removeDuplicates(rands);
         ArrayTool.printArray(rands);
     }
+
     public static void ex16() {
         int[] array = new int[100000000];
         for (int i = 1; i < array.length; i++) {
@@ -180,6 +196,7 @@ public abstract class DaLi_07 {
             IO.print("Binary search of number %d took %dns found in index %d%n%n", search, totalTime, index);
         }
     }
+
     public static void ex17() {
         int numberOfStudents = scanInt("Enter number of students: ");
         int[] grades = new int[numberOfStudents];
@@ -195,11 +212,13 @@ public abstract class DaLi_07 {
             print("%d Name: %s grade: %d%n", i, names[sortedIndexes[i]], grades[sortedIndexes[i]]);
         }
     }
+
     public static void ex18() {
         int[] rands = randomIntsArray(10, 0, 50);
         ArrayTool.bubbleSort(rands);
         ArrayTool.printArray(rands);
     }
+
     public static void ex19() {
         int[] rands = randomIntsArray(10, 0, 50);
         ArrayTool.bubbleSort(rands);
@@ -211,9 +230,11 @@ public abstract class DaLi_07 {
         println(ArrayTool.isSortedAsc(rands));
         println(ArrayTool.isSortedDesc(rands));
     }
+
     public static void ex20() {
         ex19();
     }
+
     public static void ex21() {
         int[] rands = randomIntsArray(10, 0, 50);
         int max = rands[ArrayTool.indexOfMax(rands)];
@@ -222,6 +243,7 @@ public abstract class DaLi_07 {
             println(Extras.map(rands[i], 0, max, 0, 1));
         }
     }
+
     public static void ex22() {
         String string = scanNext("Enter string ");
         int countHigh = 0, countLow = 0;
@@ -233,6 +255,7 @@ public abstract class DaLi_07 {
         }
         print("%d Uppercases,%n%d Lowercases.", countHigh, countLow);
     }
+
     public static void ex23() {
         boolean[] lockers = new boolean[100];
 
@@ -246,15 +269,19 @@ public abstract class DaLi_07 {
             print("Locker %d is %s%n", locker + 1, lockers[locker] ? "open" : "closed");
         }
     }
+
     public static void ex24() {
         DeckOfCards.main();
     }
+
     public static void ex25() {
         DaLi_03.ex01();
     }
+
     public static void ex26() {
         ex19();
     }
+
     public static void ex27() {
         int[] rands = randomIntsArray(10, 0, 50);
         println(ArrayTool.isSortedConstantInterval(rands));
@@ -264,6 +291,7 @@ public abstract class DaLi_07 {
         int[] constants = {-1, -3, -5, -7, -9};
         println(ArrayTool.isSortedConstantInterval(constants));
     }
+
     public static void ex28() {
         int[] rands = randomUniqueIntsArray(4, 0, 10);
         ArrayTool.printArray(rands);
@@ -274,6 +302,7 @@ public abstract class DaLi_07 {
             }
         }
     }
+
     public static void ex29() {
         for (int i = 1; i <= 6; i++) {
             for (int j = 1; j <= 6; j++) {
@@ -284,21 +313,25 @@ public abstract class DaLi_07 {
             }
         }
     }
+
     public static void ex30() {
         int[] numbers = {2, 5, 4, 7, 8, 9, 6, 5, 4, 1, 2, 3, 5, 8, 7, 4, 2, 5, 3, 4, 1, 1, 1, 1};
         print(ex30isConsecutiveFour(numbers));
     }
+
     public static boolean ex30isConsecutiveFour(int[] array) {
         for (int i = 0; i < array.length - 3; i++)
             if (array[i] == array[i + 1] && array[i] == array[i + 2] && array[i] == array[i + 3])
                 return true;
         return false;
     }
+
     public static void ex31() {
         int[] numbers1 = {5, 1, 5, 16, 61, 111};
         int[] numbers2 = {4, 2, 4, 5, 6};
         ArrayTool.printArray(ex31merge(numbers1, numbers2));
     }
+
     public static int[] ex31merge(int[] list1, int[] list2) {
         list1 = ArrayTool.bubbleSort(ArrayTool.removeDuplicates(list1));
         list2 = ArrayTool.bubbleSort(ArrayTool.removeDuplicates(list2));
@@ -315,25 +348,30 @@ public abstract class DaLi_07 {
         }
         return ArrayTool.bubbleSort(merged);
     }
+
     public static void ex32() {
         int[] numbers = {5, 2, 9, 3, 6, 8};
         ArrayTool.printArray(numbers);
         println(ex32partition(numbers));
         ArrayTool.printArray(numbers);
     }
+
     public static int ex32partition(int[] array) {
         int pivot = array[0];
         ArrayTool.bubbleSort(array);
         return ArrayTool.binarySearch(array, pivot);
     }
+
     public static void ex33() {
         int month = scanInt("Enter month number ");
         print(Time.monthName(month));
     }
+
     public static void ex34() {
         String unsorted = scanNextLine("Enter string to sort ");
         print(StringManip.sort(unsorted));
     }
+
     public static void ex35() {//HANGMAN
         String[] words = {"water", "fishing", "natural", "programming"};
         String word = words[randomInt(4)];
@@ -360,6 +398,7 @@ public abstract class DaLi_07 {
         else
             print("You win word %s", String.valueOf(covered));
     }
+
     public static void ex36() {//Eight Queens
         String[] table = new String[8];
         for (int row = 0; row < table.length; row++) {
@@ -374,6 +413,7 @@ public abstract class DaLi_07 {
             println(table[randoms[i]]);
         }
     }
+
     public static void ex37() {
         int[] slots = new int[8];
         int balls = 10;

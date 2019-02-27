@@ -1,6 +1,5 @@
 package lib.Math;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public abstract class Algebra {
@@ -110,7 +109,7 @@ public abstract class Algebra {
     }
 
     public static int leastCommonMultiple(int... numbers) {
-        return Arrays.stream(numbers).reduce(1, (x, y) -> x * (y / (int) greatestCommonDivisor(x, y)));
+        return Arrays.stream(numbers).reduce(1, (x, y) -> x * (y / greatestCommonDivisor(x, y)));
     }
 
     private static int greatestCommonDivisor(int a, int b) {
@@ -143,6 +142,7 @@ public abstract class Algebra {
         }
         return max;
     }
+
     public static double min(double... numbers) {
         double min = numbers[0];
         for (double e : numbers) {

@@ -208,14 +208,14 @@ public class ArrayTool {
         }
     }
 
-    public static void printArray(double[] array, int decimals, int spacing){
+    public static void printArray(double[] array, int decimals, int spacing) {
         for (double v : array) {
-            System.out.printf("%"+spacing+"."+decimals+"f%n",v);
+            System.out.printf("%" + spacing + "." + decimals + "f%n", v);
         }
     }
 
-    public static void printArray(double[] array, int decimals){
-        printArray(array,decimals,1);
+    public static void printArray(double[] array, int decimals) {
+        printArray(array, decimals, 1);
     }
 
     public static void printArray(int[] array) {
@@ -224,9 +224,9 @@ public class ArrayTool {
         }
     }
 
-    public static void printArray(int[] array, int spacing){
+    public static void printArray(int[] array, int spacing) {
         for (int il : array) {
-            System.out.printf("%"+spacing+"d",il);
+            System.out.printf("%" + spacing + "d", il);
         }
 
     }

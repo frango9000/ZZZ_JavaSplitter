@@ -28,8 +28,9 @@ public class Line {
         yIntercept = yIntercept();
         xIntercept = xIntercept();
     }
-    public Line(double x1, double y1, double x2, double y2){
-        this(new Point(x1,y1), new Point(x2,y2));
+
+    public Line(double x1, double y1, double x2, double y2) {
+        this(new Point(x1, y1), new Point(x2, y2));
     }
 
     public Line(Point pointA, float slope) {
@@ -37,6 +38,10 @@ public class Line {
         this.slope = slope;
         yIntercept = yIntercept();
         xIntercept = xIntercept();
+    }
+
+    public static double[] intersect(Line line1, Line line2) {
+        return Algebra.linear2x2Equation(line1.a, line1.b, line2.a, line2.b, line1.c, line2.c);
     }
 
     public double slope() {
@@ -70,9 +75,6 @@ public class Line {
     public double[] intersect(Line line) {
         return Algebra.linear2x2Equation(this.a, this.b, line.a, line.b, this.c, line.c);
     }
-    public static  double[] intersect(Line line1, Line line2) {
-        return Algebra.linear2x2Equation(line1.a, line1.b, line2.a, line2.b, line1.c, line2.c);
-    }
 
     public boolean isOnLine(Point point) {
         return this.crossProduct(point) == 0;
@@ -83,7 +85,7 @@ public class Line {
     }
 
     public double crossProduct(double x, double y) {
-        return crossProduct(new Point(x,y));
+        return crossProduct(new Point(x, y));
     }
 
     public double[] crossProduct(Point... points) {

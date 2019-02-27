@@ -19,6 +19,7 @@ public abstract class DaLi_04 {
     public static void ex00() {
 
     }
+
     public static void ep01() {
         print("Enter x1: ");
         float x1 = scanFloat();
@@ -41,6 +42,7 @@ public abstract class DaLi_04 {
         println(Math.toDegrees(triangle.angleB));
         println(Math.toDegrees(triangle.angleC));
     }
+
     public static void ep05() {
         Random rand = new Random();
         String lottery = "" + rand.nextInt(10) + rand.nextInt(10) + rand.nextInt(10);
@@ -60,6 +62,7 @@ public abstract class DaLi_04 {
         println("Winning lottery number is " + lottery);
         println("Your prize is " + prize);
     }
+
     private static int ep05matches(String a, String b) {
         char[] arrA = ep05array(a);
         char[] arrB = ep05array(b);
@@ -71,6 +74,7 @@ public abstract class DaLi_04 {
         }
         return count;
     }
+
     private static char[] ep05array(String string) {
         char[] arr = new char[3];
         arr[0] = string.charAt(0);
@@ -78,6 +82,7 @@ public abstract class DaLi_04 {
         arr[2] = string.charAt(2);
         return arr;
     }
+
     public static void ep06() {
         double amount = 12618.98;
         double interestRate = 0.0013;
@@ -85,6 +90,7 @@ public abstract class DaLi_04 {
         System.out.printf("Interest is $%4.2f", interest);
 
     }
+
     public static void ex01() {
         print("Enter radius: ");
         float r = scanFloat();
@@ -93,6 +99,7 @@ public abstract class DaLi_04 {
         IO.print("Area of the pentagon is %4.2f", pentagon.area());
 
     }
+
     public static void ex02() {
         print("Enter x1: ");
         float x1 = scanFloat();
@@ -108,6 +115,7 @@ public abstract class DaLi_04 {
 
         IO.print("Distance between points is %4.10f", sphere.distanceBetweenPoints(new Point(x1, y1), new Point(x2, y2)));
     }
+
     public static void ex03() {
         Point charlotte = new Point(35.2270869, -80.8431267);
         Point atlanta = new Point(33.7489954, -84.3879824);
@@ -119,6 +127,7 @@ public abstract class DaLi_04 {
 
         IO.print("Area : %4.8f", (t1.area() + t2.area()));
     }
+
     public static void ex04() {
         print("Enter sideLength of hexagon: ");
         float side = scanFloat();
@@ -126,6 +135,7 @@ public abstract class DaLi_04 {
         Hexagon hexagon = new Hexagon(side);
         IO.print("Area is %4.8f", hexagon.area());
     }
+
     public static void ex05() {
         print("Enter num of sides ");
         int numOfSides = scanInt();
@@ -136,6 +146,7 @@ public abstract class DaLi_04 {
         Polygon polygon = new Polygon(numOfSides, side);
         IO.print("Area is %4.8f", polygon.area());
     }
+
     public static void ex06() {
         Circle circle = new Circle(40);
         float randomDegree1 = randomInt(35999) / 100f;
@@ -149,28 +160,33 @@ public abstract class DaLi_04 {
         Triangle triangle = new Triangle(point1, point2, point3);
         println(triangle.toString());
     }
+
     public static void ex07() {
         print("Enter radius of pentagon: ");
         float radius = scanFloat();
         Pentagon pentagon = new Pentagon(radius, new Point(0, 0), 0f);
         println(pentagon.toString());
     }
+
     public static void ex08() {
         print("Enter a ASCII code: ");
         int code = scanInt();
         IO.print("The character for the ASCII code %d is %s", code, (char) code);
 
     }
+
     public static void ex09() {
         print("Enter a character: ");
         char character = scanChar();
         IO.print("The Unicode for character %s is %d", character, (int) character);
 
     }
+
     public static void ex10() {
         println("Enter Y for Yes; N for No: ");
         println(Asserts.consoleAssert() ? "Yes" : "No");
     }
+
     public static void ex11() {
         println("Enter Binary digits: ");
         String binary = scanNext();
@@ -181,6 +197,7 @@ public abstract class DaLi_04 {
         println("In binary : " + Integer.toBinaryString(decimal));
 
     }
+
     public static void ex12() {
         println("Enter Hexadecimal digits: ");
         String binary = scanNext();
@@ -191,6 +208,7 @@ public abstract class DaLi_04 {
         println("In Hexadecimal : " + Integer.toHexString(decimal));
 
     }
+
     public static void ex13() {
         print("Enter a character: ");
         char character = scanChar();
@@ -208,6 +226,7 @@ public abstract class DaLi_04 {
         }
         else println("Invalid Input.");
     }
+
     public static void ex14() {
         print("Enter a grade: ");
         char grade = scanChar();
@@ -234,6 +253,7 @@ public abstract class DaLi_04 {
             }
         } else println("Invalid Input.");
     }
+
     public static void ex15() {
         print("Enter a letter: ");
         char letter = scanChar();
@@ -241,6 +261,7 @@ public abstract class DaLi_04 {
         number = ex15(letter);
         IO.print("Number is : %d", number);
     }
+
     public static int ex15(char letter) {
         if (Character.isLetter(letter)) {
             letter = Character.toUpperCase(letter);
@@ -255,10 +276,12 @@ public abstract class DaLi_04 {
             else return -1;
         } else return -1;
     }
+
     public static void ex16() {
         //print((char)97 +""+ (char)122); // a - z
         IO.print("Random char is : %c", (char) (randomInt(25) + 97));
     }
+
     public static void ex17() {
         print("Enter a year: ");
         int year = scanInt();
@@ -280,6 +303,7 @@ public abstract class DaLi_04 {
         else
             println(((leapYear) ? 29 : 28) + " days");
     }
+
     public static void ex18() {
         print("Enter two characters: ");
         String code = scanNext();
@@ -313,14 +337,17 @@ public abstract class DaLi_04 {
         }
         println(string1 + " " + string2);
     }
+
     public static void ex19() {
         DaLi_03.ex09();
     }
+
     public static void ex20() {
         print("Enter string: ");
         String code = scanNext();
         IO.print("length %d, %c", code.length(), code.charAt(code.length() - 1));
     }
+
     public static void ex21() {
         print("Enter string: ");
         String code = scanNext();
@@ -330,6 +357,7 @@ public abstract class DaLi_04 {
             print("Valid format");
         }
     }
+
     public static void ex22() {
         print("Enter string: ");
         String code1 = scanNext();
@@ -344,6 +372,7 @@ public abstract class DaLi_04 {
         } else println("no substrings");
 
     }
+
     public static void ex23() {
         Scanner input = new Scanner(System.in);
 
@@ -373,6 +402,7 @@ public abstract class DaLi_04 {
                         "\nNet Pay: $" + (grossPay - totalDeduction)
         );
     }
+
     public static void ex24() {
         print("Enter country 1: ");
         String country1 = scanNext();
@@ -396,6 +426,7 @@ public abstract class DaLi_04 {
 
 
     }
+
     public static void ex25() {
         print((char) 65 + "" + (char) 90); // A - Z
 
@@ -407,6 +438,7 @@ public abstract class DaLi_04 {
 
         IO.print("Plate is %s", num + " - " + (char) char1 + (char) char2 + (char) char3);
     }
+
     public static void ex26() {
         DaLi_02.ex22();
     }

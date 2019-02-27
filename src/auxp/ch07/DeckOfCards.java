@@ -25,7 +25,9 @@ public class DeckOfCards {
         System.out.println("Number of picks: " + count);
     }
 
-    /** shuffleCards randomly shuffles a deck of cards */
+    /**
+     * shuffleCards randomly shuffles a deck of cards
+     */
     public static void shuffleCards(int[] deck) {
         for (int i = 0; i < deck.length; i++) {
             // Generate an index randomly
@@ -36,19 +38,25 @@ public class DeckOfCards {
         }
     }
 
-    /** pickCards overloaded randomly picks four cards from a deck */
+    /**
+     * pickCards overloaded randomly picks four cards from a deck
+     */
     public static void pickCards(int[] deck, int[] picks) {
         for (int i = 0; i < picks.length; i++) {
             picks[i] = deck[pickCards(deck)];
         }
     }
 
-    /** pickCards overloaded randomly picks a card from a deck */
+    /**
+     * pickCards overloaded randomly picks a card from a deck
+     */
     public static int pickCards(int[] deck) {
-        return (int)(Math.random() * deck.length);
+        return (int) (Math.random() * deck.length);
     }
 
-    /** isOneOFEachSuit tests if one card of each suit was picked */
+    /**
+     * isOneOFEachSuit tests if one card of each suit was picked
+     */
     public static boolean isOneOFEachSuit(int[] picks) {
         for (int i = 0; i < picks.length; i++) {
             for (int j = 0; j < picks.length; j++) {
@@ -59,7 +67,9 @@ public class DeckOfCards {
         return true;
     }
 
-    /** print displays the four cards picked */
+    /**
+     * print displays the four cards picked
+     */
     public static void print(int[] picks) {
         String[] suits = {"Spades", "Hearts", "Diamonds", "Clubs"};
         String[] ranks = {"Ace", "2", "3", "4", "5", "6", "7", "8", "9",

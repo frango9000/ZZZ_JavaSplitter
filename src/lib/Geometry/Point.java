@@ -1,6 +1,5 @@
 package lib.Geometry;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Point {
@@ -34,11 +33,7 @@ public class Point {
         buildPoint();
     }
 
-    private void buildPoint() {
-        point = new double[]{x, y, z};
-    }
-
-    public static Point[] toPointsArray(double[][] points){
+    public static Point[] toPointsArray(double[][] points) {
         Point[] array = new Point[points.length];
         for (int i = 0; i < points.length; i++) {
             array[i] = new Point(points[i][0], points[i][1], points[i].length >= 3 ? points[i][2] : 0);
@@ -58,26 +53,12 @@ public class Point {
         return distanceBetweenPoints(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
     }
 
-    public double distanceBetweenPoints(Point point) {
-        return distanceBetweenPoints(this, point);
-    }
-
-
     public static double[] middlePoint(double x1, double y1, double z1, double x2, double y2, double z2) {
         return new double[]{(x1 + x2) / 2, (y1 + y2) / 2, (z1 + z2) / 2};
     }
 
     public static double[] middlePoint(double x1, double y1, double x2, double y2) {
         return middlePoint(x1, y1, 0, x2, y2, 0);
-    }
-
-
-    public String toString() {
-        return "( " + x + ", " + y + " )";
-    }
-
-    public String toString3() {
-        return "( " + x + ", " + y + ", " + z + " )";
     }
 
     public static int[] closestPointsIndex(Point... points) {
@@ -95,19 +76,37 @@ public class Point {
         }
         return new int[]{p1, p2};
     }
+
     public static double closestPointsDistance(Point... points) {
         return distanceBetweenPoints(points[closestPointsIndex(points)[0]], points[closestPointsIndex(points)[1]]);
     }
-    public static HashMap<Point,Point> closestPoints(Point... points){
-        HashMap<Point,Point> list = new HashMap<>();
+
+    public static HashMap<Point, Point> closestPoints(Point... points) {
+        HashMap<Point, Point> list = new HashMap<>();
         for (int i = 0; i < points.length; i++) {
             for (int j = i + 1; j < points.length; j++) {
-                if(distanceBetweenPoints(points[i], points[j]) == closestPointsDistance(points)){
+                if (distanceBetweenPoints(points[i], points[j]) == closestPointsDistance(points)) {
                     list.put(points[i], points[j]);
                 }
             }
         }
         return list;
+    }
+
+    private void buildPoint() {
+        point = new double[]{x, y, z};
+    }
+
+    public double distanceBetweenPoints(Point point) {
+        return distanceBetweenPoints(this, point);
+    }
+
+    public String toString() {
+        return "( " + x + ", " + y + " )";
+    }
+
+    public String toString3() {
+        return "( " + x + ", " + y + ", " + z + " )";
     }
 
 

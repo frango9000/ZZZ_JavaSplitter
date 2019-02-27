@@ -40,36 +40,38 @@ public class MatrixManip {
         }
     }
 
-    public static int[][] buildTable(int rows, int cols, int... numbers){
+    public static int[][] buildTable(int rows, int cols, int... numbers) {
         int[][] table = new int[rows][cols];
         int t = 0;
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[i].length; j++) {
-                if(numbers.length > t)
+                if (numbers.length > t)
                     table[i][j] = numbers[t++];
                 else table[i][j] = 0;
             }
         }
         return table;
     }
-    public static double[][] buildTable(int rows, int cols, double... numbers){
+
+    public static double[][] buildTable(int rows, int cols, double... numbers) {
         double[][] table = new double[rows][cols];
         int t = 0;
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[i].length; j++) {
-                if(numbers.length > t)
+                if (numbers.length > t)
                     table[i][j] = numbers[t++];
                 else table[i][j] = 0;
             }
         }
         return table;
     }
-    public static char[][] buildTable(int rows, int cols, char... chars){
+
+    public static char[][] buildTable(int rows, int cols, char... chars) {
         char[][] table = new char[rows][cols];
         int t = 0;
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[i].length; j++) {
-                if(chars.length > t)
+                if (chars.length > t)
                     table[i][j] = chars[t++];
                 else table[i][j] = 0;
             }
@@ -138,11 +140,11 @@ public class MatrixManip {
             for (int i = 0; i < table.length; i++) {
                 for (int j = i + 1; j < table.length; j++) {
                     boolean isBrother = true;
-                    for (int k = 0; k < h ; k++) {
-                        if(table[i][k] != table[j][k])
+                    for (int k = 0; k < h; k++) {
+                        if (table[i][k] != table[j][k])
                             isBrother = false;
                     }
-                    if ( table[i][h] > table[j][h] && ( h == 0 || isBrother ) ) {
+                    if (table[i][h] > table[j][h] && (h == 0 || isBrother)) {
                         min = table[j];
                         table[j] = table[i];
                         table[i] = min;
@@ -151,12 +153,14 @@ public class MatrixManip {
             }
         }
     }
-    public static void sortRows(double[][] table){
+
+    public static void sortRows(double[][] table) {
         for (int row = 0; row < table.length; row++) {
             ArrayTool.bubbleSort(table[row]);
         }
     }
-    public static double[][] sortColumns(double[][] table){
+
+    public static double[][] sortColumns(double[][] table) {
         double[][] inverted = invertXY(table);
         for (int row = 0; row < inverted.length; row++) {
             ArrayTool.bubbleSort(inverted[row]);
@@ -164,13 +168,14 @@ public class MatrixManip {
         return invertXY(inverted);
     }
 
-    public static int sumRow(int[][] table, int rowIndex){
-        if(rowIndex >= table.length || rowIndex < 0)
+    public static int sumRow(int[][] table, int rowIndex) {
+        if (rowIndex >= table.length || rowIndex < 0)
             return 0;
         return ArrayTool.sum(table[rowIndex]);
     }
-    public static int sumColumn(int[][] table, int columnIndex){
-        if(columnIndex >= table.length || columnIndex < 0)
+
+    public static int sumColumn(int[][] table, int columnIndex) {
+        if (columnIndex >= table.length || columnIndex < 0)
             return 0;
         int sum = 0;
         for (int row = 0; row < table[0].length; row++) {
@@ -179,7 +184,7 @@ public class MatrixManip {
         return sum;
     }
 
-    public static int[][] indieClone(int[][] table){
+    public static int[][] indieClone(int[][] table) {
         int[][] clone = new int[table.length][table[0].length];
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[i].length; j++) {
@@ -189,27 +194,28 @@ public class MatrixManip {
         return clone;
     }
 
-    public static double[][] invertXY(double[][] table){
+    public static double[][] invertXY(double[][] table) {
         double[][] invertedTable = new double[table[0].length][table.length];
         for (int column = 0; column < table[0].length; column++) {
             for (int row = 0; row < table.length; row++) {
-                invertedTable[column][row]= table[row][column];
+                invertedTable[column][row] = table[row][column];
             }
         }
         return invertedTable;
     }
 
-    public static boolean isStrictIdentical(int[][] table1, int[][] table2){
-        if(table1.length != table2.length)
+    public static boolean isStrictIdentical(int[][] table1, int[][] table2) {
+        if (table1.length != table2.length)
             return false;
         for (int i = 0; i < table1.length; i++) {
-            if(table1[i].length != table2[i].length)
+            if (table1[i].length != table2[i].length)
                 return false;
-            if (!ArrayTool.isStrictIdentical(table1[i],table2[i]))
+            if (!ArrayTool.isStrictIdentical(table1[i], table2[i]))
                 return false;
         }
         return true;
     }
+
     public static boolean isIdentical(int[][] table1, int[][] table2) {
         if (table1.length != table2.length)
             return false;
@@ -229,7 +235,8 @@ public class MatrixManip {
         }
         return isAllTrue(hasValueOnIndex);
     }
-    public static boolean isAllTrue(boolean[][] marks){
+
+    public static boolean isAllTrue(boolean[][] marks) {
         boolean isAllTrue = true;
         for (int i = 0; i < marks.length; i++) {
             if (!ArrayTool.isAllTrue(marks[i]))
@@ -238,14 +245,15 @@ public class MatrixManip {
         return isAllTrue;
     }
 
-    public static int[] arrayOfColumn(int[][] table, int column){
+    public static int[] arrayOfColumn(int[][] table, int column) {
         int[] newArray = new int[table.length];
         for (int row = 0; row < table.length; row++) {
             newArray[row] = table[row][column];
         }
         return newArray;
     }
-    public static char[] arrayOfColumn(char[][] table, int column){
+
+    public static char[] arrayOfColumn(char[][] table, int column) {
         char[] newArray = new char[table.length];
         for (int row = 0; row < table.length; row++) {
             newArray[row] = table[row][column];

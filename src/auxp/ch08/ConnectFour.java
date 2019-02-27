@@ -5,12 +5,45 @@ import lib.Misc.IO;
 import java.util.Arrays;
 
 public class ConnectFour {
+    Board board;
+
     public static void main(String[] args) {
         ConnectFour c4 = new ConnectFour();
         c4.startGame();
     }
 
-    Board board;
+    void startGame() {
+        board = new Board();
+        Player p1 = Player.PLAYER1;
+        Player p2 = Player.PLAYER2;
+
+        int count = 0;
+        while (board.gameOver() == null) {
+            board.printBoard();
+            enterColumn((count++ % 2 == 1) ? p1 : p2);
+        }
+        board.printBoard();
+        System.out.println("Game " + (board.gameOver() == ' ' ? "Tied" : "Over\n Winner is " + board.gameOver()));
+    }
+
+    void enterColumn(Player player) {
+        int column = 0;
+        do {
+            System.out.println("Player " + player.id + " enter column to play ");
+            column = IO.scanInt();
+        } while (!board.isValidColumn(column));
+        board.insertIntoColumn(column, player);
+    }
+
+    public enum Player {
+        PLAYER1('X'), PLAYER2('O');
+        char id;
+
+        Player(char id) {
+            this.id = id;
+        }
+
+    }
 
     public class Board {
         int rows;
@@ -34,10 +67,10 @@ public class ConnectFour {
             }
         }
 
-        boolean isFull(){
+        boolean isFull() {
             for (int i = 0; i < table.length; i++) {
                 for (int j = 0; j < table[i].length; j++) {
-                    if ( table[i][j] == ' ')
+                    if (table[i][j] == ' ')
                         return false;
                 }
             }
@@ -65,7 +98,7 @@ public class ConnectFour {
             //pre-check
             if (table.length < 4 || table[0].length < 4)
                 return null;
-            if(isFull())
+            if (isFull())
                 return ' ';
             //Rows
             for (int i = 0; i < table.length; i++) {
@@ -127,39 +160,6 @@ public class ConnectFour {
                 }
             return -1;
         }
-    }
-
-    public enum Player {
-        PLAYER1('X'), PLAYER2('O');
-        char id;
-
-        Player(char id) {
-            this.id = id;
-        }
-
-    }
-
-    void startGame() {
-        board = new Board();
-        Player p1 = Player.PLAYER1;
-        Player p2 = Player.PLAYER2;
-
-        int count = 0;
-        while (board.gameOver() == null) {
-            board.printBoard();
-            enterColumn((count++ % 2 == 1) ? p1 : p2);
-        }
-        board.printBoard();
-        System.out.println("Game " + ( board.gameOver() == ' ' ? "Tied" : "Over\n Winner is " + board.gameOver() ) );
-    }
-
-    void enterColumn(Player player) {
-        int column = 0;
-        do {
-            System.out.println("Player " + player.id + " enter column to play ");
-            column = IO.scanInt();
-        } while (!board.isValidColumn(column));
-        board.insertIntoColumn(column, player);
     }
 
 

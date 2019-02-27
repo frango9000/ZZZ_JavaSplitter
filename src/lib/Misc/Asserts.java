@@ -18,7 +18,7 @@ public abstract class Asserts {
      * Muestra un mensaje por ventana solicitando introducir datos Devuelve un
      * String introducido en la ventana
      *
-     * @param msg String a ser mostrado
+     * @param msg   String a ser mostrado
      * @param title String a ser titulo de la ventana
      * @return String introducido
      */
@@ -36,7 +36,7 @@ public abstract class Asserts {
      *
      * @param str String a ser comprobado
      * @return boolean true si es float
-     * @exception NumberFormatException e si str no es float
+     * @throws NumberFormatException e si str no es float
      */
     public static boolean isFloat(String str) {
         try {

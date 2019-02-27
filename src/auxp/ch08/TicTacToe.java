@@ -8,56 +8,6 @@ public class TicTacToe {
         game.startGame();
     }
 
-    public class Board {
-        char[][] board = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
-
-
-        void printBoard() {
-            String line = "-------------";
-            System.out.println(line);
-            for (int i = 0; i < board.length; i++) {
-                System.out.printf("| %c | %c | %c |%n", board[i][0], board[i][1], board[i][2]);
-                System.out.println(line);
-            }
-        }
-
-        boolean gameOver() {
-            for (int i = 0; i < board.length; i++) {
-                if (board[i][0] != ' ' && (board[i][0] == board[i][1] && board[i][1] == board[i][2])) {
-                    return true;
-                }
-            }
-            for (int i = 0; i < board.length; i++) {
-                if (board[0][i] != ' ' && (board[0][i] == board[1][i] && board[1][i] == board[2][i])) {
-                    return true;
-                }
-            }
-            if (board[0][0] != ' ' && (board[0][0] == board[1][1] && board[1][1] == board[2][2])) {
-                return true;
-            } else if (board[0][2] != ' ' && (board[0][2] == board[1][1] && board[1][1] == board[2][0])) {
-                return true;
-            } else return ( board[0][0] != ' ' && board[0][1] != ' ' && board[0][2] != ' ' &&
-                    board[1][0] != ' ' && board[1][1] != ' ' && board[1][2] != ' ' &&
-                    board[2][0] != ' ' && board[2][1] != ' ' && board[2][2] != ' ' );
-        }
-
-        boolean validCoords(int[] coords) {
-            return (board[coords[0] - 1][coords[1] - 1] == ' ');
-        }
-
-        void markCoord(int[] coords, Player player) {
-            board[coords[0] - 1][coords[1] - 1] = player.id;
-        }
-    }
-
-    public class Player {
-        char id;
-
-        public Player(int num) {
-            id = (num == 1) ? 'X' : 'O';
-        }
-    }
-
     void startGame() {
         Board game = new Board();
         Player p1 = new Player(1);
@@ -88,6 +38,56 @@ public class TicTacToe {
             coords = enterCoords(player);
         } while (!board.validCoords(coords));
         board.markCoord(coords, player);
+    }
+
+    public class Board {
+        char[][] board = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
+
+
+        void printBoard() {
+            String line = "-------------";
+            System.out.println(line);
+            for (int i = 0; i < board.length; i++) {
+                System.out.printf("| %c | %c | %c |%n", board[i][0], board[i][1], board[i][2]);
+                System.out.println(line);
+            }
+        }
+
+        boolean gameOver() {
+            for (int i = 0; i < board.length; i++) {
+                if (board[i][0] != ' ' && (board[i][0] == board[i][1] && board[i][1] == board[i][2])) {
+                    return true;
+                }
+            }
+            for (int i = 0; i < board.length; i++) {
+                if (board[0][i] != ' ' && (board[0][i] == board[1][i] && board[1][i] == board[2][i])) {
+                    return true;
+                }
+            }
+            if (board[0][0] != ' ' && (board[0][0] == board[1][1] && board[1][1] == board[2][2])) {
+                return true;
+            } else if (board[0][2] != ' ' && (board[0][2] == board[1][1] && board[1][1] == board[2][0])) {
+                return true;
+            } else return (board[0][0] != ' ' && board[0][1] != ' ' && board[0][2] != ' ' &&
+                    board[1][0] != ' ' && board[1][1] != ' ' && board[1][2] != ' ' &&
+                    board[2][0] != ' ' && board[2][1] != ' ' && board[2][2] != ' ');
+        }
+
+        boolean validCoords(int[] coords) {
+            return (board[coords[0] - 1][coords[1] - 1] == ' ');
+        }
+
+        void markCoord(int[] coords, Player player) {
+            board[coords[0] - 1][coords[1] - 1] = player.id;
+        }
+    }
+
+    public class Player {
+        char id;
+
+        public Player(int num) {
+            id = (num == 1) ? 'X' : 'O';
+        }
     }
 
 

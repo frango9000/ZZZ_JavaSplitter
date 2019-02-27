@@ -19,30 +19,35 @@ public class DaLi_08 {
     public static void main(String[] args) {
         ex36();
     }
-    public static void ex00(){
+
+    public static void ex00() {
     }
-    public static void ex01(){
+
+    public static void ex01() {
         int[][] table = randomIntsTable(3, 4, 1, 10);
         MatrixManip.printTable(table, 6);
         for (int i = 0; i < table.length; i++) {
             print("Sum of row %d  = %d\n", i, ArrayTool.sum(table[i]));
         }
     }
-    public static void ex02(){
+
+    public static void ex02() {
         int[][] table = randomIntsTable(4, 4, 1, 10);
         MatrixManip.printTable(table, 6);
         print(ex02averageMajorDiagonal(table));
 
     }
-    public static double ex02averageMajorDiagonal(int[][] table){
+
+    public static double ex02averageMajorDiagonal(int[][] table) {
         int sum = 0;
         int diagonalLength = (table.length <= table[0].length) ? table.length : table[0].length;
         for (int i = 0; i < diagonalLength; i++) {
             sum += table[i][i];
         }
-        return sum/(float)diagonalLength;
+        return sum / (float) diagonalLength;
     }
-    public static void ex03(){
+
+    public static void ex03() {
         char[][] answers = {
                 {'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
                 {'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},
@@ -55,7 +60,7 @@ public class DaLi_08 {
 
         // Key to the questions
         char[] keys = {'D', 'B', 'D', 'C', 'C', 'D', 'A', 'E', 'A', 'D'};
-        int[] correct= new int[answers.length];
+        int[] correct = new int[answers.length];
         // Grade all answers
         for (int i = 0; i < answers.length; i++) {
             // Grade one student
@@ -73,21 +78,24 @@ public class DaLi_08 {
             printf("Student %d correct count is %d\n", ordered[i], correct[ordered[i]]);
         }
     }
-    public static void ex04(){
+
+    public static void ex04() {
         int[][] table = randomIntsTable(7, 8, 1, 9);
         for (int i = 0; i < table.length; i++) {
             println(Arrays.toString(table[i]) + " " + ArrayTool.sum(table[i]));
         }
     }
-    public static void ex05(){
+
+    public static void ex05() {
         double[][] matrix1 = randomDoublesTable(3, 3, 1, 4);
         MatrixManip.printTable(matrix1);
         double[][] matrix2 = randomDoublesTable(3, 3, 1, 4);
         MatrixManip.printTable(matrix2);
         MatrixManip.printTable(ex05addMatrix(matrix1, matrix2));
     }
-    public static double[][] ex05addMatrix(double[][] matrix1, double[][] matrix2){
-        if(matrix1.length == matrix2.length && matrix1[0].length == matrix2[0].length){
+
+    public static double[][] ex05addMatrix(double[][] matrix1, double[][] matrix2) {
+        if (matrix1.length == matrix2.length && matrix1[0].length == matrix2[0].length) {
             double[][] addition = new double[matrix1.length][matrix2[0].length];
             for (int i = 0; i < addition.length; i++) {
                 for (int j = 0; j < addition[i].length; j++) {
@@ -95,9 +103,10 @@ public class DaLi_08 {
                 }
             }
             return addition;
-        }else return null;
+        } else return null;
     }
-    public static void ex06(){
+
+    public static void ex06() {
         double[][] matrix1 = randomDoublesTable(3, 3, 1, 4);
         MatrixManip.printTable(matrix1);
         double[][] matrix2 = randomDoublesTable(3, 3, 1, 4);
@@ -105,7 +114,8 @@ public class DaLi_08 {
         MatrixManip.printTable(ex06multiplyMatrix(matrix1, matrix2));
 
     }
-    public static double[][] ex06multiplyMatrix(double[][] matrix1, double[][] matrix2){
+
+    public static double[][] ex06multiplyMatrix(double[][] matrix1, double[][] matrix2) {
         double[][] dotProduct = new double[Algebra.min(matrix1.length, matrix2.length)][Algebra.min(matrix1[0].length, matrix2[0].length)];
         for (int i = 0; i < dotProduct.length; i++) {
             for (int j = 0; j < dotProduct[0].length; j++) {
@@ -114,20 +124,24 @@ public class DaLi_08 {
         }
         return dotProduct;
     }
-    public static void ex07(){
+
+    public static void ex07() {
         double[][] ps = {{-1, 0, 3}, {-1, -1, -1}, {4, 1, 1}, {2, 0.5, 9}, {3.5, 2, -1}, {3, 1.5, 3}, {-1.5, 4, 2}, {5.5, 4, -0.5}};
         Point[] points = Point.toPointsArray(ps);
         int[] cp = Point.closestPointsIndex(points);
-        println(points[cp[0]].toString3()+" "+points[cp[1]].toString3());
+        println(points[cp[0]].toString3() + " " + points[cp[1]].toString3());
     }
-    public static void ex08(){
-        Point[] points = {new Point(0,0), new Point(1,1 ), new Point(-1,-1), new Point(2,2), new Point(-2, -2), new Point(-3,-3), new Point(-4,-4), new Point(5,5)};
+
+    public static void ex08() {
+        Point[] points = {new Point(0, 0), new Point(1, 1), new Point(-1, -1), new Point(2, 2), new Point(-2, -2), new Point(-3, -3), new Point(-4, -4), new Point(5, 5)};
         println(Point.closestPoints(points));
     }
-    public static void ex09(){
-        TicTacToe.main(new String[0] );
+
+    public static void ex09() {
+        TicTacToe.main(new String[0]);
     }
-    public static void ex10(){
+
+    public static void ex10() {
         int[][] table = randomIntsTable(5, 5, 0, 1);
         MatrixManip.printTable(table, 2);
         int largeRow = -1, largeCol = -1, tempRow = 0, tempCol = 0;
@@ -154,14 +168,15 @@ public class DaLi_08 {
         }
         print("Max row %d%nMax col %d", rowIndx, colIndx);
     }
-    public static void ex11(){
+
+    public static void ex11() {
         short number = scanShort("Enter a number ( 0 - 511 )");
         char[][] table = new char[3][3];
-        number = (short) Algebra.min(number,511);
-        number = (short) Algebra.max(number,0);
+        number = (short) Algebra.min(number, 511);
+        number = (short) Algebra.max(number, 0);
         String bin = StringManip.toBinaryString(number, 9);
         println(bin);
-        int t =0;
+        int t = 0;
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[i].length; j++) {
                 table[i][j] = bin.charAt(t++);
@@ -169,14 +184,17 @@ public class DaLi_08 {
         }
         MatrixManip.printTable(table);
     }
-    public static void ex12(){
+
+    public static void ex12() {
     }
-    public static void ex13(){
-        double[][] table = randomDoublesTable(10,10,0,10);
+
+    public static void ex13() {
+        double[][] table = randomDoublesTable(10, 10, 0, 10);
         MatrixManip.printTable(table);
-        print(MatrixManip.indexOfMax(table)[0]+" "+MatrixManip.indexOfMax(table)[1]);
+        print(MatrixManip.indexOfMax(table)[0] + " " + MatrixManip.indexOfMax(table)[1]);
     }
-    public static void ex14(){
+
+    public static void ex14() {
         short size = 3;//scanShort("Enter size: ");
         int random = randomInt((int) Math.pow(2, size * size));
         String bin = StringManip.toBinaryString(random, size * size);
@@ -187,6 +205,7 @@ public class DaLi_08 {
         ex14diag(table);
 
     }
+
     public static void ex14rows(char[][] table) {
         for (int i = 0; i < table.length; i++) {
             char t = table[i][0];
@@ -200,6 +219,7 @@ public class DaLi_08 {
             }
         }
     }
+
     public static void ex14cols(char[][] table) {
         for (int i = 0; i < table.length; i++) {
             char t = table[0][i];
@@ -212,6 +232,7 @@ public class DaLi_08 {
                 println("All %cs on col %d", t, i);
         }
     }
+
     public static void ex14diag(char[][] table) {
         char t = table[0][0];
         int count = 0;
@@ -231,55 +252,62 @@ public class DaLi_08 {
         if (count == table.length)
             println("All %cs on minor diag", t);
     }
-    public static void ex15(){
-        Point[] points1 = { new Point(3.4,2),new Point(6.5,9.5),new Point(2.3,2.3),new Point(5.5,5),new Point(-5,4)};
-        Point[] points2 = { new Point(1,1),  new Point(2,2),    new Point(3,3),    new Point(4,4),  new Point(5,5) };
 
-        Line lineA = new Line(points1[0],points1[1]);
-        Line lineB = new Line(points2[0],points2[1]);
+    public static void ex15() {
+        Point[] points1 = {new Point(3.4, 2), new Point(6.5, 9.5), new Point(2.3, 2.3), new Point(5.5, 5), new Point(-5, 4)};
+        Point[] points2 = {new Point(1, 1), new Point(2, 2), new Point(3, 3), new Point(4, 4), new Point(5, 5)};
+
+        Line lineA = new Line(points1[0], points1[1]);
+        Line lineB = new Line(points2[0], points2[1]);
 
         ArrayTool.printArray(lineA.crossProduct(points1));
         ArrayTool.printArray(lineB.crossProduct(points2));
     }
-    public static void ex16(){
+
+    public static void ex16() {
         int[][] table = randomIntsTable(16, 5, 0, 1);
         MatrixManip.printTable(table);
         MatrixManip.sort(table);
         println("");
         MatrixManip.printTable(table);
     }
-    public static void ex17(){
+
+    public static void ex17() {
     }
-    public static void ex18(){
+
+    public static void ex18() {
         int[][] table = randomIntsTable(5, 2, 0, 5);
         MatrixManip.printTable(table);
         ex18shuffle(table);
         println("");
         MatrixManip.printTable(table);
     }
-    public static void ex18shuffle(int[][] table){
+
+    public static void ex18shuffle(int[][] table) {
         for (int i = 0; i < table.length; i++) {
-            int random = Randomizer.randomInt(table.length-1);
+            int random = Randomizer.randomInt(table.length - 1);
             int[] temp = table[i];
             table[i] = table[random];
             table[random] = temp;
         }
     }
-    public static void ex19(){
-        int[][] table ={ {2,2,3,4},
-                         {1,4,4,1},
-                         {1,4,4,2},
-                         {4,2,4,4} };
+
+    public static void ex19() {
+        int[][] table = {{2, 2, 3, 4},
+                {1, 4, 4, 1},
+                {1, 4, 4, 2},
+                {4, 2, 4, 4}};
         print(ex19HasConsecutiveFour(table));
     }
-    public static boolean ex19HasConsecutiveFour(int[][] table){
+
+    public static boolean ex19HasConsecutiveFour(int[][] table) {
         //pre-check
-        if( table.length < 4 || table[0].length < 4 )
+        if (table.length < 4 || table[0].length < 4)
             return false;
         //Rows
         for (int i = 0; i < table.length; i++) {
             for (int j = 0; j < table[i].length - 3; j++) {
-                if( table[i][j] == table[i][j+1] && table[i][j] == table[i][j+2] && table[i][j] == table[i][j+3] ){
+                if (table[i][j] == table[i][j + 1] && table[i][j] == table[i][j + 2] && table[i][j] == table[i][j + 3]) {
                     return true;
                 }
             }
@@ -287,7 +315,7 @@ public class DaLi_08 {
         //Cols
         for (int i = 0; i < table.length - 3; i++) {
             for (int j = 0; j < table[i].length; j++) {
-                if( table[i][j] == table[i+1][j] && table[i][j] == table[i+2][j] && table[i][j] == table[i+3][j] ){
+                if (table[i][j] == table[i + 1][j] && table[i][j] == table[i + 2][j] && table[i][j] == table[i + 3][j]) {
                     return true;
                 }
             }
@@ -295,7 +323,7 @@ public class DaLi_08 {
         //Diag
         for (int i = 0; i < table.length - 3; i++) {
             for (int j = 0; j < table[i].length - 3; j++) {
-                if( table[i][j] == table[i+1][j+1] && table[i][j] == table[i+2][j+2] && table[i][j] == table[i+3][j+3] ){
+                if (table[i][j] == table[i + 1][j + 1] && table[i][j] == table[i + 2][j + 2] && table[i][j] == table[i + 3][j + 3]) {
                     return true;
                 }
             }
@@ -303,7 +331,7 @@ public class DaLi_08 {
         //Diag
         for (int i = 0; i < table.length - 3; i++) {
             for (int j = 3; j < table[i].length; j++) {
-                if( table[i][j] == table[i+1][j-1] && table[i][j] == table[i+2][j-2] && table[i][j] == table[i+3][j-3] ){
+                if (table[i][j] == table[i + 1][j - 1] && table[i][j] == table[i + 2][j - 2] && table[i][j] == table[i + 3][j - 3]) {
                     return true;
                 }
             }
@@ -311,11 +339,13 @@ public class DaLi_08 {
 
         return false;
     }
-    public static void ex20(){
+
+    public static void ex20() {
         ConnectFour.main(new String[0]);
     }
-    public static void ex21(){
-        Point[] cities = new Point[] { new Point(2.5,5),new Point(5.1,3),new Point(1,9),new Point(5.4, 54),new Point(5.5,2.1) };
+
+    public static void ex21() {
+        Point[] cities = new Point[]{new Point(2.5, 5), new Point(5.1, 3), new Point(1, 9), new Point(5.4, 54), new Point(5.5, 2.1)};
         double[] totalDistances = new double[cities.length];
 
         for (int i = 0; i < cities.length; i++) {
@@ -327,7 +357,8 @@ public class DaLi_08 {
         int indx = ArrayTool.indexOfMin(totalDistances);
         print("%s %n %.2f", cities[indx].toString(), totalDistances[indx]);
     }
-    public static void ex22(){
+
+    public static void ex22() {
         int[][] table = Randomizer.randomIntsTable(6, 6, 0, 1);
         MatrixManip.printTable(table);
         for (int i = 0; i < table.length; i++) {
@@ -335,7 +366,7 @@ public class DaLi_08 {
             for (int j = 0; j < table[i].length; j++) {
                 sum += table[i][j];
             }
-            if(sum % 2 == 0)
+            if (sum % 2 == 0)
                 System.out.println("Row " + i + " is even");
         }
         for (int i = 0; i < table[0].length; i++) {
@@ -343,26 +374,27 @@ public class DaLi_08 {
             for (int j = 0; j < table.length; j++) {
                 sum += table[j][i];
             }
-            if(sum % 2 == 0)
+            if (sum % 2 == 0)
                 System.out.println("Column " + i + " is even");
         }
 
     }
-    public static void ex23(){
+
+    public static void ex23() {
         int[][] table = {
-                {1,0,1,0,1,1},
-                {1,1,1,1,0,0},
-                {0,1,0,1,1,1},
-                {1,1,1,1,1,1},
-                {0,1,1,1,1,0},
-                {1,0,0,0,0,1}   };
+                {1, 0, 1, 0, 1, 1},
+                {1, 1, 1, 1, 0, 0},
+                {0, 1, 0, 1, 1, 1},
+                {1, 1, 1, 1, 1, 1},
+                {0, 1, 1, 1, 1, 0},
+                {1, 0, 0, 0, 0, 1}};
         MatrixManip.printTable(table);
 
         int flipX, flipY;
         do {
             flipX = scanInt("Flip X : ");
             flipY = scanInt("Flip Y : ");
-        }while( flipX > 5 || flipX < 0 || flipY > 5 || flipY < 0 );
+        } while (flipX > 5 || flipX < 0 || flipY > 5 || flipY < 0);
         table[flipX][flipY] = table[flipX][flipY] == 0 ? 1 : 0;
 
         MatrixManip.printTable(table);
@@ -378,26 +410,29 @@ public class DaLi_08 {
                 break;
             }
         }
-        print("Flipped x : %d %nFlipped Y : %d", flipX,flipY);
+        print("Flipped x : %d %nFlipped Y : %d", flipX, flipY);
     }
-    public static void ex24(){
+
+    public static void ex24() {
         Sudoku.main(null);
     }
-    public static void ex25(){
+
+    public static void ex25() {
         double[][] markov = {
-                { 0.15, 0.875 ,0.375 },
-                { 0.55, 0.005 ,0.225 },
-                { 0.3 , 0.12  ,0.4   }  };
+                {0.15, 0.875, 0.375},
+                {0.55, 0.005, 0.225},
+                {0.3, 0.12, 0.4}};
         print(ex25isMarkovMatrix(markov));
 
         double[][] markov2 = {
-                { 0.95, -0.875 , 0.375 },
-                { 0.65,  0.005 , 0.225 },
-                { 0.3 ,  0.22  ,-0.4   }  };
+                {0.95, -0.875, 0.375},
+                {0.65, 0.005, 0.225},
+                {0.3, 0.22, -0.4}};
         print(ex25isMarkovMatrix(markov2));
     }
-    public static boolean ex25isMarkovMatrix(double[][] table){
-        if(table.length != 3 || table[0].length !=3)
+
+    public static boolean ex25isMarkovMatrix(double[][] table) {
+        if (table.length != 3 || table[0].length != 3)
             return false;
         for (int column = 0; column < table[0].length; column++) {
             double sum = 0;
@@ -409,78 +444,87 @@ public class DaLi_08 {
         }
         return true;
     }
+
     public static void ex26() {
         double[][] table = {
                 {0.15, 0.875, 0.375, 0.225},
                 {0.55, 0.005, 0.225, 0.015},
-                {0.30, 0.12 , 0.4  , 0.008},
-                {0.07, 0.021, 0.14 , 0.2  }   };
+                {0.30, 0.12, 0.4, 0.008},
+                {0.07, 0.021, 0.14, 0.2}};
 
         MatrixManip.printTable(table);
         MatrixManip.sortRows(table);
         MatrixManip.printTable(table);
     }
-    public static void ex27(){
+
+    public static void ex27() {
         double[][] table = {
                 {0.15, 0.875, 0.375, 0.225},
                 {0.55, 0.005, 0.225, 0.015},
-                {0.30, 0.12 , 0.4  , 0.008},
-                {0.07, 0.021, 0.14 , 0.2  }   };
+                {0.30, 0.12, 0.4, 0.008},
+                {0.07, 0.021, 0.14, 0.2}};
 
-        MatrixManip.printTable(table,7,3);
-        MatrixManip.printTable(MatrixManip.sortColumns(table),7,3);
+        MatrixManip.printTable(table, 7, 3);
+        MatrixManip.printTable(MatrixManip.sortColumns(table), 7, 3);
     }
-    public static void ex28(){
-        int[][] table = Randomizer.randomIntsTable(6, 6, 0, 9);
-        int[][] table2 =MatrixManip.indieClone(table);
 
-        println(MatrixManip.isStrictIdentical(table, table2) );
+    public static void ex28() {
+        int[][] table = Randomizer.randomIntsTable(6, 6, 0, 9);
+        int[][] table2 = MatrixManip.indieClone(table);
+
+        println(MatrixManip.isStrictIdentical(table, table2));
         MatrixManip.printTable(table2);
         table2[0][0] += 1;
 
-        println(MatrixManip.isStrictIdentical(table, table2) );
+        println(MatrixManip.isStrictIdentical(table, table2));
         MatrixManip.printTable(table2);
     }
-    public static void ex29(){
-        int[][] table = Randomizer.randomIntsTable(6, 6, 0, 9);
-        int[][] table2 =MatrixManip.indieClone(table);
 
-        println(MatrixManip.isIdentical(table, table2) );
+    public static void ex29() {
+        int[][] table = Randomizer.randomIntsTable(6, 6, 0, 9);
+        int[][] table2 = MatrixManip.indieClone(table);
+
+        println(MatrixManip.isIdentical(table, table2));
         MatrixManip.printTable(table2);
         int temp = table2[0][1];
         table2[0][1] = table2[1][0];
         table2[1][0] = temp;
 
-        println(MatrixManip.isIdentical(table, table2) );
+        println(MatrixManip.isIdentical(table, table2));
         MatrixManip.printTable(table2);
     }
-    public static void ex30(){
-        double[] xy = ex30linearEquation(new double[][]{{1,2},{3,4}}, new double[]{5,6});
+
+    public static void ex30() {
+        double[] xy = ex30linearEquation(new double[][]{{1, 2}, {3, 4}}, new double[]{5, 6});
         if (xy == null) println("The equation has no solution");
         else println("x: " + xy[0] + "\ny: " + xy[1]);
     }
-    public static double[] ex30linearEquation(double[][] a, double[] b){
-        return Algebra.linear2x2Equation( a[0][0], a[0][1], a[1][0], a[1][1], b[0], b[1] );
+
+    public static double[] ex30linearEquation(double[][] a, double[] b) {
+        return Algebra.linear2x2Equation(a[0][0], a[0][1], a[1][0], a[1][1], b[0], b[1]);
     }
-    public static void ex31(){
+
+    public static void ex31() {
         DaLi_03.ex25();
     }
-    public static void ex32(){
+
+    public static void ex32() {
         DaLi_03.ex27();
     }
-    public static void ex33(){
-        Point p1 = new Point(-2.5,2);
-        Point p2 = new Point(4,4);
-        Point p3 = new Point(3,-2);
-        Point p4 = new Point(-2,-3.5);
 
-        Point intersect = new Point(Line.intersect(new Line (p1,p3), new Line(p2,p4)));
+    public static void ex33() {
+        Point p1 = new Point(-2.5, 2);
+        Point p2 = new Point(4, 4);
+        Point p3 = new Point(3, -2);
+        Point p4 = new Point(-2, -3.5);
+
+        Point intersect = new Point(Line.intersect(new Line(p1, p3), new Line(p2, p4)));
 
         Triangle[] triangles = new Triangle[4];
-        triangles[0] = new Triangle(p1,p2,intersect);
-        triangles[1] = new Triangle(p2,p3,intersect);
-        triangles[2] = new Triangle(p3,p4,intersect);
-        triangles[3] = new Triangle(p4,p1,intersect);
+        triangles[0] = new Triangle(p1, p2, intersect);
+        triangles[1] = new Triangle(p2, p3, intersect);
+        triangles[2] = new Triangle(p3, p4, intersect);
+        triangles[3] = new Triangle(p4, p1, intersect);
 
         double[] areas = new double[triangles.length];
 
@@ -488,14 +532,15 @@ public class DaLi_08 {
             areas[i] = triangles[i].area();
         }
         ArrayTool.bubbleSort(areas);
-        ArrayTool.printArray(areas,3);
+        ArrayTool.printArray(areas, 3);
 
     }
-    public static void ex34(){
-        Line vert = new Line(0,-1,0,1);
-        Line horizont = new Line(-1,0,1,0);
 
-        Point[] points = ex34arrayOfPoints(new double[]{1.5,2.5,-3,4.5,5.6,-7,6.5,-7,8,1,10,2.5});
+    public static void ex34() {
+        Line vert = new Line(0, -1, 0, 1);
+        Line horizont = new Line(-1, 0, 1, 0);
+
+        Point[] points = ex34arrayOfPoints(new double[]{1.5, 2.5, -3, 4.5, 5.6, -7, 6.5, -7, 8, 1, 10, 2.5});
         double[] sumOfCrossProducts = new double[points.length];
         for (int point = 0; point < points.length; point++) {
             sumOfCrossProducts[point] += vert.crossProduct(points[point]);
@@ -504,34 +549,37 @@ public class DaLi_08 {
             sumOfCrossProducts[point] += horizont.crossProduct(points[point]);
         }
         int[] indexesSorted = ArrayTool.bubbleSortIndex(sumOfCrossProducts);
-        println("Rightmost lowest point is %s" , points[indexesSorted[0]].toString());
+        println("Rightmost lowest point is %s", points[indexesSorted[0]].toString());
 
     }
-    public static Point[] ex34arrayOfPoints(double[] coords){
+
+    public static Point[] ex34arrayOfPoints(double[] coords) {
         if (coords.length % 2 != 0)
             return null;
-        Point[] points = new Point[coords.length/2];
-        double x=0;
+        Point[] points = new Point[coords.length / 2];
+        double x = 0;
         for (int coord = 0; coord < coords.length; coord++) {
             if (coord % 2 == 0)
                 x = coords[coord];
-            else points[coord/2] = new Point(x,coords[coord]);
+            else points[coord / 2] = new Point(x, coords[coord]);
         }
         return points;
     }
-    public static void ex35(){
-        int[][] table = MatrixManip.buildTable(6,6,
-      1,2,3,4,5,5,
-                1,2,3,4,5,5,
-                1,2,3,3,3,3,
-                1,2,3,3,3,3,
-                1,2,3,3,3,3,
-                1,2,3,3,3,3);
+
+    public static void ex35() {
+        int[][] table = MatrixManip.buildTable(6, 6,
+                1, 2, 3, 4, 5, 5,
+                1, 2, 3, 4, 5, 5,
+                1, 2, 3, 3, 3, 3,
+                1, 2, 3, 3, 3, 3,
+                1, 2, 3, 3, 3, 3,
+                1, 2, 3, 3, 3, 3);
         MatrixManip.printTable(table);
         ex35findLargestBlock(table);
 
     }
-    public static int[] ex35findLargestBlock(int[][] table){
+
+    public static int[] ex35findLargestBlock(int[][] table) {
         int maxSize = 0, xMax = 0, yMax = 0;
         for (int row = 0; row < table.length; row++) {
             for (int col = 0; col < table.length; col++) {
@@ -544,10 +592,11 @@ public class DaLi_08 {
             }
         }
         println("Largest block is at %d , %d and is %dx%d", xMax, yMax, maxSize, maxSize);
-        return new int[]{xMax,yMax};
+        return new int[]{xMax, yMax};
 
     }
-    public static int ex35isBlockValid(int[][] table, int row, int col){
+
+    public static int ex35isBlockValid(int[][] table, int row, int col) {
         int x = 1, y = 1, xy = 1;
 
         for (int rcol = col + 1; rcol < table[row].length; rcol++) {
@@ -559,32 +608,33 @@ public class DaLi_08 {
                 y++;
         }
 
-        for (int diagRow = row + 1, diagCol = col + 1; diagRow < table.length && diagCol < table[diagRow].length; diagRow++,diagCol++) {
+        for (int diagRow = row + 1, diagCol = col + 1; diagRow < table.length && diagCol < table[diagRow].length; diagRow++, diagCol++) {
             if (table[row][col] == table[diagRow][diagCol])
                 xy++;
         }
-        x = y = xy = Algebra.min(x,y,xy);
+        x = y = xy = Algebra.min(x, y, xy);
 
-        while(xy>0){
+        while (xy > 0) {
             boolean isValid = true;
             verify:
             for (int sCol = col; sCol < xy; sCol++) {
                 for (int sRow = row; sRow < xy; sRow++) {
-                    if (table[row][col] != table[sRow][sCol]){
+                    if (table[row][col] != table[sRow][sCol]) {
                         isValid = false;
                         break verify;
                     }
                 }
             }
-            if( isValid )
+            if (isValid)
                 return xy;
             else xy--;
         }
         return xy;
     }
-    public static void ex36(){
+
+    public static void ex36() {
         int number = scanInt("Enter number ");
-        println("enter %d rows of %d letters", number,number);
+        println("enter %d rows of %d letters", number, number);
 
         char[][] letters = new char[number][number];
         for (int row = 0; row < letters.length; row++) {
@@ -595,13 +645,14 @@ public class DaLi_08 {
         println(ex36isLatinSquare(letters));
 
     }
-    public static boolean ex36isLatinSquare(char[][] table){
-        char[] letters = new char[]{'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
+
+    public static boolean ex36isLatinSquare(char[][] table) {
+        char[] letters = new char[]{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         letters = Arrays.copyOf(letters, table.length);
 
         char[] letters2 = new char[table.length];
         for (int i = 0; i < letters2.length; i++)
-            letters2[i] = (char)(64+i);
+            letters2[i] = (char) (64 + i);
 
         //rows
         for (int i = 0; i < letters2.length; i++) {
@@ -610,7 +661,7 @@ public class DaLi_08 {
                 if (ArrayTool.contains(table[i], letters[j]))
                     marks[j] = true;
             }
-            if(!ArrayTool.isAllTrue(marks))
+            if (!ArrayTool.isAllTrue(marks))
                 return false;
         }
 
@@ -618,25 +669,25 @@ public class DaLi_08 {
         for (int i = 0; i < letters2.length; i++) {
             boolean[] marks = new boolean[table.length];
             for (int j = 0; j < marks.length; j++) {
-                if (ArrayTool.contains(MatrixManip.arrayOfColumn(table,i), letters[j]))
+                if (ArrayTool.contains(MatrixManip.arrayOfColumn(table, i), letters[j]))
                     marks[j] = true;
             }
-            if(!ArrayTool.isAllTrue(marks))
+            if (!ArrayTool.isAllTrue(marks))
                 return false;
         }
 
         return true;
     }
-    public static void ex37(){
-        String[][] sc = new String[][] {{"Alabama", "Montgomery"}, {"Alaska", "Juneau"}, {"Arizona","Phoenix"}};
+
+    public static void ex37() {
+        String[][] sc = new String[][]{{"Alabama", "Montgomery"}, {"Alaska", "Juneau"}, {"Arizona", "Phoenix"}};
         int count = 0;
         for (int i = 0; i < sc.length; i++) {
             String answer = scanNext("What is the capital of %s?", sc[i][0]);
-            if(answer.equalsIgnoreCase(sc[i][1])) {
+            if (answer.equalsIgnoreCase(sc[i][1])) {
                 println("Your answer is correct");
                 count++;
-            }
-            else println("Correct answer is %s", sc[i][1]);
+            } else println("Correct answer is %s", sc[i][1]);
         }
         println("Correct count is %d", count);
     }
