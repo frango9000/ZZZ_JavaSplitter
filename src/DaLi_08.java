@@ -17,7 +17,7 @@ import static lib.Misc.Randomizer.*;
 
 public class DaLi_08 {
     public static void main(String[] args) {
-        ex37();
+        ex36();
     }
     public static void ex00(){
     }
@@ -592,7 +592,7 @@ public class DaLi_08 {
                 letters[row][col] = scanChar();
             }
         }
-
+        println(ex36isLatinSquare(letters));
 
     }
     public static boolean ex36isLatinSquare(char[][] table){
@@ -602,14 +602,30 @@ public class DaLi_08 {
         char[] letters2 = new char[table.length];
         for (int i = 0; i < letters2.length; i++)
             letters2[i] = (char)(64+i);
+
+        //rows
         for (int i = 0; i < letters2.length; i++) {
-            for (int j = 0; j < letters2.length; j++) {
-
-
+            boolean[] marks = new boolean[table.length];
+            for (int j = 0; j < marks.length; j++) {
+                if (ArrayTool.contains(table[i], letters[j]))
+                    marks[j] = true;
             }
-
+            if(!ArrayTool.isAllTrue(marks))
+                return false;
         }
-        return true;//To Do
+
+        //cols
+        for (int i = 0; i < letters2.length; i++) {
+            boolean[] marks = new boolean[table.length];
+            for (int j = 0; j < marks.length; j++) {
+                if (ArrayTool.contains(MatrixManip.arrayOfColumn(table,i), letters[j]))
+                    marks[j] = true;
+            }
+            if(!ArrayTool.isAllTrue(marks))
+                return false;
+        }
+
+        return true;
     }
     public static void ex37(){
         String[][] sc = new String[][] {{"Alabama", "Montgomery"}, {"Alaska", "Juneau"}, {"Arizona","Phoenix"}};

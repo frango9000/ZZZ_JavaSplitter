@@ -237,4 +237,20 @@ public class MatrixManip {
         }
         return isAllTrue;
     }
+
+    public static int[] arrayOfColumn(int[][] table, int column){
+        int[] newArray = new int[table.length];
+        for (int row = 0; row < table.length; row++) {
+            newArray[row] = table[row][column];
+        }
+        return newArray;
+    }
+    public static char[] arrayOfColumn(char[][] table, int column){
+        char[] newArray = new char[table.length];
+        for (int row = 0; row < table.length; row++) {
+            newArray[row] = table[row][column];
+        }
+        return newArray;
+    }
+
 }
