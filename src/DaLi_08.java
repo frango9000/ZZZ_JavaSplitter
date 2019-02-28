@@ -15,7 +15,7 @@ import java.util.Arrays;
 import static lib.Misc.IO.*;
 import static lib.Misc.Randomizer.*;
 
-public class DaLi_08 {
+public abstract class DaLi_08 {
     public static void main(String[] args) {
         ex36();
     }
