@@ -21,13 +21,13 @@ public abstract class DaLi_02 {
 
     }
 
-    public static void ex01() {
+    public static void ex01() {//Convert mile to kilometer
         print("Enter miles: ");
         float miles = IO.scanFloat();
         println(miles + " miles is " + Scales.mileToKilometer(miles) + " kilometers;");
     }
 
-    public static void ex02() {
+    public static void ex02() {//Compute the volume of a triangle
         print("Enter length of the sideLength and height of the Equilateral\n" +
                 "triangle: ");
         float sides = IO.scanFloat();
@@ -36,19 +36,19 @@ public abstract class DaLi_02 {
         println("Volume of prism : " + triangle.volume());
     }
 
-    public static void ex03() {
+    public static void ex03() {//Convert meters into feet
         print("Enter a value for meter:");
         float meter = IO.scanFloat();
         println(meter + " meters is " + Scales.meterToFeet(meter) + " feet");
     }
 
-    public static void ex04() {
+    public static void ex04() {//Convert square meter into ping
         print("Enter a number in square meter: ");
         float squareMeters = IO.scanFloat();
         println(squareMeters + " square meters is " + squareMeters * 0.3025f + " pings");
     }
 
-    public static void ex05() {
+    public static void ex05() {//Financial application: calculate tips
         print("Enter subtotal: ");
         float subtotal = scanFloat();
         print("Enter grat. rate: ");
@@ -57,7 +57,7 @@ public abstract class DaLi_02 {
         println("The gratuity is $" + grat + " and total is $" + (subtotal + grat));
     }
 
-    public static void ex06() {
+    public static void ex06() {//Multiply the digits in an integer
         print("Enter a number between 0 and 1000: ");
         int number = scanInt();
         int er, mb, nu;
@@ -73,7 +73,7 @@ public abstract class DaLi_02 {
         println((nu * mb * er));
     }
 
-    public static void ex07() {
+    public static void ex07() {//Find the number of years
         print("Enter value of minutes: ");
         int totalMinutes = scanInt();
         double yearsfloat = Time.minutesToYears(totalMinutes);
@@ -82,14 +82,14 @@ public abstract class DaLi_02 {
         println(totalMinutes + " minutes is approximately " + years + " years and " + remainingDays + " days");
     }
 
-    public static void ex08() {
+    public static void ex08() {//Current time
         print("Enter the time zone offset to GMT: ");
         byte offset = scanByte();
         println(Time.timeToStringM(offset));
         println(Time.timeToString());
     }
 
-    public static void ex09() {
+    public static void ex09() {//Physics: acceleration
         print("Enter V0: ");
         float v0 = scanFloat();
 
@@ -102,7 +102,7 @@ public abstract class DaLi_02 {
         println("The average acceleration is : " + (Physics.averageAcceleration(v0, v1, time)));
     }
 
-    public static void ex10() {
+    public static void ex10() {//Science: calculating energy
         print("Enter kg of water: ");
         float m = scanFloat();
 
@@ -115,7 +115,7 @@ public abstract class DaLi_02 {
         println("The energy needed is : " + (m * (finalTemperature - initialTemperature) * 4184f) + " joules");
     }
 
-    public static void ex11() {
+    public static void ex11() {//Population projection
         print("Enter the number of years: ");
         int years = scanInt();
 
@@ -131,7 +131,7 @@ public abstract class DaLi_02 {
         println("Year " + years + " : " + (startPopulation + (int) (changePerYear * years)));
     }
 
-    public static void ex12() {
+    public static void ex12() {//Physics: finding runway length
         print("Enter Take off speed: ");
         float takeOffSpeed = scanFloat();
         print("Enter Acceleration: ");
@@ -139,7 +139,7 @@ public abstract class DaLi_02 {
         println("The minimum runway length for this airplane is " + (Physics.lengthOfSpeedChange(0, takeOffSpeed, acceleration)));
     }
 
-    public static void ex13() {
+    public static void ex13() {//Financial application: compound value
         float monthlyRate = 1.003125f;
         print("Enter monthly ammount: ");
         float monthlyAmount = scanFloat();
@@ -154,7 +154,7 @@ public abstract class DaLi_02 {
         } while (monthsToShow > 0);
     }
 
-    public static void ex14() {
+    public static void ex14() {//Health application: computing BMI
         print("Enter weight in pounds: ");
         float weight = scanFloat();
 
@@ -165,7 +165,7 @@ public abstract class DaLi_02 {
         println("BMI is : " + bmi);
     }
 
-    public static void ex15() {
+    public static void ex15() {//Geometry: distance of two points
         print("x1: ");
         float x1 = scanFloat();
 
@@ -181,7 +181,7 @@ public abstract class DaLi_02 {
         println("The distance between the two points is :" + Point.distanceBetweenPoints(x1, y1, x2, y2));
     }
 
-    public static void ex16() {
+    public static void ex16() {//Geometry: area of a hexagon
         print("Enter the length of the hexagon side length: ");
         float sideLength = scanFloat();
 
@@ -189,7 +189,7 @@ public abstract class DaLi_02 {
         println("The area of the hexagon is " + hexagon.area());
     }
 
-    public static void ex17() {
+    public static void ex17() {//Science: wind-chill temperature
         print("Enter the temperature in Fahrenheit between -58°F and 41°F: ");
         float temp = scanFloat();
         print("Enter the wind speed (>= 2) in miles per hour: ");
@@ -199,7 +199,7 @@ public abstract class DaLi_02 {
         println("The wind chill index is " + windChill);
     }
 
-    public static void ex18() {
+    public static void ex18() {//Print a table
         ex18PrintMiddlePoint(0, 0, 2, 1);
         ex18PrintMiddlePoint(1, 4, 4, 2);
         ex18PrintMiddlePoint(2, 7, 6, 3);
@@ -213,7 +213,7 @@ public abstract class DaLi_02 {
         println("( " + ax + ", " + ay + " )      ( " + bx + ", " + by + " )      ( " + mx + ", " + my + " )");
     }
 
-    public static void ex19() {
+    public static void ex19() {//Geometry: area of a triangle
         print("Enter point 1 x: ");
         float ax = scanFloat();
         print("Enter point 1 y: ");
@@ -232,7 +232,7 @@ public abstract class DaLi_02 {
 
     }
 
-    public static void ex20() {
+    public static void ex20() {//Financial application: calculate interest
         print("Enter balance: ");
         float balance = scanFloat();
         print("Enter interest rate: ");
@@ -241,7 +241,7 @@ public abstract class DaLi_02 {
 
     }
 
-    public static void ex21() {
+    public static void ex21() {//Financial application: calculate future investment value
         print("Enter investment amount: ");
         float investment = scanFloat();
         print("Enter annual interest rate in percentage: ");
@@ -253,7 +253,7 @@ public abstract class DaLi_02 {
 
     }
 
-    public static void ex22() {
+    public static void ex22() {//Financial application: monetary units
         print("Enter amount: ");
         float amount = scanFloat();
 
@@ -281,7 +281,7 @@ public abstract class DaLi_02 {
 
     }
 
-    public static void ex23() {
+    public static void ex23() {//Cost of driving
         print("Enter the driving distance: ");
         float distance = scanFloat();
         print("Enter miles per gallon: ");
