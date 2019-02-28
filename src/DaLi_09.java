@@ -86,6 +86,6 @@ public abstract class DaLi_09 {
         print(l1.intersect(l2));
     }
 
-    public static void ex13() {
+    public static void ex13() {//The Location class
     }
 }
