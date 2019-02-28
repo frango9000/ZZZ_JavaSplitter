@@ -4,20 +4,32 @@ import java.util.Random;
 
 public class Rectangle extends Polygon {
     public static final int NUM_OF_SIDES = 4;
-    private float width;
-    private float height;
+    private double width;
+    private double height;
     private Point center;
 
     public Rectangle() {
     }
 
-    public Rectangle(float width, float height) {
+    public double getWidth() {
+        return width;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public Point getCenter() {
+        return center;
+    }
+
+    public Rectangle(double width, double height) {
         this.width = width;
         this.height = height;
         center = new Point(0, 0);
     }
 
-    public Rectangle(float width, float height, Point center) {
+    public Rectangle(double width, double height, Point center) {
         this.width = width;
         this.height = height;
         this.center = center;
