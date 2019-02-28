@@ -49,10 +49,15 @@ public abstract class DaLi_09 {
         println(gc1.get(GregorianCalendar.YEAR) + " " + gc1.get(GregorianCalendar.MONTH) + " " + gc1.get(GregorianCalendar.DAY_OF_MONTH));
     }
 
-    public static void ex06() {
+    public static void ex06() {//Stopwatch
+        int[][] table = Randomizer.randomIntsTable(400, 400, 100);
+        StopWatch sw = new StopWatch();
+        MatrixManip.sort(table);
+        sw.stop();
+        sw.consoleOutElapsedTime();
     }
 
-    public static void ex07() {
+    public static void ex07() {//The Account class
     }
 
     public static void ex08() {
