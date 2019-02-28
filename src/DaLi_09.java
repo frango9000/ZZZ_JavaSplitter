@@ -77,7 +77,11 @@ public abstract class DaLi_09 {
     public static void ex11() {//Algebra: 2 * 2 linear equations
     }
 
-    public static void ex12() {
+    public static void ex12() {//(Geometry: intersecting point
+        Line l1 = new Line(new Point(1,2), new Point(3,4));
+        Line l2 = new Line(new Point(2,1), new Point(4,3));
+
+        print(l1.intersect(l2));
     }
 
     public static void ex13() {
