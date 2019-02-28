@@ -25,6 +25,11 @@ public abstract class DaLi_09 {
     }
 
     public static void ex03() {
+        int exp = 18;
+        for (int i = 1; i <= exp; i++) {
+            Date date = new Date((long)Math.pow(10, i));
+            println(date.toString());
+        }
     }
 
     public static void ex04() {
