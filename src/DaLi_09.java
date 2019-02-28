@@ -1,5 +1,8 @@
 import lib.Data.ArrayTool;
 import lib.Data.MatrixManip;
+import lib.Geometry.Line;
+import lib.Geometry.Point;
+import lib.Geometry.Polygon;
 import lib.Geometry.Rectangle;
 import lib.Misc.Randomizer;
 import lib.Misc.StopWatch;
@@ -11,7 +14,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_09 {
 
     public static void main(String[] args) {
-        ex06();
+        ex13();
 
     }
 
@@ -60,16 +63,18 @@ public abstract class DaLi_09 {
     public static void ex07() {//The Account class
     }
 
-    public static void ex08() {
+    public static void ex08() {//Geometry: n-sided regular polygon
+        Polygon poli1 = new Polygon(5, 6);
+        print(poli1.area() + "" + poli1.perimeter());
     }
 
-    public static void ex09() {
+    public static void ex09() {//Algebra: quadratic equations
     }
 
-    public static void ex10() {
+    public static void ex10() {//Algebra: quadratic equations
     }
 
-    public static void ex11() {
+    public static void ex11() {//Algebra: 2 * 2 linear equations
     }
 
     public static void ex12() {
