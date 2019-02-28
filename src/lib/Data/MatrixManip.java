@@ -1,6 +1,6 @@
 package lib.Data;
 
-public class MatrixManip {
+public abstract class MatrixManip {
     public static void printTable(int[][] table) {
         printTable(table, 4);
     }

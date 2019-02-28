@@ -1,5 +1,3 @@
-import static lib.Misc.IO.*;
-
 public abstract class DaLi_00 {
 
     public static void main(String[] args) {

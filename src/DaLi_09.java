@@ -10,7 +10,9 @@ import lib.Misc.StopWatch;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
-import static lib.Misc.IO.*;
+import static lib.Misc.IO.print;
+import static lib.Misc.IO.println;
+
 public abstract class DaLi_09 {
 
     public static void main(String[] args) {
@@ -22,8 +24,8 @@ public abstract class DaLi_09 {
     }
 
     public static void ex01() {//The Rectangle class
-        Rectangle rect1 = new Rectangle(4,40);
-        Rectangle rect2 = new Rectangle(3.5,35.9);
+        Rectangle rect1 = new Rectangle(4, 40);
+        Rectangle rect2 = new Rectangle(3.5, 35.9);
 
         println("%.3f %.3f %.3f %.3f", rect1.getWidth(), rect1.getHeight(), rect1.area(), rect1.perimeter());
         println("%.3f %.3f %.3f %.3f", rect2.getWidth(), rect2.getHeight(), rect2.area(), rect2.perimeter());
@@ -35,7 +37,7 @@ public abstract class DaLi_09 {
     public static void ex03() {//Use the Date class
         int exp = 18;
         for (int i = 1; i <= exp; i++) {
-            Date date = new Date((long)Math.pow(10, i));
+            Date date = new Date((long) Math.pow(10, i));
 
         }
     }
@@ -78,8 +80,8 @@ public abstract class DaLi_09 {
     }
 
     public static void ex12() {//(Geometry: intersecting point
-        Line l1 = new Line(new Point(1,2), new Point(3,4));
-        Line l2 = new Line(new Point(2,1), new Point(4,3));
+        Line l1 = new Line(new Point(1, 2), new Point(3, 4));
+        Line l2 = new Line(new Point(2, 1), new Point(4, 3));
 
         print(l1.intersect(l2));
     }

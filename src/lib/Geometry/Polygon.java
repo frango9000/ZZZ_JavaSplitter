@@ -11,7 +11,7 @@ public class Polygon {
     public Polygon(int numOfSides, double sideLength) {
         this.numOfSides = numOfSides;
         this.sideLength = sideLength;
-        center = new Point(0,0);
+        center = new Point(0, 0);
     }
 
     public Polygon(int numOfSides, double sideLength, Point center) {
