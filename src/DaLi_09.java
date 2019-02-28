@@ -1,4 +1,6 @@
+import lib.Data.ArrayTool;
 import lib.Geometry.Rectangle;
+import lib.Misc.Randomizer;
 
 import java.util.Date;
 
@@ -6,7 +8,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_09 {
 
     public static void main(String[] args) {
-        ex03();
+        ex04();
 
     }
 
@@ -33,6 +35,7 @@ public abstract class DaLi_09 {
     }
 
     public static void ex04() {
+        ArrayTool.printArray(Randomizer.randomIntsArray(50, 0, 100));
     }
 
     public static void ex05() {
