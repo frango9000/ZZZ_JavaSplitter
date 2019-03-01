@@ -28,31 +28,31 @@ public abstract class DaLi_06 {
 
     }
 
-    public static void ex01() {
+    public static void ex01() {//Math: pentagonal numbers
         for (int i = 0; i < 100; i++) {
             IO.print("%7d", Algebra.pentagonalNumber(i));
             if (i % 10 == 9) println("");
         }
     }
 
-    public static void ex02() {
+    public static void ex02() {//Sum the digits in an integer
         println(Algebra.sumOfDigits(225416222));
     }
 
-    public static void ex03() {
+    public static void ex03() {//Palindrome integer
         println(Extras.isPalindrome(12321));
         println(Extras.isPalindrome(1421));
     }
 
-    public static void ex04() {
+    public static void ex04() {//Display an integer reversed
         println(Extras.reverse(1234));
     }
 
-    public static void ex05() {
+    public static void ex05() {//Sort three numbers
         println((int) Extras.max(5, 6, 7));
     }
 
-    public static void ex06(int lines) {
+    public static void ex06(int lines) {//Display patterns
         for (int i = 1; i <= lines; i++) {
             for (int j = 1; j <= i; j++) {
                 IO.print("%3d", j);
@@ -61,18 +61,18 @@ public abstract class DaLi_06 {
         }
     }
 
-    public static void ex07() {
+    public static void ex07() {//Financial application: compute the future investment value
         DaLi_02.ex21();
     }
 
-    public static void ex08() {
+    public static void ex08() {//Conversions between mile and kilometer
         IO.print("%s %s %s %s %s\n", "Miles", "Kilometers", "|", "Kilometers", "Miles");
         for (int i = 1, k = 20; i <= 10; i++, k += 5) {
             IO.print("%-8d %-7.3f %s %-10d %.3f\n", i, Scales.mileToKilometer(i), "|", k, Scales.kilometerToMile(k));
         }
     }
 
-    public static void ex09() {
+    public static void ex09() {//Conversions between pounds and kilograms
         IO.print("%s %s %3s %s %5s\n", "Kilogram", "Pound", "|", "Pound", "Kilogram");
         for (int k = 1, p = 20; k <= 10; k += 2, p += 5) {
             IO.print("%-8d %-7.3f %s %-5d %.3f\n", k, Scales.kilogramToPound(k), "|", p, Scales.poundToKilogram(p));
@@ -80,11 +80,11 @@ public abstract class DaLi_06 {
 
     }
 
-    public static void ex10(int number) {
+    public static void ex10(int number) {//Use the isPrime Method
         print(Arrays.toString(Primes.listOfPrimesUntil(number)));
     }
 
-    public static void ex11() {
+    public static void ex11() {//Financial application: compute commissions
         // Display table
         System.out.println("\n SalesAmount     Commission");
         System.out.println("-----------------------------");
@@ -115,14 +115,14 @@ public abstract class DaLi_06 {
         return commission;
     }
 
-    public static void ex12(int num1, int num2, int numbersPerLine) {
+    public static void ex12(int num1, int num2, int numbersPerLine) {//Display numbers
         for (int i = num1, j = 0; i <= num2; i++) {
             IO.print("%3d", i);
             if (j++ % numbersPerLine == numbersPerLine - 1) println("");
         }
     }
 
-    public static void ex13(int i) {
+    public static void ex13(int i) {//Sum series
         float sum = 0;
         for (int j = 1; j <= i; j++) {
             sum += j / (j + 2f);
@@ -130,7 +130,7 @@ public abstract class DaLi_06 {
         }
     }
 
-    public static void ex14() {
+    public static void ex14() {//Estimate p
         for (int i = 1; i < 1000; i += 100) {
             IO.print("%-6d %.5f%n", i, ex14pi(i));
         }
@@ -143,7 +143,7 @@ public abstract class DaLi_06 {
         return PI * 4;
     }
 
-    private static void ex15() {
+    private static void ex15() {//Financial application: print a tax table
         // Print tax table
         double from = 50000;        // Start table taxable income range at $50,000
         double to = 60000;        // End table taxable income range at $60,000
@@ -244,7 +244,7 @@ public abstract class DaLi_06 {
         return tax += taxableIncome * 0.10;
     }
 
-    public static void ex16() {
+    public static void ex16() {//Number of days in a year
         int sum = 0;
         for (int year = 2014; year <= 2034; year++) {
             sum += Time.daysInYear(year);
@@ -252,7 +252,7 @@ public abstract class DaLi_06 {
         print(sum);
     }
 
-    public static void ex17(int n) {
+    public static void ex17(int n) {//Display matrix of 0s and 1s
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 IO.print("%3d", randomInt(2));
@@ -261,22 +261,22 @@ public abstract class DaLi_06 {
         }
     }
 
-    public static void ex18() {
+    public static void ex18() {//Check password
         String password = scanNext("Enter Password\n   at least 10 chars\n   only letters and digits\n   at least 3 digits \n");
         if (StringManip.countDigits(password) >= 3 && StringManip.countLetters(password) >= 10 && (StringManip.countDigits(password) + StringManip.countLetters(password) == password.length())) {
             print("Valid");
         } else print("Invalid");
     }
 
-    public static void ex19() {
+    public static void ex19() {//Triangles
         print(Triangle.isValidTriangle(5, 6, 2));
     }
 
-    public static void ex20() {
+    public static void ex20() {//Count the letters in a string
         print(StringManip.countLetters("Hello 01"));
     }
 
-    public static void ex21() {
+    public static void ex21() {//Phone keypads
         String string = scanNext("Enter a string ");
         StringBuilder number = new StringBuilder();
 
@@ -288,11 +288,11 @@ public abstract class DaLi_06 {
         print(number);
     }
 
-    public static void ex22() {
+    public static void ex22() {//Math: approximate the square root
         print(Extras.babylonianSquareRoot(9));
     }
 
-    public static void ex23() {
+    public static void ex23() {//Occurrences of a specified character
         print(ex23("Hello", 'l'));
     }
 
@@ -304,18 +304,18 @@ public abstract class DaLi_06 {
         return count;
     }
 
-    public static void ex24() {
+    public static void ex24() {//Display current date and time
         GregorianCalendar gc = new GregorianCalendar();
         println(gc.get(1));
         println(gc.get(2));
         println(gc.get(5));
     }
 
-    public static void ex25() {
+    public static void ex25() {//Convert milliseconds to hours, minutes, and seconds
         println(Time.converMillis(555550000));
     }
 
-    public static void ex26() {
+    public static void ex26() {//Palindromic prime
         for (long i = 1, j = 1; j <= 150; i++) {
             if (Primes.isPrime(i) && Extras.isPalindrome(i)) {
                 IO.print("%8d", i);
@@ -324,8 +324,7 @@ public abstract class DaLi_06 {
         }
     }
 
-    public static void ex27() {
-        //List Emirp
+    public static void ex27() {//Emirp
         for (int i = 1, j = 1; j <= 120; i++) {
             if (Extras.isEmirP(i)) {
                 IO.print("%8d", i);
@@ -334,7 +333,7 @@ public abstract class DaLi_06 {
         }
     }
 
-    public static void ex28() {
+    public static void ex28() {//Mersenne prime
         for (int i = 1; i <= 31; i++) {
             if (Primes.mersennePrime(i) != 0) {
                 IO.print("%8d %8d %n", i, Primes.mersennePrime(i));
@@ -342,7 +341,7 @@ public abstract class DaLi_06 {
         }
     }
 
-    public static void ex29() {
+    public static void ex29() {//Twin primes
         for (int i = 1; i < 1200; i++) {
             if (Primes.isPrime(i) && Primes.isPrime(i + 2)) {
                 IO.print("( %d , %d )%n", i, i + 2);
@@ -350,7 +349,7 @@ public abstract class DaLi_06 {
         }
     }
 
-    public static boolean ex30() {
+    public static boolean ex30() {//Game: craps
         int roll = ex30rolls();
         switch (roll) {
             case 2:
@@ -382,13 +381,13 @@ public abstract class DaLi_06 {
 
     }
 
-    public static void ex31() {
+    public static void ex31() {//Financial: credit card number validation
         long number = scanLong("Enter a credit card number as a long integer: ");
 
         println(number + " is " + (auxp.ch06.CreditCard.isValid(number) ? "valid" : "invalid"));
     }
 
-    public static void ex32() {
+    public static void ex32() {//Game: chance of winning at craps
         int wins = 0;
         for (int i = 0; i < 15000; i++) {
             if (ex30()) wins++;
@@ -396,30 +395,30 @@ public abstract class DaLi_06 {
         println(wins);
     }
 
-    public static void ex33() {
+    public static void ex33() {//Current date and time
         Date date = new Date(System.currentTimeMillis());
         println(date.toString());
     }
 
-    public static void ex34() {
+    public static void ex34() {//Print calendar
         println("Day of week is " + Time.dayOfWeekString(2019, 2, 4));
     }
 
-    public static void ex35() {
+    public static void ex35() {//Geometry: area of a pentagon
         Pentagon pentagon = new Pentagon(true, 5.5);
         print(pentagon.area());
     }
 
-    public static void ex36() {
+    public static void ex36() {//Geometry: area of a regular polygon
         Polygon polygon = new Polygon(5, 6.5);
         print(polygon.area());
     }
 
-    public static void ex37() {
+    public static void ex37() {//Format an integer
         println(StringManip.formatInt(6, 34));
     }
 
-    public static void ex38() {
+    public static void ex38() {//Generate random characters
         for (int i = 1; i <= 200; i++) {
             IO.print("%c", CharManip.getRandomUpperCaseLetter());
             if (i % 10 == 0) println("");
@@ -431,7 +430,7 @@ public abstract class DaLi_06 {
         }
     }
 
-    public static void ex39() {
+    public static void ex39() {//Geometry: point position
         DaLi_03.ex32();
     }
 }
