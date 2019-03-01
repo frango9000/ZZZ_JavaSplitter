@@ -1,12 +1,14 @@
 import auxp.ch10.MyInteger;
+import auxp.ch10.StackOfIntegers;
 import lib.Geometry.Point;
+import lib.Math.Primes;
 import lib.Misc.Time;
 
 import static lib.Misc.IO.*;
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex04();
+        ex05();
 
     }
 
@@ -33,6 +35,12 @@ public abstract class DaLi_10 {
     }
 
     public static void ex05() {
+        int number = scanInt("Enter a number");
+
+        StackOfIntegers stack = new StackOfIntegers(Primes.getPrimeFactors(number));
+        while (!stack.empty()) {
+             println(stack.pop());
+        }
     }
 
     public static void ex06() {
