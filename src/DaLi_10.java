@@ -1,8 +1,10 @@
+import lib.Misc.Time;
+
 import static lib.Misc.IO.*;
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex00();
+        ex01();
 
     }
 
@@ -10,6 +12,8 @@ public abstract class DaLi_10 {
     }
 
     public static void ex01() {
+        Time now = new Time();
+        print(now.timeToString());
     }
 
     public static void ex02() {

@@ -18,6 +18,29 @@ public class Time {
 
     long totalDays = totalHours / 24;
 
+    public long getCurrentSecond() {
+        return currentSecond;
+    }
+
+    public void setCurrentSecond(long currentSecond) {
+        this.currentSecond = currentSecond;
+    }
+
+    public long getCurrentMinute() {
+        return currentMinute;
+    }
+
+    public void setCurrentMinute(long currentMinute) {
+        this.currentMinute = currentMinute;
+    }
+
+    public long getCurrentHour() {
+        return currentHour;
+    }
+
+    public void setCurrentHour(long currentHour) {
+        this.currentHour = currentHour;
+    }
 
     public Time() {
     }
