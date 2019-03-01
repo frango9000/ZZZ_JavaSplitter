@@ -3,6 +3,7 @@ import auxp.ch10.QueueOfIntegers;
 import auxp.ch10.StackOfIntegers;
 import lib.Geometry.Circle;
 import lib.Geometry.Point;
+import lib.Geometry.Triangle;
 import lib.Math.Primes;
 import lib.Misc.Time;
 
@@ -10,7 +11,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex11();
+        ex12();
 
     }
 
@@ -77,7 +78,9 @@ public abstract class DaLi_10 {
         print(c.radius + " " + c.perimeter() + " " + c.isInCircle(c));
     }
 
-    public static void ex12() {
+    public static void ex12() {//Geometry: the Triangle2D class
+        Triangle c = new Triangle(new Point(2,3), new Point(5,6), new Point(-15,8));
+        print(c.area() + " " + c.perimeter() + " " + c.isInTriangle(new Point(3,4)));
     }
 
     public static void ex13() {
