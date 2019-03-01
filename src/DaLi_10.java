@@ -1,25 +1,29 @@
+import auxp.ch10.MyInteger;
+import lib.Geometry.Point;
 import lib.Misc.Time;
 
 import static lib.Misc.IO.*;
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex01();
+        ex04();
 
     }
 
     public static void ex00() {
     }
 
-    public static void ex01() {
+    public static void ex01() {//The Time class
         Time now = new Time();
         print(now.timeToString());
     }
 
-    public static void ex02() {
+    public static void ex02() {//The BMI class
     }
 
-    public static void ex03() {
+    public static void ex03() {//The MyInteger class
+        MyInteger i = new MyInteger(5);
+        print(i.isPrime());
     }
 
     public static void ex04() {
