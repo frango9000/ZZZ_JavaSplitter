@@ -8,7 +8,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex05();
+        ex06();
 
     }
 
@@ -34,7 +34,7 @@ public abstract class DaLi_10 {
         print(p1.distanceBetweenPoints(p2));
     }
 
-    public static void ex05() {
+    public static void ex05() {//Display the prime factors
         int number = scanInt("Enter a number");
 
         StackOfIntegers stack = new StackOfIntegers(Primes.getPrimeFactors(number));
@@ -43,7 +43,13 @@ public abstract class DaLi_10 {
         }
     }
 
-    public static void ex06() {
+    public static void ex06() {//Game: ATM machine
+        int number = scanInt("Enter a number");
+
+        StackOfIntegers stack = new StackOfIntegers(Primes.listOfPrimesUntil(number));
+        while (!stack.empty()) {
+            println(stack.pop());
+        }
     }
 
     public static void ex07() {
