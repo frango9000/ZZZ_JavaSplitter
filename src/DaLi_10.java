@@ -72,7 +72,9 @@ public abstract class DaLi_10 {
         }
     }
 
-    public static void ex11() {
+    public static void ex11() {//Geometry: the Circle2D class
+        Circle c = new Circle(50);
+        print(c.radius + " " + c.perimeter() + " " + c.isInCircle(c));
     }
 
     public static void ex12() {
