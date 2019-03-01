@@ -43,7 +43,7 @@ public abstract class DaLi_10 {
         }
     }
 
-    public static void ex06() {//Game: ATM machine
+    public static void ex06() {//Display the prime numbers
         int number = scanInt("Enter a number");
 
         StackOfIntegers stack = new StackOfIntegers(Primes.listOfPrimesUntil(number));
