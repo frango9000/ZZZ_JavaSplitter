@@ -1,6 +1,41 @@
 package lib.Misc;
 
 public class Calendar {
+    long millis;
+
+    long day;
+    long month;
+    long year;
+
+    public Calendar() {
+        millis = System.currentTimeMillis();
+        computeDate();
+    }
+
+    public Calendar(long millis) {
+        this.millis = millis;
+        computeDate();
+    }
+
+    public Calendar(long day, long month) {
+        this.day = day;
+        this.month = month;
+    }
+
+    public Calendar(long day, long month, long year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+
+    public void computeDate() {
+        long days = millis / 86400000;
+        int yearsPassedApprox = (int) days / 365;
+        int daysPassedThisYear = (int) (days - (yearsPassedApprox * 365 + leapYearsCount(yearsPassedApprox)));
+        year = yearsPassedApprox + 1970;
+        setMonthAndDay(daysPassedThisYear);
+    }
+
     public static float secondsToHours(float seconds) {
         return (seconds / 60) / 60;
     }
@@ -89,7 +124,7 @@ public class Calendar {
         return dayName;
     }
 
-    public static int daysInMonth(int month, int year) {
+    public static int daysInMonth(int month, long year) {
         switch (month) {
             case 1:         //January
             case 3:         //March
@@ -115,8 +150,39 @@ public class Calendar {
         else return 365;
     }
 
-    public static boolean isLeapYear(int year) {
+    public static boolean isLeapYear(long year) {
         return year % 400 == 0 || (year % 4 == 0 && year % 100 != 0);
+    }
+
+    public static int leapYearsCount(long yearsPassed) {
+        int count = 0;
+        for (int i = 1970; i < 1970 + yearsPassed; i++) {
+            if (isLeapYear(i)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static int[] getMonthAndDay(long year, int daysPassedThisYear) {
+        int month;
+        int daysLeft = daysPassedThisYear;
+        for (month = 1; month <= 12; month++) {
+            int days = daysInMonth(month, year);
+            if (days <= daysLeft) {
+                daysLeft -= days;
+            } else {
+                break;
+            }
+        }
+
+        return new int[]{month , daysLeft + 1};
+    }
+
+    public void setMonthAndDay(int daysPassedThisYear) {
+        int[] monthAndDay = getMonthAndDay(year, daysPassedThisYear);
+        month = monthAndDay[0];
+        day = monthAndDay[1];
     }
 
     public static int dayOfWeek(int year, int month, int day) {
@@ -158,4 +224,14 @@ public class Calendar {
         }
         return calendar.toString() + "\n\n";
     }
+
+    @Override
+    public String toString() {
+        return "Calendar{" +
+                "day=" + day +
+                ", month=" + month +
+                ", year=" + year +
+                '}';
+    }
+
 }
