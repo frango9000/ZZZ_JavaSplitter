@@ -2,8 +2,8 @@ import lib.Math.Algebra;
 import lib.Math.Primes;
 import lib.Math.Scales;
 import lib.Math.Statistics;
+import lib.Misc.Calendar;
 import lib.Misc.IO;
-import lib.Misc.Time;
 
 import java.util.Arrays;
 
@@ -322,7 +322,7 @@ public abstract class DaLi_05 {
     public static void ex26() {//Compute e)
         int count = 0;
         for (int i = 2014, l = 1; i <= 2114; i++) {
-            if (Time.isLeapYear(i)) {
+            if (Calendar.isLeapYear(i)) {
                 IO.print("%5d", i);
                 if (++l > 10) {
                     println("");
@@ -337,13 +337,13 @@ public abstract class DaLi_05 {
     public static void ex27() {//Display leap years
         int year = scanInt("Enter year: ");
         for (int i = 1; i < 13; i++) {
-            IO.print("%9s 1, %d is %s\n", Time.monthName(i), year, Time.dayOfWeekString(year, i, 1));
+            IO.print("%9s 1, %d is %s\n", Calendar.monthName(i), year, Calendar.dayOfWeekString(year, i, 1));
         }
     }
 
     public static void ex28() {//Display the first days of each month
         for (int i = 1; i <= 12; i++) {
-            print(Time.consoleCalendar(2019, i));
+            print(Calendar.consoleCalendar(2019, i));
         }
     }
 

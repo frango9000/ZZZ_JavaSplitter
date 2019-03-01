@@ -5,6 +5,7 @@ import lib.Geometry.Tridimensional.Prism;
 import lib.Math.Finance;
 import lib.Math.Physics;
 import lib.Math.Scales;
+import lib.Misc.Calendar;
 import lib.Misc.IO;
 import lib.Misc.Time;
 
@@ -76,17 +77,18 @@ public abstract class DaLi_02 {
     public static void ex07() {//Find the number of years
         print("Enter value of minutes: ");
         int totalMinutes = scanInt();
-        double yearsfloat = Time.minutesToYears(totalMinutes);
-        int years = (int) Time.minutesToYears(totalMinutes);
-        int remainingDays = (int) Time.yearsToDays(yearsfloat - years);
+        double yearsfloat = Calendar.minutesToYears(totalMinutes);
+        int years = (int) Calendar.minutesToYears(totalMinutes);
+        int remainingDays = (int) Calendar.yearsToDays(yearsfloat - years);
         println(totalMinutes + " minutes is approximately " + years + " years and " + remainingDays + " days");
     }
 
     public static void ex08() {//Current time
         print("Enter the time zone offset to GMT: ");
         byte offset = scanByte();
-        println(Time.timeToStringM(offset));
-        println(Time.timeToString());
+        Time now = new Time();
+        println(now.timeToStringM(offset));
+        println(now.timeToString());
     }
 
     public static void ex09() {//Physics: acceleration

@@ -2,7 +2,7 @@ import lib.Geometry.Circle;
 import lib.Geometry.Rectangle;
 import lib.Math.Algebra;
 import lib.Math.Scales;
-import lib.Misc.Time;
+import lib.Misc.Calendar;
 
 import static lib.Misc.IO.println;
 
@@ -92,7 +92,7 @@ public abstract class DaLi_01 {
     }
 
     public static void ex12() {//Average speed in kilometers
-        println("Average Speed: " + (Scales.mileToKilometer(24f) / (1f + Time.minutesToHours(40) + Time.secondsToHours(35))) + " km per hour.");
+        println("Average Speed: " + (Scales.mileToKilometer(24f) / (1f + Calendar.minutesToHours(40) + Calendar.secondsToHours(35))) + " km per hour.");
     }
 
     public static void ex13() {//Algebra: solve 2 * 2 linear equations

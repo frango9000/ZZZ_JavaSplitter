@@ -1,6 +1,7 @@
 import lib.Geometry.*;
 import lib.Math.Algebra;
 import lib.Math.Scales;
+import lib.Misc.Calendar;
 import lib.Misc.Time;
 
 import java.util.Random;
@@ -80,7 +81,7 @@ public abstract class DaLi_03 {
         Random rand = new Random();
         int monthNumber = rand.nextInt(11) + 1;
 
-        println(Time.monthName(monthNumber));
+        println(Calendar.monthName(monthNumber));
     }
 
     public static void ex05() {//Find future dates
@@ -90,7 +91,7 @@ public abstract class DaLi_03 {
         print("Enter the number of days elapsed since today: ");
         int elapsedDays = scanInt();
 
-        println("Today is " + Time.dayName(today) + " and the future day is " + Time.dayName(today + elapsedDays));
+        println("Today is " + Calendar.dayName(today) + " and the future day is " + Calendar.dayName(today + elapsedDays));
     }
 
     public static void ex06() {//Health application: BMI)
@@ -234,7 +235,7 @@ public abstract class DaLi_03 {
         int monthIndex = scanInt();        //minus one to convert to monthIndex
         print("Enter year number (ex. 1999) ");
         int year = scanInt();
-        println("Month : " + (monthIndex) + " of year " + year + " has " + Time.daysInMonth(monthIndex, year) + " days.");
+        println("Month : " + (monthIndex) + " of year " + year + " has " + Calendar.daysInMonth(monthIndex, year) + " days.");
     }
 
     public static void ex12() {//(Palindrome integer)
@@ -433,7 +434,7 @@ public abstract class DaLi_03 {
         print("Enter year: ");
         int year = scanInt();
 
-        println("Day of week is " + Time.dayOfWeekString(year, month, day));
+        println("Day of week is " + Calendar.dayOfWeekString(year, month, day));
     }
 
     public static void ex22() {//Geometry: point in a circle?)
@@ -572,8 +573,9 @@ public abstract class DaLi_03 {
     public static void ex30() {//Current time)
         print("Enter the time zone offset to GMT: ");
         byte offset = scanByte();
-        println(Time.timeToString(offset));
-        println(Time.timeToString());
+        Time now = new Time();
+        println(now.timeToString(offset));
+        println(now.timeToString());
     }
 
     public static void ex31() {//Financials: currency exchange

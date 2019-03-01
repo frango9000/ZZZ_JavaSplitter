@@ -7,6 +7,7 @@ import lib.Math.Algebra;
 import lib.Math.Extras;
 import lib.Math.Primes;
 import lib.Math.Scales;
+import lib.Misc.Calendar;
 import lib.Misc.IO;
 import lib.Misc.Time;
 
@@ -247,7 +248,7 @@ public abstract class DaLi_06 {
     public static void ex16() {//Number of days in a year
         int sum = 0;
         for (int year = 2014; year <= 2034; year++) {
-            sum += Time.daysInYear(year);
+            sum += Calendar.daysInYear(year);
         }
         print(sum);
     }
@@ -312,7 +313,7 @@ public abstract class DaLi_06 {
     }
 
     public static void ex25() {//Convert milliseconds to hours, minutes, and seconds
-        println(Time.converMillis(555550000));
+        println(Time.millisToTimeString(555550000));
     }
 
     public static void ex26() {//Palindromic prime
@@ -401,7 +402,7 @@ public abstract class DaLi_06 {
     }
 
     public static void ex34() {//Print calendar
-        println("Day of week is " + Time.dayOfWeekString(2019, 2, 4));
+        println("Day of week is " + Calendar.dayOfWeekString(2019, 2, 4));
     }
 
     public static void ex35() {//Geometry: area of a pentagon

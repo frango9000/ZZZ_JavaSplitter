@@ -4,8 +4,8 @@ import lib.Data.StringManip;
 import lib.Math.Algebra;
 import lib.Math.Extras;
 import lib.Math.Statistics;
+import lib.Misc.Calendar;
 import lib.Misc.IO;
-import lib.Misc.Time;
 
 import java.util.Arrays;
 
@@ -364,7 +364,7 @@ public abstract class DaLi_07 {
 
     public static void ex33() {//Month name
         int month = scanInt("Enter month number ");
-        print(Time.monthName(month));
+        print(Calendar.monthName(month));
     }
 
     public static void ex34() {//Sort characters in a string
