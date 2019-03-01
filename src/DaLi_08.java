@@ -23,7 +23,7 @@ public abstract class DaLi_08 {
     public static void ex00() {
     }
 
-    public static void ex01() {
+    public static void ex01() {//Sum elements row by row
         int[][] table = randomIntsTable(3, 4, 1, 10);
         MatrixManip.printTable(table, 6);
         for (int i = 0; i < table.length; i++) {
@@ -31,7 +31,7 @@ public abstract class DaLi_08 {
         }
     }
 
-    public static void ex02() {
+    public static void ex02() {//Average the major diagonal in a matrix
         int[][] table = randomIntsTable(4, 4, 1, 10);
         MatrixManip.printTable(table, 6);
         print(ex02averageMajorDiagonal(table));
@@ -47,7 +47,7 @@ public abstract class DaLi_08 {
         return sum / (float) diagonalLength;
     }
 
-    public static void ex03() {
+    public static void ex03() {//Sort students on grades
         char[][] answers = {
                 {'A', 'B', 'A', 'C', 'C', 'D', 'E', 'E', 'A', 'D'},
                 {'D', 'B', 'A', 'B', 'C', 'A', 'E', 'E', 'A', 'D'},
@@ -79,14 +79,14 @@ public abstract class DaLi_08 {
         }
     }
 
-    public static void ex04() {
+    public static void ex04() {//Compute the weekly hours for each employee
         int[][] table = randomIntsTable(7, 8, 1, 9);
         for (int i = 0; i < table.length; i++) {
             println(Arrays.toString(table[i]) + " " + ArrayTool.sum(table[i]));
         }
     }
 
-    public static void ex05() {
+    public static void ex05() {//Algebra: add two matrices
         double[][] matrix1 = randomDoublesTable(3, 3, 1, 4);
         MatrixManip.printTable(matrix1);
         double[][] matrix2 = randomDoublesTable(3, 3, 1, 4);
@@ -106,7 +106,7 @@ public abstract class DaLi_08 {
         } else return null;
     }
 
-    public static void ex06() {
+    public static void ex06() {//Algebra: multiply two matrices
         double[][] matrix1 = randomDoublesTable(3, 3, 1, 4);
         MatrixManip.printTable(matrix1);
         double[][] matrix2 = randomDoublesTable(3, 3, 1, 4);
@@ -125,23 +125,23 @@ public abstract class DaLi_08 {
         return dotProduct;
     }
 
-    public static void ex07() {
+    public static void ex07() {//Points nearest to each other
         double[][] ps = {{-1, 0, 3}, {-1, -1, -1}, {4, 1, 1}, {2, 0.5, 9}, {3.5, 2, -1}, {3, 1.5, 3}, {-1.5, 4, 2}, {5.5, 4, -0.5}};
         Point[] points = Point.toPointsArray(ps);
         int[] cp = Point.closestPointsIndex(points);
         println(points[cp[0]].toString3() + " " + points[cp[1]].toString3());
     }
 
-    public static void ex08() {
+    public static void ex08() {//All closest pairs of points
         Point[] points = {new Point(0, 0), new Point(1, 1), new Point(-1, -1), new Point(2, 2), new Point(-2, -2), new Point(-3, -3), new Point(-4, -4), new Point(5, 5)};
         println(Point.closestPoints(points));
     }
 
-    public static void ex09() {
+    public static void ex09() {//Game: play a tic-tac-toe game
         TicTacToe.main(new String[0]);
     }
 
-    public static void ex10() {
+    public static void ex10() {//Largest row and column
         int[][] table = randomIntsTable(5, 5, 0, 1);
         MatrixManip.printTable(table, 2);
         int largeRow = -1, largeCol = -1, tempRow = 0, tempCol = 0;
@@ -169,7 +169,7 @@ public abstract class DaLi_08 {
         print("Max row %d%nMax col %d", rowIndx, colIndx);
     }
 
-    public static void ex11() {
+    public static void ex11() {//Game: nine heads and tails
         short number = scanShort("Enter a number ( 0 - 511 )");
         char[][] table = new char[3][3];
         number = (short) Algebra.min(number, 511);
@@ -185,16 +185,16 @@ public abstract class DaLi_08 {
         MatrixManip.printTable(table);
     }
 
-    public static void ex12() {
+    public static void ex12() {//Financial application: compute tax
     }
 
-    public static void ex13() {
+    public static void ex13() {//Locate the smallest element
         double[][] table = randomDoublesTable(10, 10, 0, 10);
         MatrixManip.printTable(table);
         print(MatrixManip.indexOfMax(table)[0] + " " + MatrixManip.indexOfMax(table)[1]);
     }
 
-    public static void ex14() {
+    public static void ex14() {//Explore matrix
         short size = 3;//scanShort("Enter size: ");
         int random = randomInt((int) Math.pow(2, size * size));
         String bin = StringManip.toBinaryString(random, size * size);
@@ -253,7 +253,7 @@ public abstract class DaLi_08 {
             println("All %cs on minor diag", t);
     }
 
-    public static void ex15() {
+    public static void ex15() {//Geometry: same line?
         Point[] points1 = {new Point(3.4, 2), new Point(6.5, 9.5), new Point(2.3, 2.3), new Point(5.5, 5), new Point(-5, 4)};
         Point[] points2 = {new Point(1, 1), new Point(2, 2), new Point(3, 3), new Point(4, 4), new Point(5, 5)};
 
@@ -264,7 +264,7 @@ public abstract class DaLi_08 {
         ArrayTool.printArray(lineB.crossProduct(points2));
     }
 
-    public static void ex16() {
+    public static void ex16() {//Sort two-dimensional array
         int[][] table = randomIntsTable(16, 5, 0, 1);
         MatrixManip.printTable(table);
         MatrixManip.sort(table);
@@ -272,10 +272,10 @@ public abstract class DaLi_08 {
         MatrixManip.printTable(table);
     }
 
-    public static void ex17() {
+    public static void ex17() {//Financial tsunami
     }
 
-    public static void ex18() {
+    public static void ex18() {//Shuffle rows
         int[][] table = randomIntsTable(5, 2, 0, 5);
         MatrixManip.printTable(table);
         ex18shuffle(table);
@@ -292,7 +292,7 @@ public abstract class DaLi_08 {
         }
     }
 
-    public static void ex19() {
+    public static void ex19() {//Pattern recognition: four consecutive equal numbers
         int[][] table = {{2, 2, 3, 4},
                 {1, 4, 4, 1},
                 {1, 4, 4, 2},
@@ -340,7 +340,7 @@ public abstract class DaLi_08 {
         return false;
     }
 
-    public static void ex20() {
+    public static void ex20() {//Game: connect four
         ConnectFour.main(new String[0]);
     }
 
@@ -358,7 +358,7 @@ public abstract class DaLi_08 {
         print("%s %n %.2f", cities[indx].toString(), totalDistances[indx]);
     }
 
-    public static void ex22() {
+    public static void ex22() {//Central city
         int[][] table = Randomizer.randomIntsTable(6, 6, 0, 1);
         MatrixManip.printTable(table);
         for (int i = 0; i < table.length; i++) {
@@ -380,7 +380,7 @@ public abstract class DaLi_08 {
 
     }
 
-    public static void ex23() {
+    public static void ex23() {//Even number of 1s
         int[][] table = {
                 {1, 0, 1, 0, 1, 1},
                 {1, 1, 1, 1, 0, 0},
@@ -413,11 +413,11 @@ public abstract class DaLi_08 {
         print("Flipped x : %d %nFlipped Y : %d", flipX, flipY);
     }
 
-    public static void ex24() {
+    public static void ex24() {//Check Sudoku solution
         Sudoku.main(null);
     }
 
-    public static void ex25() {
+    public static void ex25() {//Markov matrix
         double[][] markov = {
                 {0.15, 0.875, 0.375},
                 {0.55, 0.005, 0.225},
@@ -445,7 +445,7 @@ public abstract class DaLi_08 {
         return true;
     }
 
-    public static void ex26() {
+    public static void ex26() {//Row sorting
         double[][] table = {
                 {0.15, 0.875, 0.375, 0.225},
                 {0.55, 0.005, 0.225, 0.015},
@@ -457,7 +457,7 @@ public abstract class DaLi_08 {
         MatrixManip.printTable(table);
     }
 
-    public static void ex27() {
+    public static void ex27() {//Column sorting
         double[][] table = {
                 {0.15, 0.875, 0.375, 0.225},
                 {0.55, 0.005, 0.225, 0.015},
@@ -468,7 +468,7 @@ public abstract class DaLi_08 {
         MatrixManip.printTable(MatrixManip.sortColumns(table), 7, 3);
     }
 
-    public static void ex28() {
+    public static void ex28() {//Strictly identical arrays
         int[][] table = Randomizer.randomIntsTable(6, 6, 0, 9);
         int[][] table2 = MatrixManip.indieClone(table);
 
@@ -480,7 +480,7 @@ public abstract class DaLi_08 {
         MatrixManip.printTable(table2);
     }
 
-    public static void ex29() {
+    public static void ex29() {//Identical arrays
         int[][] table = Randomizer.randomIntsTable(6, 6, 0, 9);
         int[][] table2 = MatrixManip.indieClone(table);
 
@@ -494,7 +494,7 @@ public abstract class DaLi_08 {
         MatrixManip.printTable(table2);
     }
 
-    public static void ex30() {
+    public static void ex30() {//Algebra: solve linear equations
         double[] xy = ex30linearEquation(new double[][]{{1, 2}, {3, 4}}, new double[]{5, 6});
         if (xy == null) println("The equation has no solution");
         else println("x: " + xy[0] + "\ny: " + xy[1]);
@@ -504,15 +504,15 @@ public abstract class DaLi_08 {
         return Algebra.linear2x2Equation(a[0][0], a[0][1], a[1][0], a[1][1], b[0], b[1]);
     }
 
-    public static void ex31() {
+    public static void ex31() {//Geometry: intersecting point
         DaLi_03.ex25();
     }
 
-    public static void ex32() {
+    public static void ex32() {//Geometry: area of a triangle
         DaLi_03.ex27();
     }
 
-    public static void ex33() {
+    public static void ex33() {//Geometry: polygon subareas
         Point p1 = new Point(-2.5, 2);
         Point p2 = new Point(4, 4);
         Point p3 = new Point(3, -2);
@@ -536,7 +536,7 @@ public abstract class DaLi_08 {
 
     }
 
-    public static void ex34() {
+    public static void ex34() {//Geometry: rightmost lowest point
         Line vert = new Line(0, -1, 0, 1);
         Line horizont = new Line(-1, 0, 1, 0);
 
@@ -566,7 +566,7 @@ public abstract class DaLi_08 {
         return points;
     }
 
-    public static void ex35() {
+    public static void ex35() {//Largest block
         int[][] table = MatrixManip.buildTable(6, 6,
                 1, 2, 3, 4, 5, 5,
                 1, 2, 3, 4, 5, 5,
@@ -632,7 +632,7 @@ public abstract class DaLi_08 {
         return xy;
     }
 
-    public static void ex36() {
+    public static void ex36() {//Latin square
         int number = scanInt("Enter number ");
         println("enter %d rows of %d letters", number, number);
 
@@ -679,7 +679,7 @@ public abstract class DaLi_08 {
         return true;
     }
 
-    public static void ex37() {
+    public static void ex37() {//Guess the capitals
         String[][] sc = new String[][]{{"Alabama", "Montgomery"}, {"Alaska", "Juneau"}, {"Arizona", "Phoenix"}};
         int count = 0;
         for (int i = 0; i < sc.length; i++) {
