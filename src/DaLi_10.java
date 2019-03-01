@@ -26,7 +26,10 @@ public abstract class DaLi_10 {
         print(i.isPrime());
     }
 
-    public static void ex04() {
+    public static void ex04() {//The MyPoint class
+        Point p1 = new Point(2,3);
+        Point p2 = new Point(6,8);
+        print(p1.distanceBetweenPoints(p2));
     }
 
     public static void ex05() {
