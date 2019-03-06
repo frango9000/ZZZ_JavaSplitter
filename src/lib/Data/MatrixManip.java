@@ -156,14 +156,14 @@ public abstract class MatrixManip {
 
     public static void sortRows(double[][] table) {
         for (int row = 0; row < table.length; row++) {
-            ArrayTool.bubbleSort(table[row]);
+            ArrayManip.bubbleSort(table[row]);
         }
     }
 
     public static double[][] sortColumns(double[][] table) {
         double[][] inverted = invertXY(table);
         for (int row = 0; row < inverted.length; row++) {
-            ArrayTool.bubbleSort(inverted[row]);
+            ArrayManip.bubbleSort(inverted[row]);
         }
         return invertXY(inverted);
     }
@@ -171,7 +171,7 @@ public abstract class MatrixManip {
     public static int sumRow(int[][] table, int rowIndex) {
         if (rowIndex >= table.length || rowIndex < 0)
             return 0;
-        return ArrayTool.sum(table[rowIndex]);
+        return ArrayManip.sum(table[rowIndex]);
     }
 
     public static int sumColumn(int[][] table, int columnIndex) {
@@ -210,7 +210,7 @@ public abstract class MatrixManip {
         for (int i = 0; i < table1.length; i++) {
             if (table1[i].length != table2[i].length)
                 return false;
-            if (!ArrayTool.isStrictIdentical(table1[i], table2[i]))
+            if (!ArrayManip.isStrictIdentical(table1[i], table2[i]))
                 return false;
         }
         return true;
@@ -239,7 +239,7 @@ public abstract class MatrixManip {
     public static boolean isAllTrue(boolean[][] marks) {
         boolean isAllTrue = true;
         for (int i = 0; i < marks.length; i++) {
-            if (!ArrayTool.isAllTrue(marks[i]))
+            if (!ArrayManip.isAllTrue(marks[i]))
                 isAllTrue = false;
         }
         return isAllTrue;

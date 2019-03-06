@@ -1,7 +1,7 @@
 import auxp.ch08.ConnectFour;
 import auxp.ch08.Sudoku;
 import auxp.ch08.TicTacToe;
-import lib.Data.ArrayTool;
+import lib.Data.ArrayManip;
 import lib.Data.MatrixManip;
 import lib.Data.StringManip;
 import lib.Geometry.Line;
@@ -27,7 +27,7 @@ public abstract class DaLi_08 {
         int[][] table = randomIntsTable(3, 4, 1, 10);
         MatrixManip.printTable(table, 6);
         for (int i = 0; i < table.length; i++) {
-            print("Sum of row %d  = %d\n", i, ArrayTool.sum(table[i]));
+            print("Sum of row %d  = %d\n", i, ArrayManip.sum(table[i]));
         }
     }
 
@@ -73,7 +73,7 @@ public abstract class DaLi_08 {
             System.out.println("Student " + i + "'s correct count is " +
                     correct[i]);
         }
-        int[] ordered = ArrayTool.bubbleSortIndexDesc(correct);
+        int[] ordered = ArrayManip.bubbleSortIndexDesc(correct);
         for (int i = 0; i < ordered.length; i++) {
             printf("Student %d correct count is %d\n", ordered[i], correct[ordered[i]]);
         }
@@ -82,7 +82,7 @@ public abstract class DaLi_08 {
     public static void ex04() {//Compute the weekly hours for each employee
         int[][] table = randomIntsTable(7, 8, 1, 9);
         for (int i = 0; i < table.length; i++) {
-            println(Arrays.toString(table[i]) + " " + ArrayTool.sum(table[i]));
+            println(Arrays.toString(table[i]) + " " + ArrayManip.sum(table[i]));
         }
     }
 
@@ -260,8 +260,8 @@ public abstract class DaLi_08 {
         Line lineA = new Line(points1[0], points1[1]);
         Line lineB = new Line(points2[0], points2[1]);
 
-        ArrayTool.printArray(lineA.crossProduct(points1));
-        ArrayTool.printArray(lineB.crossProduct(points2));
+        ArrayManip.printArray(lineA.crossProduct(points1));
+        ArrayManip.printArray(lineB.crossProduct(points2));
     }
 
     public static void ex16() {//Sort two-dimensional array
@@ -354,7 +354,7 @@ public abstract class DaLi_08 {
             }
         }
 
-        int indx = ArrayTool.indexOfMin(totalDistances);
+        int indx = ArrayManip.indexOfMin(totalDistances);
         print("%s %n %.2f", cities[indx].toString(), totalDistances[indx]);
     }
 
@@ -531,8 +531,8 @@ public abstract class DaLi_08 {
         for (int i = 0; i < triangles.length; i++) {
             areas[i] = triangles[i].area();
         }
-        ArrayTool.bubbleSort(areas);
-        ArrayTool.printArray(areas, 3);
+        ArrayManip.bubbleSort(areas);
+        ArrayManip.printArray(areas, 3);
 
     }
 
@@ -548,7 +548,7 @@ public abstract class DaLi_08 {
         for (int point = 0; point < points.length; point++) {
             sumOfCrossProducts[point] += horizont.crossProduct(points[point]);
         }
-        int[] indexesSorted = ArrayTool.bubbleSortIndex(sumOfCrossProducts);
+        int[] indexesSorted = ArrayManip.bubbleSortIndex(sumOfCrossProducts);
         println("Rightmost lowest point is %s", points[indexesSorted[0]].toString());
 
     }
@@ -658,10 +658,10 @@ public abstract class DaLi_08 {
         for (int i = 0; i < letters2.length; i++) {
             boolean[] marks = new boolean[table.length];
             for (int j = 0; j < marks.length; j++) {
-                if (ArrayTool.contains(table[i], letters[j]))
+                if (ArrayManip.contains(table[i], letters[j]))
                     marks[j] = true;
             }
-            if (!ArrayTool.isAllTrue(marks))
+            if (!ArrayManip.isAllTrue(marks))
                 return false;
         }
 
@@ -669,10 +669,10 @@ public abstract class DaLi_08 {
         for (int i = 0; i < letters2.length; i++) {
             boolean[] marks = new boolean[table.length];
             for (int j = 0; j < marks.length; j++) {
-                if (ArrayTool.contains(MatrixManip.arrayOfColumn(table, i), letters[j]))
+                if (ArrayManip.contains(MatrixManip.arrayOfColumn(table, i), letters[j]))
                     marks[j] = true;
             }
-            if (!ArrayTool.isAllTrue(marks))
+            if (!ArrayManip.isAllTrue(marks))
                 return false;
         }
 

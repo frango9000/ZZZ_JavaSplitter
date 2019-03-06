@@ -1,5 +1,5 @@
 import auxp.ch07.DeckOfCards;
-import lib.Data.ArrayTool;
+import lib.Data.ArrayManip;
 import lib.Data.StringManip;
 import lib.Math.Algebra;
 import lib.Math.Extras;
@@ -130,11 +130,11 @@ public abstract class DaLi_07 {
     }
 
     public static void ex09() {//Find the largest element
-        print(ArrayTool.max(randomDoublesArray(5, 0, 5)));
+        print(ArrayManip.max(randomDoublesArray(5, 0, 5)));
     }
 
     public static void ex10() {//Find the index of the largest element
-        print(ArrayTool.indexOfMax(randomDoublesArray(50, 0, 5)));
+        print(ArrayManip.indexOfMax(randomDoublesArray(50, 0, 5)));
     }
 
     public static void ex11() {//Statistics: compute deviation
@@ -146,29 +146,29 @@ public abstract class DaLi_07 {
 
     public static void ex12() {//Reverse an array
         int[] rands = randomIntsArray(10, 10);
-        ArrayTool.printArray(rands);
-        ArrayTool.printArray(ArrayTool.reverseArray(rands));
+        ArrayManip.printArray(rands);
+        ArrayManip.printArray(ArrayManip.reverseArray(rands));
     }
 
     public static void ex13() {//Random number selector
         int[] rands = randomIntsArray(10, 10);
-        ArrayTool.printArray(rands);
-        IO.print("%n%d", ArrayTool.getRandom(rands));
+        ArrayManip.printArray(rands);
+        IO.print("%n%d", ArrayManip.getRandom(rands));
     }
 
     public static void ex14() {//Computing lcm
         int[] rands = randomIntsArray(10, 5, 100);
-        ArrayTool.printArray(rands);
+        ArrayManip.printArray(rands);
         IO.print("%n%d", Algebra.greatestCommonDivisor(rands));
         IO.print("%n%d", Algebra.leastCommonMultiple(rands));
     }
 
     public static void ex15() {//Eliminate duplicates
         int[] rands = randomIntsArray(10, 5, 9);
-        ArrayTool.printArray(rands);
+        ArrayManip.printArray(rands);
         println("");
-        rands = ArrayTool.removeDuplicates(rands);
-        ArrayTool.printArray(rands);
+        rands = ArrayManip.removeDuplicates(rands);
+        ArrayManip.printArray(rands);
     }
 
     public static void ex16() {//Execution time
@@ -184,13 +184,13 @@ public abstract class DaLi_07 {
 
             search = searches[i];
             startTime = System.nanoTime();
-            index = ArrayTool.linearSearch(array, search);
+            index = ArrayManip.linearSearch(array, search);
             endTime = System.nanoTime();
             totalTime = endTime - startTime;
             IO.print("Linear search of number %d took %dns found in index %d%n", search, totalTime, index);
 
             startTime = System.nanoTime();
-            index = ArrayTool.binarySearch(array, search);
+            index = ArrayManip.binarySearch(array, search);
             endTime = System.nanoTime();
             totalTime = endTime - startTime;
             IO.print("Binary search of number %d took %dns found in index %d%n%n", search, totalTime, index);
@@ -206,7 +206,7 @@ public abstract class DaLi_07 {
             grades[i] = scanInt("Enter Grade of student %d:", (i + 1));
             names[i] = scanNext("Enter Name of student %d:", (i + 1));
         }
-        int[] sortedIndexes = ArrayTool.bubbleSortIndex(grades);
+        int[] sortedIndexes = ArrayManip.bubbleSortIndex(grades);
 
         for (int i = 0; i < sortedIndexes.length; i++) {
             print("%d Name: %s grade: %d%n", i, names[sortedIndexes[i]], grades[sortedIndexes[i]]);
@@ -215,20 +215,20 @@ public abstract class DaLi_07 {
 
     public static void ex18() {//Bubble sort
         int[] rands = randomIntsArray(10, 0, 50);
-        ArrayTool.bubbleSort(rands);
-        ArrayTool.printArray(rands);
+        ArrayManip.bubbleSort(rands);
+        ArrayManip.printArray(rands);
     }
 
     public static void ex19() {//Sorted?
         int[] rands = randomIntsArray(10, 0, 50);
-        ArrayTool.bubbleSort(rands);
-        ArrayTool.printArray(rands);
-        println(ArrayTool.isSortedAsc(rands));
-        println(ArrayTool.isSortedDesc(rands));
+        ArrayManip.bubbleSort(rands);
+        ArrayManip.printArray(rands);
+        println(ArrayManip.isSortedAsc(rands));
+        println(ArrayManip.isSortedDesc(rands));
 
-        ArrayTool.bubbleSortDesc(rands);
-        println(ArrayTool.isSortedAsc(rands));
-        println(ArrayTool.isSortedDesc(rands));
+        ArrayManip.bubbleSortDesc(rands);
+        println(ArrayManip.isSortedAsc(rands));
+        println(ArrayManip.isSortedDesc(rands));
     }
 
     public static void ex20() {//Descending Bubble Sort
@@ -237,7 +237,7 @@ public abstract class DaLi_07 {
 
     public static void ex21() {//Normalizing integers
         int[] rands = randomIntsArray(10, 0, 50);
-        int max = rands[ArrayTool.indexOfMax(rands)];
+        int max = rands[ArrayManip.indexOfMax(rands)];
 
         for (int i = 0; i < rands.length; i++) {
             println(Extras.map(rands[i], 0, max, 0, 1));
@@ -284,17 +284,17 @@ public abstract class DaLi_07 {
 
     public static void ex27() {//Check whether the array is sorted with constant interval
         int[] rands = randomIntsArray(10, 0, 50);
-        println(ArrayTool.isSortedConstantInterval(rands));
-        ArrayTool.bubbleSortDesc(rands);
-        println(ArrayTool.isSortedConstantInterval(rands));
+        println(ArrayManip.isSortedConstantInterval(rands));
+        ArrayManip.bubbleSortDesc(rands);
+        println(ArrayManip.isSortedConstantInterval(rands));
 
         int[] constants = {-1, -3, -5, -7, -9};
-        println(ArrayTool.isSortedConstantInterval(constants));
+        println(ArrayManip.isSortedConstantInterval(constants));
     }
 
     public static void ex28() {//Math: permutations
         int[] rands = randomUniqueIntsArray(4, 0, 10);
-        ArrayTool.printArray(rands);
+        ArrayManip.printArray(rands);
         for (int i = 0; i < rands.length; i++) {
             for (int j = 0; j < rands.length; j++) {
                 if (i != j)
@@ -329,12 +329,12 @@ public abstract class DaLi_07 {
     public static void ex31() {//Merge two sorted lists
         int[] numbers1 = {5, 1, 5, 16, 61, 111};
         int[] numbers2 = {4, 2, 4, 5, 6};
-        ArrayTool.printArray(ex31merge(numbers1, numbers2));
+        ArrayManip.printArray(ex31merge(numbers1, numbers2));
     }
 
     public static int[] ex31merge(int[] list1, int[] list2) {
-        list1 = ArrayTool.bubbleSort(ArrayTool.removeDuplicates(list1));
-        list2 = ArrayTool.bubbleSort(ArrayTool.removeDuplicates(list2));
+        list1 = ArrayManip.bubbleSort(ArrayManip.removeDuplicates(list1));
+        list2 = ArrayManip.bubbleSort(ArrayManip.removeDuplicates(list2));
         int[] merged = new int[list1.length + list2.length];
 
         for (int i = 0, j = 0, k = 0; i < merged.length; i++) {
@@ -346,20 +346,20 @@ public abstract class DaLi_07 {
                 k++;
             }
         }
-        return ArrayTool.bubbleSort(merged);
+        return ArrayManip.bubbleSort(merged);
     }
 
     public static void ex32() {//Partition of a list
         int[] numbers = {5, 2, 9, 3, 6, 8};
-        ArrayTool.printArray(numbers);
+        ArrayManip.printArray(numbers);
         println(ex32partition(numbers));
-        ArrayTool.printArray(numbers);
+        ArrayManip.printArray(numbers);
     }
 
     public static int ex32partition(int[] array) {
         int pivot = array[0];
-        ArrayTool.bubbleSort(array);
-        return ArrayTool.binarySearch(array, pivot);
+        ArrayManip.bubbleSort(array);
+        return ArrayManip.binarySearch(array, pivot);
     }
 
     public static void ex33() {//Month name
@@ -378,11 +378,11 @@ public abstract class DaLi_07 {
         char[] covered = new char[word.length()];
         Arrays.fill(covered, '*');
         int tries = 0;
-        while (ArrayTool.contains(covered, '*') && tries < 10) {
+        while (ArrayManip.contains(covered, '*') && tries < 10) {
 
             char guess = Character.toLowerCase(scanChar("(Guess) %d/10 Enter a letter in word %s", tries, String.valueOf(covered)));
             boolean miss = true;
-            if (!ArrayTool.contains(covered, Character.toLowerCase(guess))) {
+            if (!ArrayManip.contains(covered, Character.toLowerCase(guess))) {
                 for (int i = 0; i < word.length(); i++) {
                     if (Character.toLowerCase(guess) == word.charAt(i)) {
                         covered[i] = guess;
@@ -393,7 +393,7 @@ public abstract class DaLi_07 {
             if (miss) tries++;
 
         }
-        if (ArrayTool.contains(covered, '*'))
+        if (ArrayManip.contains(covered, '*'))
             print("You lose, word is %s your best %s", word, String.valueOf(covered));
         else
             print("You win word %s", String.valueOf(covered));
@@ -430,7 +430,7 @@ public abstract class DaLi_07 {
             }
             slots[slot]++;
         }
-        ArrayTool.printArray(slots);
+        ArrayManip.printArray(slots);
 
 
     }

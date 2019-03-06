@@ -5,7 +5,7 @@ import lib.Misc.Randomizer;
 
 import java.util.Arrays;
 
-public abstract class ArrayTool {
+public abstract class ArrayManip {
 
     public static int[] arrayOfDuplicateElements(int[] array, int num) {
         int size = countRepeated(array, num);

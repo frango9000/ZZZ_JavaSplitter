@@ -1,6 +1,6 @@
 package lib.Misc;
 
-import lib.Data.ArrayTool;
+import lib.Data.ArrayManip;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -63,7 +63,7 @@ public abstract class Randomizer {
             Arrays.fill(randoms, -2147483648);
             for (int i = 0; i < randoms.length; ) {
                 int randomCandidate = randomInt(range) + lowBound;
-                if (!ArrayTool.contains(randoms, randomCandidate)) {
+                if (!ArrayManip.contains(randoms, randomCandidate)) {
                     randoms[i] = randomCandidate;
                     i++;
                 }

@@ -1,4 +1,4 @@
-import lib.Data.ArrayTool;
+import lib.Data.ArrayManip;
 import lib.Data.MatrixManip;
 import lib.Geometry.Line;
 import lib.Geometry.Point;
@@ -43,7 +43,7 @@ public abstract class DaLi_09 {
     }
 
     public static void ex04() {//Use the Random class
-        ArrayTool.printArray(Randomizer.randomIntsArray(50, 0, 100));
+        ArrayManip.printArray(Randomizer.randomIntsArray(50, 0, 100));
     }
 
     public static void ex05() {//Use the GregorianCalendar class
