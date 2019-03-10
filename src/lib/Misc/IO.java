@@ -4,6 +4,9 @@ import java.util.Scanner;
 
 public abstract class IO {
 
+    public static void println(){
+        System.out.println();
+    }
     public static void println(Object str) {
         System.out.println(str);
     }

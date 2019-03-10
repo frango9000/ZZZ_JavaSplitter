@@ -103,4 +103,8 @@ public class Line {
     public boolean isOnSegment(Point point) {
         return !((crossProduct(point) > 0) || (crossProduct(point) < 0) || (point.x < pointA.x) || (point.y < pointA.y) || (point.x > pointB.x) || (point.y > pointB.y));
     }
+
+    public Point middlePoint(){
+        return pointA.middlePoint(pointB);
+    }
 }

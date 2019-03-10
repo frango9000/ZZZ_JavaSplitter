@@ -56,9 +56,18 @@ public class Point {
     public static double[] middlePoint(double x1, double y1, double z1, double x2, double y2, double z2) {
         return new double[]{(x1 + x2) / 2, (y1 + y2) / 2, (z1 + z2) / 2};
     }
+    public static Point middlePoint(Point p1, Point p2) {
+        double[] mp = middlePoint(p1.x, p1.y, p1.z, p2.x, p2.y, p2.z);
+        return new Point(mp[0],mp[1],mp[2]);
+    }
 
     public static double[] middlePoint(double x1, double y1, double x2, double y2) {
         return middlePoint(x1, y1, 0, x2, y2, 0);
+    }
+
+    public Point middlePoint(Point p2){
+        double[] mp = middlePoint(this.x, this.y, this.z, p2.x, p2.y, p2.z);
+        return new Point(mp[0],mp[1],mp[2]);
     }
 
     public static int[] closestPointsIndex(Point... points) {
