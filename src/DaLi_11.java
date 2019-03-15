@@ -1,5 +1,7 @@
 import lib.Data.ListManip;
+import lib.Data.MatrixManip;
 import lib.Geometry.Triangle;
+import lib.Misc.Randomizer;
 
 import java.util.ArrayList;
 
@@ -37,6 +39,8 @@ public abstract class DaLi_11 {
         println(list.toString());
     }
     public static void ex08() {
+        int[][] table = Randomizer.randomIntsTable(4, 4, 0, 1);
+        MatrixManip.printTable(table);
     }
     public static void ex09() {
     }
