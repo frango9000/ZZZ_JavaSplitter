@@ -9,12 +9,14 @@ import lib.Math.Primes;
 import lib.Misc.Calendar;
 import lib.Misc.Time;
 
+import java.math.BigInteger;
+
 import static lib.Misc.IO.*;
 
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex15();
+        ex16();
 
     }
 
@@ -111,7 +113,19 @@ public abstract class DaLi_10 {
         print(rb.area() + " " + rb.perimeter() + " " + rb.getHeight() + " " + rb.getWidth() + " " + rb.getCenter());
     }
 
-    public static void ex16() {
+    public static void ex16() {//Divisible by 2 or 3 BigInteger
+
+        int count = 0;
+        BigInteger n = new BigInteger("10000000000000000000000000000000000000000000000000");
+        BigInteger z = new BigInteger("0");
+
+        while (count < 10){
+            if(z.compareTo(n.remainder(new BigInteger("2"))) == 0 || z.compareTo(n.remainder(new BigInteger("3"))) == 0 ) {
+                println(n);
+                count++;
+            }
+            n = n.add(new BigInteger("1"));
+        }
     }
 
     public static void ex17() {
