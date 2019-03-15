@@ -1,4 +1,5 @@
 import auxp.ch10.MyInteger;
+import auxp.ch10.MyString;
 import auxp.ch10.QueueOfIntegers;
 import auxp.ch10.StackOfIntegers;
 import lib.Geometry.Circle;
@@ -17,7 +18,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex19();
+        ex23();
 
     }
 
@@ -152,7 +153,9 @@ public abstract class DaLi_10 {
     }
     public static void ex22() {
     }
-    public static void ex23() {
+    public static void ex23() {//Implement the String class
+        MyString ms = new MyString("String alt");
+        ms.print();
     }
     public static void ex24() {
     }
