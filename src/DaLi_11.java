@@ -9,7 +9,7 @@ import static lib.Misc.IO.scanInt;
 public abstract class DaLi_11 {
 
     public static void main(String[] args) {
-        ex00();
+        ex04();
 
     }
 
@@ -24,6 +24,13 @@ public abstract class DaLi_11 {
     public static void ex03() {
     }
     public static void ex04() {
+        ArrayList<Integer> list = new ArrayList<>();
+        int i = -1;
+        while(i != 0){
+            i=scanInt();
+            list.add(i);
+        }
+        print(ListManip.max(list));
     }
     public static void ex05() {
     }
