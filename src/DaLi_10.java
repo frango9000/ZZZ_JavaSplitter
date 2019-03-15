@@ -18,7 +18,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex23();
+        ex24();
 
     }
 
@@ -158,6 +158,7 @@ public abstract class DaLi_10 {
         ms.print();
     }
     public static void ex24() {
+        auxp.ch10.Calculator.main("2 + 2");
     }
     public static void ex25() {
     }
