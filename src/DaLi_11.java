@@ -39,10 +39,10 @@ public abstract class DaLi_11 {
         println(list.toString());
     }
     public static void ex08() {
-        int[][] table = Randomizer.randomIntsTable(4, 4, 0, 1);
-        MatrixManip.printTable(table);
     }
     public static void ex09() {
+        int[][] table = Randomizer.randomIntsTable(4, 4, 0, 1);
+        MatrixManip.printTable(table);
     }
     public static void ex10() {
     }
@@ -51,5 +51,17 @@ public abstract class DaLi_11 {
     public static void ex12() {
     }
     public static void ex13() {
+    }
+    public static void ex14() {
+    }
+    public static void ex15() {
+    }
+    public static void ex16() {
+    }
+    public static void ex17() {
+    }
+    public static void ex18() {
+    }
+    public static void ex19() {
     }
 }
