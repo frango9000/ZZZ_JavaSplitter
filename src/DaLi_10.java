@@ -152,6 +152,8 @@ public abstract class DaLi_10 {
     public static void ex21() {
     }
     public static void ex22() {
+        MyString ms = new MyString("String blt");
+        ms.print();
     }
     public static void ex23() {//Implement the String class
         MyString ms = new MyString("String alt");
