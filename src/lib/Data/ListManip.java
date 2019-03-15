@@ -96,4 +96,10 @@ public class ListManip {
             }
         }
     }
+    public static ArrayList<Integer> union(ArrayList<Integer> list1, ArrayList<Integer> list2){
+        ArrayList<Integer> union = new ArrayList<>(list1.size()+list2.size());
+        union.addAll(list1);
+        union.addAll(list2);
+        return union;
+    }
 }

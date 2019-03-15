@@ -10,7 +10,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_11 {
 
     public static void main(String[] args) {
-        ex13();
+        ex14();
 
     }
 
@@ -64,6 +64,12 @@ public abstract class DaLi_11 {
 
     }
     public static void ex14() {
+        ArrayList<Integer> list1 = ListManip.listFromScanner();
+        ArrayList<Integer> list2 = ListManip.listFromScanner();
+
+        ArrayList<Integer> union = ListManip.union(list1,list2);
+
+        println(union.toString());
     }
     public static void ex15() {
     }
