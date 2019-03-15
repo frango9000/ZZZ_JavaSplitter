@@ -102,4 +102,12 @@ public class ListManip {
         union.addAll(list2);
         return union;
     }
+
+    public static ArrayList<Character> toCharList(String str){
+        ArrayList<Character> toCharList = new ArrayList<>(str.length());
+        for (int i = 0; i < str.length(); i++) {
+            toCharList.add(str.charAt(i));
+        }
+        return toCharList;
+    }
 }

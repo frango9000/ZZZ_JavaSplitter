@@ -10,7 +10,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_11 {
 
     public static void main(String[] args) {
-        ex14();
+        ex18();
 
     }
 
@@ -63,7 +63,7 @@ public abstract class DaLi_11 {
         println(list.toString());
 
     }
-    public static void ex14() {
+    public static void ex14() {//Combine two lists
         ArrayList<Integer> list1 = ListManip.listFromScanner();
         ArrayList<Integer> list2 = ListManip.listFromScanner();
 
@@ -77,7 +77,10 @@ public abstract class DaLi_11 {
     }
     public static void ex17() {
     }
-    public static void ex18() {
+    public static void ex18() {//ArrayList of Character
+        String str = "String";
+        ArrayList<Character> list = ListManip.toCharList(str);
+        print(list.toString());
     }
     public static void ex19() {
     }
