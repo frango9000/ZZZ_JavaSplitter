@@ -10,7 +10,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_11 {
 
     public static void main(String[] args) {
-        ex11();
+        ex12();
 
     }
 
@@ -52,7 +52,9 @@ public abstract class DaLi_11 {
         ListManip.sort(list);
         println(list.toString());
     }
-    public static void ex12() {
+    public static void ex12() {//Sum ArrayList
+        ArrayList<Integer> list = ListManip.listFromScanner();
+        println(ListManip.sum(list));
     }
     public static void ex13() {
     }
