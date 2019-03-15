@@ -162,9 +162,9 @@ public abstract class DaLi_10 {
     public static void ex24() {//Implement the Character class
     }
     public static void ex25() {//New string split method
-        auxp.ch10.Calculator.main("2 + 2");
     }
-    public static void ex26() {
+    public static void ex26() {//Calculator
+        auxp.ch10.Calculator.main("2 + 2");
     }
     public static void ex27() {
     }
