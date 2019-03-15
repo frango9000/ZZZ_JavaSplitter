@@ -1,6 +1,10 @@
+import lib.Data.ListManip;
 import lib.Geometry.Triangle;
 
+import java.util.ArrayList;
+
 import static lib.Misc.IO.print;
+import static lib.Misc.IO.scanInt;
 
 public abstract class DaLi_11 {
 
@@ -12,6 +16,8 @@ public abstract class DaLi_11 {
     public static void ex00() {
     }
     public static void ex01() {
+        Triangle triangle = new Triangle(10, 15, 20);
+        print(triangle.toString());
     }
     public static void ex02() {
     }

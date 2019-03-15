@@ -74,10 +74,10 @@ public class Triangle extends Polygon {
 
     @Override
     public String toString() {
-        return "Triangle{\n" +
-                " pointA=" + pointA.toString() +
-                ",\n pointB=" + pointB.toString() +
-                ",\n pointC=" + pointC.toString() +
+        String string =  "Triangle{\n" +
+                " pointA=" +  (pointA != null ? pointA.toString() : "") +
+                ",\n pointB=" + (pointB != null ? pointB.toString() : "") +
+                ",\n pointC=" + (pointC != null ? pointA.toString() : "") +
                 ",\n sideAB=" + sideAB +
                 ", sideBC=" + sideBC +
                 ", sideCA=" + sideCA +
@@ -87,5 +87,6 @@ public class Triangle extends Polygon {
                 "\n area=" + area() +
                 "\n perimeter=" + perimeter() +
                 '}';
+        return string;
     }
 }
