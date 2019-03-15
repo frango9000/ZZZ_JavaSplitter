@@ -67,10 +67,9 @@ public class Triangle extends Polygon {
         return ABP + APC + PBC == ABC;
     }
 
-    public boolean contains(Triangle triangle){
+    public boolean contains(Triangle triangle) {
         return contains(triangle.pointA) && contains(triangle.pointB) && contains(triangle.pointC);
     }
-
 
 
     @Override

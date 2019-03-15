@@ -67,35 +67,36 @@ public class Primes {
         return primes;
     }
 
-    public static ArrayList<Integer> listOfPrimes(int lowBound, int highBound){//inclusive bounds min = 2
+    public static ArrayList<Integer> listOfPrimes(int lowBound, int highBound) {//inclusive bounds min = 2
         lowBound = Math.max(lowBound, 2);
         ArrayList<Integer> list = new ArrayList<>();
 
-        while(lowBound<=highBound){
-            if(isPrime(lowBound))
+        while (lowBound <= highBound) {
+            if (isPrime(lowBound))
                 list.add(lowBound);
             lowBound++;
         }
         return list;
     }
 
-    public static ArrayList<Integer> listOfPrimes(int highBound){
+    public static ArrayList<Integer> listOfPrimes(int highBound) {
         return listOfPrimes(0, highBound);
     }
 
-    public static ArrayList<Integer> listOfNPrimes(int lowBound, int n){
+    public static ArrayList<Integer> listOfNPrimes(int lowBound, int n) {
         ArrayList<Integer> list = new ArrayList<>(n);
-        lowBound = Math.max(0,lowBound);
+        lowBound = Math.max(0, lowBound);
         int count = 0;
-        while(count < n){
-            if(isPrime(++lowBound)) {
+        while (count < n) {
+            if (isPrime(++lowBound)) {
                 list.add(lowBound);
                 count++;
             }
         }
         return list;
     }
-    public static ArrayList<Integer> listOfNPrimes(int n){
+
+    public static ArrayList<Integer> listOfNPrimes(int n) {
         return listOfNPrimes(0, n);
     }
 

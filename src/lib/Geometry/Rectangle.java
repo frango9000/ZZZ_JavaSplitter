@@ -16,7 +16,6 @@ public class Rectangle extends Polygon {
     private Point pointD;
 
 
-
     public Rectangle() {
     }
 
@@ -31,7 +30,7 @@ public class Rectangle extends Polygon {
 
     }
 
-    public Rectangle(Point pointA, Point pointC){//opposite corners
+    public Rectangle(Point pointA, Point pointC) {//opposite corners
         this(pointA, new Point(pointA.x, pointC.y), pointC, new Point(pointC.x, pointA.y));
     }
 
@@ -45,6 +44,17 @@ public class Rectangle extends Polygon {
         this.width = width;
         this.height = height;
         this.center = center;
+    }
+
+    public static Rectangle boundingRectangle(Point... points) {
+        double minX = Integer.MAX_VALUE, minY = Integer.MAX_VALUE, maxX = Integer.MIN_VALUE, maxY = Integer.MIN_VALUE;
+        for (int point = 0; point < points.length; point++) {
+            minX = Algebra.min(minX, points[point].x);
+            minY = Algebra.min(minY, points[point].y);
+            maxX = Algebra.max(maxX, points[point].x);
+            maxY = Algebra.max(maxY, points[point].y);
+        }
+        return new Rectangle(new Point(minX, minY), new Point(maxX, maxY));
     }
 
     public double getWidth() {
@@ -67,7 +77,7 @@ public class Rectangle extends Polygon {
         height = pointA.distanceBetweenPoints(pointD);
     }
 
-    private void setCenter(){
+    private void setCenter() {
         center = pointA.middlePoint(pointB).middlePoint(pointC.middlePoint(pointD));
     }
 
@@ -124,10 +134,7 @@ public class Rectangle extends Polygon {
         if (xDistance <= Math.abs(this.width - rectangle.width) / 2 && yDistance <= Math.abs(this.height - rectangle.height) / 2) {
             if (this.width > rectangle.width)
                 return true;//System.out.println("rectangle 2 is in rectangle 1");
-            else if (rectangle.width > this.width)
-                return false;//System.out.println("rectangle 1 is in rectangle 2");
-            else
-                return true;//System.out.println(" identical");
+            else return !(rectangle.width > this.width);
         } else if (xDistance <= Math.abs(this.width + rectangle.width) / 2 && yDistance <= Math.abs(this.height + rectangle.height) / 2)
             return false;//System.out.println("r2 contains r1");
         else {
@@ -142,16 +149,5 @@ public class Rectangle extends Polygon {
 
         //Overlap
         return xDistance <= this.width + rectangle.width / 2 && yDistance <= this.height + rectangle.height / 2;
-    }
-
-    public static Rectangle boundingRectangle(Point... points){
-        double minX=Integer.MAX_VALUE, minY=Integer.MAX_VALUE, maxX=Integer.MIN_VALUE, maxY=Integer.MIN_VALUE;
-        for (int point = 0; point < points.length; point++) {
-            minX = Algebra.min(minX, points[point].x);
-            minY = Algebra.min(minY, points[point].y);
-            maxX = Algebra.max(maxX, points[point].x);
-            maxY = Algebra.max(maxY, points[point].y);
-        }
-        return new Rectangle(new Point(minX, minY), new Point(maxX, maxY));
     }
 }
