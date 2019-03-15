@@ -1,5 +1,7 @@
 package lib.Geometry;
 
+import lib.Math.Algebra;
+
 import java.util.Random;
 
 public class Rectangle extends Polygon {
@@ -8,7 +10,29 @@ public class Rectangle extends Polygon {
     private double height;
     private Point center;
 
+    private Point pointA;
+    private Point pointB;
+    private Point pointC;
+    private Point pointD;
+
+
+
     public Rectangle() {
+    }
+
+    public Rectangle(Point pointA, Point pointB, Point pointC, Point pointD) {
+        this.pointA = pointA;
+        this.pointB = pointB;
+        this.pointC = pointC;
+        this.pointD = pointD;
+        setCenter();
+        setWidth();
+        setHeight();
+
+    }
+
+    public Rectangle(Point pointA, Point pointC){//opposite corners
+        this(pointA, new Point(pointA.x, pointC.y), pointC, new Point(pointC.x, pointA.y));
     }
 
     public Rectangle(double width, double height) {
@@ -33,6 +57,18 @@ public class Rectangle extends Polygon {
 
     public Point getCenter() {
         return center;
+    }
+
+    private void setWidth() {
+        width = pointA.distanceBetweenPoints(pointB);
+    }
+
+    private void setHeight() {
+        height = pointA.distanceBetweenPoints(pointD);
+    }
+
+    private void setCenter(){
+        center = pointA.middlePoint(pointB).middlePoint(pointC.middlePoint(pointD));
     }
 
     public double perimeter() {
@@ -106,5 +142,16 @@ public class Rectangle extends Polygon {
 
         //Overlap
         return xDistance <= this.width + rectangle.width / 2 && yDistance <= this.height + rectangle.height / 2;
+    }
+
+    public static Rectangle boundingRectangle(Point... points){
+        double minX=Integer.MAX_VALUE, minY=Integer.MAX_VALUE, maxX=Integer.MIN_VALUE, maxY=Integer.MIN_VALUE;
+        for (int point = 0; point < points.length; point++) {
+            minX = Algebra.min(minX, points[point].x);
+            minY = Algebra.min(minY, points[point].y);
+            maxX = Algebra.max(maxX, points[point].x);
+            maxY = Algebra.max(maxY, points[point].y);
+        }
+        return new Rectangle(new Point(minX, minY), new Point(maxX, maxY));
     }
 }

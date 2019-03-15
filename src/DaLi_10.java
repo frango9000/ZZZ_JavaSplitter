@@ -14,7 +14,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex13();
+        ex15();
 
     }
 
@@ -86,7 +86,7 @@ public abstract class DaLi_10 {
         print(c.area() + " " + c.perimeter() + " " + c.contains(new Point(3, 4)));
     }
 
-    public static void ex13() {
+    public static void ex13() {//Geometry: the MyRectangle2D class
         Rectangle r1 = new Rectangle(2,2,new Point(5.5,4.9));
         System.out.println(r1.contains(new Point(3,3)));
         System.out.println(r1.contains(new Rectangle(3,5,new Point(10.5,3.2))));
@@ -100,7 +100,15 @@ public abstract class DaLi_10 {
         print(c.toString());
     }
 
-    public static void ex15() {
+    public static void ex15() {//Geometry: the bounding rectangle
+        Point p1 = new Point(1,2.5);
+        Point p2 = new Point(3,4);
+        Point p3 = new Point(5,6);
+        Point p4 = new Point(7,8);
+        Point p5 = new Point(9,10);
+
+        Rectangle rb = Rectangle.boundingRectangle(p1,p2,p3,p4,p5);
+        print(rb.area() + " " + rb.perimeter() + " " + rb.getHeight() + " " + rb.getWidth() + " " + rb.getCenter());
     }
 
     public static void ex16() {
