@@ -84,4 +84,16 @@ public class ListManip {
         }
         return sum;
     }
+
+    public static void removeDuplicate(ArrayList<Integer> list){
+        ArrayList<Integer> list2 = new ArrayList<>();
+        for (int i = 0; i < list.size(); ) {
+            if(list2.contains(list.get(i)))
+                list.remove(i);
+            else{
+                list2.add(list.get(i));
+                i++;
+            }
+        }
+    }
 }
