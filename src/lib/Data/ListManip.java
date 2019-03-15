@@ -1,7 +1,11 @@
 package lib.Data;
 
+import lib.Misc.Randomizer;
+
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import static lib.Misc.IO.scanInt;
 
 public class ListManip {
     public static void printList(ArrayList<int[]> list) {
@@ -40,5 +44,25 @@ public class ListManip {
 
         }
         return max;
+    }
+
+    public static void shuffle(ArrayList<Integer> list){
+        for (int i = 0; i < list.size(); i++) {
+            Integer integer = list.get(i);
+            int rand = Randomizer.randomInt(list.size());
+            list.set(i, list.get(rand));
+            list.set(rand, integer);
+        }
+    }
+    public static ArrayList<Integer> listFromScanner(){
+        ArrayList<Integer> list = new ArrayList<>();
+        int i;
+        while(true){
+            i=scanInt();
+            if (i == 0 )
+                break;
+            list.add(i);
+        }
+        return list;
     }
 }

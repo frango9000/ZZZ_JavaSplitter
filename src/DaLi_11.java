@@ -3,13 +3,12 @@ import lib.Geometry.Triangle;
 
 import java.util.ArrayList;
 
-import static lib.Misc.IO.print;
-import static lib.Misc.IO.scanInt;
+import static lib.Misc.IO.*;
 
 public abstract class DaLi_11 {
 
     public static void main(String[] args) {
-        ex04();
+        ex07();
 
     }
 
@@ -24,19 +23,18 @@ public abstract class DaLi_11 {
     public static void ex03() {
     }
     public static void ex04() {//Maximum element in ArrayList
-        ArrayList<Integer> list = new ArrayList<>();
-        int i = -1;
-        while(i != 0){
-            i=scanInt();
-            list.add(i);
-        }
+        ArrayList<Integer> list = ListManip.listFromScanner();
         print(ListManip.max(list));
     }
     public static void ex05() {
     }
     public static void ex06() {
     }
-    public static void ex07() {
+    public static void ex07() {//Shuffle ArrayList
+        ArrayList<Integer> list = ListManip.listFromScanner();
+        println(list.toString());
+        ListManip.shuffle(list);
+        println(list.toString());
     }
     public static void ex08() {
     }
