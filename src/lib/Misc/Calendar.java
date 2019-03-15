@@ -28,14 +28,6 @@ public class Calendar {
         this.year = year;
     }
 
-    public void computeDate() {
-        long days = millis / 86400000;
-        int yearsPassedApprox = (int) days / 365;
-        int daysPassedThisYear = (int) (days - (yearsPassedApprox * 365 + leapYearsCount(yearsPassedApprox)));
-        year = yearsPassedApprox + 1970;
-        setMonthAndDay(daysPassedThisYear);
-    }
-
     public static float secondsToHours(float seconds) {
         return (seconds / 60) / 60;
     }
@@ -176,13 +168,7 @@ public class Calendar {
             }
         }
 
-        return new int[]{month , daysLeft + 1};
-    }
-
-    public void setMonthAndDay(int daysPassedThisYear) {
-        int[] monthAndDay = getMonthAndDay(year, daysPassedThisYear);
-        month = monthAndDay[0];
-        day = monthAndDay[1];
+        return new int[]{month, daysLeft + 1};
     }
 
     public static int dayOfWeek(int year, int month, int day) {
@@ -223,6 +209,20 @@ public class Calendar {
             }
         }
         return calendar.toString() + "\n\n";
+    }
+
+    public void computeDate() {
+        long days = millis / 86400000;
+        int yearsPassedApprox = (int) days / 365;
+        int daysPassedThisYear = (int) (days - (yearsPassedApprox * 365 + leapYearsCount(yearsPassedApprox)));
+        year = yearsPassedApprox + 1970;
+        setMonthAndDay(daysPassedThisYear);
+    }
+
+    public void setMonthAndDay(int daysPassedThisYear) {
+        int[] monthAndDay = getMonthAndDay(year, daysPassedThisYear);
+        month = monthAndDay[0];
+        day = monthAndDay[1];
     }
 
     @Override

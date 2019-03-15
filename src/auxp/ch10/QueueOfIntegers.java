@@ -3,9 +3,9 @@ package auxp.ch10;
 import java.util.Arrays;
 
 public class QueueOfIntegers {
+    public static final int DEFAULT_CAPACITY = 8;
     private int[] elements;
     private int size;
-    public static final int DEFAULT_CAPACITY = 8;
 
     /**
      * Construct a stack with the default capacity 16
@@ -44,8 +44,8 @@ public class QueueOfIntegers {
      */
     public int pop() {
         int pop = elements[0];
-        for (int i = 0; i < size-1; i++) {
-            elements[i] = elements[i+1];
+        for (int i = 0; i < size - 1; i++) {
+            elements[i] = elements[i + 1];
         }
         size--;
         return pop;

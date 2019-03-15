@@ -447,7 +447,7 @@ public abstract class DaLi_03 {
         float y = scanFloat();
 
         Point point = new Point(x, y);
-        println(point.toString() + (circle.isInCircle(point) ? " is in circle" : "is not in circle"));
+        println(point.toString() + (circle.contains(point) ? " is in circle" : "is not in circle"));
     }
 
     public static void ex23() {//Geometry: point in a rectangle?
@@ -460,7 +460,7 @@ public abstract class DaLi_03 {
         float y = scanFloat();
 
         Point point = new Point(x, y);
-        println(point.toString() + (rectangle.isInRectangle(point) ? " is in rectangle" : "is not in rectangle"));
+        println(point.toString() + (rectangle.contains(point) ? " is in rectangle" : "is not in rectangle"));
     }
 
     public static void ex24() {//Game: pick a card)
@@ -523,7 +523,7 @@ public abstract class DaLi_03 {
 
         Point point = new Point(x, y);
 
-        println("The point is" + (triangle.isInTriangle(point) ? " " : " not ") + "in the triangle.");
+        println("The point is" + (triangle.contains(point) ? " " : " not ") + "in the triangle.");
     }
 
     public static void ex28() {//Geometry: two rectangles
@@ -547,7 +547,7 @@ public abstract class DaLi_03 {
         float w2 = scanFloat();
         Rectangle r2 = new Rectangle(w2, h2, new Point(x2, y2));
 
-        println("The rectangle r2 is" + (r1.isInRectangle(r2) ? " " : " not ") + "in the rectangle r1.");
+        println("The rectangle r2 is" + (r1.contains(r2) ? " " : " not ") + "in the rectangle r1.");
     }
 
     public static void ex29() {//Geometry: two circles
@@ -567,7 +567,7 @@ public abstract class DaLi_03 {
         float r2 = scanFloat();
         Circle c2 = new Circle(r2, new Point(x2, y2));
 
-        println("The circle 2 does" + (c1.isInCircle(c2) ? " " : " not ") + "overlap c1");
+        println("The circle 2 does" + (c1.overlaps(c2) ? " " : " not ") + "overlap c1");
     }
 
     public static void ex30() {//Current time)

@@ -22,12 +22,20 @@ public class Circle {
         return radius * radius * Math.PI;
     }
 
-    public boolean isInCircle(Point point) {
+    public boolean contains(Point point) {
         return radius > center.distanceBetweenPoints(point);
     }
 
-    public boolean isInCircle(Circle circle) {
+    public boolean contains(Circle circle) {
+        return center.distanceBetweenPoints(circle.center) + circle.radius <= radius;
+    }
+
+    public boolean overlaps(Circle circle) {
         return this.radius + circle.radius > this.center.distanceBetweenPoints(circle.center);
+    }
+
+    public boolean tangent(Circle circle) {
+        return this.radius + circle.radius == this.center.distanceBetweenPoints(circle.center);
     }
 
     public Point pointOnAngle(double degrees) {

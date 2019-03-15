@@ -3,9 +3,9 @@ package auxp.ch10;
 import java.util.Arrays;
 
 public class StackOfIntegers {
+    public static final int DEFAULT_CAPACITY = 16;
     private int[] elements;
     private int size;
-    public static final int DEFAULT_CAPACITY = 16;
 
     /**
      * Construct a stack with the default capacity 16
@@ -50,7 +50,7 @@ public class StackOfIntegers {
      * Return the top element from the stack
      */
     public int peek() {
-        return elements[size -1];
+        return elements[size - 1];
     }
 
     /**

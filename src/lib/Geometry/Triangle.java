@@ -59,13 +59,19 @@ public class Triangle extends Polygon {
         return Math.acos((a * a - b * b - c * c) / (-2 * b * c));
     }
 
-    public boolean isInTriangle(Point point) {
+    public boolean contains(Point point) {
         double ABC = area(pointA, pointB, pointC);
         double ABP = area(pointA, pointB, point);
         double APC = area(pointA, point, pointC);
         double PBC = area(point, pointB, pointC);
         return ABP + APC + PBC == ABC;
     }
+
+    public boolean contains(Triangle triangle){
+        return contains(triangle.pointA) && contains(triangle.pointB) && contains(triangle.pointC);
+    }
+
+
 
     @Override
     public String toString() {

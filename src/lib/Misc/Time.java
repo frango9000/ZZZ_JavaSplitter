@@ -18,6 +18,23 @@ public class Time {
 
     long totalDays = totalHours / 24;
 
+    public Time() {
+    }
+
+    public Time(long totalMilliseconds) {
+        this.totalMilliseconds = totalMilliseconds;
+    }
+
+    public static String millisToTimeString(long millis) {
+        long totalMilliseconds = millis;
+        long totalSeconds = totalMilliseconds / 1000;
+        long currentSecond = totalSeconds % 60;
+        long totalMinutes = totalSeconds / 60;
+        long currentMinute = totalMinutes % 60;
+        long totalHours = totalMinutes / 60;
+        return totalHours + ":" + currentMinute + ":" + currentSecond;
+    }
+
     public long getCurrentSecond() {
         return currentSecond;
     }
@@ -42,16 +59,10 @@ public class Time {
         this.currentHour = currentHour;
     }
 
-    public Time() {
-    }
-
-    public Time(long totalMilliseconds) {
-        this.totalMilliseconds = totalMilliseconds;
-    }
-
-    public void setTime(){
+    public void setTime() {
         long totalMilliseconds = System.currentTimeMillis();
     }
+
     public String timeToString() {
         return ("Current time is " + currentHour + ":" + currentMinute + ":" + currentSecond + " GMT: ");
     }
@@ -71,16 +82,6 @@ public class Time {
             post = "PM";
         }
         return ("Current time is " + offsetHour + ":" + currentMinute + ":" + currentSecond + " " + post + " GMT: " + offset);
-    }
-
-    public static String millisToTimeString(long millis) {
-        long totalMilliseconds = millis;
-        long totalSeconds = totalMilliseconds / 1000;
-        long currentSecond = totalSeconds % 60;
-        long totalMinutes = totalSeconds / 60;
-        long currentMinute = totalMinutes % 60;
-        long totalHours = totalMinutes / 60;
-        return totalHours + ":" + currentMinute + ":" + currentSecond;
     }
 
 }

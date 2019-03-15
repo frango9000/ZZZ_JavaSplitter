@@ -3,16 +3,18 @@ import auxp.ch10.QueueOfIntegers;
 import auxp.ch10.StackOfIntegers;
 import lib.Geometry.Circle;
 import lib.Geometry.Point;
+import lib.Geometry.Rectangle;
 import lib.Geometry.Triangle;
 import lib.Math.Primes;
 import lib.Misc.Calendar;
 import lib.Misc.Time;
 
 import static lib.Misc.IO.*;
+
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex14();
+        ex13();
 
     }
 
@@ -33,8 +35,8 @@ public abstract class DaLi_10 {
     }
 
     public static void ex04() {//The MyPoint class
-        Point p1 = new Point(2,3);
-        Point p2 = new Point(6,8);
+        Point p1 = new Point(2, 3);
+        Point p2 = new Point(6, 8);
         print(p1.distanceBetweenPoints(p2));
     }
 
@@ -43,7 +45,7 @@ public abstract class DaLi_10 {
 
         StackOfIntegers stack = new StackOfIntegers(Primes.getPrimeFactors(number));
         while (!stack.empty()) {
-             println(stack.pop());
+            println(stack.pop());
         }
     }
 
@@ -76,48 +78,67 @@ public abstract class DaLi_10 {
 
     public static void ex11() {//Geometry: the Circle2D class
         Circle c = new Circle(50);
-        print(c.radius + " " + c.perimeter() + " " + c.isInCircle(c));
+        print(c.radius + " " + c.perimeter() + " " + c.overlaps(c));
     }
 
     public static void ex12() {//Geometry: the Triangle2D class
-        Triangle c = new Triangle(new Point(2,3), new Point(5,6), new Point(-15,8));
-        print(c.area() + " " + c.perimeter() + " " + c.isInTriangle(new Point(3,4)));
+        Triangle c = new Triangle(new Point(2, 3), new Point(5, 6), new Point(-15, 8));
+        print(c.area() + " " + c.perimeter() + " " + c.contains(new Point(3, 4)));
     }
 
     public static void ex13() {
+        Rectangle r1 = new Rectangle(2,2,new Point(5.5,4.9));
+        System.out.println(r1.contains(new Point(3,3)));
+        System.out.println(r1.contains(new Rectangle(3,5,new Point(10.5,3.2))));
+        System.out.println(r1.overlaps(new Rectangle(3,5,new Point(2.3,5.4))));
     }
+
     public static void ex14() {//The MyDate class
         Calendar c = new Calendar(561555550000L);
         print(c.toString());
         c = new Calendar();
         print(c.toString());
     }
+
     public static void ex15() {
     }
+
     public static void ex16() {
     }
+
     public static void ex17() {
     }
+
     public static void ex18() {
     }
+
     public static void ex19() {
     }
+
     public static void ex20() {
     }
+
     public static void ex21() {
     }
+
     public static void ex22() {
     }
+
     public static void ex23() {
     }
+
     public static void ex24() {
     }
+
     public static void ex25() {
     }
+
     public static void ex26() {
     }
+
     public static void ex27() {
     }
+
     public static void ex28() {
     }
 }
