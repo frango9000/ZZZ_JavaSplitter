@@ -10,13 +10,14 @@ import lib.Misc.Calendar;
 import lib.Misc.Time;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 
 import static lib.Misc.IO.*;
 
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex18();
+        ex19();
 
     }
 
@@ -48,7 +49,7 @@ public abstract class DaLi_10 {
     public static void ex06() {//Display the prime numbers
         int number = scanInt("Enter a number");
 
-        StackOfIntegers stack = new StackOfIntegers(Primes.listOfPrimesUntil(number));
+        StackOfIntegers stack = new StackOfIntegers(Primes.arrayOfPrimes(number));
         while (!stack.empty()) {
             println(stack.pop());
         }
@@ -111,7 +112,7 @@ public abstract class DaLi_10 {
             n = n.add(new BigInteger("1"));
         }
     }
-    public static void ex17() {
+    public static void ex17() {//Square numbers
         long l = Long.MAX_VALUE;
         println(l);
         long minsq =(long) Math.sqrt(l);
@@ -125,7 +126,7 @@ public abstract class DaLi_10 {
             count++;
         }
     }
-    public static void ex18() {
+    public static void ex18() {//Large prime numbers
 
         int count = 0;
         BigInteger n = new BigInteger(Long.MAX_VALUE + "");
@@ -138,7 +139,12 @@ public abstract class DaLi_10 {
             }
         }
     }
-    public static void ex19() {
+    public static void ex19() {//Mersenne prime
+        ArrayList<Integer> list = Primes.listOfNPrimes(100);
+        for (int i = 0; i < 100; i++) {
+            BigInteger mrsp = new BigInteger("2").pow(list.get(i));
+            println("%3d %30s", list.get(i), mrsp.toString());
+        }
     }
     public static void ex20() {
     }

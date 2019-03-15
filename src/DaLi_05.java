@@ -258,7 +258,7 @@ public abstract class DaLi_05 {
     }
 
     public static void ex20() {//Display prime numbers between 2 and 1,200
-        print(Arrays.toString(Primes.listOfPrimesUntil(1200)));
+        print(Arrays.toString(Primes.arrayOfPrimes(1200)));
     }
 
     public static void ex21() {//Financial application: compare loans with various interest rates)

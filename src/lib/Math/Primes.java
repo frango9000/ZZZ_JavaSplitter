@@ -6,6 +6,7 @@
 package lib.Math;
 
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -57,19 +58,45 @@ public class Primes {
         return (n % 5 == 0);
     }
 
-    public static int[] listOfPrimesUntil(int n) {
-        int[] pr = new int[n / 2];
-        int count = 1;
+    public static int[] arrayOfPrimes(int highBound) {//obsolete
+        ArrayList<Integer> list = Primes.listOfPrimes(highBound);
+        int[] primes = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            primes[i] = list.get(i);
+        }
+        return primes;
+    }
 
-        pr[0] = 2;
-        for (int i = 3, j = 1; i <= n; i += 2) {
-            if (isPrime(i)) {
-                pr[j++] = i;
+    public static ArrayList<Integer> listOfPrimes(int lowBound, int highBound){//inclusive bounds min = 2
+        lowBound = Math.max(lowBound, 2);
+        ArrayList<Integer> list = new ArrayList<>();
+
+        while(lowBound<=highBound){
+            if(isPrime(lowBound))
+                list.add(lowBound);
+            lowBound++;
+        }
+        return list;
+    }
+
+    public static ArrayList<Integer> listOfPrimes(int highBound){
+        return listOfPrimes(0, highBound);
+    }
+
+    public static ArrayList<Integer> listOfNPrimes(int lowBound, int n){
+        ArrayList<Integer> list = new ArrayList<>(n);
+        lowBound = Math.max(0,lowBound);
+        int count = 0;
+        while(count < n){
+            if(isPrime(++lowBound)) {
+                list.add(lowBound);
                 count++;
             }
         }
-        int[] primes = Arrays.copyOf(pr, count);
-        return primes;
+        return list;
+    }
+    public static ArrayList<Integer> listOfNPrimes(int n){
+        return listOfNPrimes(0, n);
     }
 
     public static int[] getPrimeFactors(int number) {
@@ -77,7 +104,7 @@ public class Primes {
             return new int[]{number};
 
         int[] array = new int[(int) Math.round(Math.sqrt(number))];
-        int[] primes = listOfPrimesUntil((number));
+        int[] primes = arrayOfPrimes((number));
         int count = 0, tempValue = number;
 
         for (int i = 0; tempValue != 1; i++)

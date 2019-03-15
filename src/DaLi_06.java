@@ -82,7 +82,7 @@ public abstract class DaLi_06 {
     }
 
     public static void ex10(int number) {//Use the isPrime Method
-        print(Arrays.toString(Primes.listOfPrimesUntil(number)));
+        print(Arrays.toString(Primes.arrayOfPrimes(number)));
     }
 
     public static void ex11() {//Financial application: compute commissions
