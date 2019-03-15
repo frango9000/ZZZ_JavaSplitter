@@ -151,7 +151,7 @@ public abstract class DaLi_10 {
     }
     public static void ex21() {
     }
-    public static void ex22() {
+    public static void ex22() {//Implement the String class
         MyString ms = new MyString("String blt");
         ms.print();
     }
@@ -159,10 +159,10 @@ public abstract class DaLi_10 {
         MyString ms = new MyString("String alt");
         ms.print();
     }
-    public static void ex24() {
-        auxp.ch10.Calculator.main("2 + 2");
+    public static void ex24() {//Implement the Character class
     }
-    public static void ex25() {
+    public static void ex25() {//New string split method
+        auxp.ch10.Calculator.main("2 + 2");
     }
     public static void ex26() {
     }
