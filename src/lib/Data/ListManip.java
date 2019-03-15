@@ -34,19 +34,19 @@ public class ListManip {
         return array;
     }
 
-    public static Integer max(ArrayList<Integer> list){
-        if( list == null || list.size() ==0 )
+    public static Integer max(ArrayList<Integer> list) {
+        if (list == null || list.size() == 0)
             return null;
         int max = list.get(0);
         for (int i = 1; i < list.size(); i++) {
-            if(list.get(i)> max)
+            if (list.get(i) > max)
                 max = list.get(i);
 
         }
         return max;
     }
 
-    public static void shuffle(ArrayList<Integer> list){
+    public static void shuffle(ArrayList<Integer> list) {
         for (int i = 0; i < list.size(); i++) {
             Integer integer = list.get(i);
             int rand = Randomizer.randomInt(list.size());
@@ -54,21 +54,23 @@ public class ListManip {
             list.set(rand, integer);
         }
     }
-    public static ArrayList<Integer> listFromScanner(){
+
+    public static ArrayList<Integer> listFromScanner() {
         ArrayList<Integer> list = new ArrayList<>();
         int i;
-        while(true){
-            i=scanInt();
-            if (i == 0 )
+        while (true) {
+            i = scanInt();
+            if (i == 0)
                 break;
             list.add(i);
         }
         return list;
     }
-    public static void sort(ArrayList<Integer> list){
-        for (int i = 0; i < list.size()-1; i++) {
-            for (int j = i+1; j < list.size(); j++) {
-                if(list.get(i) > list.get(j)) {
+
+    public static void sort(ArrayList<Integer> list) {
+        for (int i = 0; i < list.size() - 1; i++) {
+            for (int j = i + 1; j < list.size(); j++) {
+                if (list.get(i) > list.get(j)) {
                     Integer integer = list.get(i);
                     list.set(i, list.get(j));
                     list.set(j, integer);
@@ -77,33 +79,34 @@ public class ListManip {
         }
     }
 
-    public static int sum(ArrayList<Integer> list){
+    public static int sum(ArrayList<Integer> list) {
         int sum = 0;
         for (int i = 0; i < list.size(); i++) {
-            sum +=  list.get(i);
+            sum += list.get(i);
         }
         return sum;
     }
 
-    public static void removeDuplicate(ArrayList<Integer> list){
+    public static void removeDuplicate(ArrayList<Integer> list) {
         ArrayList<Integer> list2 = new ArrayList<>();
         for (int i = 0; i < list.size(); ) {
-            if(list2.contains(list.get(i)))
+            if (list2.contains(list.get(i)))
                 list.remove(i);
-            else{
+            else {
                 list2.add(list.get(i));
                 i++;
             }
         }
     }
-    public static ArrayList<Integer> union(ArrayList<Integer> list1, ArrayList<Integer> list2){
-        ArrayList<Integer> union = new ArrayList<>(list1.size()+list2.size());
+
+    public static ArrayList<Integer> union(ArrayList<Integer> list1, ArrayList<Integer> list2) {
+        ArrayList<Integer> union = new ArrayList<>(list1.size() + list2.size());
         union.addAll(list1);
         union.addAll(list2);
         return union;
     }
 
-    public static ArrayList<Character> toCharList(String str){
+    public static ArrayList<Character> toCharList(String str) {
         ArrayList<Character> toCharList = new ArrayList<>(str.length());
         for (int i = 0; i < str.length(); i++) {
             toCharList.add(str.charAt(i));

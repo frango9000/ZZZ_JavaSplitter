@@ -74,8 +74,8 @@ public class Triangle extends Polygon {
 
     @Override
     public String toString() {
-        String string =  "Triangle{\n" +
-                " pointA=" +  (pointA != null ? pointA.toString() : "") +
+        String string = "Triangle{\n" +
+                " pointA=" + (pointA != null ? pointA.toString() : "") +
                 ",\n pointB=" + (pointB != null ? pointB.toString() : "") +
                 ",\n pointC=" + (pointC != null ? pointA.toString() : "") +
                 ",\n sideAB=" + sideAB +
