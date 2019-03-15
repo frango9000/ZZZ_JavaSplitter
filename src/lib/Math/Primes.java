@@ -5,6 +5,7 @@
  */
 package lib.Math;
 
+import java.math.BigInteger;
 import java.util.Arrays;
 
 /**
@@ -95,5 +96,16 @@ public class Primes {
     public static int mersennePrime(int index) {
         int mersenne = (int) (Math.pow(2, index) - 1);
         return isPrime(mersenne) ? mersenne : 0;
+    }
+
+    public static boolean isPrime(BigInteger n) {
+        for (BigInteger d = new BigInteger("2");
+             d.compareTo(n.divide(new BigInteger("2"))) <= 0;
+             d = d.add(new BigInteger("1"))) {
+            if (n.remainder(d).compareTo(new BigInteger("0")) == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 }
