@@ -15,7 +15,7 @@ public abstract class DaLi_11 {
 
     public static void ex00() {
     }
-    public static void ex01() {
+    public static void ex01() {//The Triangle class
         Triangle triangle = new Triangle(10, 15, 20);
         print(triangle.toString());
     }
@@ -23,7 +23,7 @@ public abstract class DaLi_11 {
     }
     public static void ex03() {
     }
-    public static void ex04() {
+    public static void ex04() {//Maximum element in ArrayList
         ArrayList<Integer> list = new ArrayList<>();
         int i = -1;
         while(i != 0){
