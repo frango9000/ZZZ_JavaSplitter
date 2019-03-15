@@ -16,7 +16,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_10 {
 
     public static void main(String[] args) {
-        ex16();
+        ex17();
 
     }
 
@@ -129,6 +129,18 @@ public abstract class DaLi_10 {
     }
 
     public static void ex17() {
+        long l = Long.MAX_VALUE;
+        println(l);
+        long minsq =(long) Math.sqrt(l);
+        minsq++;
+
+        int count = 0;
+
+        while (count < 10){
+            BigInteger bg = new BigInteger(String.valueOf(minsq)).pow(2);
+            println(bg.toString() + " " + minsq++);
+            count++;
+        }
     }
 
     public static void ex18() {
