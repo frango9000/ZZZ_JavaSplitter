@@ -11,4 +11,12 @@ public class FileOut {
             pw.print(string);
         }
     }
+
+    public static void printOnFile(File file,String[] strings) throws FileNotFoundException {
+        try(PrintWriter pw = new PrintWriter(file)){
+            for (String string : strings) {
+                pw.println(string);
+            }
+        }
+    }
 }

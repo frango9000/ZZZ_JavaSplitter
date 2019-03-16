@@ -1,6 +1,8 @@
+import lib.Data.ArrayManip;
 import lib.Math.NumberConverter;
 import lib.Misc.FileIO;
 import lib.Misc.FileIn;
+import lib.Misc.FileOut;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,7 +15,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex14();
+        ex15();
 
     }
 
@@ -159,10 +161,21 @@ public abstract class DaLi_12 {
             println("FileNotFoundException:");
             e.printStackTrace();
         }
-
-
     }
-    public static void ex15() {
+    public static void ex15() {//Writing in a sorted file
+        File f1 = new File ("src/auxp/ch12/e15.txt");
+        String[] f,g;
+        try {
+            f = FileIn.fileToArray(f1);
+            g = new String[f.length+1];
+            System.arraycopy(f, 0, g, 0, f.length);
+            g[f.length]="Franky";
+            ArrayManip.bubbleSort(g);
+            FileOut.printOnFile(f1, g);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex16() {
     }
