@@ -11,7 +11,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex11();
+        ex12();
 
     }
 
@@ -65,7 +65,7 @@ public abstract class DaLi_12 {
     public static void ex10() {
     }
     public static void ex11() {//Remove text
-        String argss = "john src/auxp/ch12/11.txt";
+        String argss = "john src/auxp/ch12/e11.txt";
         String[] args = argss.split(" ");
         Scanner scan = null;
 
@@ -97,6 +97,22 @@ public abstract class DaLi_12 {
         }
     }
     public static void ex12() {
+        String file = "src/auxp/ch12/e12.java";
+        File f1 = new File (file);
+        StringBuilder str = new StringBuilder();
+        try (Scanner scan = new Scanner(f1)) {
+            while (scan.hasNextLine()) {
+                str.append(scan.nextLine()).append("\n");
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        try (PrintWriter pw = new PrintWriter(f1)) {
+            pw.print(str.toString().replaceAll("[{]" + "\n", "\n{\n"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex13() {
     }
