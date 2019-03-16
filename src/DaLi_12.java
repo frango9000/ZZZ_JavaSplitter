@@ -11,7 +11,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex12();
+        ex13();
 
     }
 
@@ -96,7 +96,7 @@ public abstract class DaLi_12 {
             e.printStackTrace();
         }
     }
-    public static void ex12() {
+    public static void ex12() {//Reformat Java source code
         String file = "src/auxp/ch12/e12.java";
         File f1 = new File (file);
         StringBuilder str = new StringBuilder();
@@ -114,7 +114,24 @@ public abstract class DaLi_12 {
             e.printStackTrace();
         }
     }
-    public static void ex13() {
+    public static void ex13() {//Count characters, words, and lines in a file
+        int lines=0, chars=0, words=0;
+
+        String file = "src/auxp/ch12/e13.txt";
+        File f1 = new File (file);
+        StringBuilder str = new StringBuilder();
+        try(Scanner scan = new Scanner(f1)){
+            while(scan.hasNextLine()) {
+                lines++;
+                str.append(scan.nextLine()).append("\n");
+            }
+        }catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        chars = str.length();
+        words = str.toString().split(" ").length;
+
+        print("chr: " + chars + "\nwords: " + words + "\nlines: " + lines);
     }
     public static void ex14() {
     }
