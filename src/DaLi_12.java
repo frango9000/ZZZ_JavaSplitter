@@ -1,5 +1,4 @@
 import auxp.ch07.Hangman;
-import lib.Data.ArrayManip;
 import lib.Math.NumberConverter;
 import lib.Misc.FileIO;
 import lib.Misc.FileIn;
@@ -228,7 +227,7 @@ public abstract class DaLi_12 {
         for (File file1 : files) {
             try {
                 String str = FileIn.fileToString(file1);
-                str = str.replaceAll("//package t;", "");
+                str = str.replaceAll("//package t;\n", "");
                 FileOut.printOnFile(file1, str);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
