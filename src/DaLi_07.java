@@ -1,4 +1,5 @@
 import auxp.ch07.DeckOfCards;
+import auxp.ch07.Hangman;
 import lib.Data.ArrayManip;
 import lib.Data.StringManip;
 import lib.Math.Algebra;
@@ -15,7 +16,7 @@ import static lib.Misc.Randomizer.*;
 public abstract class DaLi_07 {
     public static void main(String[] args) {
 
-        ex37();
+        ex35();
 
     }
 
@@ -373,30 +374,7 @@ public abstract class DaLi_07 {
     }
 
     public static void ex35() {//Game: hangman
-        String[] words = {"water", "fishing", "natural", "programming"};
-        String word = words[randomInt(4)];
-        char[] covered = new char[word.length()];
-        Arrays.fill(covered, '*');
-        int tries = 0;
-        while (ArrayManip.contains(covered, '*') && tries < 10) {
-
-            char guess = Character.toLowerCase(scanChar("(Guess) %d/10 Enter a letter in word %s", tries, String.valueOf(covered)));
-            boolean miss = true;
-            if (!ArrayManip.contains(covered, Character.toLowerCase(guess))) {
-                for (int i = 0; i < word.length(); i++) {
-                    if (Character.toLowerCase(guess) == word.charAt(i)) {
-                        covered[i] = guess;
-                        miss = false;
-                    }
-                }
-            }
-            if (miss) tries++;
-
-        }
-        if (ArrayManip.contains(covered, '*'))
-            print("You lose, word is %s your best %s", word, String.valueOf(covered));
-        else
-            print("You win word %s", String.valueOf(covered));
+        Hangman.startGame(null);
     }
 
     public static void ex36() {//Game: Eight Queens

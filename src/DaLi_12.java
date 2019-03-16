@@ -1,3 +1,4 @@
+import auxp.ch07.Hangman;
 import lib.Data.ArrayManip;
 import lib.Math.NumberConverter;
 import lib.Misc.FileIO;
@@ -15,7 +16,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex16();
+        ex17();
 
     }
 
@@ -181,7 +182,13 @@ public abstract class DaLi_12 {
         File f1 = new File ("src/auxp/ch12/e16.txt");
         FileIO.replace(f1, "Franky", "Francis");
     }
-    public static void ex17() {
+    public static void ex17() {//Game: hangman
+        File f1 = new File("src/auxp/ch12/e16.txt");
+        try {
+            Hangman.startGame(FileIn.fileToArray(f1));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex18() {
     }
