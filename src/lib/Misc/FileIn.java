@@ -4,6 +4,7 @@ import lib.Data.ArrayManip;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class FileIn {
@@ -38,5 +39,17 @@ public class FileIn {
     public static int binarySearch(File file, String line) throws FileNotFoundException {
         String[] fileS = fileToArray(file);
         return ArrayManip.binarySearch(fileS, line);
+    }
+
+    public static void allSubFiles(File file, ArrayList<File> list){
+        if (!file.isDirectory()){
+            list.add(file);
+        }else {
+            File[] contents = file.listFiles();
+            assert contents != null;
+            for (File content : contents) {
+                allSubFiles(content, list);
+            }
+        }
     }
 }

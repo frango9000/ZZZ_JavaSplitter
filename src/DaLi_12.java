@@ -7,7 +7,9 @@ import lib.Misc.FileOut;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -16,7 +18,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex17();
+        ex18();
 
     }
 
@@ -191,6 +193,19 @@ public abstract class DaLi_12 {
         }
     }
     public static void ex18() {
+        File file = new File("src/auxp/ch12/e18/");
+        ArrayList<File> files =new ArrayList<>();
+        FileIn.allSubFiles(file,files);
+
+        for (int i = 0; i < files.size(); i++) {
+            try {
+                FileOut.prependOnFile(files.get(i), "//package t;");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
     public static void ex19() {
     }
