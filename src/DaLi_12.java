@@ -1,3 +1,7 @@
+import java.util.InputMismatchException;
+
+import static lib.Misc.IO.*;
+
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
@@ -8,6 +12,13 @@ public abstract class DaLi_12 {
     public static void ex00() {
     }
     public static void ex01() {
+        try {
+            auxp.ch10.Calculator.main("2 / 2");
+        }catch (NumberFormatException | InputMismatchException ex){
+            println("Ilegal arguments");
+            ex.printStackTrace();
+            System.exit(-1);
+        }
     }
     public static void ex02() {
     }
