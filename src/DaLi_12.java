@@ -1,4 +1,5 @@
 import lib.Math.NumberConverter;
+import lib.Misc.FileIn;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,7 +12,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex13();
+        ex14();
 
     }
 
@@ -133,7 +134,26 @@ public abstract class DaLi_12 {
 
         print("chr: " + chars + "\nwords: " + words + "\nlines: " + lines);
     }
-    public static void ex14() {
+    public static void ex14() {//Reading in a sorted file
+        String file = "src/auxp/ch12/e14.txt";
+        File f1 = new File (file);
+        String str="";
+        try {
+            str = FileIn.fileToString(f1);
+        }catch (FileNotFoundException e){
+            println("FileNotFoundException:");
+            e.printStackTrace();
+        }
+        print(str);
+
+        try {
+            int n = FileIn.indexOfLine(f1, "Benjamin");
+            println(n);
+        }catch (FileNotFoundException e){
+            println("FileNotFoundException:");
+            e.printStackTrace();
+        }
+
     }
     public static void ex15() {
     }
