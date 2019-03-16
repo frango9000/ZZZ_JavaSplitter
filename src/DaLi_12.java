@@ -11,7 +11,7 @@ public abstract class DaLi_12 {
 
     public static void ex00() {
     }
-    public static void ex01() {
+    public static void ex01() {//NumberFormatException
         try {
             auxp.ch10.Calculator.main("2 / 2");
         }catch (NumberFormatException | InputMismatchException ex){
