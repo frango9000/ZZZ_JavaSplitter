@@ -69,13 +69,13 @@ public abstract class DaLi_12 {
         String[] args = argss.split(" ");
         Scanner scan = null;
 
-        String filtered ="";
+        StringBuilder filtered = new StringBuilder();
 
         File f1 = new File(args[1]);
         try {
             scan = new Scanner(f1);
             while(scan.hasNextLine()){
-                filtered += scan.nextLine().replaceAll("john", "") + "\n";
+                filtered.append(scan.nextLine().replaceAll("john", "")).append("\n");
             }
         } catch (FileNotFoundException e) {
             println("File Not Found: ");
@@ -90,15 +90,10 @@ public abstract class DaLi_12 {
             }
         }
 
-        PrintWriter pw = null;
-        try {
-            pw = new PrintWriter(f1);
-
+        try (PrintWriter pw = new PrintWriter(f1)) {
             pw.print(filtered);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }finally {
-            pw.close();
         }
     }
     public static void ex12() {
