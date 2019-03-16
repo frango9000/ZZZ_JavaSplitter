@@ -5,7 +5,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex02();
+        ex03();
 
     }
 
@@ -27,10 +27,17 @@ public abstract class DaLi_12 {
         try {
             print(strs[idx]);
         }catch (IndexOutOfBoundsException ex){
-            print("Wrong index:");
+            println("Catch IndexOutOfBoundsException:");
+            ex.printStackTrace();
         }
     }
-    public static void ex03() {
+    public static void ex03() {//InputMismatchException
+        try{
+            ex02();
+        }catch (InputMismatchException ex){
+            println("Catch InputMismatchException:");
+            ex.printStackTrace();
+        }
     }
     public static void ex04() {
     }
