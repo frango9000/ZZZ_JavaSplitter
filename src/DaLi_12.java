@@ -1,13 +1,17 @@
 import lib.Math.NumberConverter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 import static lib.Misc.IO.*;
 
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex06();
+        ex11();
 
     }
 
@@ -60,7 +64,42 @@ public abstract class DaLi_12 {
     }
     public static void ex10() {
     }
-    public static void ex11() {
+    public static void ex11() {//Remove text
+        String argss = "john src/auxp/ch12/11.txt";
+        String[] args = argss.split(" ");
+        Scanner scan = null;
+
+        String filtered ="";
+
+        File f1 = new File(args[1]);
+        try {
+            scan = new Scanner(f1);
+            while(scan.hasNextLine()){
+                filtered += scan.nextLine().replaceAll("john", "") + "\n";
+            }
+        } catch (FileNotFoundException e) {
+            println("File Not Found: ");
+            e.printStackTrace();
+        } finally {
+            try {
+                assert scan != null;
+                scan.close();
+            } catch (NullPointerException e) {
+                println("NullPointerException: ");
+                e.printStackTrace();
+            }
+        }
+
+        PrintWriter pw = null;
+        try {
+            pw = new PrintWriter(f1);
+
+            pw.print(filtered);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }finally {
+            pw.close();
+        }
     }
     public static void ex12() {
     }
