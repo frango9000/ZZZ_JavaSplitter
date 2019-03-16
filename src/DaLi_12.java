@@ -15,7 +15,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex15();
+        ex16();
 
     }
 
@@ -177,7 +177,9 @@ public abstract class DaLi_12 {
             e.printStackTrace();
         }
     }
-    public static void ex16() {
+    public static void ex16() {//Replace text
+        File f1 = new File ("src/auxp/ch12/e16.txt");
+        FileIO.replace(f1, "Franky", "Francis");
     }
     public static void ex17() {
     }
