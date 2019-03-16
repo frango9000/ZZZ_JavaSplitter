@@ -32,7 +32,6 @@ public class FileIO {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        print(Arrays.toString(array));
     }
 
     public static void replace(File file, String replaceThis, String replaceTo) {

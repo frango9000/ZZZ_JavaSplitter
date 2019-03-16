@@ -18,7 +18,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex18();
+        ex19();
 
     }
 
@@ -167,15 +167,9 @@ public abstract class DaLi_12 {
     }
     public static void ex15() {//Writing in a sorted file
         File f1 = new File ("src/auxp/ch12/e15.txt");
-        String[] f,g;
+        String add = "Franky";
         try {
-            f = FileIn.fileToArray(f1);
-            g = new String[f.length+1];
-            System.arraycopy(f, 0, g, 0, f.length);
-            g[f.length]="Franky";
-            ArrayManip.bubbleSort(g);
-            FileOut.printOnFile(f1, g);
-
+            FileOut.addToSortedFile(f1, add);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -192,7 +186,7 @@ public abstract class DaLi_12 {
             e.printStackTrace();
         }
     }
-    public static void ex18() {
+    public static void ex18() {//Add package statement
         File file = new File("src/auxp/ch12/e18/");
         ArrayList<File> files =new ArrayList<>();
         FileIn.allSubFiles(file,files);
@@ -203,11 +197,28 @@ public abstract class DaLi_12 {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        }
+    }
+    public static void ex19() {//Linking two files
+        File f1 = new File("src/auxp/ch12/e19authors.txt");
+        File f2 = new File("src/auxp/ch12/e19books.txt");
+
+        String newA = "Fernie";
+        String newB = "The Wall";
+        int i =-1;
+        try {
+            i = FileOut.addToSortedFile(f1, newA);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        if(i > -1){
+            try {
+                FileOut.printOnFile(f2, i + "," + newB);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
 
         }
-
-    }
-    public static void ex19() {
     }
     public static void ex20() {
     }

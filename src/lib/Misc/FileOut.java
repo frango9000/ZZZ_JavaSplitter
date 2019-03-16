@@ -1,5 +1,7 @@
 package lib.Misc;
 
+import lib.Data.ArrayManip;
+
 import java.io.*;
 
 public class FileOut {
@@ -16,6 +18,19 @@ public class FileOut {
                 pw.println(string);
             }
         }
+    }
+
+    public static int addToSortedFile(File file, String string) throws FileNotFoundException {
+        String[] f = FileIn.fileToArray(file);
+        int i = ArrayManip.binarySearch(f, string);
+        if (i > -1)
+            return i;
+        String[] g = new String[f.length + 1];
+        System.arraycopy(f, 0, g, 0, f.length);
+        g[f.length] = string;
+        ArrayManip.bubbleSort(g);
+        FileOut.printOnFile(file, g);
+        return ArrayManip.binarySearch(g,string);
     }
 
     public static void appendOnFile(File file, String string) throws IOException {
