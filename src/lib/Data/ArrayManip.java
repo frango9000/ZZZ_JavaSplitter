@@ -88,6 +88,17 @@ public abstract class ArrayManip {
         return array;
     }
 
+    public static String[] bubbleSort(String... array) {
+        for (int i = 0; i < array.length; i++)
+            for (int j = i + 1; j < array.length; j++)
+                if (array[i].compareTo(array[j]) > 0) {
+                    String aux = array[i];
+                    array[i] = array[j];
+                    array[j] = aux;
+                }
+        return array;
+    }
+
     public static int[] bubbleSortIndex(int[] array) {
         int[] indexes = new int[array.length];
         for (int i = 0; i < indexes.length; i++) {
@@ -351,6 +362,21 @@ public abstract class ArrayManip {
             if (number < array[mid])
                 high = mid - 1;
             else if (number == array[mid])
+                return mid;
+            else
+                low = mid + 1;
+        }
+        return -1;
+    }
+
+    public static int binarySearch(String[] array, String find) {
+        int low = 0;
+        int high = array.length - 1;
+        while (high >= low) {
+            int mid = (low + high) / 2;
+            if (find.compareTo(array[mid]) < 0)
+                high = mid - 1;
+            else if ( find.compareTo(array[mid]) == 0)
                 return mid;
             else
                 low = mid + 1;

@@ -1,4 +1,5 @@
 import lib.Math.NumberConverter;
+import lib.Misc.FileIO;
 import lib.Misc.FileIn;
 
 import java.io.File;
@@ -100,13 +101,10 @@ public abstract class DaLi_12 {
     public static void ex12() {//Reformat Java source code
         String file = "src/auxp/ch12/e12.java";
         File f1 = new File (file);
-        StringBuilder str = new StringBuilder();
-        try (Scanner scan = new Scanner(f1)) {
-            while (scan.hasNextLine()) {
-                str.append(scan.nextLine()).append("\n");
-            }
-
-        } catch (FileNotFoundException e) {
+        String str = "";
+        try {
+            str = FileIn.fileToString(f1);
+        }catch (FileNotFoundException e) {
             e.printStackTrace();
         }
         try (PrintWriter pw = new PrintWriter(f1)) {
@@ -147,12 +145,21 @@ public abstract class DaLi_12 {
         print(str);
 
         try {
-            int n = FileIn.indexOfLine(f1, "Benjamin");
+            int n = FileIn.indexOfFirstOccurrence(f1, "Benjamin");
             println(n);
         }catch (FileNotFoundException e){
             println("FileNotFoundException:");
             e.printStackTrace();
         }
+        FileIO.sort(f1);
+        try {
+            int n = FileIn.binarySearch(f1, "Benjamin");
+            println(n);
+        }catch (FileNotFoundException e){
+            println("FileNotFoundException:");
+            e.printStackTrace();
+        }
+
 
     }
     public static void ex15() {
