@@ -1,3 +1,5 @@
+import lib.Math.NumberConverter;
+
 import java.util.InputMismatchException;
 
 import static lib.Misc.IO.*;
@@ -5,7 +7,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex03();
+        ex06();
 
     }
 
@@ -39,11 +41,16 @@ public abstract class DaLi_12 {
             ex.printStackTrace();
         }
     }
-    public static void ex04() {
+    public static void ex04() {//IllegalArgumentException
     }
     public static void ex05() {
     }
-    public static void ex06() {
+    public static void ex06() {//NumberFormatException
+        try {
+            print(NumberConverter.hexToDec("AAAG"));
+        }catch (NumberFormatException e){
+            print("Bad hex " + e.getMessage());
+        }
     }
     public static void ex07() {
     }
