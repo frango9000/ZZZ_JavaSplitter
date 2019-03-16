@@ -18,7 +18,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex19();
+        ex20();
 
     }
 
@@ -221,6 +221,19 @@ public abstract class DaLi_12 {
         }
     }
     public static void ex20() {
+        File file = new File("src/auxp/ch12/e18/");
+        ArrayList<File> files =new ArrayList<>();
+        FileIn.allSubFiles(file,files);
+
+        for (File file1 : files) {
+            try {
+                String str = FileIn.fileToString(file1);
+                str = str.replaceAll("//package t;", "");
+                FileOut.printOnFile(file1, str);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        }
     }
     public static void ex21() {
     }
