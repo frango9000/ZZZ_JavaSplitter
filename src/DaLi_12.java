@@ -5,7 +5,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex00();
+        ex02();
 
     }
 
@@ -20,7 +20,15 @@ public abstract class DaLi_12 {
             System.exit(-1);
         }
     }
-    public static void ex02() {
+    public static void ex02() {//ArrayIndexOutOfBoundsException
+        String[] strs = {"1", "2", "3", "4" };
+        int idx = scanInt("Enter 1-4:");
+
+        try {
+            print(strs[idx]);
+        }catch (IndexOutOfBoundsException ex){
+            print("Wrong index:");
+        }
     }
     public static void ex03() {
     }
