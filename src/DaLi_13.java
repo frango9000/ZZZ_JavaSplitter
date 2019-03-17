@@ -106,7 +106,9 @@ public abstract class DaLi_13 {
         }
         print(sum.toString());
     }
-    public static void ex19() {
+    public static void ex19() {//Convert decimals to fractions
+        BigRational br = BigRational.decimalToRational("2.75");
+        print(br.toString());
     }
     public static void ex20() {
     }
