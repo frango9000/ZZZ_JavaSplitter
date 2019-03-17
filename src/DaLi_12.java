@@ -8,6 +8,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -17,7 +19,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex21();
+        ex23();
 
     }
 
@@ -255,7 +257,30 @@ public abstract class DaLi_12 {
     public static void ex22() {//Replace text
         ex20();
     }
-    public static void ex23() {
+    public static void ex23() {//Process scores in a text file on the Web
+        URL scores = null;
+        Scanner scan = null;
+        int total=0, sum =0;
+        try {
+            scores = new URL("http://liveexample.pearsoncmg.com/data/Scores.txt");
+
+            try {
+                scan = new Scanner(scores.openStream());
+                while(scan.hasNext()){
+                    sum += scan.nextInt();
+                    total++;
+                }
+                print("Avg: " + ((sum*1f)/total) + "\nSum: " + sum);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }finally {
+                assert scan != null;
+                scan.close();
+            }
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex24() {
     }
