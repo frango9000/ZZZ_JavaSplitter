@@ -1,4 +1,5 @@
 import auxp.ch11.MyStack;
+import auxp.ch13.Complex;
 import auxp.ch13.Rational;
 import auxp.ch13.RationalCalculator;
 import lib.Data.ListManip;
@@ -14,7 +15,7 @@ import static lib.Misc.IO.println;
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex16();
+        ex17();
 
     }
 
@@ -91,7 +92,9 @@ public abstract class DaLi_13 {
         RationalCalculator.main("5/2 * 4/3");
         //5/2 * 4/3 = 10/3
     }
-    public static void ex17() {
+    public static void ex17() {//Math: The Complex class
+        Complex num = new Complex(1,2);
+        print(num.abs());
     }
     public static void ex18() {
     }
