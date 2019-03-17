@@ -13,7 +13,7 @@ import static lib.Misc.IO.println;
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex07();
+        ex08();
 
     }
 
@@ -55,6 +55,9 @@ public abstract class DaLi_13 {
         println(m2);
     }
     public static void ex08() {
+        Circle circle = new Circle(5);
+        Circle circle2 = new Circle(6);
+        print(circle.equals(circle2));
     }
     public static void ex09() {
     }
