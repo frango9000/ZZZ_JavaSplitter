@@ -96,10 +96,7 @@ public class Rational extends Number implements Comparable<Rational> {
 
     @Override // Override the equals method in the Object class
     public boolean equals(Object other) {
-        if ((this.subtract((Rational) (other))).getNumerator() == 0)
-            return true;
-        else
-            return false;
+        return (this.subtract((Rational) (other))).getNumerator() == 0;
     }
 
     @Override // Implement the abstract intValue method in Number

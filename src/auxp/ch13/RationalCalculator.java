@@ -1,7 +1,5 @@
 package auxp.ch13;
 
-import lib.Misc.Asserts;
-
 import java.util.InputMismatchException;
 
 public class RationalCalculator {
@@ -24,8 +22,8 @@ public class RationalCalculator {
         // The result of the operation
         Rational result = new Rational();
 
-        Rational r1 = new Rational(Long.parseLong(args[0].split("/")[0]),Long.parseLong(args[0].split("/")[1]));
-        Rational r2 = new Rational(Long.parseLong(args[2].split("/")[0]),Long.parseLong(args[2].split("/")[1]));
+        Rational r1 = new Rational(Long.parseLong(args[0].split("/")[0]), Long.parseLong(args[0].split("/")[1]));
+        Rational r2 = new Rational(Long.parseLong(args[2].split("/")[0]), Long.parseLong(args[2].split("/")[1]));
         // Determine the operator
         switch (op) {
             case '+':

@@ -2,6 +2,14 @@ package lib.Geometry;
 
 public abstract class GeometricObject implements Comparable<GeometricObject>, Cloneable {
 
+    public static double sumAreas(GeometricObject[] objects) {
+        double sum = 0;
+        for (GeometricObject object : objects) {
+            sum += object.getArea();
+        }
+        return sum;
+    }
+
     public abstract double getArea();
 
     public abstract double getPerimeter();
@@ -22,14 +30,5 @@ public abstract class GeometricObject implements Comparable<GeometricObject>, Cl
         if (obj == null || getClass() != obj.getClass()) return false;
         GeometricObject go = (GeometricObject) obj;
         return Double.compare(go.getArea(), getArea()) == 0;
-    }
-
-
-    public static double sumAreas(GeometricObject[] objects){
-        double sum = 0;
-        for (GeometricObject object : objects) {
-            sum += object.getArea();
-        }
-        return sum;
     }
 }

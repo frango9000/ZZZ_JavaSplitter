@@ -1,17 +1,21 @@
 package auxp.ch13;
 
-import java.math.*;
+import java.math.BigInteger;
 
 public class BigRational extends Number implements Comparable {
     // Data fields for numerator and denominator
     private BigInteger[] r = new BigInteger[2];
 
-    /** Construct a ratinoal with default properties */
+    /**
+     * Construct a ratinoal with default properties
+     */
     public BigRational() {
         this(BigInteger.ZERO, BigInteger.ONE);
     }
 
-    /** Construct a rational with specifiec numerator and denominator */
+    /**
+     * Construct a rational with specifiec numerator and denominator
+     */
     public BigRational(BigInteger numerator, BigInteger denominator) {
         BigInteger gcd = gcd(numerator, denominator);
         r[0] = (denominator.compareTo(BigInteger.ZERO) > 0
@@ -20,7 +24,9 @@ public class BigRational extends Number implements Comparable {
         r[1] = denominator.divide(gcd);
     }
 
-    /** Find GCD of two numbers */
+    /**
+     * Find GCD of two numbers
+     */
     private static BigInteger gcd(BigInteger n, BigInteger d) {
         BigInteger n1 = n;
         BigInteger n2 = d;
@@ -37,17 +43,30 @@ public class BigRational extends Number implements Comparable {
         return gcd;
     }
 
-    /** Return numerator */
+    public static BigRational decimalToRational(String number) {
+        String[] decimal = number.split("[.]");
+        BigRational r1 = new BigRational(new BigInteger(decimal[0]), BigInteger.ONE);
+        BigRational r2 = new BigRational(new BigInteger(decimal[1]), new BigInteger(String.valueOf((int) Math.pow(10, decimal[1].length()))));
+        return decimal[0].charAt(0) == '-' ? (r1).subtract(r2) : (r1).add(r2);
+    }
+
+    /**
+     * Return numerator
+     */
     public BigInteger getNumerator() {
         return r[0];
     }
 
-    /** Return denominator */
+    /**
+     * Return denominator
+     */
     public BigInteger getDenominator() {
         return r[1];
     }
 
-    /** Add a rational number to this rational */
+    /**
+     * Add a rational number to this rational
+     */
     public BigRational add(BigRational secondRational) {
         BigInteger n = (r[0].multiply(secondRational.getDenominator())).add(
                 r[1].multiply(secondRational.getNumerator()));
@@ -55,7 +74,9 @@ public class BigRational extends Number implements Comparable {
         return new BigRational(n, d);
     }
 
-    /** Subtract a rational number from this rational */
+    /**
+     * Subtract a rational number from this rational
+     */
     public BigRational subtract(BigRational secondRational) {
         BigInteger n = (r[0].multiply(secondRational.getDenominator())).subtract(
                 r[1].multiply(secondRational.getNumerator()));
@@ -63,14 +84,18 @@ public class BigRational extends Number implements Comparable {
         return new BigRational(n, d);
     }
 
-    /** Mulitply a rational number by this rational */
+    /**
+     * Mulitply a rational number by this rational
+     */
     public BigRational multiply(BigRational secondRational) {
         BigInteger n = r[0].multiply(secondRational.getNumerator());
         BigInteger d = r[1].multiply(secondRational.getDenominator());
         return new BigRational(n, d);
     }
 
-    /** Divide a rational number by this rational */
+    /**
+     * Divide a rational number by this rational
+     */
     public BigRational divide(BigRational secondRational) {
         BigInteger n = r[0].multiply(secondRational.getDenominator());
         BigInteger d = r[1].multiply(secondRational.getNumerator());
@@ -87,21 +112,18 @@ public class BigRational extends Number implements Comparable {
 
     @Override // Override the equals method in the Object class
     public boolean equals(Object other) {
-        if (((this.subtract((BigRational)(other))).getNumerator()).compareTo(
-                BigInteger.ZERO) == 0)
-            return true;
-        else
-            return false;
+        return ((this.subtract((BigRational) (other))).getNumerator()).compareTo(
+                BigInteger.ZERO) == 0;
     }
 
     @Override // Implement the abstract intValue method in Number
     public int intValue() {
-        return (int)doubleValue();
+        return (int) doubleValue();
     }
 
     @Override // Implement the abstract floatValue method in Number
     public float floatValue() {
-        return (float)doubleValue();
+        return (float) doubleValue();
     }
 
     @Override // Implement the doubleValue method in Number
@@ -112,24 +134,17 @@ public class BigRational extends Number implements Comparable {
 
     @Override // Implement the abstract longValue method in Number
     public long longValue() {
-        return (long)doubleValue();
+        return (long) doubleValue();
     }
 
     @Override
     public int compareTo(Object o) {
-        BigInteger n = this.subtract((BigRational)o).getNumerator();
+        BigInteger n = this.subtract((BigRational) o).getNumerator();
         if (n.compareTo(BigInteger.ZERO) > 0)
             return 1;
         else if (n.compareTo(BigInteger.ZERO) < 0)
             return -1;
         else
             return 0;
-    }
-
-    public static BigRational decimalToRational(String number){
-        String[] decimal = number.split("[.]");
-        BigRational r1 = new BigRational(new BigInteger(decimal[0]), BigInteger.ONE);
-        BigRational r2 = new BigRational(new BigInteger(decimal[1]), new BigInteger(String.valueOf((int)Math.pow(10, decimal[1].length()))));
-        return decimal[0].charAt(0) == '-' ? (r1).subtract(r2) : (r1).add(r2);
     }
 }

@@ -34,7 +34,7 @@ public class MyStack {
         list.add(o);
     }
 
-    public MyStack deepCopy(){
+    public MyStack deepCopy() {
         ArrayList<Object> copy = new ArrayList<>(list.size());
         copy.addAll(list);
         return new MyStack(copy);
