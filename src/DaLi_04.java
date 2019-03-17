@@ -94,7 +94,7 @@ public abstract class DaLi_04 {
     public static void ex01() {//Geometry: getArea of a pentagon
         print("Enter radius: ");
         float r = scanFloat();
-        Pentagon pentagon = new Pentagon(r);
+        Pentagon pentagon = new Pentagon(r, null);
 
         IO.print("Area of the pentagon is %4.2f", pentagon.getArea());
 

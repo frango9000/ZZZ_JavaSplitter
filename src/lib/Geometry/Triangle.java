@@ -2,7 +2,7 @@ package lib.Geometry;
 
 public class Triangle extends GeometricObject {
 
-    public static final int NUM_OF_SIDES = 3;
+    public final int numOfSides = 3;
     public Point pointA;
     public Point pointB;
     public Point pointC;

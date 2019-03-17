@@ -1,6 +1,6 @@
 package lib.Geometry;
 
-public class Circle {
+public class Circle extends GeometricObject{
     public double radius;
     public Point center;
 
@@ -14,11 +14,11 @@ public class Circle {
         this.center = center;
     }
 
-    public double perimeter() {
+    public double getPerimeter() {
         return 2 * radius * Math.PI;
     }
 
-    public double area() {
+    public double getArea() {
         return radius * radius * Math.PI;
     }
 

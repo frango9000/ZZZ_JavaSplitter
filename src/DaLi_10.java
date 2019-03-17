@@ -82,7 +82,7 @@ public abstract class DaLi_10 {
 
     public static void ex11() {//Geometry: the Circle2D class
         Circle c = new Circle(50);
-        print(c.radius + " " + c.perimeter() + " " + c.overlaps(c));
+        print(c.radius + " " + c.getPerimeter() + " " + c.overlaps(c));
     }
 
     public static void ex12() {//Geometry: the Triangle2D class

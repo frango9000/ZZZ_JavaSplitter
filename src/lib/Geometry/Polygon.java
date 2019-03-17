@@ -1,11 +1,11 @@
 package lib.Geometry;
 
 public class Polygon extends GeometricObject{
-    private int numOfSides;
-    private double sideLength;
-    private Point center;
+    protected int numOfSides;
+    protected double sideLength;
+    protected Point center;
 
-    public Polygon() {
+    protected Polygon() {
     }
 
     public Polygon(int numOfSides, double sideLength) {

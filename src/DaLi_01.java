@@ -60,8 +60,8 @@ public abstract class DaLi_01 {
 
     public static void ex08() {//Area and getPerimeter of a circle
         Circle circle = new Circle(6.5f);
-        println("Circle Perimeter: " + circle.perimeter());
-        println("Circle Area: " + circle.area());
+        println("Circle Perimeter: " + circle.getPerimeter());
+        println("Circle Area: " + circle.getArea());
     }
 
     public static void ex09() {//Area and getPerimeter of a rectangle

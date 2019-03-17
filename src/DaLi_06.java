@@ -406,7 +406,7 @@ public abstract class DaLi_06 {
     }
 
     public static void ex35() {//Geometry: getArea of a pentagon
-        Pentagon pentagon = new Pentagon(true, 5.5);
+        Pentagon pentagon = new Pentagon(5.5);
         print(pentagon.getArea());
     }
 

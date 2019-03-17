@@ -3,44 +3,36 @@ package lib.Geometry;
 import java.util.Arrays;
 
 public class Pentagon extends Polygon {
-    //angle relative to the y axis
-    //Max =  17.999999999 // Min = -18; (72-90)
-    public final int numOfSides = 5;
     public double radius;                       //radius of the circle formed by this.pentagon points
-    public double sideLength;
-    public double angleOfPoint0;                //The point with the max Y, if top side is Y-bound, p0 is the one with positive X;
-    public Point center;
     public Point[] points = new Point[numOfSides];
 
-    public Pentagon() {
+    protected Pentagon(){
+        this.numOfSides = 5;
     }
 
-
-    public Pentagon(double radius) {
-        this.radius = radius;
-        this.sideLength = side();
+    public Pentagon(double sideLength) {
+        this();
+        this.sideLength = sideLength;
+        this.radius = centerToVertex();
     }
 
     public Pentagon(double radius, Point center) {
+        this();
         this.radius = radius;
         this.sideLength = side();
         this.center = center;
     }
 
     public Pentagon(double radius, Point center, double angleOfPoint0) {
-        this.radius = radius;
-        this.angleOfPoint0 = angleOfPoint0;
-        this.center = center;
-        this.sideLength = side();
-        setPoints();
+        this(radius,center);
+        setPoints(angleOfPoint0);
     }
 
-    public Pentagon(boolean bool, double sideLength) {
-        this.sideLength = sideLength;
-        this.radius = centerToVertex();
-    }
-
-    private void setPoints() {
+    //angle relative to the y axis
+    //Max =  17.999999999
+    //Min = -18; (72-90)
+    //The point with the max Y, if top side is Y-bound, p0 is the one with positive X;
+    private void setPoints(double angleOfPoint0) {
         Circle circle = new Circle(radius, center);
         points[0] = circle.pointOnAngle(90 + angleOfPoint0);
         points[1] = circle.pointOnAngle(90 + angleOfPoint0 + 72);
@@ -49,21 +41,12 @@ public class Pentagon extends Polygon {
         points[4] = circle.pointOnAngle(90 + angleOfPoint0 + 72 + 72 + 72 + 72);
     }
 
-    public double side() {
+    private double side() {
         return 2 * radius * Math.sin(Math.PI / numOfSides);
     }
 
-    public double centerToVertex() {
-        return sideLength / (2 * Math.sin(Math.PI / 5));
-    }
-
-
-    public double getArea() {
-        return (numOfSides * sideLength * sideLength) / (4f * Math.tan(Math.PI / numOfSides));
-    }
-
-    public double getPerimeter() {
-        return radius * numOfSides;
+    private double centerToVertex() {
+        return sideLength / (2 * Math.sin(Math.PI / numOfSides));
     }
 
     @Override
@@ -71,7 +54,6 @@ public class Pentagon extends Polygon {
         return "Pentagon{" +
                 "\nradius=" + radius +
                 ",\n sideLength=" + sideLength +
-                ",\n angleOfPoint0=" + Math.toDegrees(angleOfPoint0) +
                 ",\n numOfSides=" + numOfSides +
                 ",\n center=" + center.toString() +
                 ",\n points=" + Arrays.toString(points) +
