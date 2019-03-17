@@ -1,5 +1,6 @@
 import auxp.ch11.MyStack;
 import auxp.ch13.Rational;
+import auxp.ch13.RationalCalculator;
 import lib.Data.ListManip;
 import lib.Geometry.*;
 import lib.Misc.Calendar;
@@ -13,7 +14,7 @@ import static lib.Misc.IO.println;
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex12();
+        ex16();
 
     }
 
@@ -86,7 +87,9 @@ public abstract class DaLi_13 {
     }
     public static void ex15() {//Use BigInteger for the Rational class
     }
-    public static void ex16() {
+    public static void ex16() {//Create a rational-number calculator
+        RationalCalculator.main("5/2 * 4/3");
+        //5/2 * 4/3 = 10/3
     }
     public static void ex17() {
     }
