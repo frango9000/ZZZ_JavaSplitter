@@ -354,6 +354,14 @@ public abstract class ArrayManip {
         return -1;
     }
 
+    public static int linearSearch(String[] array, String match){
+        for (int i = 0; i < array.length; i++) {
+            if(array[i].contains(match))
+                return i;
+        }
+        return -1;
+    }
+
     public static int binarySearch(int[] array, int number) {
         int low = 0;
         int high = array.length - 1;

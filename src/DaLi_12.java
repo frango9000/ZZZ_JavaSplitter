@@ -1,9 +1,7 @@
 import auxp.ch07.Hangman;
+import lib.Data.ArrayManip;
 import lib.Math.NumberConverter;
-import lib.Misc.FileIO;
-import lib.Misc.FileIn;
-import lib.Misc.FileOut;
-import lib.Misc.Randomizer;
+import lib.Misc.*;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -20,7 +18,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex30();
+        ex31();
 
     }
 
@@ -428,7 +426,27 @@ public abstract class DaLi_12 {
             e.printStackTrace();
         }
     }
-    public static void ex31() {
+    public static void ex31() {//Baby name popularity ranking
+        URL[] urls = new URL[10];
+        for (int i = 0; i < urls.length; i++) {
+            try {
+                urls[i] = new URL("http://liveexample.pearsoncmg.com/data/babynamesranking20" + String.format("%02d", i+1) + ".txt");
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        int year = scanInt("Enter year: ");
+        String name = scanNext("Enter name: ");
+
+        try {
+            String[] web = URLIn.urlToArray(urls[year-2001]);
+            int r = ArrayManip.linearSearch(web, name);
+            println(name + " is ranked " + (r+1));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex32() {
     }
