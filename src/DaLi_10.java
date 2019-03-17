@@ -87,7 +87,7 @@ public abstract class DaLi_10 {
 
     public static void ex12() {//Geometry: the Triangle2D class
         Triangle c = new Triangle(new Point(2, 3), new Point(5, 6), new Point(-15, 8));
-        print(c.area() + " " + c.perimeter() + " " + c.contains(new Point(3, 4)));
+        print(c.getArea() + " " + c.getPerimeter() + " " + c.contains(new Point(3, 4)));
     }
 
     public static void ex13() {//Geometry: the MyRectangle2D class
@@ -112,7 +112,7 @@ public abstract class DaLi_10 {
         Point p5 = new Point(9, 10);
 
         Rectangle rb = Rectangle.boundingRectangle(p1, p2, p3, p4, p5);
-        print(rb.area() + " " + rb.perimeter() + " " + rb.getHeight() + " " + rb.getWidth() + " " + rb.getCenter());
+        print(rb.getArea() + " " + rb.getPerimeter() + " " + rb.getHeight() + " " + rb.getWidth() + " " + rb.getCenter());
     }
 
     public static void ex16() {//Divisible by 2 or 3 BigInteger

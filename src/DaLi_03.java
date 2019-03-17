@@ -395,7 +395,7 @@ public abstract class DaLi_03 {
         }
     }
 
-    public static void ex19() {//(Compute the perimeter of a triangle)
+    public static void ex19() {//(Compute the getPerimeter of a triangle)
 
         print("Enter AB: ");
         float sideAB = scanFloat();
@@ -407,7 +407,7 @@ public abstract class DaLi_03 {
         float sideCA = scanFloat();
         if (Triangle.isValidTriangle(sideAB, sideBC, sideCA)) {
             Triangle triangle = new Triangle(sideAB, sideBC, sideCA);
-            println("Perimeter is " + triangle.perimeter());
+            println("Perimeter is " + triangle.getPerimeter());
         } else println("Invalid Triangle");
 
     }

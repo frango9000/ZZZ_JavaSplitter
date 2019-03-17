@@ -58,16 +58,16 @@ public abstract class DaLi_01 {
         println(PI_b);
     }
 
-    public static void ex08() {//Area and perimeter of a circle
+    public static void ex08() {//Area and getPerimeter of a circle
         Circle circle = new Circle(6.5f);
         println("Circle Perimeter: " + circle.perimeter());
         println("Circle Area: " + circle.area());
     }
 
-    public static void ex09() {//Area and perimeter of a rectangle
+    public static void ex09() {//Area and getPerimeter of a rectangle
         Rectangle rectangle = new Rectangle(5.3f, 8.6f);
-        println("Rectangle Perimeter: " + rectangle.perimeter());
-        println("Rectangle Area: " + rectangle.area());
+        println("Rectangle Perimeter: " + rectangle.getPerimeter());
+        println("Rectangle Area: " + rectangle.getArea());
     }
 
     public static void ex10() {//Average speed in miles

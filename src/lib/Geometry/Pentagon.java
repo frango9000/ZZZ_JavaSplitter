@@ -58,11 +58,11 @@ public class Pentagon extends Polygon {
     }
 
 
-    public double area() {
+    public double getArea() {
         return (numOfSides * sideLength * sideLength) / (4f * Math.tan(Math.PI / numOfSides));
     }
 
-    public double perimeter() {
+    public double getPerimeter() {
         return radius * numOfSides;
     }
 
@@ -75,8 +75,8 @@ public class Pentagon extends Polygon {
                 ",\n numOfSides=" + numOfSides +
                 ",\n center=" + center.toString() +
                 ",\n points=" + Arrays.toString(points) +
-                ",\n area=" + area() +
-                ",\n perimeter=" + perimeter() +
+                ",\n getArea=" + getArea() +
+                ",\n getPerimeter=" + getPerimeter() +
                 '}';
     }
 }

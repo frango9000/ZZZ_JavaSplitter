@@ -91,12 +91,12 @@ public abstract class DaLi_04 {
 
     }
 
-    public static void ex01() {//Geometry: area of a pentagon
+    public static void ex01() {//Geometry: getArea of a pentagon
         print("Enter radius: ");
         float r = scanFloat();
         Pentagon pentagon = new Pentagon(r);
 
-        IO.print("Area of the pentagon is %4.2f", pentagon.area());
+        IO.print("Area of the pentagon is %4.2f", pentagon.getArea());
 
     }
 
@@ -125,18 +125,18 @@ public abstract class DaLi_04 {
         Triangle t1 = new Triangle(charlotte, atlanta, orlando);
         Triangle t2 = new Triangle(charlotte, atlanta, savannah);
 
-        IO.print("Area : %4.8f", (t1.area() + t2.area()));
+        IO.print("Area : %4.8f", (t1.getArea() + t2.getArea()));
     }
 
-    public static void ex04() {//Geometry: area of a hexagon
+    public static void ex04() {//Geometry: getArea of a hexagon
         print("Enter sideLength of hexagon: ");
         float side = scanFloat();
 
         Hexagon hexagon = new Hexagon(side);
-        IO.print("Area is %4.8f", hexagon.area());
+        IO.print("Area is %4.8f", hexagon.getArea());
     }
 
-    public static void ex05() {//Geometry: area of a regular polygon
+    public static void ex05() {//Geometry: getArea of a regular polygon
         print("Enter num of sides ");
         int numOfSides = scanInt();
 
@@ -144,7 +144,7 @@ public abstract class DaLi_04 {
         float side = scanFloat();
 
         Polygon polygon = new Polygon(numOfSides, side);
-        IO.print("Area is %4.8f", polygon.area());
+        IO.print("Area is %4.8f", polygon.getArea());
     }
 
     public static void ex06() {//Random points on a circle)

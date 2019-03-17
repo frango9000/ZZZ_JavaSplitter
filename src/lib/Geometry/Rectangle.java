@@ -4,7 +4,7 @@ import lib.Math.Algebra;
 
 import java.util.Random;
 
-public class Rectangle extends Polygon {
+public class Rectangle extends GeometricObject {
     public static final int NUM_OF_SIDES = 4;
     private double width;
     private double height;
@@ -81,11 +81,11 @@ public class Rectangle extends Polygon {
         center = pointA.middlePoint(pointB).middlePoint(pointC.middlePoint(pointD));
     }
 
-    public double perimeter() {
+    public double getPerimeter() {
         return 2 * (width + height);
     }
 
-    public double area() {
+    public double getArea() {
         return width * height;
     }
 

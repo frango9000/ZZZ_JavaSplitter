@@ -27,8 +27,8 @@ public abstract class DaLi_09 {
         Rectangle rect1 = new Rectangle(4, 40);
         Rectangle rect2 = new Rectangle(3.5, 35.9);
 
-        println("%.3f %.3f %.3f %.3f", rect1.getWidth(), rect1.getHeight(), rect1.area(), rect1.perimeter());
-        println("%.3f %.3f %.3f %.3f", rect2.getWidth(), rect2.getHeight(), rect2.area(), rect2.perimeter());
+        println("%.3f %.3f %.3f %.3f", rect1.getWidth(), rect1.getHeight(), rect1.getArea(), rect1.getPerimeter());
+        println("%.3f %.3f %.3f %.3f", rect2.getWidth(), rect2.getHeight(), rect2.getArea(), rect2.getPerimeter());
     }
 
     public static void ex02() {//The Stock class
@@ -67,7 +67,7 @@ public abstract class DaLi_09 {
 
     public static void ex08() {//Geometry: n-sided regular polygon
         Polygon poli1 = new Polygon(5, 6);
-        print(poli1.area() + "" + poli1.perimeter());
+        print(poli1.getArea() + "" + poli1.getPerimeter());
     }
 
     public static void ex09() {//Algebra: quadratic equations

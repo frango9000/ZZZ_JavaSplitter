@@ -1,6 +1,6 @@
 package lib.Geometry;
 
-public class Triangle extends Polygon {
+public class Triangle extends GeometricObject {
 
     public static final int NUM_OF_SIDES = 3;
     public Point pointA;
@@ -38,7 +38,7 @@ public class Triangle extends Polygon {
         }
     }
 
-    public static double area(Point pointA, Point pointB, Point pointC) {
+    public static double getArea(Point pointA, Point pointB, Point pointC) {
         return Math.abs(pointA.x * (pointB.y - pointC.y) + pointB.x * (pointC.y - pointA.y) + pointC.x * (pointA.y - pointB.y)) / 2;
     }
 
@@ -46,12 +46,12 @@ public class Triangle extends Polygon {
         return (((sideAB + sideBC) > sideCA) && ((sideBC + sideCA) > sideAB) && ((sideCA + sideAB) > sideBC));
     }
 
-    public double area() {
+    public double getArea() {
         double s = (sideAB + sideBC + sideCA) / 2;
         return Math.sqrt(s * (s - sideAB) * (s - sideBC) * (s - sideCA));
     }
 
-    public double perimeter() {
+    public double getPerimeter() {
         return sideAB + sideBC + sideCA;
     }
 
@@ -60,10 +60,10 @@ public class Triangle extends Polygon {
     }
 
     public boolean contains(Point point) {
-        double ABC = area(pointA, pointB, pointC);
-        double ABP = area(pointA, pointB, point);
-        double APC = area(pointA, point, pointC);
-        double PBC = area(point, pointB, pointC);
+        double ABC = getArea(pointA, pointB, pointC);
+        double ABP = getArea(pointA, pointB, point);
+        double APC = getArea(pointA, point, pointC);
+        double PBC = getArea(point, pointB, pointC);
         return ABP + APC + PBC == ABC;
     }
 
@@ -84,9 +84,14 @@ public class Triangle extends Polygon {
                 ",\n angleA=" + Math.toDegrees(angleA) +
                 ", angleB=" + Math.toDegrees(angleB) +
                 ", angleC=" + Math.toDegrees(angleC) +
-                "\n area=" + area() +
-                "\n perimeter=" + perimeter() +
+                "\n getArea=" + getArea() +
+                "\n getPerimeter=" + getPerimeter() +
                 '}';
         return string;
+    }
+
+    @Override
+    public int compareTo(GeometricObject o) {
+        return 0;
     }
 }

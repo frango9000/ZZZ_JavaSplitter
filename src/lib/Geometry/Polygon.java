@@ -1,6 +1,6 @@
 package lib.Geometry;
 
-public class Polygon {
+public class Polygon extends GeometricObject{
     private int numOfSides;
     private double sideLength;
     private Point center;
@@ -44,11 +44,11 @@ public class Polygon {
         this.center = center;
     }
 
-    public double area() {
+    public double getArea() {
         return (numOfSides * sideLength * sideLength) / (4 * Math.tan(Math.PI / numOfSides));
     }
 
-    public double perimeter() {
+    public double getPerimeter() {
         return sideLength * numOfSides;
     }
 

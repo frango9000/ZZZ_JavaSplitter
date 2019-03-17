@@ -13,6 +13,6 @@ public class Prism extends Triangle {
     }
 
     public double volume() {
-        return area() * length;
+        return getArea() * length;
     }
 }

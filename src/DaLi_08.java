@@ -508,7 +508,7 @@ public abstract class DaLi_08 {
         DaLi_03.ex25();
     }
 
-    public static void ex32() {//Geometry: area of a triangle
+    public static void ex32() {//Geometry: getArea of a triangle
         DaLi_03.ex27();
     }
 
@@ -529,7 +529,7 @@ public abstract class DaLi_08 {
         double[] areas = new double[triangles.length];
 
         for (int i = 0; i < triangles.length; i++) {
-            areas[i] = triangles[i].area();
+            areas[i] = triangles[i].getArea();
         }
         ArrayManip.bubbleSort(areas);
         ArrayManip.printArray(areas, 3);

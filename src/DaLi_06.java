@@ -405,14 +405,14 @@ public abstract class DaLi_06 {
         println("Day of week is " + Calendar.dayOfWeekString(2019, 2, 4));
     }
 
-    public static void ex35() {//Geometry: area of a pentagon
+    public static void ex35() {//Geometry: getArea of a pentagon
         Pentagon pentagon = new Pentagon(true, 5.5);
-        print(pentagon.area());
+        print(pentagon.getArea());
     }
 
-    public static void ex36() {//Geometry: area of a regular polygon
+    public static void ex36() {//Geometry: getArea of a regular polygon
         Polygon polygon = new Polygon(5, 6.5);
-        print(polygon.area());
+        print(polygon.getArea());
     }
 
     public static void ex37() {//Format an integer

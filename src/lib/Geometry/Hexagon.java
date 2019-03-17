@@ -8,11 +8,11 @@ public class Hexagon extends Polygon {
         this.sideLength = sideLength;
     }
 
-    public double area() {
+    public double getArea() {
         return (NUM_OF_SIDES * sideLength * sideLength) / (4 * Math.tan(Math.PI / NUM_OF_SIDES));
     }
 
-    public double perimeter() {
+    public double getPerimeter() {
         return sideLength * NUM_OF_SIDES;
     }
 }

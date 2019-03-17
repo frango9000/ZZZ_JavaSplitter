@@ -33,7 +33,7 @@ public abstract class DaLi_02 {
                 "triangle: ");
         float sides = IO.scanFloat();
         Prism triangle = new Prism(sides, sides);
-        println("Area : " + triangle.area());
+        println("Area : " + triangle.getArea());
         println("Volume of prism : " + triangle.volume());
     }
 
@@ -183,12 +183,12 @@ public abstract class DaLi_02 {
         println("The distance between the two points is :" + Point.distanceBetweenPoints(x1, y1, x2, y2));
     }
 
-    public static void ex16() {//Geometry: area of a hexagon
+    public static void ex16() {//Geometry: getArea of a hexagon
         print("Enter the length of the hexagon side length: ");
         float sideLength = scanFloat();
 
         Hexagon hexagon = new Hexagon(sideLength);
-        println("The area of the hexagon is " + hexagon.area());
+        println("The getArea of the hexagon is " + hexagon.getArea());
     }
 
     public static void ex17() {//Science: wind-chill temperature
@@ -215,7 +215,7 @@ public abstract class DaLi_02 {
         println("( " + ax + ", " + ay + " )      ( " + bx + ", " + by + " )      ( " + mx + ", " + my + " )");
     }
 
-    public static void ex19() {//Geometry: area of a triangle
+    public static void ex19() {//Geometry: getArea of a triangle
         print("Enter point 1 x: ");
         float ax = scanFloat();
         print("Enter point 1 y: ");
@@ -230,7 +230,7 @@ public abstract class DaLi_02 {
         float cy = scanFloat();
 
         Triangle triangle = new Triangle(new Point(ax, ay), new Point(bx, by), new Point(cx, cy));
-        println("Area is : " + triangle.area());
+        println("Area is : " + triangle.getArea());
 
     }
 

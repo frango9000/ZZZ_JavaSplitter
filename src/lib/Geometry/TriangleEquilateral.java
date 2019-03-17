@@ -8,11 +8,11 @@ public class TriangleEquilateral extends Triangle {
         this.sideLength = sideLength;
     }
 
-    public double area() {
+    public double getArea() {
         return (Math.sqrt(3) / 4) * Math.pow(sideLength, 2);
     }
 
-    public double perimeter() {
+    public double getPerimeter() {
         return sideLength * NUM_OF_SIDES;
     }
 }
