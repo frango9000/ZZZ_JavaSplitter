@@ -20,8 +20,8 @@ public abstract class Randomizer {
         return random().nextInt(highBound);
     }
 
-    public static int randomInt(int lowBound, int highBound){
-        return lowBound + random().nextInt(highBound-lowBound);
+    public static int randomInt(int lowBound, int highBound) {
+        return lowBound + random().nextInt(highBound - lowBound);
     }
 
     public static double randomDouble() {
@@ -128,7 +128,7 @@ public abstract class Randomizer {
         return randomDoublesTable(rows, columns, 0, rows * columns);
     }
 
-    public static ArrayList<Integer> randomIntList(int elements, int lowBound, int highBound){
+    public static ArrayList<Integer> randomIntList(int elements, int lowBound, int highBound) {
         ArrayList<Integer> list = new ArrayList<>(elements);
         for (int i = 0; i < elements; i++) {
             list.add(randomInt(lowBound, highBound));
@@ -136,11 +136,11 @@ public abstract class Randomizer {
         return list;
     }
 
-    public static ArrayList<Integer> randomIntList(int elements, int highBound){
+    public static ArrayList<Integer> randomIntList(int elements, int highBound) {
         return randomIntList(elements, 0, highBound);
     }
 
-    public static ArrayList<Integer> randomIntList(int elements){
+    public static ArrayList<Integer> randomIntList(int elements) {
         return randomIntList(elements, 0, Integer.MAX_VALUE);
     }
 }

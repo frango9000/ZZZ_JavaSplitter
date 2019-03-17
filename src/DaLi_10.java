@@ -1,7 +1,7 @@
 import auxp.ch10.MyInteger;
 import auxp.ch10.MyString;
-import auxp.ch10.QueueOfIntegers;
-import auxp.ch10.StackOfIntegers;
+import auxp.ch12.QueueOfIntegers;
+import auxp.ch12.StackOfIntegers;
 import lib.Geometry.Circle;
 import lib.Geometry.Point;
 import lib.Geometry.Rectangle;

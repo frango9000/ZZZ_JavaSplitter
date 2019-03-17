@@ -6,7 +6,7 @@ public class Pentagon extends Polygon {
     public double radius;                       //radius of the circle formed by this.pentagon points
     public Point[] points = new Point[numOfSides];
 
-    protected Pentagon(){
+    protected Pentagon() {
         this.numOfSides = 5;
     }
 
@@ -24,7 +24,7 @@ public class Pentagon extends Polygon {
     }
 
     public Pentagon(double radius, Point center, double angleOfPoint0) {
-        this(radius,center);
+        this(radius, center);
         setPoints(angleOfPoint0);
     }
 

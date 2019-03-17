@@ -1,6 +1,6 @@
 package lib.Geometry;
 
-public class Circle extends GeometricObject{
+public class Circle extends GeometricObject {
     public double radius;
     public Point center;
 
