@@ -16,4 +16,11 @@ public abstract class GeometricObject implements Comparable<GeometricObject> {
         else return 0;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        GeometricObject go = (GeometricObject) obj;
+        return Double.compare(go.getArea(), getArea()) == 0;
+    }
 }

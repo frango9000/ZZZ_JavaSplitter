@@ -1,6 +1,7 @@
 import auxp.ch11.MyStack;
 import lib.Data.ListManip;
 import lib.Geometry.Circle;
+import lib.Geometry.Rectangle;
 import lib.Geometry.Square;
 import lib.Misc.Calendar;
 import lib.Misc.Randomizer;
@@ -13,7 +14,7 @@ import static lib.Misc.IO.println;
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex08();
+        ex10();
 
     }
 
@@ -47,19 +48,19 @@ public abstract class DaLi_13 {
         print(circle.compareTo(circle2));
         print(circle2.compareTo(circle));
     }
-    public static void ex07() {
+    public static void ex07() {//The Colorable interface
+    }
+    public static void ex08() {//Revise the MyStack class
         MyStack ms = new MyStack();
         ms.push("hi");
         MyStack m2 = ms.deepCopy();
         println(ms);
         println(m2);
     }
-    public static void ex08() {
+    public static void ex09() {//Enable Circle comparable
         Circle circle = new Circle(5);
         Circle circle2 = new Circle(6);
         print(circle.equals(circle2));
-    }
-    public static void ex09() {
     }
     public static void ex10() {
     }
