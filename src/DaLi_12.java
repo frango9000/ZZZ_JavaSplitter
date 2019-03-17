@@ -20,7 +20,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex27();
+        ex28();
 
     }
 
@@ -380,11 +380,21 @@ public abstract class DaLi_12 {
                 newStr.insert(8, '0');
                 files.get(i).renameTo(new File("src/auxp/ch12/e27/" + newStr.toString()));
             }
-
         }
-
     }
     public static void ex28() {
+        File f1 = new File("src/auxp/ch12/e28/");
+        ArrayList<File> files = new ArrayList<>();
+        FileIn.allSubFiles(f1,files);
+        for (int i = 0; i < files.size(); i++) {
+            String name = files.get(i).getName();
+            if(name.matches("Exercise\\d_\\d.txt")){
+
+                StringBuilder newStr = new StringBuilder(name);
+                newStr.insert(10, 0 + "");
+                files.get(i).renameTo(new File("src/auxp/ch12/e28/" + newStr.toString()));
+            }
+        }
     }
     public static void ex29() {
     }
