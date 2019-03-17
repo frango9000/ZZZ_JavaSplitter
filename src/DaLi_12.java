@@ -248,15 +248,12 @@ public abstract class DaLi_12 {
                 if (n.startsWith(id+""))
                     println(n);
             }
-
-
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-
     }
-    public static void ex22() {
+    public static void ex22() {//Replace text
+        ex20();
     }
     public static void ex23() {
     }
