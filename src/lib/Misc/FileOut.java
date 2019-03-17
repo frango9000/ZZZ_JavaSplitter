@@ -30,7 +30,7 @@ public class FileOut {
         g[f.length] = string;
         ArrayManip.bubbleSort(g);
         FileOut.printOnFile(file, g);
-        return ArrayManip.binarySearch(g,string);
+        return ArrayManip.binarySearch(g, string);
     }
 
     public static void appendOnFile(File file, String string) throws IOException {

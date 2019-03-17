@@ -19,11 +19,11 @@ public abstract class Randomizer {
         return random().nextDouble();
     }
 
-    public static double randomDouble(double highBound){
-        return randomDouble(0,highBound);
+    public static double randomDouble(double highBound) {
+        return randomDouble(0, highBound);
     }
 
-    public static double randomDouble(double lowBound, double highBound){
+    public static double randomDouble(double lowBound, double highBound) {
         double random = random().nextDouble();
         return lowBound + (random * (highBound - lowBound));
     }

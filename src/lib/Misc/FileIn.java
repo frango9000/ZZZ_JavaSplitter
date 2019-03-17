@@ -41,10 +41,10 @@ public class FileIn {
         return ArrayManip.binarySearch(fileS, line);
     }
 
-    public static void allSubFiles(File file, ArrayList<File> list){
-        if (!file.isDirectory()){
+    public static void allSubFiles(File file, ArrayList<File> list) {
+        if (!file.isDirectory()) {
             list.add(file);
-        }else {
+        } else {
             File[] contents = file.listFiles();
             assert contents != null;
             for (File content : contents) {

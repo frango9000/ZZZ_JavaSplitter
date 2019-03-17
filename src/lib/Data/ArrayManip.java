@@ -354,9 +354,9 @@ public abstract class ArrayManip {
         return -1;
     }
 
-    public static int linearSearch(String[] array, String match){
+    public static int linearSearch(String[] array, String match) {
         for (int i = 0; i < array.length; i++) {
-            if(array[i].contains(match))
+            if (array[i].contains(match))
                 return i;
         }
         return -1;
@@ -384,7 +384,7 @@ public abstract class ArrayManip {
             int mid = (low + high) / 2;
             if (find.compareTo(array[mid]) < 0)
                 high = mid - 1;
-            else if ( find.compareTo(array[mid]) == 0)
+            else if (find.compareTo(array[mid]) == 0)
                 return mid;
             else
                 low = mid + 1;

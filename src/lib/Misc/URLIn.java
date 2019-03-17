@@ -8,8 +8,8 @@ public class URLIn {
 
     public static String urlToString(URL url) throws IOException {
         StringBuilder content = new StringBuilder();
-        try(Scanner scan = new Scanner(url.openStream())){
-            while(scan.hasNext()){
+        try (Scanner scan = new Scanner(url.openStream())) {
+            while (scan.hasNext()) {
                 content.append(scan.nextLine()).append("\n");
             }
         }

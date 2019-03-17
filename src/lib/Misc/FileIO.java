@@ -5,10 +5,7 @@ import lib.Data.ArrayManip;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
-import java.util.Arrays;
 import java.util.Scanner;
-
-import static lib.Misc.IO.print;
 
 public class FileIO {
 
@@ -45,7 +42,7 @@ public class FileIO {
             e.printStackTrace();
         }
 
-        try(PrintWriter output = new PrintWriter(file)){
+        try (PrintWriter output = new PrintWriter(file)) {
             output.println(s2.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();

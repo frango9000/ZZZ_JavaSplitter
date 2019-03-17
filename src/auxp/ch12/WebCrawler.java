@@ -1,7 +1,8 @@
 package auxp.ch12;
 
-import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Scanner;
+
 public class WebCrawler {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -9,6 +10,7 @@ public class WebCrawler {
         String url = input.nextLine();
         crawler(url); // Traverse the Web from the a starting url
     }
+
     public static void crawler(String startingURL) {
         ArrayList<String> listOfPendingURLs = new ArrayList<>();
         ArrayList<String> listOfTraversedURLs = new ArrayList<>();
@@ -19,13 +21,14 @@ public class WebCrawler {
             if (!listOfTraversedURLs.contains(urlString)) {
                 listOfTraversedURLs.add(urlString);
                 System.out.println("Crawl " + urlString);
-                for (String s: getSubURLs(urlString)) {
+                for (String s : getSubURLs(urlString)) {
                     if (!listOfTraversedURLs.contains(s))
                         listOfPendingURLs.add(s);
                 }
             }
         }
     }
+
     public static ArrayList<String> getSubURLs(String urlString) {
         ArrayList<String> list = new ArrayList<>();
         try {
@@ -40,13 +43,11 @@ public class WebCrawler {
                     if (endIndex > 0) { // Ensure that a correct URL is found
                         list.add(line.substring(current, endIndex));
                         current = line.indexOf("http:", endIndex);
-                    }
-                    else
+                    } else
                         current = -1;
                 }
             }
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             System.out.println("Error: " + ex.getMessage());
         }
         return list;

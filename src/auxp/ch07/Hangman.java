@@ -10,7 +10,7 @@ import static lib.Misc.Randomizer.randomInt;
 
 public class Hangman {
 
-    public static void startGame(String[] words){
+    public static void startGame(String[] words) {
         if (words == null)
             words = new String[]{"water", "fishing", "natural", "programming"};
         String word = words[randomInt(4)];
