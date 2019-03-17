@@ -13,7 +13,7 @@ import static lib.Misc.IO.print;
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex05();
+        ex06();
 
     }
 
@@ -41,7 +41,11 @@ public abstract class DaLi_13 {
 
         print( circle.compareTo(square));
     }
-    public static void ex06() {
+    public static void ex06() {//The ComparableCircle class
+        Circle circle = new Circle(5);
+        Circle circle2 = new Circle(6);
+        print( circle.compareTo(circle2));
+        print( circle2.compareTo(circle));
     }
     public static void ex07() {
     }
