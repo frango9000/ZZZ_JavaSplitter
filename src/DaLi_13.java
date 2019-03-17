@@ -1,4 +1,5 @@
 import auxp.ch11.MyStack;
+import auxp.ch13.Rational;
 import lib.Data.ListManip;
 import lib.Geometry.*;
 import lib.Misc.Calendar;
@@ -80,9 +81,10 @@ public abstract class DaLi_13 {
     }
     public static void ex13() {
     }
-    public static void ex14() {
+    public static void ex14() {//Demonstrate the benefits of encapsulation
+        Rational rt = new Rational(10, 20);
     }
-    public static void ex15() {
+    public static void ex15() {//Use BigInteger for the Rational class
     }
     public static void ex16() {
     }
