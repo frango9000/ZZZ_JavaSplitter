@@ -1,7 +1,14 @@
+import lib.Data.ListManip;
+import lib.Misc.Randomizer;
+
+import java.util.ArrayList;
+
+import static lib.Misc.IO.print;
+
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex00();
+        ex02();
 
     }
 
@@ -9,7 +16,11 @@ public abstract class DaLi_13 {
     }
     public static void ex01() {
     }
-    public static void ex02() {
+    public static void ex02() {//Average ArrayList
+        ArrayList<Integer> list = Randomizer.randomIntList(10,100);
+        int sum = ListManip.sum(list);
+        double avg = (float)sum / list.size();
+        print(avg);
     }
     public static void ex03() {
     }

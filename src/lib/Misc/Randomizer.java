@@ -2,6 +2,7 @@ package lib.Misc;
 
 import lib.Data.ArrayManip;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -15,6 +16,14 @@ public abstract class Randomizer {
         return random().nextInt();
     }
 
+    public static int randomInt(int highBound) {//high bound is exclusive, low bound is 0
+        return random().nextInt(highBound);
+    }
+
+    public static int randomInt(int lowBound, int highBound){
+        return lowBound + random().nextInt(highBound-lowBound);
+    }
+
     public static double randomDouble() {
         return random().nextDouble();
     }
@@ -26,10 +35,6 @@ public abstract class Randomizer {
     public static double randomDouble(double lowBound, double highBound) {
         double random = random().nextDouble();
         return lowBound + (random * (highBound - lowBound));
-    }
-
-    public static int randomInt(int highBound) {//high bound is exclusive, low bound is 0
-        return random().nextInt(highBound);
     }
 
     public static int[] randomIntsArray(int elements, int lowBound, int highBound) {//high bound is exclusive
@@ -46,7 +51,7 @@ public abstract class Randomizer {
     }
 
     public static int[] randomIntsArray(int elements) {
-        return randomIntsArray(elements, elements);
+        return randomIntsArray(elements, Integer.MAX_VALUE);
     }
 
     public static int[][] randomIntsTable(int rows, int columns, int lowBound, int highBound) {
@@ -62,7 +67,7 @@ public abstract class Randomizer {
     }
 
     public static int[][] randomIntsTable(int rows, int columns) {
-        return randomIntsTable(rows, columns, 0, rows * columns);
+        return randomIntsTable(rows, columns, 0, Integer.MAX_VALUE);
     }
 
     public static int[] randomUniqueIntsArray(int elements, int lowBound, int highBound) {
@@ -86,7 +91,7 @@ public abstract class Randomizer {
     }
 
     public static int[] randomUniqueIntsArray(int elements) {
-        return randomUniqueIntsArray(elements, elements);
+        return randomUniqueIntsArray(elements, Integer.MAX_VALUE);
     }
 
     public static double[] randomDoublesArray(int elements, double lowBound, double highBound) {
@@ -123,4 +128,19 @@ public abstract class Randomizer {
         return randomDoublesTable(rows, columns, 0, rows * columns);
     }
 
+    public static ArrayList<Integer> randomIntList(int elements, int lowBound, int highBound){
+        ArrayList<Integer> list = new ArrayList<>(elements);
+        for (int i = 0; i < elements; i++) {
+            list.add(randomInt(lowBound, highBound));
+        }
+        return list;
+    }
+
+    public static ArrayList<Integer> randomIntList(int elements, int highBound){
+        return randomIntList(elements, 0, highBound);
+    }
+
+    public static ArrayList<Integer> randomIntList(int elements){
+        return randomIntList(elements, 0, Integer.MAX_VALUE);
+    }
 }
