@@ -1,4 +1,5 @@
 import lib.Data.ListManip;
+import lib.Misc.Calendar;
 import lib.Misc.Randomizer;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ import static lib.Misc.IO.print;
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex03();
+        ex04();
 
     }
 
@@ -28,6 +29,7 @@ public abstract class DaLi_13 {
         print(list.toString());
     }
     public static void ex04() {
+        print(Calendar.consoleCalendar(2019,3));
     }
     public static void ex05() {
     }
