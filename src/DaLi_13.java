@@ -34,7 +34,11 @@ public abstract class DaLi_13 {
     public static void ex04() {//Display calendars
         print(Calendar.consoleCalendar(2019,3));
     }
-    public static void ex05() {
+    public static void ex05() {//Enable GeometricObject comparable
+        Hexagon circle = new Hexagon(5);
+        Pentagon square = new Pentagon(10, null);
+
+        print( circle.compareTo(square));
     }
     public static void ex06() {
     }
