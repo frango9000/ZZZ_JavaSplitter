@@ -20,7 +20,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex25();
+        ex26();
 
     }
 
@@ -315,7 +315,7 @@ public abstract class DaLi_12 {
         }
     }
     public static void ex25() {//Process large dataset
-        File f1 = new File("src/auxp/ch12/e24ata.txt");
+        File f1 = new File("src/auxp/ch12/e24data.txt");
 
         ArrayList<Double> r0 = new ArrayList<>();
         ArrayList<Double> r1 = new ArrayList<>();
@@ -358,7 +358,14 @@ public abstract class DaLi_12 {
         println(av2 + "\n" + av2/r2.size());
 
     }
-    public static void ex26() {
+    public static void ex26() {//Create a directory
+        String newDir = scanNext("Enter a new dir name: ");
+        File f1 = new File("src/auxp/ch12/" + newDir + "/");
+        if(f1.exists())
+            println("Directory already exists");
+        else {
+            f1.mkdir();
+        }
     }
     public static void ex27() {
     }
