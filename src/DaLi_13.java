@@ -8,7 +8,7 @@ import static lib.Misc.IO.print;
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex02();
+        ex03();
 
     }
 
@@ -22,7 +22,10 @@ public abstract class DaLi_13 {
         double avg = (float)sum / list.size();
         print(avg);
     }
-    public static void ex03() {
+    public static void ex03() {//Sort ArrayList
+        ArrayList<Integer> list = Randomizer.randomIntList(10,100);
+        ListManip.sort(list);
+        print(list.toString());
     }
     public static void ex04() {
     }
