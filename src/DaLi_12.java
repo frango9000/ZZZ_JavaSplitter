@@ -437,11 +437,26 @@ public abstract class DaLi_12 {
         }
 
         int year = scanInt("Enter year: ");
-        String name = scanNext("Enter name: ");
 
-        try {
-            String[] web = URLIn.urlToArray(urls[year-2001]);
-            int r = ArrayManip.linearSearch(web, name);
+        URL pick = urls[year-2001];
+        try (Scanner scan = new Scanner(pick.openStream()).useDelimiter("\\n|\\t")){
+            //String[] web = URLIn.urlToArray();
+
+            ArrayList<String> namesM = new ArrayList<>();
+            ArrayList<String> namesF = new ArrayList<>();
+
+            while(scan.hasNextLine()){
+                scan.next();
+                namesM.add(scan.next());
+                scan.next();
+                namesF.add(scan.next());
+                scan.next();
+            }
+
+
+            char gen = scanChar("Enter a gender: ");
+            String name = scanNext("Enter name: ");
+            int r = gen == 'm' ? namesM.indexOf(name) : namesF.indexOf(name) ;
             println(name + " is ranked " + (r+1));
 
         } catch (IOException e) {
