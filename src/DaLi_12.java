@@ -20,7 +20,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex24();
+        ex25();
 
     }
 
@@ -314,7 +314,49 @@ public abstract class DaLi_12 {
             pw.close();
         }
     }
-    public static void ex25() {
+    public static void ex25() {//Process large dataset
+        File f1 = new File("src/auxp/ch12/e24ata.txt");
+
+        ArrayList<Double> r0 = new ArrayList<>();
+        ArrayList<Double> r1 = new ArrayList<>();
+        ArrayList<Double> r2 = new ArrayList<>();
+        String[] file = null;
+        try {
+            file = FileIn.fileToArray(f1);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        assert file != null;
+        for (String s : file) {
+            String[] line = s.split(" ");
+            switch (line[2]) {
+                case "0":
+                    r0.add(Double.parseDouble(line[3]));
+                    break;
+                case "1":
+                    r1.add(Double.parseDouble(line[3]));
+                    break;
+                default:
+                    r2.add(Double.parseDouble(line[3]));
+                    break;
+            }
+        }
+
+        double av0=0,av1=0,av2=0;
+        for (int i = 0; i < r0.size(); i++) {
+            av0 +=  r0.get(i);
+        }
+        for (int i = 0; i < r1.size(); i++) {
+            av1 +=  r1.get(i);
+        }
+        for (int i = 0; i < r2.size(); i++) {
+            av2 +=  r2.get(i);
+        }
+        println(av0 + "\n" + av0/r0.size());
+        println(av1 + "\n" + av1/r1.size());
+        println(av2 + "\n" + av2/r2.size());
+
     }
     public static void ex26() {
     }
