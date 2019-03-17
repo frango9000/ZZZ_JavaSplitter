@@ -1,7 +1,9 @@
 import auxp.ch07.Hangman;
-import lib.Data.ArrayManip;
 import lib.Math.NumberConverter;
-import lib.Misc.*;
+import lib.Misc.FileIO;
+import lib.Misc.FileIn;
+import lib.Misc.FileOut;
+import lib.Misc.Randomizer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -18,7 +20,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex31();
+        ex32();
 
     }
 
@@ -463,7 +465,47 @@ public abstract class DaLi_12 {
             e.printStackTrace();
         }
     }
-    public static void ex32() {
+    public static void ex32() {//Ranking summary
+        URL[] urls = new URL[10];
+        for (int i = 0; i < urls.length; i++) {
+            try {
+                urls[i] = new URL("http://liveexample.pearsoncmg.com/data/babynamesranking20" + String.format("%02d", i + 1) + ".txt");
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+        String[][] table = new String[10][];
+        println("Year Rank 1 Rank 2 Rank 3 Rank 4 Rank 5 Rank 1 Rank 2 Rank 3 Rank 4 Rank 5");
+        for (int i = 0; i < urls.length; i++) {
+            URL pick = urls[i];
+            try (Scanner scan = new Scanner(pick.openStream()).useDelimiter("\\n|\\t|\\n\\t")) {
+                //String[] web = URLIn.urlToArray();
+
+                ArrayList<String> namesM = new ArrayList<>();
+                ArrayList<String> namesF = new ArrayList<>();
+
+                for (int j = 0; j < 5; j++) {
+                    scan.next();
+                    namesM.add(scan.next());
+                    scan.next();
+                    namesF.add(scan.next());
+                    scan.next();
+                }
+                print((i + 2001) + " ");
+                for (int j = 0; j < namesF.size(); j++) {
+                    print(namesF.get(j));
+                }
+                for (int j = 0; j < namesM.size(); j++) {
+                    print(namesM.get(j) + " ");
+                }
+                println();
+                namesF.clear();
+                namesM.clear();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
     public static void ex33() {
     }
