@@ -20,7 +20,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex29();
+        ex30();
 
     }
 
@@ -367,7 +367,7 @@ public abstract class DaLi_12 {
             f1.mkdir();
         }
     }
-    public static void ex27() {
+    public static void ex27() {//Replace words
         File f1 = new File("src/auxp/ch12/e27/");
         ArrayList<File> files = new ArrayList<>();
         FileIn.allSubFiles(f1,files);
@@ -382,7 +382,7 @@ public abstract class DaLi_12 {
             }
         }
     }
-    public static void ex28() {
+    public static void ex28() {//Rename files
         File f1 = new File("src/auxp/ch12/e28/");
         ArrayList<File> files = new ArrayList<>();
         FileIn.allSubFiles(f1,files);
@@ -396,7 +396,7 @@ public abstract class DaLi_12 {
             }
         }
     }
-    public static void ex29() {
+    public static void ex29() {//Rename files
         File f1 = new File("src/auxp/ch12/e29/");
         ArrayList<File> files = new ArrayList<>();
         FileIn.allSubFiles(f1,files);
@@ -410,7 +410,23 @@ public abstract class DaLi_12 {
             }
         }
     }
-    public static void ex30() {
+    public static void ex30() {//Occurrences of each letter
+        int[] counts = new int['z'-'a'+1];
+
+        File in = new File("src/auxp/ch12/e13.txt");
+        try {
+            String file = FileIn.fileToString(in);
+
+            for (int i = 0; i < file.length(); i++) {
+                if(Character.isLetter(file.charAt(i)))
+                    counts[Character.toLowerCase(file.charAt(i))-'a']++;
+            }
+            for (int letter = 0; letter < counts.length; letter++) {
+                println("%c : %d", letter+'a', counts[letter]);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex31() {
     }
