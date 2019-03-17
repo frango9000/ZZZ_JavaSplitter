@@ -1,6 +1,7 @@
 import auxp.ch11.MyStack;
 import lib.Data.ListManip;
 import lib.Geometry.Circle;
+import lib.Geometry.Octagon;
 import lib.Geometry.Rectangle;
 import lib.Geometry.Square;
 import lib.Misc.Calendar;
@@ -14,7 +15,7 @@ import static lib.Misc.IO.println;
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex10();
+        ex11();
 
     }
 
@@ -67,7 +68,10 @@ public abstract class DaLi_13 {
         Rectangle r2 = new Rectangle(10,20);
         println(r1.equals(r2));
     }
-    public static void ex11() {
+    public static void ex11() {//The Octagon class
+        Octagon o1 = new Octagon(10);
+        Octagon o2 =(Octagon) o1.clone();
+        println(o1.equals(o2));
     }
     public static void ex12() {
     }

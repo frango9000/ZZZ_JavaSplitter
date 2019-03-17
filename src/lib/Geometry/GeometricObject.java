@@ -1,6 +1,6 @@
 package lib.Geometry;
 
-public abstract class GeometricObject implements Comparable<GeometricObject> {
+public abstract class GeometricObject implements Comparable<GeometricObject>, Cloneable {
 
     public abstract double getArea();
 
