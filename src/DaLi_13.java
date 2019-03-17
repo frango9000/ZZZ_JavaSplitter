@@ -2,6 +2,7 @@ import lib.Data.ListManip;
 import lib.Geometry.Circle;
 import lib.Geometry.Hexagon;
 import lib.Geometry.Pentagon;
+import lib.Geometry.Square;
 import lib.Misc.Calendar;
 import lib.Misc.Randomizer;
 
@@ -35,8 +36,8 @@ public abstract class DaLi_13 {
         print(Calendar.consoleCalendar(2019,3));
     }
     public static void ex05() {//Enable GeometricObject comparable
-        Hexagon circle = new Hexagon(5);
-        Pentagon square = new Pentagon(10, null);
+        Circle circle = new Circle(5);
+        Square square = new Square(10);
 
         print( circle.compareTo(square));
     }
