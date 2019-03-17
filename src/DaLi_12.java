@@ -1,4 +1,5 @@
 import auxp.ch07.Hangman;
+import auxp.ch12.WebCrawler;
 import lib.Math.NumberConverter;
 import lib.Misc.FileIO;
 import lib.Misc.FileIn;
@@ -507,6 +508,7 @@ public abstract class DaLi_12 {
             }
         }
     }
-    public static void ex33() {
+    public static void ex33() {//Web Crawler
+        WebCrawler.main(null);
     }
 }
