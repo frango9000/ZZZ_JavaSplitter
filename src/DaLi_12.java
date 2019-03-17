@@ -3,6 +3,7 @@ import lib.Math.NumberConverter;
 import lib.Misc.FileIO;
 import lib.Misc.FileIn;
 import lib.Misc.FileOut;
+import lib.Misc.Randomizer;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -19,7 +20,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex23();
+        ex24();
 
     }
 
@@ -282,7 +283,36 @@ public abstract class DaLi_12 {
             e.printStackTrace();
         }
     }
-    public static void ex24() {
+    public static void ex24() {//Create large dataset
+        File f1 = new File("src/auxp/ch12/e24data.txt");
+        PrintWriter pw = null;
+        String[] rank = {"assistant", "associate", "full"};
+
+        try {
+            pw = new PrintWriter(f1);
+
+            for (int i = 1; i <= 1000; i++) {
+                String fn = "FirstName" + i;
+                String ln = "LastName" + i;
+                int rk = Randomizer.randomInt(rank.length);
+                double sal;
+                switch(rk){
+                    case 0:
+                        sal = Randomizer.randomDouble(50000, 80000);break;
+                    case 1:
+                        sal = Randomizer.randomDouble(60000, 110000);break;
+                    default:
+                        sal = Randomizer.randomDouble(75000, 130000);break;
+                }
+                pw.printf("%s %s %s %.2f%n", fn,ln,rk,sal);
+
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }finally{
+            assert pw != null;
+            pw.close();
+        }
     }
     public static void ex25() {
     }

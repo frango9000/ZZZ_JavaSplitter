@@ -19,12 +19,21 @@ public abstract class Randomizer {
         return random().nextDouble();
     }
 
-    public static int randomInt(int bound) {
-        return random().nextInt(bound);
+    public static double randomDouble(double highBound){
+        return randomDouble(0,highBound);
     }
 
-    public static int[] randomIntsArray(int elements, int lowBound, int highBound) {
-        int range = highBound - lowBound + 1;
+    public static double randomDouble(double lowBound, double highBound){
+        double random = random().nextDouble();
+        return lowBound + (random * (highBound - lowBound));
+    }
+
+    public static int randomInt(int highBound) {//high bound is exclusive, low bound is 0
+        return random().nextInt(highBound);
+    }
+
+    public static int[] randomIntsArray(int elements, int lowBound, int highBound) {//high bound is exclusive
+        int range = highBound - lowBound;
         int[] randoms = new int[elements];
         for (int i = 0; i < randoms.length; i++) {
             randoms[i] = randomInt(range) + lowBound;
@@ -60,7 +69,7 @@ public abstract class Randomizer {
         int range = highBound - lowBound + 1;
         if (range >= elements) {
             int[] randoms = new int[elements];
-            Arrays.fill(randoms, -2147483648);
+            Arrays.fill(randoms, Integer.MAX_VALUE);
             for (int i = 0; i < randoms.length; ) {
                 int randomCandidate = randomInt(range) + lowBound;
                 if (!ArrayManip.contains(randoms, randomCandidate)) {
