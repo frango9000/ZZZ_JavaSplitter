@@ -17,7 +17,7 @@ import static lib.Misc.IO.*;
 public abstract class DaLi_12 {
 
     public static void main(String[] args) {
-        ex20();
+        ex21();
 
     }
 
@@ -202,8 +202,8 @@ public abstract class DaLi_12 {
         File f1 = new File("src/auxp/ch12/e19authors.txt");
         File f2 = new File("src/auxp/ch12/e19books.txt");
 
-        String newA = "Fernie";
-        String newB = "The Wall";
+        String newA = "Franky";
+        String newB = "The Bridge 1";
         int i =-1;
         try {
             i = FileOut.addToSortedFile(f1, newA);
@@ -212,8 +212,8 @@ public abstract class DaLi_12 {
         }
         if(i > -1){
             try {
-                FileOut.printOnFile(f2, i + "," + newB);
-            } catch (FileNotFoundException e) {
+                FileOut.appendOnFile(f2, i + "," + newB);
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
@@ -234,7 +234,27 @@ public abstract class DaLi_12 {
             }
         }
     }
-    public static void ex21() {
+    public static void ex21() {//Using two files
+        File f1 = new File("src/auxp/ch12/e19authors.txt");
+        File f2 = new File("src/auxp/ch12/e19books.txt");
+
+        String find = "Franky";
+
+        try (Scanner scan = new Scanner(f2)){
+            int id = FileIn.binarySearch(f1, find);
+
+            while (scan.hasNextLine()){
+                String n =scan.nextLine();
+                if (n.startsWith(id+""))
+                    println(n);
+            }
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
     }
     public static void ex22() {
     }
