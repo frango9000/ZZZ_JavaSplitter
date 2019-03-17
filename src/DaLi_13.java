@@ -112,7 +112,8 @@ public abstract class DaLi_13 {
     }
     public static void ex20() {
     }
-    public static void ex21() {
+    public static void ex21() {//Algebra: vertex form equations
+
     }
     public static void ex22() {
     }
