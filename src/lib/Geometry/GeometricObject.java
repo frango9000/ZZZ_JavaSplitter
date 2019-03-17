@@ -23,4 +23,13 @@ public abstract class GeometricObject implements Comparable<GeometricObject>, Cl
         GeometricObject go = (GeometricObject) obj;
         return Double.compare(go.getArea(), getArea()) == 0;
     }
+
+
+    public static double sumAreas(GeometricObject[] objects){
+        double sum = 0;
+        for (GeometricObject object : objects) {
+            sum += object.getArea();
+        }
+        return sum;
+    }
 }

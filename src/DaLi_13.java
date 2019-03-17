@@ -1,9 +1,6 @@
 import auxp.ch11.MyStack;
 import lib.Data.ListManip;
-import lib.Geometry.Circle;
-import lib.Geometry.Octagon;
-import lib.Geometry.Rectangle;
-import lib.Geometry.Square;
+import lib.Geometry.*;
 import lib.Misc.Calendar;
 import lib.Misc.Randomizer;
 
@@ -15,7 +12,7 @@ import static lib.Misc.IO.println;
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex11();
+        ex12();
 
     }
 
@@ -73,7 +70,13 @@ public abstract class DaLi_13 {
         Octagon o2 =(Octagon) o1.clone();
         println(o1.equals(o2));
     }
-    public static void ex12() {
+    public static void ex12() {//Sum the areas of geometric objects
+        Circle c1 = new Circle(5);
+        Rectangle r1 = new Rectangle(10,20);
+        Octagon o1 = new Octagon(10);
+
+        GeometricObject[] objects = {c1,r1,o1};
+        println(GeometricObject.sumAreas(objects));
     }
     public static void ex13() {
     }
