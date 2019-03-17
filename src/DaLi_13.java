@@ -62,7 +62,10 @@ public abstract class DaLi_13 {
         Circle circle2 = new Circle(6);
         print(circle.equals(circle2));
     }
-    public static void ex10() {
+    public static void ex10() {//Enable Rectangle comparable
+        Rectangle r1 = new Rectangle(10,20);
+        Rectangle r2 = new Rectangle(10,20);
+        println(r1.equals(r2));
     }
     public static void ex11() {
     }
