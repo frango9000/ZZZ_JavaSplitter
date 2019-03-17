@@ -1,4 +1,5 @@
 import auxp.ch11.MyStack;
+import auxp.ch13.BigRational;
 import auxp.ch13.Complex;
 import auxp.ch13.Rational;
 import auxp.ch13.RationalCalculator;
@@ -15,7 +16,7 @@ import static lib.Misc.IO.println;
 public abstract class DaLi_13 {
 
     public static void main(String[] args) {
-        ex17();
+        ex19();
 
     }
 
@@ -96,7 +97,14 @@ public abstract class DaLi_13 {
         Complex num = new Complex(1,2);
         print(num.abs());
     }
-    public static void ex18() {
+    public static void ex18() {//Use the Rational class
+        int c = 1;
+        Rational sum = new Rational();
+        while(c<50){
+            sum = sum.add(new Rational(c, c+1));
+            c+=2;
+        }
+        print(sum.toString());
     }
     public static void ex19() {
     }
