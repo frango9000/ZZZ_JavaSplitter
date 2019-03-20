@@ -12,8 +12,8 @@ import javafx.stage.Stage;
 
 public class DaLi_14 extends Application {
 
-    public static int WIDTH = 1000;
-    public static int HEIGHT = 600;
+    private static int WIDTH = 1000;
+    private static int HEIGHT = 600;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
