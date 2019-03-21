@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import lib.Misc.Randomizer;
@@ -19,7 +20,7 @@ public class DaLi_14 extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane pane = ex02();
+        Pane pane = ex03();
 
 
         Scene scene = new Scene(pane);
@@ -90,7 +91,19 @@ public class DaLi_14 extends Application {
         }
         return pane;
     }
-    public static void ex03() {
+    public static Pane ex03() {//Display three tile
+        Pane pane = new HBox();
+
+        int elements = 3;
+
+        while (elements > 0){
+            int rand = Randomizer.randomInt(1,53);
+            Image i = new Image("res/image/card/" + (rand+1) + ".png");
+            ImageView iv = new ImageView(i);
+            pane.getChildren().add(iv);
+            elements--;
+        }
+        return pane;
     }
     public static void ex04() {
     }
