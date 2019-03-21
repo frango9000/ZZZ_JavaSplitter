@@ -8,6 +8,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import lib.Misc.Randomizer;
 
 
 public class DaLi_14 extends Application {
@@ -18,7 +19,7 @@ public class DaLi_14 extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane pane = ex01();
+        Pane pane = ex02();
 
 
         Scene scene = new Scene(pane);
@@ -32,7 +33,7 @@ public class DaLi_14 extends Application {
     }
     public static void ex00() {
     }
-    public static Pane ex01() {
+    public static Pane ex01() {//Display images
         GridPane pane = new GridPane();
         pane.setAlignment(Pos.CENTER);
         pane.setPadding(new Insets(10));
@@ -61,7 +62,33 @@ public class DaLi_14 extends Application {
         }
         return pane;
     }
-    public static void ex02() {
+    public static Pane ex02() {//Tic-tac-toe board
+        GridPane pane = new GridPane();
+        pane.setAlignment(Pos.CENTER);
+        pane.setPadding(new Insets(10));
+        pane.setHgap(10);
+        pane.setVgap(10);
+
+        String[] images = {"res/image/o.gif", "res/image/x.gif"};
+        for (int row = 0, col = 0, kt = 1; kt < 10; kt++) {
+
+            int random = Randomizer.randomInt(3);
+
+            switch (random){
+                case 0:
+                    pane.add(new ImageView(images[0]), col, row);break;
+                case 1:
+                    pane.add(new ImageView(images[1]), col, row);break;
+                case 2:
+                    pane.add(new Pane(), col, row);break;
+            }
+            col++;
+            if(col == 3){
+                row++;
+                col = 0;
+            }
+        }
+        return pane;
     }
     public static void ex03() {
     }
