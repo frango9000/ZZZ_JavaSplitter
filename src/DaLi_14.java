@@ -30,7 +30,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex04();
+        Pane pane = ex05();
 
 
         Scene scene = new Scene(pane);
@@ -136,7 +136,32 @@ public class DaLi_14 extends Application {
         }
         return pane;
     }
-    public static void ex05() {
+    public static Pane ex05() {//Characters around circle
+        appendToTitle("E05");
+        Pane pane = new Pane();
+
+        pane.setMinWidth(200);
+        pane.setMinHeight(200);
+
+        char[] title = "Learning JavaFX ".toCharArray();
+        int anglePerChar = 360/title.length+1;
+        int radius = 70;
+        int centerX = 95, centerY = 100;
+
+
+        int angle = 0;
+        for (int i = 0; i < title.length; i++) {
+            Text ch = new Text(title[i]+"");
+            ch.setX(centerX+(radius*Math.sin(Math.toRadians(90-angle))));
+            ch.setY(centerY+(radius*Math.cos(Math.toRadians(90-angle))));
+            ch.setRotate(90+angle);
+            ch.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, 20));
+
+            angle += anglePerChar;
+            pane.getChildren().add(ch);
+        }
+        return pane;
+
     }
     public static void ex06() {
     }
