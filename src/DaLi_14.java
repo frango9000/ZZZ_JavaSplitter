@@ -8,6 +8,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lib.Misc.Randomizer;
 
@@ -17,14 +22,18 @@ public class DaLi_14 extends Application {
     private static int WIDTH = 1000;
     private static int HEIGHT = 600;
 
+    private static Stage stage;
+
     @Override
     public void start(Stage primaryStage) throws Exception {
+        stage = primaryStage;
+        primaryStage.setTitle("C14");
 
-        Pane pane = ex03();
+
+        Pane pane = ex04();
 
 
         Scene scene = new Scene(pane);
-        primaryStage.setTitle("Chapter 14");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
@@ -32,9 +41,13 @@ public class DaLi_14 extends Application {
     public static void main(String[] args) {
         Application.launch(args);
     }
+    public static void appendToTitle(String str){
+        stage.setTitle(stage.getTitle() + "_" + str);
+    }
     public static void ex00() {
     }
     public static Pane ex01() {//Display images
+        appendToTitle("E01");
         GridPane pane = new GridPane();
         pane.setAlignment(Pos.CENTER);
         pane.setPadding(new Insets(10));
@@ -64,6 +77,7 @@ public class DaLi_14 extends Application {
         return pane;
     }
     public static Pane ex02() {//Tic-tac-toe board
+        appendToTitle("E02");
         GridPane pane = new GridPane();
         pane.setAlignment(Pos.CENTER);
         pane.setPadding(new Insets(10));
@@ -92,6 +106,7 @@ public class DaLi_14 extends Application {
         return pane;
     }
     public static Pane ex03() {//Display three tile
+        appendToTitle("E03");
         Pane pane = new HBox();
 
         int elements = 3;
@@ -105,7 +120,21 @@ public class DaLi_14 extends Application {
         }
         return pane;
     }
-    public static void ex04() {
+    public static Pane ex04() {//Color and font
+        appendToTitle("E04");
+        HBox pane =new HBox(0);
+        pane.setMinHeight(100);
+        pane.setAlignment(Pos.CENTER);
+        pane.setPadding(new Insets(10));
+
+        for (int i = 0; i < 5; i++) {
+            Text text = new Text("JavaFX");
+            text.setFont(Font.font("Times New Roman", FontWeight.BOLD, FontPosture.ITALIC, 24));
+            text.setRotate(90);
+            text.setFill(Color.color(Math.random(), Math.random(), Math.random(), Math.random()));
+            pane.getChildren().add(text);
+        }
+        return pane;
     }
     public static void ex05() {
     }
