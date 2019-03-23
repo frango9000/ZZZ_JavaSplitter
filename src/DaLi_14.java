@@ -193,7 +193,7 @@ public class DaLi_14 extends Application {
         }
         return checkers;
     }
-    public static void ex07() {
+    public static void ex07() {//Display random 0 or 1
     }
     public static void ex08() {
     }
