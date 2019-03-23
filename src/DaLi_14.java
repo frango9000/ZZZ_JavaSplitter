@@ -160,8 +160,8 @@ public class DaLi_14 extends Application {
 
 
         int angle = 0;
-        for (int i = 0; i < title.length; i++) {
-            Text ch = new Text(title[i] + "");
+        for (char c : title) {
+            Text ch = new Text(c + "");
             ch.setX(centerX + (radius * Math.sin(Math.toRadians(90 - angle))));
             ch.setY(centerY + (radius * Math.cos(Math.toRadians(90 - angle))));
             ch.setRotate(90 + angle);
