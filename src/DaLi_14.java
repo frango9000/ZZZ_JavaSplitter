@@ -8,13 +8,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lib.Misc.Randomizer;
+
 
 
 public class DaLi_14 extends Application {
@@ -30,7 +33,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex05();
+        Pane pane = ex06();
 
 
         Scene scene = new Scene(pane);
@@ -170,7 +173,25 @@ public class DaLi_14 extends Application {
         return pane;
 
     }
-    public static void ex06() {
+    public static Pane ex06() {//Game: display a checkerboard
+        appendToTitle("E06");
+        VBox checkers = new VBox();
+        for (int i = 0; i < 4; i++) {
+            HBox h1 = new HBox();
+            HBox h2 = new HBox();
+            for (int j = 0; j < 17; j++) {
+                if ( j == 8 ) continue;
+                Color w = new Color(1, 1, 1, 1);
+                Color b = new Color(0, 0, 0, 1);
+                Rectangle r = new Rectangle(40, 40, (j%2 == 0)? w : b);
+                if(j<8)
+                    h1.getChildren().add(r);
+                else
+                    h2.getChildren().add(r);
+            }
+            checkers.getChildren().addAll(h1,h2);
+        }
+        return checkers;
     }
     public static void ex07() {
     }
