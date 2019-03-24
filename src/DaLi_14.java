@@ -204,7 +204,7 @@ public class DaLi_14 extends Application {
                 sp.setAlignment(Pos.CENTER);
                 Rectangle r = new Rectangle(20,20);
                 r.setFill(null);
-                Text n = new Text("1");
+                Text n = new Text(Randomizer.randomInt(2) == 0? "0":"1");
                 r.setArcHeight(10);
                 r.setArcWidth(10);
                 r.setStroke(Color.GRAY);
