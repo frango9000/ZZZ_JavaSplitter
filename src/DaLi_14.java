@@ -5,10 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -33,7 +30,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex06();
+        Pane pane = ex07();
 
 
         Scene scene = new Scene(pane);
@@ -193,7 +190,30 @@ public class DaLi_14 extends Application {
         }
         return checkers;
     }
-    public static void ex07() {//Display random 0 or 1
+    public static Pane ex07() {//Display random 0 or 1
+        VBox vb = new VBox();
+        vb.setAlignment(Pos.CENTER);
+        vb.setPadding(new Insets(3));
+        vb.setSpacing(2);
+        for (int i = 0; i < 10; i++) {
+            HBox hb = new HBox();
+            hb.setAlignment(Pos.CENTER);
+            hb.setSpacing(2);
+            for (int j = 0; j < 10; j++) {
+                StackPane sp = new StackPane();
+                sp.setAlignment(Pos.CENTER);
+                Rectangle r = new Rectangle(20,20);
+                r.setFill(null);
+                Text n = new Text("1");
+                r.setArcHeight(10);
+                r.setArcWidth(10);
+                r.setStroke(Color.GRAY);
+                sp.getChildren().addAll(r,n);
+                hb.getChildren().add(sp);
+            }
+            vb.getChildren().add(hb);
+        }
+        return vb;
     }
     public static void ex08() {
     }
