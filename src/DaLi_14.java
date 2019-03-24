@@ -7,6 +7,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -33,7 +36,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex08();
+        Pane pane = ex09();
 
 
         Scene scene = new Scene(pane);
@@ -233,7 +236,34 @@ public class DaLi_14 extends Application {
         }
         return gp;
     }
-    public static void ex09() {
+    public static Pane ex09() {//Create four taichi
+        GridPane gp = new GridPane();
+        gp.setPadding(new Insets(3 ,4,5,2));
+        gp.setVgap(3);
+        gp.setHgap(3);
+        gp.setAlignment(Pos.CENTER);
+
+        for (int row = 0; row < 2; row++) {
+            for (int col = 0; col < 2; col++) {
+                Pane stack = new Pane();
+
+                Circle c = new Circle(50, 50, 45);
+                c.setFill(null);
+                c.setStroke(Color.BLACK);
+                int startAngle = 30;
+                for (int i = 0; i < 4; i++) {
+                    startAngle += 90;
+                    Arc arc = new Arc(50,50,35,35,startAngle,35);
+                    arc.setFill(Color.BLUE);
+                    arc.setType(ArcType.ROUND);
+                    stack.getChildren().add(arc);
+                }
+
+                stack.getChildren().add(c);
+                gp.add(stack, col, row);
+            }
+        }
+        return gp;
     }
     public static void ex10() {
     }
