@@ -1,6 +1,5 @@
 package auxp.ch14;
 
-import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -16,31 +15,31 @@ public class MyCylinder extends Pane {
         setMinWidth(10.0);
     }
 
-    public void paint(){
+    public void paint() {
         double centerX = getWidth() / 2;
         double radiusX = getWidth() * 0.8 / 2;
         double centerY = getHeight() / 2;
         double radiusY = radiusX * 0.25;
 
-        double length = getHeight() * 0.8 /2;
+        double length = getHeight() * 0.8 / 2;
 
         setPadding(new Insets(5));
-        Ellipse ellipse = new Ellipse(centerX, centerY-length+radiusY, radiusX, radiusY);
+        Ellipse ellipse = new Ellipse(centerX, centerY - length + radiusY, radiusX, radiusY);
         ellipse.setFill(Color.WHITE);
         ellipse.setStroke(Color.BLACK);
 
 
-        Arc arc1 = new Arc(centerX, centerY+length-radiusY, radiusX, radiusY, 180, 180);
+        Arc arc1 = new Arc(centerX, centerY + length - radiusY, radiusX, radiusY, 180, 180);
         arc1.setFill(null);
         arc1.setStroke(Color.BLACK);
 
-        Arc arc2 = new Arc(centerX, centerY+length-radiusY, radiusX, radiusY, 0, 180);
-        arc2.getStrokeDashArray().addAll(6.0,21.0);
+        Arc arc2 = new Arc(centerX, centerY + length - radiusY, radiusX, radiusY, 0, 180);
+        arc2.getStrokeDashArray().addAll(6.0, 21.0);
         arc2.setFill(null);
         arc2.setStroke(Color.BLACK);
 
-        Line lineL = new Line(centerX-radiusX,centerY+radiusY-length, centerX-radiusX, centerY-radiusY+length);
-        Line lineR = new Line(centerX+radiusX,centerY+radiusY-length, centerX+radiusX, centerY-radiusY+length);
+        Line lineL = new Line(centerX - radiusX, centerY + radiusY - length, centerX - radiusX, centerY - radiusY + length);
+        Line lineR = new Line(centerX + radiusX, centerY + radiusY - length, centerX + radiusX, centerY - radiusY + length);
 
         getChildren().clear();
         getChildren().addAll(ellipse, arc1, arc2, lineL, lineR);
