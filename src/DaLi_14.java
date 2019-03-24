@@ -1,3 +1,4 @@
+import auxp.ch14.MyCylinder;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -7,10 +8,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Arc;
-import javafx.scene.shape.ArcType;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -18,8 +16,6 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lib.Misc.Randomizer;
 
-import java.util.ArrayList;
-import java.util.Deque;
 import java.util.LinkedList;
 
 
@@ -36,7 +32,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex09();
+        Pane pane = ex10();
 
 
         Scene scene = new Scene(pane);
@@ -265,7 +261,11 @@ public class DaLi_14 extends Application {
         }
         return gp;
     }
-    public static void ex10() {
+    public static Pane ex10() {//Display a cylinder
+        Pane pane = new MyCylinder();
+        pane.setMinHeight(100);
+        pane.setMinWidth(50);
+        return pane;
     }
     public static void ex11() {
     }
