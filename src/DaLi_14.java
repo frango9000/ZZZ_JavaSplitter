@@ -15,6 +15,9 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lib.Misc.Randomizer;
 
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.LinkedList;
 
 
 public class DaLi_14 extends Application {
@@ -30,7 +33,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex07();
+        Pane pane = ex08();
 
 
         Scene scene = new Scene(pane);
@@ -215,7 +218,20 @@ public class DaLi_14 extends Application {
         }
         return vb;
     }
-    public static void ex08() {
+    public static Pane ex08() {//Display 54 cards
+        GridPane gp = new GridPane();
+        LinkedList<ImageView> ll = new LinkedList<>();
+
+        for (int i = 0; i < 54; i++) {
+            ll.offer(new ImageView(new Image("res/image/card/" + (i + 1) + ".png")));
+        }
+
+        for (int row = 0; ll.peek() != null; row++) {
+            for (int col = 0; ll.peek() != null && col < 13; col++) {
+                gp.add(ll.poll(), col, row);
+            }
+        }
+        return gp;
     }
     public static void ex09() {
     }
