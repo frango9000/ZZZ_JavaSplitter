@@ -40,8 +40,8 @@ public class Circle extends GeometricObject {
 
     public Point pointOnAngle(double degrees) {
         double angleInRadians = Math.toRadians(degrees);
-        double x = radius * Math.cos(angleInRadians);
-        double y = radius * Math.sin(angleInRadians);
+        double x = radius * Math.cos(angleInRadians) + center.x;
+        double y = radius * Math.sin(angleInRadians) + center.y;
 
         Point point = new Point(x, y);
         return point;

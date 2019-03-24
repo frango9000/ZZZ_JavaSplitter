@@ -2,12 +2,15 @@ package lib.Geometry;
 
 public class Square extends Polygon {
 
-    protected Square() {
-        numOfSides = 4;
+    public Square() {
+        super(2);
     }
 
     public Square(double sideLength) {
-        this();
-        this.sideLength = sideLength;
+        super(2, sideLength);
+    }
+
+    public Square(double radius, boolean dummy) {
+        super(2, radius, dummy);
     }
 }

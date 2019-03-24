@@ -5,7 +5,7 @@ import lib.Math.Algebra;
 import java.util.Random;
 
 public class Rectangle extends GeometricObject {
-    public static final int NUM_OF_SIDES = 4;
+    private final int numOfSides = 4;
     private double width;
     private double height;
     private Point center;

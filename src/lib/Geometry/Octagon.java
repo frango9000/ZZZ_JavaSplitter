@@ -3,12 +3,15 @@ package lib.Geometry;
 public class Octagon extends Polygon implements Cloneable {
 
     public Octagon() {
-        numOfSides = 8;
+        super(8);
     }
 
     public Octagon(double sideLength) {
-        this();
-        this.sideLength = sideLength;
+        super(8,sideLength);
+    }
+
+    public Octagon(double radius, boolean dummy){
+        super(8, radius, dummy);
     }
 
     @Override

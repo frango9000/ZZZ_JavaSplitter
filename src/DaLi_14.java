@@ -1,4 +1,5 @@
 import auxp.ch14.MyCylinder;
+import auxp.ch14.UglySmiley;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -21,9 +22,6 @@ import java.util.LinkedList;
 
 public class DaLi_14 extends Application {
 
-    private static int WIDTH = 1000;
-    private static int HEIGHT = 600;
-
     private static Stage stage;
 
     @Override
@@ -32,7 +30,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex10();
+        Pane pane = ex11();
 
 
         Scene scene = new Scene(pane);
@@ -62,7 +60,9 @@ public class DaLi_14 extends Application {
             Image f = new Image(images[i]);
             ImageView iv = new ImageView(f);
 
+            int HEIGHT = 600;
             iv.setFitHeight(HEIGHT / 2);
+            int WIDTH = 1000;
             iv.setFitWidth(WIDTH / 2);
 
             switch (i) {
@@ -263,11 +263,14 @@ public class DaLi_14 extends Application {
     }
     public static Pane ex10() {//Display a cylinder
         Pane pane = new MyCylinder();
-        pane.setMinHeight(100);
-        pane.setMinWidth(50);
         return pane;
     }
-    public static void ex11() {
+    public static Pane ex11() {//Paint a smiley fac
+        stage.setMinHeight(150);
+        stage.setMinWidth(100);
+        stage.setHeight(150);
+        stage.setWidth(100);
+        return new UglySmiley();
     }
     public static void ex12() {
     }

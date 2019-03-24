@@ -9,6 +9,13 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Line;
 
 public class MyCylinder extends Pane {
+    public MyCylinder() {
+        setHeight(200);
+        setWidth(100);
+        setMinHeight(100.0);
+        setMinWidth(10.0);
+    }
+
     public void paint(){
         double centerX = getWidth() / 2;
         double radiusX = getWidth() * 0.8 / 2;
