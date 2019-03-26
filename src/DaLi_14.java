@@ -35,16 +35,12 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex13();
+        Pane pane = ex12();
 
 
         Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
         primaryStage.show();
-    }
-
-    public static Pane ex13() {
-        return new Chart2();
     }
 
     public static void main(String[] args) {
@@ -283,6 +279,9 @@ public class DaLi_14 extends Application {
     }
     public static Pane ex12() {//Display a bar chart
         return new Chart1();
+    }
+    public static Pane ex13() {//Display a pie chart
+        return new Chart2();
     }
     public static void ex14() {
     }
