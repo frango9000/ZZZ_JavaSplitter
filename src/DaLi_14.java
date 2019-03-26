@@ -1,7 +1,4 @@
-import auxp.ch14.Chart1;
-import auxp.ch14.Chart2;
-import auxp.ch14.MyCylinder;
-import auxp.ch14.UglySmiley;
+import auxp.ch14.*;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -283,7 +280,8 @@ public class DaLi_14 extends Application {
     public static Pane ex13() {//Display a pie chart
         return new Chart2();
     }
-    public static void ex14() {
+    public static Pane ex14() {//Display a rectanguloid
+        return new Rectanguloid();
     }
     public static void ex15() {
     }
