@@ -29,6 +29,20 @@ public class DaLi_14 extends Application {
 
     private static Stage stage;
 
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        stage = primaryStage;
+        primaryStage.setTitle("C14");
+
+
+        Pane pane = ex13();
+
+
+        Scene scene = new Scene(pane);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
     public static Pane ex13() {
         return new Chart2();
     }
@@ -269,20 +283,6 @@ public class DaLi_14 extends Application {
     }
     public static Pane ex12() {//Display a bar chart
         return new Chart1();
-    }
-
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        stage = primaryStage;
-        primaryStage.setTitle("C14");
-
-
-        Pane pane = ex13();
-
-
-        Scene scene = new Scene(pane);
-        primaryStage.setScene(scene);
-        primaryStage.show();
     }
     public static void ex14() {
     }
