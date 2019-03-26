@@ -1,3 +1,5 @@
+import auxp.ch14.Chart1;
+import auxp.ch14.MainFX;
 import auxp.ch14.MyCylinder;
 import auxp.ch14.UglySmiley;
 import javafx.application.Application;
@@ -30,7 +32,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex11();
+        Pane pane = ex12();
 
 
         Scene scene = new Scene(pane);
@@ -272,7 +274,8 @@ public class DaLi_14 extends Application {
         stage.setWidth(100);
         return new UglySmiley();
     }
-    public static void ex12() {
+    public static Pane ex12() {//Display a bar chart
+        return new Chart1();
     }
     public static void ex13() {
     }
