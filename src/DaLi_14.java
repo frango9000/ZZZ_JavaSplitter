@@ -1,5 +1,5 @@
 import auxp.ch14.Chart1;
-import auxp.ch14.MainFX;
+import auxp.ch14.Chart2;
 import auxp.ch14.MyCylinder;
 import auxp.ch14.UglySmiley;
 import javafx.application.Application;
@@ -11,7 +11,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.*;
+import javafx.scene.shape.Arc;
+import javafx.scene.shape.ArcType;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -26,18 +29,8 @@ public class DaLi_14 extends Application {
 
     private static Stage stage;
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        stage = primaryStage;
-        primaryStage.setTitle("C14");
-
-
-        Pane pane = ex12();
-
-
-        Scene scene = new Scene(pane);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+    public static Pane ex13() {
+        return new Chart2();
     }
 
     public static void main(String[] args) {
@@ -277,7 +270,19 @@ public class DaLi_14 extends Application {
     public static Pane ex12() {//Display a bar chart
         return new Chart1();
     }
-    public static void ex13() {
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        stage = primaryStage;
+        primaryStage.setTitle("C14");
+
+
+        Pane pane = ex13();
+
+
+        Scene scene = new Scene(pane);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
     public static void ex14() {
     }

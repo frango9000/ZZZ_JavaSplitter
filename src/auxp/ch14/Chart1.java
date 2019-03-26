@@ -1,7 +1,9 @@
 package auxp.ch14;
 
-import javafx.scene.Scene;
-import javafx.scene.chart.*;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.layout.Pane;
 
 public class Chart1 extends Pane {
@@ -24,10 +26,9 @@ public class Chart1 extends Pane {
         bc.getData().add(series);
         bc.getStylesheets().add("auxp/ch14/chart.css");
         bc.setLegendVisible(false);
-        Pane pane = new Pane(bc);
 
         getChildren().clear();
-        getChildren().addAll(pane);
+        getChildren().add(bc);
     }
 
     @Override

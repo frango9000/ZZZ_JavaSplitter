@@ -2,9 +2,6 @@ package auxp.ch14;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
-import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.layout.Pane;
 
@@ -25,10 +22,8 @@ public class Chart2 extends Pane {
         final PieChart chart = new PieChart(pieChartData);
         chart.setTitle("Smartphone Brands");
 
-        Pane pane = new Pane(chart);
-
         getChildren().clear();
-        getChildren().addAll(pane);
+        getChildren().add(chart);
     }
 
     @Override
