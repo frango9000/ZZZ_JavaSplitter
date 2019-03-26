@@ -287,7 +287,8 @@ public class DaLi_14 extends Application {
         b.setPadding(new Insets(50));
         return b;
     }
-    public static void ex15() {
+    public static Pane ex15() {//Display a STOP sign
+        return new StopPane();
     }
     public static void ex16() {
     }

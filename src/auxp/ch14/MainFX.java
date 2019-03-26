@@ -11,7 +11,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane pane = new Rectanguloid();
+        Pane pane = new StopPane();
         Pane b = new StackPane();
 
         b.getChildren().add(pane);
