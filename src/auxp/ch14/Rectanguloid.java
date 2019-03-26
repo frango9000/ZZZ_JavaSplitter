@@ -1,11 +1,11 @@
 package auxp.ch14;
 
-import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.scene.shape.Rectangle;
 
-public class Rectanguloid extends BorderPane {
+public class Rectanguloid extends Pane {
     public void paint() {
         double angle = 45;
         double depth = 150;

@@ -54,7 +54,16 @@ public class Polygon extends GeometricObject {
         return points;
     }
 
-    public void setPoints(double angleOfPoint0) {
+    public double[] getPrimitivePoints(){
+        double[] ps = new double[points.length*2];
+        for (int point = 0, value = 0; point < points.length; point++) {
+            ps[value++] = points[point].x;
+            ps[value++] = points[point].y;
+        }
+        return ps;
+    }
+
+    public Point[] setPoints(double angleOfPoint0) {
         points = new Point[numOfSides];
         if (center == null) center = new Point(0, 0);
         double div = 360.0 / numOfSides;
@@ -64,6 +73,32 @@ public class Polygon extends GeometricObject {
         for (int point = 0; point < points.length; point++) {
             points[point] = circle.pointOnAngle(-90 + angleOfPoint0 + (point * div));
         }
+        return points;
+    }
+
+    public Point[] setVertexOnTop() {
+        setPoints(0);
+        return points;
+    }
+
+    public Point[] setTopHorizontal() {
+        double div = 360.0 / numOfSides;
+        setPoints(div / 2);
+        return points;
+    }
+
+    public Point[] setBotHorizontal() {
+        if (numOfSides % 2 == 0)
+            setTopHorizontal();
+        else setVertexOnTop();
+        return points;
+    }
+
+    public Point[] setBotOnVertex() {
+        if (numOfSides % 2 != 0)
+            setTopHorizontal();
+        else setVertexOnTop();
+        return points;
     }
 
     public double getArea() {

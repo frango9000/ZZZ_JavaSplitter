@@ -32,7 +32,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex12();
+        Pane pane = ex14();
 
 
         Scene scene = new Scene(pane);
@@ -281,7 +281,11 @@ public class DaLi_14 extends Application {
         return new Chart2();
     }
     public static Pane ex14() {//Display a rectanguloid
-        return new Rectanguloid();
+        Pane b = new StackPane(new Rectanguloid());
+        b.setPrefSize(600,600);
+        b.setMinSize(200, 200);
+        b.setPadding(new Insets(50));
+        return b;
     }
     public static void ex15() {
     }
