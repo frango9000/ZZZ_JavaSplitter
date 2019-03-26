@@ -11,12 +11,12 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane pane = new StopPane();
+        Pane pane = new MyGrid();
         Pane b = new StackPane();
 
-        b.getChildren().add(pane);
         b.setPadding(new Insets(50));
-        Scene scene = new Scene(b);
+
+        Scene scene = new Scene(pane);
         primaryStage.setTitle("Test");
         primaryStage.setWidth(500);
         primaryStage.setHeight(500);

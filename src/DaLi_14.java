@@ -29,10 +29,12 @@ public class DaLi_14 extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
+        stage.setHeight(300);
+        stage.setWidth(300);
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex14();
+        Pane pane = ex16();
 
 
         Scene scene = new Scene(pane);
@@ -290,7 +292,9 @@ public class DaLi_14 extends Application {
     public static Pane ex15() {//Display a STOP sign
         return new StopPane();
     }
-    public static void ex16() {
+    public static Pane ex16() {//Display a 4 * 4 grid
+        return new MyGrid();
+
     }
     public static void ex17() {
     }
