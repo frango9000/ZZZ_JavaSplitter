@@ -8,15 +8,13 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Arc;
-import javafx.scene.shape.ArcType;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lib.Geometry.Point;
 import lib.Misc.Randomizer;
 
 import java.util.LinkedList;
@@ -34,7 +32,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex19();
+        Pane pane = ex21();
 
 
         Scene scene = new Scene(pane);
@@ -306,7 +304,24 @@ public class DaLi_14 extends Application {
     public static Pane ex20() {//Draw an arrow line
         return new RandArrow();
     }
-    public static void ex21() {
+    public static Pane ex21() {//Two circles and their distance
+        Pane pane = new Pane();
+        double x1 = Randomizer.randomDouble(stage.getWidth());
+        double y1 = Randomizer.randomDouble(stage.getHeight());
+
+        double x2 = Randomizer.randomDouble(stage.getWidth());
+        double y2 = Randomizer.randomDouble(stage.getHeight());
+
+        Line l = new Line(x1,y1,x2,y2);
+        Circle c1 = new Circle(x1,y1,15);
+        Circle c2 = new Circle(x2,y2,15);
+
+        double distance = new Point(x1,y1).distanceBetweenPoints(new Point(x2,y2));
+        Point mp = new Point(x1,y1).middlePoint(new Point(x2,y2));
+        Text t = new Text(mp.x,mp.y , String.format("%.3f",distance));
+
+        pane.getChildren().addAll(c1,c2,l,t);
+        return pane;
     }
     public static void ex22() {
     }
