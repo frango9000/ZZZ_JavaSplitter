@@ -11,7 +11,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane pane = new MyGrid();
+        Pane pane = new MyHangman();
         Pane b = new StackPane();
 
         b.setPadding(new Insets(50));

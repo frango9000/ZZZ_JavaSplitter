@@ -29,12 +29,12 @@ public class DaLi_14 extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        stage.setHeight(300);
-        stage.setWidth(300);
+        stage.setHeight(500);
+        stage.setWidth(500);
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex16();
+        Pane pane = ex17();
 
 
         Scene scene = new Scene(pane);
@@ -266,8 +266,7 @@ public class DaLi_14 extends Application {
         return gp;
     }
     public static Pane ex10() {//Display a cylinder
-        Pane pane = new MyCylinder();
-        return pane;
+        return new MyCylinder();
     }
     public static Pane ex11() {//Paint a smiley fac
         stage.setMinHeight(150);
@@ -295,7 +294,8 @@ public class DaLi_14 extends Application {
     public static Pane ex16() {//Display a 4 * 4 grid
         return new MyGrid(4);
     }
-    public static void ex17() {
+    public static Pane ex17() {//Game: hangman
+        return new MyHangman();
     }
     public static void ex18() {
     }
