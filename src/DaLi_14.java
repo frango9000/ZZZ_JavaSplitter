@@ -16,6 +16,7 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lib.Geometry.Point;
 import lib.Misc.Randomizer;
+import lib.MyFX.ToolFX;
 
 import java.util.LinkedList;
 
@@ -32,7 +33,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex21();
+        Pane pane = ex22();
 
 
         Scene scene = new Scene(pane);
@@ -323,7 +324,24 @@ public class DaLi_14 extends Application {
         pane.getChildren().addAll(c1,c2,l,t);
         return pane;
     }
-    public static void ex22() {
+    public static Pane ex22() {//Connect two circles
+        Pane pane = new Pane();
+        double x1 = Randomizer.randomDouble(stage.getWidth());
+        double y1 = Randomizer.randomDouble(stage.getHeight());
+
+        double x2 = Randomizer.randomDouble(stage.getWidth());
+        double y2 = Randomizer.randomDouble(stage.getHeight());
+
+        Line l = new Line(x1,y1,x2,y2);
+        Circle c1 = new Circle(x1,y1,15);
+        Circle c2 = new Circle(x2,y2,15);
+        ToolFX.setFillStroke(Color.WHITE, Color.BLACK, c1,c2);
+
+        Text t1 = new Text(x1,y1 , "1");
+        Text t2 = new Text(x2,y2 , "2");
+
+        pane.getChildren().addAll(l,c1,c2,t1,t2);
+        return pane;
     }
     public static void ex23() {
     }
