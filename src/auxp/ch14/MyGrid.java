@@ -4,11 +4,19 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Line;
 
 public class MyGrid extends Pane {
+    private int size;
+
+    public MyGrid() {
+        this(8);
+    }
+
+    public MyGrid(int size) {
+        this.size = size;
+    }
+
     public void paint() {
         double width = getWidth();
         double height = getHeight();
-
-        int size = 8;
 
         getChildren().clear();
         for (int i = 1; i < size; i++) {

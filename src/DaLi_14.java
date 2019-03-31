@@ -293,8 +293,7 @@ public class DaLi_14 extends Application {
         return new StopPane();
     }
     public static Pane ex16() {//Display a 4 * 4 grid
-        return new MyGrid();
-
+        return new MyGrid(4);
     }
     public static void ex17() {
     }
