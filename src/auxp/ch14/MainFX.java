@@ -11,7 +11,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane pane = new MySine();
+        Pane pane = new RandArrow();
 
         Pane b = new StackPane(pane);
         b.setPadding(new Insets(0));

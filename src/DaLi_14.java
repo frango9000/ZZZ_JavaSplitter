@@ -303,7 +303,8 @@ public class DaLi_14 extends Application {
     public static Pane ex19() {//Plot the sine and tangent functions
         return new MySine();
     }
-    public static void ex20() {
+    public static Pane ex20() {//Draw an arrow line
+        return new RandArrow();
     }
     public static void ex21() {
     }
