@@ -164,7 +164,7 @@ public abstract class DaLi_04 {
     public static void ex07() {//Corner point coordinates
         print("Enter radius of pentagon: ");
         float radius = scanFloat();
-        Pentagon pentagon = new Pentagon(radius,true);
+        Pentagon pentagon = new Pentagon(radius, true);
         pentagon.setPoints(0);
         println(pentagon.toString());
     }

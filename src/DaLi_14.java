@@ -42,7 +42,6 @@ public class DaLi_14 extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
     public static void main(String[] args) {
         Application.launch(args);
     }
@@ -184,16 +183,16 @@ public class DaLi_14 extends Application {
             HBox h1 = new HBox();
             HBox h2 = new HBox();
             for (int j = 0; j < 17; j++) {
-                if ( j == 8 ) continue;
+                if (j == 8) continue;
                 Color w = new Color(1, 1, 1, 1);
                 Color b = new Color(0, 0, 0, 1);
-                Rectangle r = new Rectangle(40, 40, (j%2 == 0)? w : b);
-                if(j<8)
+                Rectangle r = new Rectangle(40, 40, (j % 2 == 0) ? w : b);
+                if (j < 8)
                     h1.getChildren().add(r);
                 else
                     h2.getChildren().add(r);
             }
-            checkers.getChildren().addAll(h1,h2);
+            checkers.getChildren().addAll(h1, h2);
         }
         return checkers;
     }
@@ -209,13 +208,13 @@ public class DaLi_14 extends Application {
             for (int j = 0; j < 10; j++) {
                 StackPane sp = new StackPane();
                 sp.setAlignment(Pos.CENTER);
-                Rectangle r = new Rectangle(20,20);
+                Rectangle r = new Rectangle(20, 20);
                 r.setFill(null);
-                Text n = new Text(Randomizer.randomInt(2) == 0? "0":"1");
+                Text n = new Text(Randomizer.randomInt(2) == 0 ? "0" : "1");
                 r.setArcHeight(10);
                 r.setArcWidth(10);
                 r.setStroke(Color.GRAY);
-                sp.getChildren().addAll(r,n);
+                sp.getChildren().addAll(r, n);
                 hb.getChildren().add(sp);
             }
             vb.getChildren().add(hb);
@@ -239,7 +238,7 @@ public class DaLi_14 extends Application {
     }
     public static Pane ex09() {//Create four taichi
         GridPane gp = new GridPane();
-        gp.setPadding(new Insets(3 ,4,5,2));
+        gp.setPadding(new Insets(3, 4, 5, 2));
         gp.setVgap(3);
         gp.setHgap(3);
         gp.setAlignment(Pos.CENTER);
@@ -254,7 +253,7 @@ public class DaLi_14 extends Application {
                 int startAngle = 30;
                 for (int i = 0; i < 4; i++) {
                     startAngle += 90;
-                    Arc arc = new Arc(50,50,35,35,startAngle,35);
+                    Arc arc = new Arc(50, 50, 35, 35, startAngle, 35);
                     arc.setFill(Color.BLUE);
                     arc.setType(ArcType.ROUND);
                     stack.getChildren().add(arc);
@@ -284,7 +283,7 @@ public class DaLi_14 extends Application {
     }
     public static Pane ex14() {//Display a rectanguloid
         Pane b = new StackPane(new Rectanguloid());
-        b.setPrefSize(600,600);
+        b.setPrefSize(600, 600);
         b.setMinSize(200, 200);
         b.setPadding(new Insets(50));
         return b;
@@ -315,15 +314,15 @@ public class DaLi_14 extends Application {
         double x2 = Randomizer.randomDouble(stage.getWidth());
         double y2 = Randomizer.randomDouble(stage.getHeight());
 
-        Line l = new Line(x1,y1,x2,y2);
-        Circle c1 = new Circle(x1,y1,15);
-        Circle c2 = new Circle(x2,y2,15);
+        Line l = new Line(x1, y1, x2, y2);
+        Circle c1 = new Circle(x1, y1, 15);
+        Circle c2 = new Circle(x2, y2, 15);
 
-        double distance = new Point(x1,y1).distanceBetweenPoints(new Point(x2,y2));
-        Point mp = new Point(x1,y1).middlePoint(new Point(x2,y2));
-        Text t = new Text(mp.x,mp.y , String.format("%.3f",distance));
+        double distance = new Point(x1, y1).distanceBetweenPoints(new Point(x2, y2));
+        Point mp = new Point(x1, y1).middlePoint(new Point(x2, y2));
+        Text t = new Text(mp.x, mp.y, String.format("%.3f", distance));
 
-        pane.getChildren().addAll(c1,c2,l,t);
+        pane.getChildren().addAll(c1, c2, l, t);
         return pane;
     }
     public static Pane ex22() {//Connect two circles
@@ -334,15 +333,15 @@ public class DaLi_14 extends Application {
         double x2 = Randomizer.randomDouble(stage.getWidth());
         double y2 = Randomizer.randomDouble(stage.getHeight());
 
-        Line l = new Line(x1,y1,x2,y2);
-        Circle c1 = new Circle(x1,y1,15);
-        Circle c2 = new Circle(x2,y2,15);
-        ToolFX.setFillStroke(Color.WHITE, Color.BLACK, c1,c2);
+        Line l = new Line(x1, y1, x2, y2);
+        Circle c1 = new Circle(x1, y1, 15);
+        Circle c2 = new Circle(x2, y2, 15);
+        ToolFX.setFillStroke(Color.WHITE, Color.BLACK, c1, c2);
 
-        Text t1 = new Text(x1,y1 , "1");
-        Text t2 = new Text(x2,y2 , "2");
+        Text t1 = new Text(x1, y1, "1");
+        Text t2 = new Text(x2, y2, "2");
 
-        pane.getChildren().addAll(l,c1,c2,t1,t2);
+        pane.getChildren().addAll(l, c1, c2, t1, t2);
         return pane;
     }
     public static Pane ex23() {//Geometry: two rectangles
@@ -356,21 +355,21 @@ public class DaLi_14 extends Application {
         int w2 = scanInt("w2: ");
         int h2 = scanInt("h2: ");
 
-        Rectangle r1 = new Rectangle(x1,y1,w1,h1);
-        Rectangle r2 = new Rectangle(x2,y2,w2,h2);
+        Rectangle r1 = new Rectangle(x1, y1, w1, h1);
+        Rectangle r2 = new Rectangle(x2, y2, w2, h2);
 
-        lib.Geometry.Rectangle rr1 = new lib.Geometry.Rectangle(w1, h1, new Point(x1,y1));
-        lib.Geometry.Rectangle rr2 = new lib.Geometry.Rectangle(w2, h2, new Point(x2,y2));
+        lib.Geometry.Rectangle rr1 = new lib.Geometry.Rectangle(w1, h1, new Point(x1, y1));
+        lib.Geometry.Rectangle rr2 = new lib.Geometry.Rectangle(w2, h2, new Point(x2, y2));
 
         Text label = new Text(300, 400, "");
 
-        if(rr1.contains(rr2))
+        if (rr1.contains(rr2))
             label.setText("r1 contains r2");
         else if (rr1.overlaps(rr2))
             label.setText("r1 overlaps r2");
         else label.setText("r1 not in r2");
-        ToolFX.setFillStroke(null,Color.BLACK, r1,r2);
-        return new Pane(r1,r2,label);
+        ToolFX.setFillStroke(null, Color.BLACK, r1, r2);
+        return new Pane(r1, r2, label);
 
     }
     public static void ex24() {

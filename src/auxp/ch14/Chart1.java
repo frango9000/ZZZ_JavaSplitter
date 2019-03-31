@@ -16,7 +16,7 @@ public class Chart1 extends Pane {
 
         CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();
-        BarChart<String, Number> bc = new BarChart<String, Number>(xAxis,yAxis);
+        BarChart<String, Number> bc = new BarChart<String, Number>(xAxis, yAxis);
 
         XYChart.Series series = new XYChart.Series();
         series.getData().add(new XYChart.Data<>("Apple", 20));

@@ -6,12 +6,11 @@ import lib.Misc.Randomizer;
 
 public class RandArrow extends Pane {
 
+    double x1, x2, y1, y2;
     private double width;
     private double height;
-    double x1,x2,y1,y2;
 
-
-    public void paint(){
+    public void paint() {
         width = getWidth();
         height = getHeight();
         x1 = Randomizer.randomDouble(width);
@@ -20,17 +19,17 @@ public class RandArrow extends Pane {
         x2 = Randomizer.randomDouble(width);
         y2 = Randomizer.randomDouble(height);
 
-        Line main = new Line(x1,y1,x2,y2);
-        lib.Geometry.Line angled = new lib.Geometry.Line(x1,y1,x2,y2);
+        Line main = new Line(x1, y1, x2, y2);
+        lib.Geometry.Line angled = new lib.Geometry.Line(x1, y1, x2, y2);
 
-        double length = angled.getLength()*0.25;
+        double length = angled.getLength() * 0.25;
         double angle = angled.getAngle();
 
-        Line l = new Line(x1,y1,(x1+(length*Math.sin(Math.toRadians(angle+180+90-15)))), (y1+(length*Math.cos(Math.toRadians(angle+180+90-15)))));
-        Line r = new Line(x1,y1,(x1+(length*Math.sin(Math.toRadians(angle-75)))), (y1+(length*Math.cos(Math.toRadians(angle-75)))));
+        Line l = new Line(x1, y1, (x1 + (length * Math.sin(Math.toRadians(angle + 180 + 90 - 15)))), (y1 + (length * Math.cos(Math.toRadians(angle + 180 + 90 - 15)))));
+        Line r = new Line(x1, y1, (x1 + (length * Math.sin(Math.toRadians(angle - 75)))), (y1 + (length * Math.cos(Math.toRadians(angle - 75)))));
 
         getChildren().clear();
-        getChildren().addAll(main,l,r);
+        getChildren().addAll(main, l, r);
 
     }
 

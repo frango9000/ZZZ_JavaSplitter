@@ -15,14 +15,14 @@ public class StopPane extends StackPane {
     public void paint() {
         double radius = Algebra.min(getHeight(), getWidth()) * 0.8 / 2;
         Octagon base = new Octagon(radius, true);
-        base.setCenter(new Point(getWidth()/2, getHeight()/2));
+        base.setCenter(new Point(getWidth() / 2, getHeight() / 2));
         Point[] ps = base.setTopHorizontal();
 
         Polygon sign = new Polygon(base.getPrimitivePoints());
         sign.setFill(Color.RED);
 
         Text stop = new Text("STOP");
-        stop.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, radius/2));
+        stop.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, radius / 2));
         stop.setFill(Color.WHITE);
 
 

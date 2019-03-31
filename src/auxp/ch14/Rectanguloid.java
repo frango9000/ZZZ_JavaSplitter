@@ -27,11 +27,11 @@ public class Rectanguloid extends Pane {
         Line lineTR = new Line(width, depth * Math.cos(Math.toRadians(angle)), getWidth(), 0);
 
         Line lineBL = new Line(0, getHeight(), depth * Math.sin(Math.toRadians(angle)), height);
-        Line lineBR = new Line(width,  getHeight(), getWidth(), height);
+        Line lineBR = new Line(width, getHeight(), getWidth(), height);
 
         getChildren().clear();
-        if(width>0 && height>0)
-            getChildren().addAll(r1,r2, lineTL, lineTR, lineBL, lineBR);
+        if (width > 0 && height > 0)
+            getChildren().addAll(r1, r2, lineTL, lineTR, lineBL, lineBR);
     }
 
     @Override

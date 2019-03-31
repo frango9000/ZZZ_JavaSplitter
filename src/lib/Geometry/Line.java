@@ -108,15 +108,15 @@ public class Line {
         return pointA.middlePoint(pointB);
     }
 
-    public double getLength(){
+    public double getLength() {
         return pointA.distanceBetweenPoints(pointB);
     }
 
-    public double getAngle(){
-        if(pointA.x >= pointB.x) {
-            if(pointA.y <= pointB.y) {
+    public double getAngle() {
+        if (pointA.x >= pointB.x) {
+            if (pointA.y <= pointB.y) {
                 return -(Math.toDegrees(Math.atan(slope)));
-            }else return 360 - (Math.toDegrees(Math.atan(slope)));
-        }else return 180 - (Math.toDegrees(Math.atan(slope)));
+            } else return 360 - (Math.toDegrees(Math.atan(slope)));
+        } else return 180 - (Math.toDegrees(Math.atan(slope)));
     }
 }

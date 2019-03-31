@@ -54,8 +54,8 @@ public class Polygon extends GeometricObject {
         return points;
     }
 
-    public double[] getPrimitivePoints(){
-        double[] ps = new double[points.length*2];
+    public double[] getPrimitivePoints() {
+        double[] ps = new double[points.length * 2];
         for (int point = 0, value = 0; point < points.length; point++) {
             ps[value++] = points[point].x;
             ps[value++] = points[point].y;
