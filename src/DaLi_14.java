@@ -20,6 +20,8 @@ import lib.MyFX.ToolFX;
 
 import java.util.LinkedList;
 
+import static lib.Misc.IO.scanInt;
+
 
 public class DaLi_14 extends Application {
 
@@ -33,7 +35,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex22();
+        Pane pane = ex23();
 
 
         Scene scene = new Scene(pane);
@@ -343,7 +345,33 @@ public class DaLi_14 extends Application {
         pane.getChildren().addAll(l,c1,c2,t1,t2);
         return pane;
     }
-    public static void ex23() {
+    public static Pane ex23() {//Geometry: two rectangles
+        int x1 = scanInt("x1: ");
+        int y1 = scanInt("y1: ");
+        int w1 = scanInt("w1: ");
+        int h1 = scanInt("h1: ");
+
+        int x2 = scanInt("x2: ");
+        int y2 = scanInt("y2: ");
+        int w2 = scanInt("w2: ");
+        int h2 = scanInt("h2: ");
+
+        Rectangle r1 = new Rectangle(x1,y1,w1,h1);
+        Rectangle r2 = new Rectangle(x2,y2,w2,h2);
+
+        lib.Geometry.Rectangle rr1 = new lib.Geometry.Rectangle(w1, h1, new Point(x1,y1));
+        lib.Geometry.Rectangle rr2 = new lib.Geometry.Rectangle(w2, h2, new Point(x2,y2));
+
+        Text label = new Text(300, 400, "");
+
+        if(rr1.contains(rr2))
+            label.setText("r1 contains r2");
+        else if (rr1.overlaps(rr2))
+            label.setText("r1 overlaps r2");
+        else label.setText("r1 not in r2");
+        ToolFX.setFillStroke(null,Color.BLACK, r1,r2);
+        return new Pane(r1,r2,label);
+
     }
     public static void ex24() {
     }
