@@ -2,22 +2,20 @@ package auxp.ch14;
 
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
-import javafx.scene.shape.Shape;
 import lib.Geometry.Point;
+import lib.MyFX.ToolFX;
 
 public class MyHangman extends Pane {
-    Point node1, node2, node3;
-    Point hang1, hang2;
     public void paint(){
-
+        Point node1, node2, node3;
         node1 = new Point(100, 33);
         node2 = new Point(100, 400);
         node3 = new Point(300,33);
 
+        Point hang1, hang2;
         hang1 = new Point(300,100);
         hang2 = new Point(300, 250);
 
@@ -35,17 +33,8 @@ public class MyHangman extends Pane {
         lLeg = new Line(hang2.x, hang2.y, hang2.x-50, hang2.y+50);
         rLeg = new Line(hang2.x, hang2.y, hang2.x+50, hang2.y+50);
 
-
-        setFillStroke(Color.WHITE, Color.BLACK, arc,head);
+        ToolFX.setFillStroke(Color.WHITE, Color.BLACK, arc,head);
         getChildren().addAll(frame1,frame2,frame3,arc,body,lArm,rArm,lLeg,rLeg,head);
-
-    }
-
-    public void setFillStroke(Paint fill, Paint stroke, Shape... shapes){
-        for (int i = 0; i < shapes.length; i++) {
-            shapes[i].setFill(fill);
-            shapes[i].setStroke(stroke);
-        }
     }
 
     @Override

@@ -34,7 +34,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex17();
+        Pane pane = ex18();
 
 
         Scene scene = new Scene(pane);
@@ -297,7 +297,8 @@ public class DaLi_14 extends Application {
     public static Pane ex17() {//Game: hangman
         return new MyHangman();
     }
-    public static void ex18() {
+    public static Pane ex18() {//Plot the cube function
+        return new QuadFunction();
     }
     public static void ex19() {
     }
