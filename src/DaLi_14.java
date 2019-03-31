@@ -34,7 +34,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex18();
+        Pane pane = ex19();
 
 
         Scene scene = new Scene(pane);
@@ -300,7 +300,8 @@ public class DaLi_14 extends Application {
     public static Pane ex18() {//Plot the cube function
         return new QuadFunction();
     }
-    public static void ex19() {
+    public static Pane ex19() {//Plot the sine and tangent functions
+        return new MySine();
     }
     public static void ex20() {
     }

@@ -11,15 +11,15 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane pane = new QuadFunction();
-        Pane b = new StackPane();
+        Pane pane = new MySine();
 
-        b.setPadding(new Insets(50));
+        Pane b = new StackPane(pane);
+        b.setPadding(new Insets(0));
 
-        Scene scene = new Scene(pane);
+        Scene scene = new Scene(b);
         primaryStage.setTitle("Test");
-        primaryStage.setWidth(500);
-        primaryStage.setHeight(500);
+        primaryStage.setWidth(800);
+        primaryStage.setHeight(400);
         primaryStage.setScene(scene);
         primaryStage.show();
 
