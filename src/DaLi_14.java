@@ -35,7 +35,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex23();
+        Pane pane = ex24();
 
 
         Scene scene = new Scene(pane);
@@ -372,7 +372,26 @@ public class DaLi_14 extends Application {
         return new Pane(r1, r2, label);
 
     }
-    public static void ex24() {
+    public static Pane ex24() {//Geometry: Inside a polygon?
+        double[] points = new double[8];
+        Pane pane = new Pane();
+        for (int i = 0; i < points.length; i+=2) {
+            points[ i ] = scanInt("x"+i/2+": ");
+            points[i+1] = scanInt("y"+i/2+": ");
+        }
+        double x = scanInt("x: ");
+        double y = scanInt("y: ");
+
+
+        Polygon polygon = new Polygon(points);
+        ToolFX.setFillStroke(null,Color.BLACK, polygon);
+        Circle point = new Circle(x,y, 5, Color.BLACK);
+
+        pane.getChildren().addAll(polygon,point);
+        Text text = new Text("The point is " +(polygon.contains(x, y) ? "" : "not ") + "inside the polygon  ");
+        text.setTranslateY(400);
+        pane.getChildren().add(text);
+        return pane;
     }
     public static void ex25() {
     }
