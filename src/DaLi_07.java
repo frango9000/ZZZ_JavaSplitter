@@ -16,7 +16,7 @@ import static lib.Misc.Randomizer.*;
 public abstract class DaLi_07 {
     public static void main(String[] args) {
 
-        ex35();
+        ex37();
 
     }
 
@@ -397,7 +397,7 @@ public abstract class DaLi_07 {
         int balls = 10;
         for (int i = 0; i < balls; i++) {
             int slot = 0;
-            String randomPath = Integer.toBinaryString(randomInt((int) Math.pow(2, slots.length)));
+            String randomPath = Integer.toBinaryString(randomInt(-1+(int) Math.pow(2, slots.length)));
             while (randomPath.length() != slots.length)
                 randomPath = "0" + randomPath;
             println(randomPath);
