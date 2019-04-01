@@ -37,7 +37,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex25();
+        Pane pane = ex26();
 
 
         Scene scene = new Scene(pane);
@@ -418,7 +418,17 @@ public class DaLi_14 extends Application {
         ToolFX.setFillStroke(null, Color.BLACK, circleFX,polygon);
         return new Pane(circleFX,polygon);
     }
-    public static void ex26() {//Use the ClockPane class
+    public static Pane ex26() {//Use the ClockPane class
+        Pane pane = new HBox();
+        ClockPane c1 = new ClockPane( 4, 20, 45);
+        StackPane p1 = new StackPane(c1);
+        p1.setMinSize(100, 100);
+        ClockPane c2 = new ClockPane(22, 46, 15);
+        StackPane p2 = new StackPane(c2);
+        p2.setMinSize(100, 100);
+
+        pane.getChildren().addAll(p1,p2);
+        return pane;
     }
     public static void ex27() {//Draw a detailed clock
     }
