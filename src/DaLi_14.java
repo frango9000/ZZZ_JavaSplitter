@@ -18,9 +18,11 @@ import lib.Geometry.Point;
 import lib.Misc.Randomizer;
 import lib.MyFX.ToolFX;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 import static lib.Misc.IO.scanInt;
+import static lib.Misc.Randomizer.randomInt;
 
 
 public class DaLi_14 extends Application {
@@ -35,7 +37,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex24();
+        Pane pane = ex25();
 
 
         Scene scene = new Scene(pane);
@@ -393,7 +395,28 @@ public class DaLi_14 extends Application {
         pane.getChildren().add(text);
         return pane;
     }
-    public static void ex25() {
+    public static Pane ex25() {//Random points on a circle
+        lib.Geometry.Circle circle = new lib.Geometry.Circle(100, new Point(150,150));
+        ArrayList<Double> angles = new ArrayList<>();
+        for (int i = 0; angles.size() < 5; i++) {
+            double randomDegree3 = randomInt(35999) / 100f;
+            if (!angles.contains(randomDegree3)) {
+                angles.add(randomDegree3);
+            }
+        }
+
+        java.util.Collections.sort(angles);
+        double[] points = new double[10];
+        for (int i = 0, j = 0; i < points.length; i+=2) {
+            Point p = circle.pointOnAngle(angles.get(j++));
+            points[ i ] = p.x;
+            points[i+1] = p.y;
+        }
+
+        Circle circleFX = new Circle(150, 150, 100, null);
+        Polygon polygon = new Polygon(points);
+        ToolFX.setFillStroke(null, Color.BLACK, circleFX,polygon);
+        return new Pane(circleFX,polygon);
     }
     public static void ex26() {
     }

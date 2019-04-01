@@ -1,5 +1,7 @@
 package lib.Geometry;
 
+import static lib.Misc.Randomizer.randomInt;
+
 public class Circle extends GeometricObject {
     public double radius;
     public Point center;
@@ -45,6 +47,11 @@ public class Circle extends GeometricObject {
 
         Point point = new Point(x, y);
         return point;
+    }
+
+    public Point randomPoint(){
+        float randomDegree = randomInt(35999) / 100f;
+        return pointOnAngle(randomDegree);
     }
 
     @Override
