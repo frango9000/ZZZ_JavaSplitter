@@ -11,7 +11,8 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        Pane pane = new ClockPane();
+        ClockPane pane = new ClockPane();
+        pane.setDetailed(true);
 
         Pane b = new StackPane(pane);
         b.setPadding(new Insets(0));

@@ -37,7 +37,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex26();
+        Pane pane = ex27();
 
 
         Scene scene = new Scene(pane);
@@ -430,7 +430,10 @@ public class DaLi_14 extends Application {
         pane.getChildren().addAll(p1,p2);
         return pane;
     }
-    public static void ex27() {//Draw a detailed clock
+    public static Pane ex27() {//Draw a detailed clock
+        ClockPane cp = new ClockPane();
+        cp.setDetailed(true);
+        return cp;
     }
     public static void ex28() {//Random time
     }

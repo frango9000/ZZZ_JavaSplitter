@@ -14,10 +14,25 @@ public class ClockPane extends Pane {
     private int minute;
     private int second;
 
+    private boolean detailed = false;
+
+    private double clockRadius;
+    private double centerX;
+    private double centerY;
+
+    Calendar calendar;
+
+    public void setDetailed(boolean detailed) {
+        this.detailed = detailed;
+    }
+
     /**
      * Construct a default clock with the current time
      */
     public ClockPane() {
+
+        // Construct a calendar for the current date and time
+        calendar = new GregorianCalendar();
         setCurrentTime();
     }
 
@@ -78,8 +93,6 @@ public class ClockPane extends Pane {
 
     /* Set the current time for the clock */
     public void setCurrentTime() {
-        // Construct a calendar for the current date and time
-        Calendar calendar = new GregorianCalendar();
         // Set current hour, minute and second
         this.hour = calendar.get(Calendar.HOUR_OF_DAY);
         this.minute = calendar.get(Calendar.MINUTE);
@@ -91,19 +104,16 @@ public class ClockPane extends Pane {
      * Paint the clock
      */
     private void paintClock() {
+
         // Initialize clock parameters
-        double clockRadius =
-                Math.min(getWidth(), getHeight()) * 0.8 * 0.5;
-        double centerX = getWidth() / 2;
-        double centerY = getHeight() / 2;
+        clockRadius =  Math.min(getWidth(), getHeight()) * 0.8 * 0.5;
+        centerX = getWidth() / 2;
+        centerY = getHeight() / 2;
         // Draw circle
         Circle circle = new Circle(centerX, centerY, clockRadius);
         circle.setFill(Color.WHITE);
         circle.setStroke(Color.BLACK);
-        Text t1 = new Text(centerX - 5, centerY - clockRadius + 12, "12");
-        Text t2 = new Text(centerX - clockRadius + 3, centerY + 5, "9");
-        Text t3 = new Text(centerX + clockRadius - 10, centerY + 3, "3");
-        Text t4 = new Text(centerX - 3, centerY + clockRadius - 3, "6");
+
 
         // Draw second hand
         double sLength = clockRadius * 0.8;
@@ -124,8 +134,31 @@ public class ClockPane extends Pane {
         Line hLine = new Line(centerX, centerY, hourX, hourY);
         hLine.setStroke(Color.GREEN);
 
+        Text digit = new Text(centerX-25, centerY+clockRadius+12, String.format("%02d:%02d:%02d", hour,minute,second));
+
         getChildren().clear();
-        getChildren().addAll(circle, t1, t2, t3, t4, sLine, mLine, hLine);
+        getChildren().addAll(circle, sLine, mLine, hLine, digit);
+
+        if(detailed){
+            int angleH = 360/12;
+            int angleQ = angleH/4;
+            for (int i = 1; i <= 12; i++) {
+                getChildren().add(new Text(centerX-3 + (clockRadius-15) * Math.sin(Math.toRadians(-(i*angleH)-180)), centerY+5 + (clockRadius-15) * Math.cos(Math.toRadians(-(i*angleH)-180)), i+""));
+                getChildren().add(new Line(centerX + clockRadius * Math.sin(Math.toRadians(-(i*angleH)-180)), centerY + clockRadius * Math.cos(Math.toRadians(-(i*angleH)-180)),
+                                            centerX + (clockRadius-8) * Math.sin(Math.toRadians(-(i*angleH)-180)), centerY + (clockRadius-8) * Math.cos(Math.toRadians(-(i*angleH)-180)) ));
+                for (int j = 1; j <= 3; j++) {
+                    int t = j%2==0?5:0;
+                    getChildren().add(new Line(centerX + clockRadius * Math.sin(Math.toRadians((-(i*angleH)+(j*angleQ))-180)), centerY + clockRadius * Math.cos(Math.toRadians((-(i*angleH)+(j*angleQ))-180)),
+                            centerX + (clockRadius-3-t) * Math.sin(Math.toRadians((-(i*angleH)+(j*angleQ))-180)), centerY + (clockRadius-3-t) * Math.cos(Math.toRadians((-(i*angleH)+(j*angleQ))-180))));
+
+                }
+            }
+        }else{
+            int angle = 360/12;
+            for (int i = 1; i <= 12; i+=3) {
+                getChildren().add(new Text(centerX-3 + (clockRadius-15) * Math.sin(Math.toRadians(-(i*angle)-180)), centerY+5 + (clockRadius-15) * Math.cos(Math.toRadians(-(i*angle)-180)), i+""));
+            }
+        }
     }
 
     @Override
