@@ -44,14 +44,18 @@ public class DaLi_14 extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
     public static void main(String[] args) {
         Application.launch(args);
     }
+
     public static void appendToTitle(String str) {
         stage.setTitle(stage.getTitle() + "_" + str);
     }
+
     public static void ex00() {
     }
+
     public static Pane ex01() {//Display images
         appendToTitle("E01");
         GridPane pane = new GridPane();
@@ -88,6 +92,7 @@ public class DaLi_14 extends Application {
         }
         return pane;
     }
+
     public static Pane ex02() {//Tic-tac-toe board
         appendToTitle("E02");
         GridPane pane = new GridPane();
@@ -120,6 +125,7 @@ public class DaLi_14 extends Application {
         }
         return pane;
     }
+
     public static Pane ex03() {//Display three tile
         appendToTitle("E03");
         Pane pane = new HBox();
@@ -135,6 +141,7 @@ public class DaLi_14 extends Application {
         }
         return pane;
     }
+
     public static Pane ex04() {//Color and font
         appendToTitle("E04");
         HBox pane = new HBox(0);
@@ -151,6 +158,7 @@ public class DaLi_14 extends Application {
         }
         return pane;
     }
+
     public static Pane ex05() {//Characters around circle
         appendToTitle("E05");
         Pane pane = new Pane();
@@ -178,6 +186,7 @@ public class DaLi_14 extends Application {
         return pane;
 
     }
+
     public static Pane ex06() {//Game: display a checkerboard
         appendToTitle("E06");
         VBox checkers = new VBox();
@@ -198,6 +207,7 @@ public class DaLi_14 extends Application {
         }
         return checkers;
     }
+
     public static Pane ex07() {//Display random 0 or 1
         VBox vb = new VBox();
         vb.setAlignment(Pos.CENTER);
@@ -223,6 +233,7 @@ public class DaLi_14 extends Application {
         }
         return vb;
     }
+
     public static Pane ex08() {//Display 54 cards
         GridPane gp = new GridPane();
         LinkedList<ImageView> ll = new LinkedList<>();
@@ -238,6 +249,7 @@ public class DaLi_14 extends Application {
         }
         return gp;
     }
+
     public static Pane ex09() {//Create four taichi
         GridPane gp = new GridPane();
         gp.setPadding(new Insets(3, 4, 5, 2));
@@ -249,7 +261,7 @@ public class DaLi_14 extends Application {
             for (int col = 0; col < 2; col++) {
                 Pane stack = new Pane();
 
-                Circle c = new Circle(50, 50, 45);
+                javafx.scene.shape.Circle c = new javafx.scene.shape.Circle(50, 50, 45);
                 c.setFill(null);
                 c.setStroke(Color.BLACK);
                 int startAngle = 30;
@@ -267,9 +279,11 @@ public class DaLi_14 extends Application {
         }
         return gp;
     }
+
     public static Pane ex10() {//Display a cylinder
         return new MyCylinder();
     }
+
     public static Pane ex11() {//Paint a smiley fac
         stage.setMinHeight(150);
         stage.setMinWidth(100);
@@ -277,12 +291,15 @@ public class DaLi_14 extends Application {
         stage.setWidth(100);
         return new UglySmiley();
     }
+
     public static Pane ex12() {//Display a bar chart
         return new Chart1();
     }
+
     public static Pane ex13() {//Display a pie chart
         return new Chart2();
     }
+
     public static Pane ex14() {//Display a rectanguloid
         Pane b = new StackPane(new Rectanguloid());
         b.setPrefSize(600, 600);
@@ -290,24 +307,31 @@ public class DaLi_14 extends Application {
         b.setPadding(new Insets(50));
         return b;
     }
+
     public static Pane ex15() {//Display a STOP sign
         return new StopPane();
     }
+
     public static Pane ex16() {//Display a 4 * 4 grid
         return new MyGrid(4);
     }
+
     public static Pane ex17() {//Game: hangman
         return new MyHangman();
     }
+
     public static Pane ex18() {//Plot the cube function
         return new QuadFunction();
     }
+
     public static Pane ex19() {//Plot the sine and tangent functions
         return new MySine();
     }
+
     public static Pane ex20() {//Draw an arrow line
         return new RandArrow();
     }
+
     public static Pane ex21() {//Two circles and their distance
         Pane pane = new Pane();
         double x1 = Randomizer.randomDouble(stage.getWidth());
@@ -317,8 +341,8 @@ public class DaLi_14 extends Application {
         double y2 = Randomizer.randomDouble(stage.getHeight());
 
         Line l = new Line(x1, y1, x2, y2);
-        Circle c1 = new Circle(x1, y1, 15);
-        Circle c2 = new Circle(x2, y2, 15);
+        javafx.scene.shape.Circle c1 = new javafx.scene.shape.Circle(x1, y1, 15);
+        javafx.scene.shape.Circle c2 = new javafx.scene.shape.Circle(x2, y2, 15);
 
         double distance = new Point(x1, y1).distanceBetweenPoints(new Point(x2, y2));
         Point mp = new Point(x1, y1).middlePoint(new Point(x2, y2));
@@ -327,6 +351,7 @@ public class DaLi_14 extends Application {
         pane.getChildren().addAll(c1, c2, l, t);
         return pane;
     }
+
     public static Pane ex22() {//Connect two circles
         Pane pane = new Pane();
         double x1 = Randomizer.randomDouble(stage.getWidth());
@@ -336,8 +361,8 @@ public class DaLi_14 extends Application {
         double y2 = Randomizer.randomDouble(stage.getHeight());
 
         Line l = new Line(x1, y1, x2, y2);
-        Circle c1 = new Circle(x1, y1, 15);
-        Circle c2 = new Circle(x2, y2, 15);
+        javafx.scene.shape.Circle c1 = new javafx.scene.shape.Circle(x1, y1, 15);
+        javafx.scene.shape.Circle c2 = new javafx.scene.shape.Circle(x2, y2, 15);
         ToolFX.setFillStroke(Color.WHITE, Color.BLACK, c1, c2);
 
         Text t1 = new Text(x1, y1, "1");
@@ -346,6 +371,7 @@ public class DaLi_14 extends Application {
         pane.getChildren().addAll(l, c1, c2, t1, t2);
         return pane;
     }
+
     public static Pane ex23() {//Geometry: two rectangles
         int x1 = scanInt("x1: ");
         int y1 = scanInt("y1: ");
@@ -374,29 +400,31 @@ public class DaLi_14 extends Application {
         return new Pane(r1, r2, label);
 
     }
+
     public static Pane ex24() {//Geometry: Inside a polygon?
         double[] points = new double[8];
         Pane pane = new Pane();
-        for (int i = 0; i < points.length; i+=2) {
-            points[ i ] = scanInt("x"+i/2+": ");
-            points[i+1] = scanInt("y"+i/2+": ");
+        for (int i = 0; i < points.length; i += 2) {
+            points[i] = scanInt("x" + i / 2 + ": ");
+            points[i + 1] = scanInt("y" + i / 2 + ": ");
         }
         double x = scanInt("x: ");
         double y = scanInt("y: ");
 
 
         Polygon polygon = new Polygon(points);
-        ToolFX.setFillStroke(null,Color.BLACK, polygon);
-        Circle point = new Circle(x,y, 5, Color.BLACK);
+        ToolFX.setFillStroke(null, Color.BLACK, polygon);
+        javafx.scene.shape.Circle point = new javafx.scene.shape.Circle(x, y, 5, Color.BLACK);
 
-        pane.getChildren().addAll(polygon,point);
-        Text text = new Text("The point is " +(polygon.contains(x, y) ? "" : "not ") + "inside the polygon  ");
+        pane.getChildren().addAll(polygon, point);
+        Text text = new Text("The point is " + (polygon.contains(x, y) ? "" : "not ") + "inside the polygon  ");
         text.setTranslateY(400);
         pane.getChildren().add(text);
         return pane;
     }
+
     public static Pane ex25() {//Random points on a circle
-        lib.Geometry.Circle circle = new lib.Geometry.Circle(100, new Point(150,150));
+        lib.Geometry.Circle circle = new lib.Geometry.Circle(100, new Point(150, 150));
         ArrayList<Double> angles = new ArrayList<>();
         for (int i = 0; angles.size() < 5; i++) {
             double randomDegree3 = randomInt(35999) / 100f;
@@ -407,40 +435,44 @@ public class DaLi_14 extends Application {
 
         java.util.Collections.sort(angles);
         double[] points = new double[10];
-        for (int i = 0, j = 0; i < points.length; i+=2) {
+        for (int i = 0, j = 0; i < points.length; i += 2) {
             Point p = circle.pointOnAngle(angles.get(j++));
-            points[ i ] = p.x;
-            points[i+1] = p.y;
+            points[i] = p.x;
+            points[i + 1] = p.y;
         }
 
-        Circle circleFX = new Circle(150, 150, 100, null);
+        javafx.scene.shape.Circle circleFX = new javafx.scene.shape.Circle(150, 150, 100, null);
         Polygon polygon = new Polygon(points);
-        ToolFX.setFillStroke(null, Color.BLACK, circleFX,polygon);
-        return new Pane(circleFX,polygon);
+        ToolFX.setFillStroke(null, Color.BLACK, circleFX, polygon);
+        return new Pane(circleFX, polygon);
     }
+
     public static Pane ex26() {//Use the ClockPane class
         Pane pane = new HBox();
-        ClockPane c1 = new ClockPane( 4, 20, 45);
+        ClockPane c1 = new ClockPane(4, 20, 45);
         StackPane p1 = new StackPane(c1);
         p1.setMinSize(100, 100);
         ClockPane c2 = new ClockPane(22, 46, 15);
         StackPane p2 = new StackPane(c2);
         p2.setMinSize(100, 100);
 
-        pane.getChildren().addAll(p1,p2);
+        pane.getChildren().addAll(p1, p2);
         return pane;
     }
+
     public static Pane ex27() {//Draw a detailed clock
         ClockPane cp = new ClockPane();
         cp.setDetailed(true);
         return cp;
     }
+
     public static Pane ex28() {//Random time
         ClockPane cp = new ClockPane();
         cp.setDetailed(true);
         cp.setSecondHandVisible(false);
         return cp;
     }
+
     public static void ex29() {//Game: bean machine
     }
 }

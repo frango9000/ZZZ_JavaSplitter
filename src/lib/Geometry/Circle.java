@@ -49,7 +49,7 @@ public class Circle extends GeometricObject {
         return point;
     }
 
-    public Point randomPoint(){
+    public Point randomPoint() {
         float randomDegree = randomInt(35999) / 100f;
         return pointOnAngle(randomDegree);
     }
