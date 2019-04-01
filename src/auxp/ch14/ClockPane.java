@@ -22,6 +22,10 @@ public class ClockPane extends Pane {
 
     Calendar calendar;
 
+    private boolean hourHandVisible = true;
+    private boolean minuteHandVisible = true;
+    private boolean secondHandVisible = true;
+
     public void setDetailed(boolean detailed) {
         this.detailed = detailed;
     }
@@ -91,6 +95,31 @@ public class ClockPane extends Pane {
         paintClock();
     }
 
+    public boolean isHourHandVisible() {
+        return hourHandVisible;
+    }
+
+    public void setHourHandVisible(boolean hourHandVisible) {
+        this.hourHandVisible = hourHandVisible;
+    }
+
+    public boolean isMinuteHandVisible() {
+        return minuteHandVisible;
+    }
+
+    public void setMinuteHandVisible(boolean minuteHandVisible) {
+        this.minuteHandVisible = minuteHandVisible;
+    }
+
+    public boolean isSecondHandVisible() {
+        return secondHandVisible;
+    }
+
+    public void setSecondHandVisible(boolean secondHandVisible) {
+        this.secondHandVisible = secondHandVisible;
+    }
+
+
     /* Set the current time for the clock */
     public void setCurrentTime() {
         // Set current hour, minute and second
@@ -137,7 +166,16 @@ public class ClockPane extends Pane {
         Text digit = new Text(centerX-25, centerY+clockRadius+12, String.format("%02d:%02d:%02d", hour,minute,second));
 
         getChildren().clear();
-        getChildren().addAll(circle, sLine, mLine, hLine, digit);
+        getChildren().addAll(circle, digit);
+        if(secondHandVisible)
+            getChildren().add(sLine);
+        if(minuteHandVisible)
+            getChildren().add(mLine);
+        if(hourHandVisible)
+            getChildren().add(hLine);
+
+
+
 
         if(detailed){
             int angleH = 360/12;

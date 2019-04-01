@@ -37,7 +37,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex27();
+        Pane pane = ex28();
 
 
         Scene scene = new Scene(pane);
@@ -435,7 +435,11 @@ public class DaLi_14 extends Application {
         cp.setDetailed(true);
         return cp;
     }
-    public static void ex28() {//Random time
+    public static Pane ex28() {//Random time
+        ClockPane cp = new ClockPane();
+        cp.setDetailed(true);
+        cp.setSecondHandVisible(false);
+        return cp;
     }
     public static void ex29() {//Game: bean machine
     }
