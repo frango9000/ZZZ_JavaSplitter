@@ -418,12 +418,12 @@ public class DaLi_14 extends Application {
         ToolFX.setFillStroke(null, Color.BLACK, circleFX,polygon);
         return new Pane(circleFX,polygon);
     }
-    public static void ex26() {
+    public static void ex26() {//Use the ClockPane class
     }
-    public static void ex27() {
+    public static void ex27() {//Draw a detailed clock
     }
-    public static void ex28() {
+    public static void ex28() {//Random time
     }
-    public static void ex29() {
+    public static void ex29() {//Game: bean machine
     }
 }
