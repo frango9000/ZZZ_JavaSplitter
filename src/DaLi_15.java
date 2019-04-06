@@ -28,7 +28,7 @@ public class DaLi_15 extends Application{
         //stage.setWidth(500);
 
 
-        Pane pane = ex05();
+        Pane pane = ex06();
 
 
         Scene scene = new Scene(pane);
@@ -192,7 +192,18 @@ public class DaLi_15 extends Application{
         grid.setPadding(new Insets(5));
         return grid;
     }
-    public static void ex06() {
+    public static Pane ex06() {//Alternate two messages
+        String s1 = "Welcome to Java";
+        String s2 = "LearningJavaFX";
+        Text text = new Text(s1);
+
+        text.setOnMouseClicked(event -> {
+            text.setText( ( s1.equals(text.getText()) ) ? s2 : s1 );
+        });
+
+        StackPane pane = new StackPane(text);
+        pane.setPadding(new Insets(30));
+        return pane;
     }
     public static void ex07() {
     }
