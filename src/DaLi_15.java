@@ -7,10 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.text.Text;
@@ -31,7 +28,7 @@ public class DaLi_15 extends Application{
         //stage.setWidth(500);
 
 
-        Pane pane = ex04();
+        Pane pane = ex05();
 
 
         Scene scene = new Scene(pane);
@@ -123,8 +120,7 @@ public class DaLi_15 extends Application{
         buttons.setSpacing(10);
 
         add.setOnAction(event -> {
-            String st1 = t1.getText();
-            if(Asserts.isDouble(st1) && Asserts.isDouble(t2.getText())){
+            if(Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())){
                 t3.setText( (Double.parseDouble(t1.getText())+Double.parseDouble(t2.getText()) ) + "" );
             }else{
                 t3.setText("N/A");
@@ -132,8 +128,7 @@ public class DaLi_15 extends Application{
         });
 
         sub.setOnAction(event -> {
-            String st1 = t1.getText();
-            if(Asserts.isDouble(st1) && Asserts.isDouble(t2.getText())){
+            if(Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())){
                 t3.setText( (Double.parseDouble(t1.getText())-Double.parseDouble(t2.getText()) ) + "" );
             }else{
                 t3.setText("N/A");
@@ -141,8 +136,7 @@ public class DaLi_15 extends Application{
         });
 
         mult.setOnAction(event -> {
-            String st1 = t1.getText();
-            if(Asserts.isDouble(st1) && Asserts.isDouble(t2.getText())){
+            if(Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())){
                 t3.setText( (Double.parseDouble(t1.getText())*Double.parseDouble(t2.getText()) ) + "" );
             }else{
                 t3.setText("N/A");
@@ -150,8 +144,7 @@ public class DaLi_15 extends Application{
         });
 
         divi.setOnAction(event -> {
-            String st1 = t1.getText();
-            if(Asserts.isDouble(st1) && Asserts.isDouble(t2.getText())){
+            if(Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())){
                 t3.setText( (Double.parseDouble(t1.getText())/Double.parseDouble(t2.getText()) ) + "" );
             }else{
                 t3.setText("N/A");
@@ -162,7 +155,42 @@ public class DaLi_15 extends Application{
         vb.setSpacing(5);
         return vb;
     }
-    public static void ex05() {
+    public static Pane ex05() {//Calculate final velocity
+
+        GridPane grid = new GridPane();
+
+        grid.add(new Text("Initial Speed"),0,0);
+        TextField tx1 = new TextField();
+        grid.add(tx1, 1, 0);
+
+        grid.add(new Text("Acceleration"),0,1);
+        TextField tx2 = new TextField();
+        grid.add(tx2, 1, 1);
+
+        grid.add(new Text("Time"),0,2);
+        TextField tx3 = new TextField();
+        grid.add(tx3, 1, 2);
+
+        grid.add(new Text("Final Speed"),0,3);
+        TextField tx4 = new TextField();
+        tx4.setEditable(false);
+        grid.add(tx4, 1, 3);
+
+        Button result = new Button("Result");
+        result.setOnAction(event -> {
+
+            if(Asserts.isDouble(tx1.getText()) && Asserts.isDouble(tx2.getText()) && Asserts.isDouble(tx3.getText())){
+                tx4.setText( (Double.parseDouble(tx1.getText())+( Double.parseDouble(tx2.getText()) * Double.parseDouble(tx3.getText()) ) ) + "" );
+            }else{
+                tx4.setText("N/A");
+            }
+        });
+        grid.add(result, 1, 4);
+
+        grid.setHgap(5);
+        grid.setVgap(5);
+        grid.setPadding(new Insets(5));
+        return grid;
     }
     public static void ex06() {
     }
