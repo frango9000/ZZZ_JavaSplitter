@@ -1,3 +1,4 @@
+import auxp.ch15.MovableRectanglePane;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -25,7 +26,7 @@ public class DaLi_15 extends Application{
         //stage.setWidth(500);
 
 
-        Pane pane = ex02();
+        Pane pane = ex03();
 
 
         Scene scene = new Scene(pane);
@@ -89,7 +90,8 @@ public class DaLi_15 extends Application{
         ellipse.centerYProperty().bind(bp.heightProperty().divide(2));
         return bp;
     }
-    public static void ex03() {
+    public static Pane ex03() {//Move the rectangle
+        return new MovableRectanglePane();
     }
     public static void ex04() {
     }
