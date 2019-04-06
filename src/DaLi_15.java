@@ -7,8 +7,11 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Ellipse;
 import javafx.stage.Stage;
 import lib.Misc.Randomizer;
+import lib.MyFX.ToolFX;
 
 public class DaLi_15 extends Application{
 
@@ -22,7 +25,7 @@ public class DaLi_15 extends Application{
         //stage.setWidth(500);
 
 
-        Pane pane = ex01();
+        Pane pane = ex02();
 
 
         Scene scene = new Scene(pane);
@@ -36,7 +39,7 @@ public class DaLi_15 extends Application{
 
     public static void ex00() {
     }
-    public static Pane ex01() {
+    public static Pane ex01() {//Pick four cards
         HBox cards = new HBox();
         final int elements = 4;
         for (int i = 0; i < elements; i++) {
@@ -63,7 +66,28 @@ public class DaLi_15 extends Application{
         return bp;
 
     }
-    public static void ex02() {
+    public static Pane ex02() {//Rotate an Ellipse
+        Ellipse ellipse = new Ellipse(150, 100);
+        ToolFX.setFillStroke(null, Color.BLACK, ellipse);
+
+        Button rtBtnL = new Button("Rotate C-CW (Left)");
+        rtBtnL.setOnAction(e -> ellipse.setRotate(ellipse.getRotate()-5));
+        Button rtBtnR = new Button("Rotate CW (Right)");
+        rtBtnR.setOnAction(event -> ellipse.setRotate(ellipse.getRotate()+5));
+
+        BorderPane bp = new BorderPane();
+        bp.setCenter(ellipse);
+        HBox btns = new HBox(rtBtnL,rtBtnR);
+        btns.setAlignment(Pos.CENTER);
+        bp.setBottom(btns);
+        BorderPane.setAlignment(btns, Pos.CENTER);
+
+        stage.setMinHeight(ellipse.getRadiusY()*3);
+        stage.setMinWidth(ellipse.getRadiusX()*2.5);
+
+        ellipse.centerXProperty().bind(bp.widthProperty().divide(2));
+        ellipse.centerYProperty().bind(bp.heightProperty().divide(2));
+        return bp;
     }
     public static void ex03() {
     }
