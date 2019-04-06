@@ -31,7 +31,7 @@ public class DaLi_15 extends Application{
         //stage.setWidth(500);
 
 
-        Pane pane = ex10();
+        Pane pane = ex11();
 
 
         Scene scene = new Scene(pane);
@@ -283,7 +283,31 @@ public class DaLi_15 extends Application{
         });
         return pane;
     }
-    public static void ex11() {
+    public static Pane ex11() {//Move a circle using keys
+        Circle circ = new Circle(100, 100, 70, null);
+        circ.setStroke(Color.BLACK);
+
+        Pane pane = new Pane(circ);
+        pane.setMinSize(600, 600);
+        pane.setPadding(new Insets(5));
+
+        pane.setOnKeyPressed(event -> {
+            switch (event.getCode()){
+                case UP:
+                    circ.setCenterY(circ.getCenterY() - circ.getRadius() - 10 < 0 ? circ.getRadius() + 5 : circ.getCenterY() - 5);
+                    break;
+                case DOWN:
+                    circ.setCenterY(circ.getCenterY() + circ.getRadius() + 10 > pane.getHeight() ? pane.getWidth() - circ.getRadius() - 5 : circ.getCenterY() + 5);
+                    break;
+                case LEFT:
+                    circ.setCenterX(circ.getCenterX() - circ.getRadius() - 10 < 0 ? circ.getRadius() + 5 : circ.getCenterX() - 5);
+                    break;
+                case RIGHT:
+                    circ.setCenterX(circ.getCenterX() + circ.getRadius() + 10 > pane.getWidth() ? pane.getWidth() - circ.getRadius() - 5 : circ.getCenterX() + 5);
+                    break;
+            }
+        });
+        return pane;
     }
     public static void ex12() {
     }
