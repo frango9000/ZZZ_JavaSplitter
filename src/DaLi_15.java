@@ -7,10 +7,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lib.Misc.Asserts;
@@ -35,6 +37,7 @@ public class DaLi_15 extends Application{
         Scene scene = new Scene(pane);
         primaryStage.setScene(scene);
         primaryStage.show();
+        pane.requestFocus();
     }
 
     public static void main(String[] args) {
@@ -227,7 +230,41 @@ public class DaLi_15 extends Application{
 
         return pane;
     }
-    public static void ex09() {
+    public static Pane ex09() {//Draw lines using the arrow keys
+        Pane pane = new Pane();
+        pane.setMinSize(400,400);
+
+
+        pane.setOnKeyPressed(event -> {
+
+            double x ,y;
+            if(pane.getChildren().size()==0){
+                x = 100.0;
+                y = 100.0;
+            }else{
+                x=((Line)(pane.getChildren().get(pane.getChildren().size()-1))).getEndX();
+                y=((Line)(pane.getChildren().get(pane.getChildren().size()-1))).getEndY();
+            }
+            Line line = new Line();
+            line.setStartX(x);
+            line.setStartY(y);
+            double eX=x,eY=y;
+            switch(event.getCode()){
+                case UP:
+                    eY = y - 10;    break;
+                case DOWN:
+                    eY = y + 10;    break;
+                case LEFT:
+                    eX = x - 10;    break;
+                case RIGHT:
+                    eX = x + 10;    break;
+            }
+            line.setEndX(eX);
+            line.setEndY(eY);
+            line.setStroke(Color.BLACK);
+            pane.getChildren().add(line);
+        });
+        return pane;
     }
     public static void ex10() {
     }
