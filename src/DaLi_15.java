@@ -10,10 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lib.Misc.Asserts;
@@ -32,7 +29,7 @@ public class DaLi_15 extends Application{
         //stage.setWidth(500);
 
 
-        Pane pane = ex13();
+        Pane pane = ex14();
 
 
         Scene scene = new Scene(pane);
@@ -342,7 +339,21 @@ public class DaLi_15 extends Application{
         });
         return pane;
     }
-    public static void ex14() {
+    public static Pane ex14() {//Geometry: inside a polygon?
+        Polygon polygon = new Polygon(30,10,60,30,50,70,35,35,10,50);
+        polygon.setStroke(Color.BLACK);
+        Pane labels = new Pane();
+
+        Pane pane = new Pane(polygon,labels);
+        pane.setMinSize(600, 600);
+        pane.setPadding(new Insets(5));
+
+        pane.setOnMouseMoved(event -> {
+            labels.getChildren().clear();
+            labels.getChildren().add(new Text(event.getX(), event.getY()-10, String.format("(%.1f, %.1f)", event.getX(), event.getY())));
+            labels.getChildren().add(new Text(event.getX(), event.getY(), "The point is " + ((polygon.contains(event.getX(), event.getY()) ? "inside " : "outside ")) + "the polygon."));
+        });
+        return pane;
     }
     public static void ex15() {
     }
