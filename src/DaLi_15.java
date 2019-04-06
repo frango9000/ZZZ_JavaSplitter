@@ -29,7 +29,7 @@ public class DaLi_15 extends Application{
         //stage.setWidth(500);
 
 
-        Pane pane = ex07();
+        Pane pane = ex08();
 
 
         Scene scene = new Scene(pane);
@@ -216,7 +216,16 @@ public class DaLi_15 extends Application{
         pane.setPadding(new Insets(30));
         return pane;
     }
-    public static void ex08() {
+    public static Pane ex08() {//Display the mouse position
+        Pane pane = new Pane();
+        pane.setMinSize(400,400);
+
+       // pane.setOnMouseClicked(event -> pane.getChildren().add(new Text(event.getX(), event.getY(), String.format("(%.1f, %.1f)", event.getX(), event.getY()))));
+
+        pane.setOnMousePressed(event -> pane.getChildren().add(new Text(event.getX(), event.getY(), String.format("(%.1f, %.1f)", event.getX(), event.getY()))));
+        pane.setOnMouseReleased(event -> pane.getChildren().clear());
+
+        return pane;
     }
     public static void ex09() {
     }
