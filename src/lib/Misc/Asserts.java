@@ -14,14 +14,6 @@ public abstract class Asserts {
         return null;
     }
 
-    /**
-     * Muestra un mensaje por ventana solicitando introducir datos Devuelve un
-     * String introducido en la ventana
-     *
-     * @param msg   String a ser mostrado
-     * @param title String a ser titulo de la ventana
-     * @return String introducido
-     */
     public static boolean isInteger(String str) {
         try {
             Integer.parseInt(str);
@@ -31,16 +23,27 @@ public abstract class Asserts {
         }
     }
 
-    /**
-     * Comprueba si el argumento str es float
-     *
-     * @param str String a ser comprobado
-     * @return boolean true si es float
-     * @throws NumberFormatException e si str no es float
-     */
+    public static boolean isLong(String str) {
+        try {
+            Long.parseLong(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
     public static boolean isFloat(String str) {
         try {
             Float.parseFloat(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    public static boolean isDouble(String str) {
+        try {
+            Double.parseDouble(str);
             return true;
         } catch (NumberFormatException e) {
             return false;
