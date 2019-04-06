@@ -1,3 +1,4 @@
+import auxp.ch15.MovableCirclesPane;
 import auxp.ch15.MovableRectanglePane;
 import javafx.application.Application;
 import javafx.collections.ObservableList;
@@ -33,7 +34,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex15();
+        Pane pane = ex16();
 
 
         Scene scene = new Scene(pane);
@@ -385,7 +386,8 @@ public class DaLi_15 extends Application {
         });
         return pane;
     }
-    public static void ex16() {//Two movable vertices and their distances
+    public static Pane ex16() {//Two movable vertices and their distances
+        return new MovableCirclesPane();
     }
     public static void ex17() {//Geometry: find the bounding rectangle
     }

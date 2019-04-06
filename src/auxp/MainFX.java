@@ -1,6 +1,6 @@
 package auxp;
 
-import auxp.ch15.MovableRectanglePane;
+import auxp.ch15.MovableCirclesPane;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -12,7 +12,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        MovableRectanglePane pane = new MovableRectanglePane();
+        MovableCirclesPane pane = new MovableCirclesPane();
 
         Pane b = new StackPane(pane);
         b.setPadding(new Insets(0));
