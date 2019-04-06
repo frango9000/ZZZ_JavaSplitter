@@ -31,7 +31,7 @@ public class DaLi_15 extends Application{
         //stage.setWidth(500);
 
 
-        Pane pane = ex08();
+        Pane pane = ex10();
 
 
         Scene scene = new Scene(pane);
@@ -266,7 +266,22 @@ public class DaLi_15 extends Application{
         });
         return pane;
     }
-    public static void ex10() {
+    public static Pane ex10() {//Enter and display a string
+        Text text = new Text("Text");
+        StackPane pane = new StackPane(text);
+        pane.setPadding(new Insets(10));
+
+        StringBuilder sb = new StringBuilder();
+
+        pane.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                text.setText(sb.toString());
+                sb.setLength(0);
+            } else {
+                sb.append(event.getText());
+            }
+        });
+        return pane;
     }
     public static void ex11() {
     }
