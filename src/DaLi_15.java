@@ -31,7 +31,7 @@ public class DaLi_15 extends Application{
         //stage.setWidth(500);
 
 
-        Pane pane = ex11();
+        Pane pane = ex12();
 
 
         Scene scene = new Scene(pane);
@@ -309,7 +309,21 @@ public class DaLi_15 extends Application{
         });
         return pane;
     }
-    public static void ex12() {
+    public static Pane ex12() {//Geometry: inside a circle?
+        Circle circ = new Circle(100, 60, 50, Color.GRAY);
+        circ.setStroke(Color.BLACK);
+        Pane labels = new Pane();
+
+        Pane pane = new Pane(circ,labels);
+        pane.setMinSize(600, 600);
+        pane.setPadding(new Insets(5));
+
+        pane.setOnMouseMoved(event -> {
+            labels.getChildren().clear();
+            labels.getChildren().add(new Text(event.getX(), event.getY()-10, String.format("(%.1f, %.1f)", event.getX(), event.getY())));
+            labels.getChildren().add(new Text(event.getX(), event.getY(), "The point is " + ((circ.contains(event.getX(), event.getY()) ? "inside " : "outside ")) + "the circle."));
+        });
+        return pane;
     }
     public static void ex13() {
     }
