@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -28,7 +29,7 @@ public class DaLi_15 extends Application{
         //stage.setWidth(500);
 
 
-        Pane pane = ex06();
+        Pane pane = ex07();
 
 
         Scene scene = new Scene(pane);
@@ -205,7 +206,15 @@ public class DaLi_15 extends Application{
         pane.setPadding(new Insets(30));
         return pane;
     }
-    public static void ex07() {
+    public static Pane ex07() {//Change color using a mouse
+        Circle circle = new Circle(80, Color.BLUE);
+
+        circle.setOnMousePressed(event -> circle.setFill(Color.GREEN));
+        circle.setOnMouseReleased(event -> circle.setFill(Color.BLUE));
+
+        StackPane pane = new StackPane(circle);
+        pane.setPadding(new Insets(30));
+        return pane;
     }
     public static void ex08() {
     }
