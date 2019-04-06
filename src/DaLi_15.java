@@ -355,48 +355,48 @@ public class DaLi_15 extends Application{
         });
         return pane;
     }
-    public static void ex15() {
+    public static void ex15() {//Geometry: add and remove points
     }
-    public static void ex16() {
+    public static void ex16() {//Two movable vertices and their distances
     }
-    public static void ex17() {
+    public static void ex17() {//Geometry: find the bounding rectangle
     }
-    public static void ex18() {
+    public static void ex18() {//Move a rectangle using mouse
     }
-    public static void ex19() {
+    public static void ex19() {//Game: eye–hand coordination
     }
-    public static void ex20() {
+    public static void ex20() {//Geometry: display angles
     }
-    public static void ex21() {
+    public static void ex21() {//Drag points
     }
-    public static void ex22() {
+    public static void ex22() {//Auto resize cylinder
     }
-    public static void ex23() {
+    public static void ex23() {//Auto resize slow sign
     }
-    public static void ex24() {
+    public static void ex24() {//Animation: pendulum swing
     }
-    public static void ex25() {
+    public static void ex25() {//Animation: ball on curve
     }
-    public static void ex26() {
+    public static void ex26() {//Change opacity
     }
-    public static void ex27() {
+    public static void ex27() {//Control a moving text
     }
-    public static void ex28() {
+    public static void ex28() {//Display a running fan
     }
-    public static void ex29() {
+    public static void ex29() {//Racing car
     }
-    public static void ex30() {
+    public static void ex30() {//Slide show
     }
-    public static void ex31() {
+    public static void ex31() {//Geometry: pendulum
     }
-    public static void ex32() {
+    public static void ex32() {//Control a clock
     }
-    public static void ex33() {
+    public static void ex33() {//Game: bean-machine animation
     }
-    public static void ex34() {
+    public static void ex34() {//Simulation: self-avoiding random walk
     }
-    public static void ex35() {
+    public static void ex35() {//Animation: self-avoiding random walk
     }
-    public static void ex36() {
+    public static void ex36() {//Simulation: self-avoiding random walk
     }
 }
