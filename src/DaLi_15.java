@@ -17,7 +17,7 @@ import lib.Misc.Asserts;
 import lib.Misc.Randomizer;
 import lib.MyFX.ToolFX;
 
-public class DaLi_15 extends Application{
+public class DaLi_15 extends Application {
 
     private static Stage stage;
 
@@ -41,7 +41,6 @@ public class DaLi_15 extends Application{
     public static void main(String[] args) {
         Application.launch(args);
     }
-
     public static void ex00() {
     }
     public static Pane ex01() {//Pick four cards
@@ -76,19 +75,19 @@ public class DaLi_15 extends Application{
         ToolFX.setFillStroke(null, Color.BLACK, ellipse);
 
         Button rtBtnL = new Button("Rotate C-CW (Left)");
-        rtBtnL.setOnAction(e -> ellipse.setRotate(ellipse.getRotate()-5));
+        rtBtnL.setOnAction(e -> ellipse.setRotate(ellipse.getRotate() - 5));
         Button rtBtnR = new Button("Rotate CW (Right)");
-        rtBtnR.setOnAction(event -> ellipse.setRotate(ellipse.getRotate()+5));
+        rtBtnR.setOnAction(event -> ellipse.setRotate(ellipse.getRotate() + 5));
 
         BorderPane bp = new BorderPane();
         bp.setCenter(ellipse);
-        HBox btns = new HBox(rtBtnL,rtBtnR);
+        HBox btns = new HBox(rtBtnL, rtBtnR);
         btns.setAlignment(Pos.CENTER);
         bp.setBottom(btns);
         BorderPane.setAlignment(btns, Pos.CENTER);
 
-        stage.setMinHeight(ellipse.getRadiusY()*3);
-        stage.setMinWidth(ellipse.getRadiusX()*2.5);
+        stage.setMinHeight(ellipse.getRadiusY() * 3);
+        stage.setMinWidth(ellipse.getRadiusX() * 2.5);
 
         ellipse.centerXProperty().bind(bp.widthProperty().divide(2));
         ellipse.centerYProperty().bind(bp.heightProperty().divide(2));
@@ -109,7 +108,7 @@ public class DaLi_15 extends Application{
         TextField t3 = new TextField();
         t3.setMaxWidth(80);
         t3.setEditable(false);
-        HBox values = new HBox(n1,t1,n2,t2,n3,t3);
+        HBox values = new HBox(n1, t1, n2, t2, n3, t3);
         values.setAlignment(Pos.CENTER);
         values.setSpacing(5);
 
@@ -117,38 +116,38 @@ public class DaLi_15 extends Application{
         Button sub = new Button("Subtract");
         Button mult = new Button("Multiply");
         Button divi = new Button("Divide");
-        HBox buttons = new HBox(add,sub,mult,divi);
+        HBox buttons = new HBox(add, sub, mult, divi);
         buttons.setAlignment(Pos.CENTER);
         buttons.setSpacing(10);
 
         add.setOnAction(event -> {
-            if(Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())){
-                t3.setText( (Double.parseDouble(t1.getText())+Double.parseDouble(t2.getText()) ) + "" );
-            }else{
+            if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
+                t3.setText((Double.parseDouble(t1.getText()) + Double.parseDouble(t2.getText())) + "");
+            } else {
                 t3.setText("N/A");
             }
         });
 
         sub.setOnAction(event -> {
-            if(Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())){
-                t3.setText( (Double.parseDouble(t1.getText())-Double.parseDouble(t2.getText()) ) + "" );
-            }else{
+            if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
+                t3.setText((Double.parseDouble(t1.getText()) - Double.parseDouble(t2.getText())) + "");
+            } else {
                 t3.setText("N/A");
             }
         });
 
         mult.setOnAction(event -> {
-            if(Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())){
-                t3.setText( (Double.parseDouble(t1.getText())*Double.parseDouble(t2.getText()) ) + "" );
-            }else{
+            if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
+                t3.setText((Double.parseDouble(t1.getText()) * Double.parseDouble(t2.getText())) + "");
+            } else {
                 t3.setText("N/A");
             }
         });
 
         divi.setOnAction(event -> {
-            if(Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())){
-                t3.setText( (Double.parseDouble(t1.getText())/Double.parseDouble(t2.getText()) ) + "" );
-            }else{
+            if (Asserts.isDouble(t1.getText()) && Asserts.isDouble(t2.getText())) {
+                t3.setText((Double.parseDouble(t1.getText()) / Double.parseDouble(t2.getText())) + "");
+            } else {
                 t3.setText("N/A");
             }
         });
@@ -161,19 +160,19 @@ public class DaLi_15 extends Application{
 
         GridPane grid = new GridPane();
 
-        grid.add(new Text("Initial Speed"),0,0);
+        grid.add(new Text("Initial Speed"), 0, 0);
         TextField tx1 = new TextField();
         grid.add(tx1, 1, 0);
 
-        grid.add(new Text("Acceleration"),0,1);
+        grid.add(new Text("Acceleration"), 0, 1);
         TextField tx2 = new TextField();
         grid.add(tx2, 1, 1);
 
-        grid.add(new Text("Time"),0,2);
+        grid.add(new Text("Time"), 0, 2);
         TextField tx3 = new TextField();
         grid.add(tx3, 1, 2);
 
-        grid.add(new Text("Final Speed"),0,3);
+        grid.add(new Text("Final Speed"), 0, 3);
         TextField tx4 = new TextField();
         tx4.setEditable(false);
         grid.add(tx4, 1, 3);
@@ -181,9 +180,9 @@ public class DaLi_15 extends Application{
         Button result = new Button("Result");
         result.setOnAction(event -> {
 
-            if(Asserts.isDouble(tx1.getText()) && Asserts.isDouble(tx2.getText()) && Asserts.isDouble(tx3.getText())){
-                tx4.setText( (Double.parseDouble(tx1.getText())+( Double.parseDouble(tx2.getText()) * Double.parseDouble(tx3.getText()) ) ) + "" );
-            }else{
+            if (Asserts.isDouble(tx1.getText()) && Asserts.isDouble(tx2.getText()) && Asserts.isDouble(tx3.getText())) {
+                tx4.setText((Double.parseDouble(tx1.getText()) + (Double.parseDouble(tx2.getText()) * Double.parseDouble(tx3.getText()))) + "");
+            } else {
                 tx4.setText("N/A");
             }
         });
@@ -200,7 +199,7 @@ public class DaLi_15 extends Application{
         Text text = new Text(s1);
 
         text.setOnMouseClicked(event -> {
-            text.setText( ( s1.equals(text.getText()) ) ? s2 : s1 );
+            text.setText((s1.equals(text.getText())) ? s2 : s1);
         });
 
         StackPane pane = new StackPane(text);
@@ -219,9 +218,9 @@ public class DaLi_15 extends Application{
     }
     public static Pane ex08() {//Display the mouse position
         Pane pane = new Pane();
-        pane.setMinSize(400,400);
+        pane.setMinSize(400, 400);
 
-       // pane.setOnMouseClicked(event -> pane.getChildren().add(new Text(event.getX(), event.getY(), String.format("(%.1f, %.1f)", event.getX(), event.getY()))));
+        // pane.setOnMouseClicked(event -> pane.getChildren().add(new Text(event.getX(), event.getY(), String.format("(%.1f, %.1f)", event.getX(), event.getY()))));
 
         pane.setOnMousePressed(event -> pane.getChildren().add(new Text(event.getX(), event.getY(), String.format("(%.1f, %.1f)", event.getX(), event.getY()))));
         pane.setOnMouseReleased(event -> pane.getChildren().clear());
@@ -230,32 +229,36 @@ public class DaLi_15 extends Application{
     }
     public static Pane ex09() {//Draw lines using the arrow keys
         Pane pane = new Pane();
-        pane.setMinSize(400,400);
+        pane.setMinSize(400, 400);
 
 
         pane.setOnKeyPressed(event -> {
 
-            double x ,y;
-            if(pane.getChildren().size()==0){
+            double x, y;
+            if (pane.getChildren().size() == 0) {
                 x = 100.0;
                 y = 100.0;
-            }else{
-                x=((Line)(pane.getChildren().get(pane.getChildren().size()-1))).getEndX();
-                y=((Line)(pane.getChildren().get(pane.getChildren().size()-1))).getEndY();
+            } else {
+                x = ((Line) (pane.getChildren().get(pane.getChildren().size() - 1))).getEndX();
+                y = ((Line) (pane.getChildren().get(pane.getChildren().size() - 1))).getEndY();
             }
             Line line = new Line();
             line.setStartX(x);
             line.setStartY(y);
-            double eX=x,eY=y;
-            switch(event.getCode()){
+            double eX = x, eY = y;
+            switch (event.getCode()) {
                 case UP:
-                    eY = y - 10;    break;
+                    eY = y - 10;
+                    break;
                 case DOWN:
-                    eY = y + 10;    break;
+                    eY = y + 10;
+                    break;
                 case LEFT:
-                    eX = x - 10;    break;
+                    eX = x - 10;
+                    break;
                 case RIGHT:
-                    eX = x + 10;    break;
+                    eX = x + 10;
+                    break;
             }
             line.setEndX(eX);
             line.setEndY(eY);
@@ -290,7 +293,7 @@ public class DaLi_15 extends Application{
         pane.setPadding(new Insets(5));
 
         pane.setOnKeyPressed(event -> {
-            switch (event.getCode()){
+            switch (event.getCode()) {
                 case UP:
                     circ.setCenterY(circ.getCenterY() - circ.getRadius() - 10 < 0 ? circ.getRadius() + 5 : circ.getCenterY() - 5);
                     break;
@@ -312,13 +315,13 @@ public class DaLi_15 extends Application{
         circ.setStroke(Color.BLACK);
         Pane labels = new Pane();
 
-        Pane pane = new Pane(circ,labels);
+        Pane pane = new Pane(circ, labels);
         pane.setMinSize(600, 600);
         pane.setPadding(new Insets(5));
 
         pane.setOnMouseMoved(event -> {
             labels.getChildren().clear();
-            labels.getChildren().add(new Text(event.getX(), event.getY()-10, String.format("(%.1f, %.1f)", event.getX(), event.getY())));
+            labels.getChildren().add(new Text(event.getX(), event.getY() - 10, String.format("(%.1f, %.1f)", event.getX(), event.getY())));
             labels.getChildren().add(new Text(event.getX(), event.getY(), "The point is " + ((circ.contains(event.getX(), event.getY()) ? "inside " : "outside ")) + "the circle."));
         });
         return pane;
@@ -328,29 +331,29 @@ public class DaLi_15 extends Application{
         rectangle.setStroke(Color.BLACK);
         Pane labels = new Pane();
 
-        Pane pane = new Pane(rectangle,labels);
+        Pane pane = new Pane(rectangle, labels);
         pane.setMinSize(600, 600);
         pane.setPadding(new Insets(5));
 
         pane.setOnMouseMoved(event -> {
             labels.getChildren().clear();
-            labels.getChildren().add(new Text(event.getX(), event.getY()-10, String.format("(%.1f, %.1f)", event.getX(), event.getY())));
+            labels.getChildren().add(new Text(event.getX(), event.getY() - 10, String.format("(%.1f, %.1f)", event.getX(), event.getY())));
             labels.getChildren().add(new Text(event.getX(), event.getY(), "The point is " + ((rectangle.contains(event.getX(), event.getY()) ? "inside " : "outside ")) + "the rectangle."));
         });
         return pane;
     }
     public static Pane ex14() {//Geometry: inside a polygon?
-        Polygon polygon = new Polygon(30,10,60,30,50,70,35,35,10,50);
+        Polygon polygon = new Polygon(30, 10, 60, 30, 50, 70, 35, 35, 10, 50);
         polygon.setStroke(Color.BLACK);
         Pane labels = new Pane();
 
-        Pane pane = new Pane(polygon,labels);
+        Pane pane = new Pane(polygon, labels);
         pane.setMinSize(600, 600);
         pane.setPadding(new Insets(5));
 
         pane.setOnMouseMoved(event -> {
             labels.getChildren().clear();
-            labels.getChildren().add(new Text(event.getX(), event.getY()-10, String.format("(%.1f, %.1f)", event.getX(), event.getY())));
+            labels.getChildren().add(new Text(event.getX(), event.getY() - 10, String.format("(%.1f, %.1f)", event.getX(), event.getY())));
             labels.getChildren().add(new Text(event.getX(), event.getY(), "The point is " + ((polygon.contains(event.getX(), event.getY()) ? "inside " : "outside ")) + "the polygon."));
         });
         return pane;
