@@ -1,13 +1,17 @@
 import auxp.ch15.MovableRectanglePane;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
@@ -29,7 +33,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex14();
+        Pane pane = ex15();
 
 
         Scene scene = new Scene(pane);
@@ -358,7 +362,28 @@ public class DaLi_15 extends Application {
         });
         return pane;
     }
-    public static void ex15() {//Geometry: add and remove points
+    public static Pane ex15() {//Geometry: add and remove points
+        Group group = new Group();
+        Pane pane = new Pane(group);
+        pane.setMinSize(600, 600);
+        pane.setPadding(new Insets(5));
+
+        pane.setOnMouseClicked(event -> {
+            if (event.getButton() == MouseButton.PRIMARY){
+                Circle c = new Circle(event.getX(), event.getY(), 10, Color.GRAY);
+                group.getChildren().add(c);
+            }else{
+                if(group.contains(event.getX(), event.getY())){
+                    ObservableList<Node> list = group.getChildren();
+                    for (int i = 0; i < list.size();) {
+                        if(list.get(i).contains(event.getX(), event.getY()))
+                            list.remove(i);
+                        else i++;
+                    }
+                }
+            }
+        });
+        return pane;
     }
     public static void ex16() {//Two movable vertices and their distances
     }
