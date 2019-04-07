@@ -372,9 +372,18 @@ public class DaLi_15 extends Application {
         return pane;
     }
     public static Pane ex18() {//Move a rectangle using mouse
-        return new CreatePointPane(3);
+        Rectangle r = new Rectangle(100, 100, 100, 100);
+        Pane pane = new Pane(r);
+        r.setOnMouseDragged(event -> {
+            r.setX(event.getX() - r.getWidth()/2);
+            r.setY(event.getY() - r.getHeight()/2);
+        });
+        pane.setMinSize(600, 600);
+        pane.setPadding(new Insets(5));
+        return pane;
     }
-    public static void ex19() {//Game: eye–hand coordination
+    public static Pane ex19() {//Game: eye–hand coordination
+        return new CreatePointPane(3);
     }
     public static void ex20() {//Geometry: display angles
     }
