@@ -387,12 +387,9 @@ public class DaLi_15 extends Application {
          return new CreatePointPane(3);
     }
     public static Pane ex20() {//Geometry: display angles
-        return new TaggedTrianglePane();
+        return new TaggedTrianglePane(true);
     }
-    public static Pane ex21() {//Drag points
-        TaggedTrianglePane tpane = new TaggedTrianglePane();
-        tpane.setVisibleCircle(true);
-        return tpane;
+    public static void ex21() {//Drag points
     }
     public static void ex22() {//Auto resize cylinder
     }

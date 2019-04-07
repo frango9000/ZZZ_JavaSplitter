@@ -15,13 +15,14 @@ public class TaggedTrianglePane extends Pane {
     private Text angle1,angle2,angle3;
     private Circle c1,c2,c3,superC;
 
-    private boolean visibleCircle=false;
-
-    public void setVisibleCircle(boolean visibleCircle) {
-        this.visibleCircle = visibleCircle;
-    }
+    private boolean visibleCircle;
 
     public TaggedTrianglePane() {
+        this(false);
+    }
+
+    public TaggedTrianglePane(boolean visibleCircle) {
+        this.visibleCircle = visibleCircle;
         setMinSize(600, 600);
         superC = new Circle();
         ToolFX.setFillStroke(null,Color.BLACK, superC);
@@ -62,9 +63,7 @@ public class TaggedTrianglePane extends Pane {
         sideC.endYProperty().bind(c1.centerYProperty());
         Group lines = new Group(sideA,sideB,sideC);
 
-
         getChildren().addAll(circles,labels,lines);
-
     }
 
     private class AngleMover implements EventHandler<MouseEvent>{
@@ -73,8 +72,8 @@ public class TaggedTrianglePane extends Pane {
         @Override
         public void handle(MouseEvent event) {
             Circle circle = (Circle)event.getSource();
-            circle.setCenterX(event.getX());
-            circle.setCenterY(event.getY());
+                circle.setCenterX(event.getX());
+                circle.setCenterY(event.getY());
             updateAngles();
         }
     }
@@ -90,7 +89,6 @@ public class TaggedTrianglePane extends Pane {
             superC.setCenterX(tcirc.center.x);
             superC.setCenterY(tcirc.center.y);
             superC.setRadius(tcirc.radius);
-
         }
     }
 }

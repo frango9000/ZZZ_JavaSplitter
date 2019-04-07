@@ -112,11 +112,19 @@ public class Line {
         return pointA.distanceBetweenPoints(pointB);
     }
 
-    public double getAngle() {
+    public double getAngle() {// 0 degrees @ east
         if (pointA.x >= pointB.x) {
             if (pointA.y <= pointB.y) {
                 return -(Math.toDegrees(Math.atan(slope)));
             } else return 360 - (Math.toDegrees(Math.atan(slope)));
         } else return 180 - (Math.toDegrees(Math.atan(slope)));
+    }
+
+    public double getAngle(Line line){
+        return Math.abs(getAngle()-line.getAngle());
+    }
+
+    public static double getAngle(Line line1, Line line2){
+        return line1.getAngle(line2);
     }
 }
