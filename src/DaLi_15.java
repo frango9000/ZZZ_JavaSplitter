@@ -31,7 +31,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex16();
+        Pane pane = ex17();
 
 
         Scene scene = new Scene(pane);
@@ -366,7 +366,10 @@ public class DaLi_15 extends Application {
     public static Pane ex16() {//Two movable vertices and their distances
         return new MovableCirclesPane();
     }
-    public static void ex17() {//Geometry: find the bounding rectangle
+    public static Pane ex17() {//Geometry: find the bounding rectangle
+        CreatePointPane pane = new CreatePointPane();
+        pane.activateBoundingRectangle(true);
+        return pane;
     }
     public static void ex18() {//Move a rectangle using mouse
     }
