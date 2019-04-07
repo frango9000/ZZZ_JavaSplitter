@@ -4,6 +4,8 @@ import auxp.ch15.CreatePointPane;
 import auxp.ch15.MovableCirclesPane;
 import auxp.ch15.MovableRectanglePane;
 import auxp.ch15.TaggedTrianglePane;
+import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -18,6 +20,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lib.Misc.Asserts;
 import lib.Misc.Randomizer;
 import lib.MyFX.ToolFX;
@@ -34,7 +37,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex21();
+        Pane pane = ex24();
 
 
         Scene scene = new Scene(pane);
@@ -400,7 +403,33 @@ public class DaLi_15 extends Application {
     public static Pane ex23() {//Auto resize slow sign
         return new StopPane();
     }
-    public static void ex24() {//Animation: pendulum swing
+    public static Pane ex24() {//Animation: pendulum swing
+        Arc arc = new Arc(250, 250, 200, 200, 230, 80);
+        ToolFX.setFillStroke(null,Color.BLACK,arc);
+        arc.setType(ArcType.OPEN);
+
+        Circle circle = new Circle(250, arc.getCenterY()+arc.getRadiusY(), 15, Color.GREY);
+
+        PathTransition pt = new PathTransition(Duration.millis(1000),arc,circle);
+        pt.setCycleCount(Timeline.INDEFINITE);
+        pt.setAutoReverse(true);
+        pt.play();
+
+        Line line = new Line(arc.getCenterX(), arc.getCenterY(), circle.getCenterX(),circle.getCenterY());
+
+        circle.centerXProperty().addListener(e -> {
+            line.setEndX(circle.getCenterX());
+        });
+        circle.centerYProperty().addListener(e -> {
+            line.setEndY(circle.getCenterY());
+        });//wont work? binding either
+
+
+        Pane pane = new Pane(arc, circle,line);
+        pane.setMinSize(500,500);
+        pane.setOnMousePressed(event -> pt.pause());
+        pane.setOnMouseReleased(event -> pt.play());
+        return pane;
     }
     public static void ex25() {//Animation: ball on curve
     }
