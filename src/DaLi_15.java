@@ -32,7 +32,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex18();
+        Pane pane = ex21();
 
 
         Scene scene = new Scene(pane);
@@ -389,7 +389,10 @@ public class DaLi_15 extends Application {
     public static Pane ex20() {//Geometry: display angles
         return new TaggedTrianglePane();
     }
-    public static void ex21() {//Drag points
+    public static Pane ex21() {//Drag points
+        TaggedTrianglePane tpane = new TaggedTrianglePane();
+        tpane.setVisibleCircle(true);
+        return tpane;
     }
     public static void ex22() {//Auto resize cylinder
     }

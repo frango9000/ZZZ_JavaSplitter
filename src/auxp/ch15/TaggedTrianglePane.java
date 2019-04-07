@@ -9,20 +9,29 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
 import lib.Geometry.Triangle;
+import lib.MyFX.ToolFX;
 
 public class TaggedTrianglePane extends Pane {
-    Text angle1,angle2,angle3;
-    Circle c1,c2,c3;
+    private Text angle1,angle2,angle3;
+    private Circle c1,c2,c3,superC;
+
+    private boolean visibleCircle=false;
+
+    public void setVisibleCircle(boolean visibleCircle) {
+        this.visibleCircle = visibleCircle;
+    }
 
     public TaggedTrianglePane() {
         setMinSize(600, 600);
+        superC = new Circle();
+        ToolFX.setFillStroke(null,Color.BLACK, superC);
         c1 = new Circle(50, 50,15, Color.BLACK);
         c1.setOnMouseDragged(new AngleMover());
         c2 = new Circle(300, 50,15, Color.BLACK);
         c2.setOnMouseDragged(new AngleMover());
         c3 = new Circle(50, 300,15, Color.BLACK);
         c3.setOnMouseDragged(new AngleMover());
-        Group circles = new Group(c1,c2,c3);
+        Group circles = new Group(c1,c2,c3,superC);
 
         angle1 = new Text();
         angle1.xProperty().bind(c1.centerXProperty().add(25));
@@ -71,11 +80,18 @@ public class TaggedTrianglePane extends Pane {
     }
 
     private void updateAngles(){
-        Triangle triangle = Triangle.triangleBuilder(c1.getCenterX(),c1.getCenterY(),c2.getCenterX(),c2.getCenterY(),c3.getCenterX(),c3.getCenterY());
-        assert triangle != null;
+        Triangle triangle = new Triangle(c1.getCenterX(),c1.getCenterY(),c2.getCenterX(),c2.getCenterY(),c3.getCenterX(),c3.getCenterY());
         angle1.setText(String.format("%.2f", Math.toDegrees(triangle.angleA)));
         angle2.setText(String.format("%.2f", Math.toDegrees(triangle.angleB)));
         angle3.setText(String.format("%.2f", Math.toDegrees(triangle.angleC)));
+
+        if(visibleCircle) {
+            lib.Geometry.Circle tcirc = new lib.Geometry.Circle(c1.getCenterX(),c1.getCenterY(),c2.getCenterX(),c2.getCenterY(),c3.getCenterX(),c3.getCenterY());
+            superC.setCenterX(tcirc.center.x);
+            superC.setCenterY(tcirc.center.y);
+            superC.setRadius(tcirc.radius);
+
+        }
     }
 }
 
