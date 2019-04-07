@@ -1,3 +1,4 @@
+import auxp.ch14.MyCylinder;
 import auxp.ch15.CreatePointPane;
 import auxp.ch15.MovableCirclesPane;
 import auxp.ch15.MovableRectanglePane;
@@ -392,7 +393,8 @@ public class DaLi_15 extends Application {
     public static Pane ex21() {//Drag points
         return new TaggedTrianglePane(true);
     }
-    public static void ex22() {//Auto resize cylinder
+    public static Pane ex22() {//Auto resize cylinder
+        return new MyCylinder();
     }
     public static void ex23() {//Auto resize slow sign
     }

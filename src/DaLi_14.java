@@ -37,7 +37,7 @@ public class DaLi_14 extends Application {
         primaryStage.setTitle("C14");
 
 
-        Pane pane = ex28();
+        Pane pane = ex10();
 
 
         Scene scene = new Scene(pane);
