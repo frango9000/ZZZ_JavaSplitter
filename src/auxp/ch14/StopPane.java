@@ -12,13 +12,18 @@ import lib.Geometry.Point;
 import lib.Math.Algebra;
 
 public class StopPane extends StackPane {
+
+    public StopPane() {
+        paint();
+    }
+
     public void paint() {
         double radius = Algebra.min(getHeight(), getWidth()) * 0.8 / 2;
         Octagon base = new Octagon(radius, true);
         base.setCenter(new Point(getWidth() / 2, getHeight() / 2));
         Point[] ps = base.setTopHorizontal();
 
-        Polygon sign = new Polygon(base.getPrimitivePoints());
+        Polygon sign = new Polygon(base.getRawPoints());
         sign.setFill(Color.RED);
 
         Text stop = new Text("STOP");
