@@ -383,7 +383,7 @@ public class DaLi_15 extends Application {
         return pane;
     }
     public static Pane ex19() {//Game: eye–hand coordination
-        return new CreatePointPane(3);
+         return new CreatePointPane(3);
     }
     public static void ex20() {//Geometry: display angles
     }
