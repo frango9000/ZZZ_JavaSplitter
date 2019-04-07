@@ -1,6 +1,6 @@
 package auxp;
 
-import auxp.ch15.MovableCirclesPane;
+import auxp.ch15.TaggedTrianglePane;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -12,7 +12,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        MovableCirclesPane pane = new MovableCirclesPane();
+        TaggedTrianglePane pane = new TaggedTrianglePane();
 
         Pane b = new StackPane(pane);
         b.setPadding(new Insets(0));

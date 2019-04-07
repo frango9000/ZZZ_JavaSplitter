@@ -1,6 +1,7 @@
 import auxp.ch15.CreatePointPane;
 import auxp.ch15.MovableCirclesPane;
 import auxp.ch15.MovableRectanglePane;
+import auxp.ch15.TaggedTrianglePane;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -385,7 +386,8 @@ public class DaLi_15 extends Application {
     public static Pane ex19() {//Game: eye–hand coordination
          return new CreatePointPane(3);
     }
-    public static void ex20() {//Geometry: display angles
+    public static Pane ex20() {//Geometry: display angles
+        return new TaggedTrianglePane();
     }
     public static void ex21() {//Drag points
     }

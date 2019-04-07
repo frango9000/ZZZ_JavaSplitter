@@ -38,6 +38,17 @@ public class Triangle extends GeometricObject {
         }
     }
 
+    public static Triangle triangleBuilder(double... points){
+        switch(points.length){
+            case 4:
+                return new Triangle(new Point(points[0],points[1]),new Point(points[2],points[3]),new Point(0,0));
+            case 6:
+                return new Triangle(new Point(points[0],points[1]),new Point(points[2],points[3]),new Point(points[4],points[5]));
+            default:
+                return null;
+        }
+    }
+
     public static double getArea(Point pointA, Point pointB, Point pointC) {
         return Math.abs(pointA.x * (pointB.y - pointC.y) + pointB.x * (pointC.y - pointA.y) + pointC.x * (pointA.y - pointB.y)) / 2;
     }
@@ -55,7 +66,7 @@ public class Triangle extends GeometricObject {
         return sideAB + sideBC + sideCA;
     }
 
-    public double angle(double a, double b, double c) {
+    public static double angle(double a, double b, double c) {//in radians
         return Math.acos((a * a - b * b - c * c) / (-2 * b * c));
     }
 
