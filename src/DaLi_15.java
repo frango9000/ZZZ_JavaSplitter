@@ -1,4 +1,5 @@
 import auxp.ch14.MyCylinder;
+import auxp.ch14.StopPane;
 import auxp.ch15.CreatePointPane;
 import auxp.ch15.MovableCirclesPane;
 import auxp.ch15.MovableRectanglePane;
@@ -396,7 +397,8 @@ public class DaLi_15 extends Application {
     public static Pane ex22() {//Auto resize cylinder
         return new MyCylinder();
     }
-    public static void ex23() {//Auto resize slow sign
+    public static Pane ex23() {//Auto resize slow sign
+        return new StopPane();
     }
     public static void ex24() {//Animation: pendulum swing
     }
