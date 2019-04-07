@@ -12,6 +12,11 @@ public class StopWatch {
         startTime = System.currentTimeMillis();
     }
 
+    public void reset() {
+        start();
+        stop();
+    }
+
     public void stop() {
         endTime = System.currentTimeMillis();
     }

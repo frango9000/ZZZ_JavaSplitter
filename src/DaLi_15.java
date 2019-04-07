@@ -31,7 +31,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex17();
+        Pane pane = ex18();
 
 
         Scene scene = new Scene(pane);
@@ -371,7 +371,8 @@ public class DaLi_15 extends Application {
         pane.activateBoundingRectangle(true);
         return pane;
     }
-    public static void ex18() {//Move a rectangle using mouse
+    public static Pane ex18() {//Move a rectangle using mouse
+        return new CreatePointPane(3);
     }
     public static void ex19() {//Game: eye–hand coordination
     }

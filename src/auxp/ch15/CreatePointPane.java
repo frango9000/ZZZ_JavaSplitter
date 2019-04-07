@@ -5,10 +5,14 @@ import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.input.MouseButton;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Text;
+import lib.Misc.Randomizer;
+import lib.Misc.StopWatch;
 import lib.MyFX.ToolFX;
 
 public class CreatePointPane extends Pane {
@@ -17,6 +21,7 @@ public class CreatePointPane extends Pane {
     Rectangle rectangle= new Rectangle();
     final double radius = 10;
     boolean boundingRectangle = false;
+    int tries;
 
     public CreatePointPane(){
         setMinSize(600, 600);
@@ -24,23 +29,49 @@ public class CreatePointPane extends Pane {
         getChildren().addAll(circles,rectangle);
         ToolFX.setFillStroke(null, Color.BLACK, rectangle);
 
-        setOnMouseClicked(event -> {
-            if (event.getButton() == MouseButton.PRIMARY){
-                Circle c = new Circle(event.getX(), event.getY(), radius, Color.GRAY);
-                circles.getChildren().add(c);
-            }else{
-                if(circles.contains(event.getX(), event.getY())){
-                    ObservableList<Node> list = circles.getChildren();
-                    for (int i = 0; i < list.size();) {
-                        if(list.get(i).contains(event.getX(), event.getY()))
-                            list.remove(i);
-                        else i++;
-                    }
-                }
+        setOnMouseClicked(event -> handle(event));
+    }
+
+    public CreatePointPane(int trie){
+        setMinSize(600, 600);
+        setPadding(new Insets(5));
+        this.tries = trie-1;
+        Text text = new Text(300, 50, "Click to start");
+        Text time = new Text(500,50,"00:00:00");
+        Circle c = new Circle(Randomizer.randomInt(600), Randomizer.randomInt(600), radius, Color.GRAY);
+        c.setVisible(false);
+        StopWatch sw = new StopWatch();
+
+        Pane p = new Pane();
+        p. setMinSize(600, 600);
+
+
+        text.setOnMouseClicked(event -> {
+            if (!c.isVisible()) {
+                sw.start();
+                c.setVisible(true);
+                text.setVisible(false);
             }
-            if(boundingRectangle)
-                setBoundingRectangle();
         });
+
+        c.setOnMouseClicked(event -> {
+            c.setCenterY(Randomizer.randomInt(600));
+            c.setCenterX(Randomizer.randomInt(600));
+
+            if (tries > 0) {
+                tries--;
+            }else{
+                sw.stop();
+                c.setVisible(false);
+                text.setVisible(true);
+                time.setText(sw.getElapsedFormat());
+                tries = trie-1;
+
+
+            }
+            System.out.println(tries);
+        });
+        getChildren().addAll(text,time,c);
     }
 
     void setBoundingRectangle(){
@@ -70,6 +101,25 @@ public class CreatePointPane extends Pane {
     }
     public void activateBoundingRectangle(boolean bool){
         boundingRectangle = bool;
+    }
+
+
+    private void handle(MouseEvent event) {
+        if (event.getButton() == MouseButton.PRIMARY) {
+            Circle c = new Circle(event.getX(), event.getY(), radius, Color.GRAY);
+            circles.getChildren().add(c);
+        } else {
+            if (circles.contains(event.getX(), event.getY())) {
+                ObservableList<Node> list = circles.getChildren();
+                for (int i = 0; i < list.size(); ) {
+                    if (list.get(i).contains(event.getX(), event.getY()))
+                        list.remove(i);
+                    else i++;
+                }
+            }
+        }
+        if (boundingRectangle)
+            setBoundingRectangle();
     }
 
 
