@@ -1,4 +1,5 @@
 import auxp.ch14.MyCylinder;
+import auxp.ch14.MySineGraph;
 import auxp.ch14.StopPane;
 import auxp.ch15.CreatePointPane;
 import auxp.ch15.MovableCirclesPane;
@@ -37,7 +38,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex24();
+        Pane pane = ex25();
 
 
         Scene scene = new Scene(pane);
@@ -431,7 +432,8 @@ public class DaLi_15 extends Application {
         pane.setOnMouseReleased(event -> pt.play());
         return pane;
     }
-    public static void ex25() {//Animation: ball on curve
+    public static Pane ex25() {//Animation: ball on curve
+        return new MySineGraph();
     }
     public static void ex26() {//Change opacity
     }

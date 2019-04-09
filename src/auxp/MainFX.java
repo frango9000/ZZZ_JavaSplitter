@@ -1,6 +1,6 @@
 package auxp;
 
-import auxp.ch15.TaggedTrianglePane;
+import auxp.ch14.MySineGraph;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -12,10 +12,10 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        TaggedTrianglePane pane = new TaggedTrianglePane();
+        MySineGraph pane = new MySineGraph();
 
         Pane b = new StackPane(pane);
-        b.setPadding(new Insets(0));
+        b.setPadding(new Insets(10));
 
         Scene scene = new Scene(b);
         primaryStage.setTitle("Test");
