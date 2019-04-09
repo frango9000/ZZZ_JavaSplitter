@@ -2,6 +2,8 @@ import auxp.ch14.MyCylinder;
 import auxp.ch14.MySineGraph;
 import auxp.ch14.StopPane;
 import auxp.ch15.*;
+import javafx.animation.PathTransition;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -16,6 +18,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lib.Misc.Asserts;
 import lib.Misc.Randomizer;
 import lib.MyFX.ToolFX;
@@ -32,7 +35,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex26();
+        Pane pane = ex27();
 
 
         Scene scene = new Scene(pane);
@@ -407,7 +410,15 @@ public class DaLi_15 extends Application {
     public static Pane ex26() {//Change opacity
         return new AnimatedPendulum();
     }
-    public static void ex27() {//Control a moving text
+    public static Pane ex27() {//Control a moving text marquee
+        Text text = new Text(600, 300, "Welcome to Java");
+        Line line = new Line (-60, 300, 750, 300);
+        PathTransition pt = new PathTransition(Duration.millis(3000), line, text);
+        pt.setCycleCount(Timeline.INDEFINITE);
+        pt.play();
+        Pane pane = new Pane(text);
+        pane.setMinSize(600, 600);
+        return pane;
     }
     public static void ex28() {//Display a running fan
     }
