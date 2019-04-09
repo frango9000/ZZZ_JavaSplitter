@@ -34,15 +34,15 @@ public class MySineGraph extends Pane {
         height = getHeight();
 
         setOnMousePressed(event -> {
-            if(showSineAnimation)
+            if (showSineAnimation)
                 ptSin.pause();
-            if(showCosineAnimation)
+            if (showCosineAnimation)
                 ptCos.pause();
         });
         setOnMouseReleased(event -> {
-            if(showSineAnimation)
+            if (showSineAnimation)
                 ptSin.play();
-            if(showCosineAnimation)
+            if (showCosineAnimation)
                 ptCos.play();
         });
 
@@ -91,7 +91,7 @@ public class MySineGraph extends Pane {
             list.add(height / 2 - height / 3 * Math.sin(Math.toRadians(x)));
         }
         polyline.setStroke(Color.BLUE);
-        if(showSineAnimation){
+        if (showSineAnimation) {
             Circle circle = new Circle(-10, -10, 8, Color.GREY);
             pane.getChildren().add(circle);
             ptSin = new PathTransition(Duration.millis(5000), polyline, circle);
@@ -113,7 +113,7 @@ public class MySineGraph extends Pane {
             list.add(height / 2 - height / 3 * Math.cos(Math.toRadians(x)));
         }
         polyline.setStroke(Color.RED);
-        if(showCosineAnimation){
+        if (showCosineAnimation) {
             Circle circle = new Circle(-10, -10, 8, Color.GREY);
             pane.getChildren().add(circle);
             ptCos = new PathTransition(Duration.millis(5000), polyline, circle);

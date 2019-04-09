@@ -47,8 +47,10 @@ public class DaLi_15 extends Application {
     public static void main(String[] args) {
         Application.launch(args);
     }
+
     public static void ex00() {
     }
+
     public static Pane ex01() {//Pick four cards
         HBox cards = new HBox();
         final int elements = 4;
@@ -76,6 +78,7 @@ public class DaLi_15 extends Application {
         return bp;
 
     }
+
     public static Pane ex02() {//Rotate an Ellipse
         Ellipse ellipse = new Ellipse(150, 100);
         ToolFX.setFillStroke(null, Color.BLACK, ellipse);
@@ -99,9 +102,11 @@ public class DaLi_15 extends Application {
         ellipse.centerYProperty().bind(bp.heightProperty().divide(2));
         return bp;
     }
+
     public static Pane ex03() {//Move the rectangle
         return new MovableRectanglePane();
     }
+
     public static Pane ex04() {//Create a simple calculator
 
         Text n1 = new Text("N1:");
@@ -162,6 +167,7 @@ public class DaLi_15 extends Application {
         vb.setSpacing(5);
         return vb;
     }
+
     public static Pane ex05() {//Calculate final velocity
 
         GridPane grid = new GridPane();
@@ -199,6 +205,7 @@ public class DaLi_15 extends Application {
         grid.setPadding(new Insets(5));
         return grid;
     }
+
     public static Pane ex06() {//Alternate two messages
         String s1 = "Welcome to Java";
         String s2 = "LearningJavaFX";
@@ -212,6 +219,7 @@ public class DaLi_15 extends Application {
         pane.setPadding(new Insets(30));
         return pane;
     }
+
     public static Pane ex07() {//Change color using a mouse
         Circle circle = new Circle(80, Color.BLUE);
 
@@ -222,6 +230,7 @@ public class DaLi_15 extends Application {
         pane.setPadding(new Insets(30));
         return pane;
     }
+
     public static Pane ex08() {//Display the mouse position
         Pane pane = new Pane();
         pane.setMinSize(400, 400);
@@ -233,6 +242,7 @@ public class DaLi_15 extends Application {
 
         return pane;
     }
+
     public static Pane ex09() {//Draw lines using the arrow keys
         Pane pane = new Pane();
         pane.setMinSize(400, 400);
@@ -273,6 +283,7 @@ public class DaLi_15 extends Application {
         });
         return pane;
     }
+
     public static Pane ex10() {//Enter and display a string
         Text text = new Text("Text");
         StackPane pane = new StackPane(text);
@@ -290,6 +301,7 @@ public class DaLi_15 extends Application {
         });
         return pane;
     }
+
     public static Pane ex11() {//Move a circle using keys
         Circle circ = new Circle(100, 100, 70, null);
         circ.setStroke(Color.BLACK);
@@ -316,6 +328,7 @@ public class DaLi_15 extends Application {
         });
         return pane;
     }
+
     public static Pane ex12() {//Geometry: inside a circle?
         Circle circ = new Circle(100, 60, 50, Color.GRAY);
         circ.setStroke(Color.BLACK);
@@ -332,6 +345,7 @@ public class DaLi_15 extends Application {
         });
         return pane;
     }
+
     public static Pane ex13() {//Geometry: inside a rectangle?
         Rectangle rectangle = new Rectangle(80, 50, 100, 30);
         rectangle.setStroke(Color.BLACK);
@@ -348,6 +362,7 @@ public class DaLi_15 extends Application {
         });
         return pane;
     }
+
     public static Pane ex14() {//Geometry: inside a polygon?
         Polygon polygon = new Polygon(30, 10, 60, 30, 50, 70, 35, 35, 10, 50);
         polygon.setStroke(Color.BLACK);
@@ -364,55 +379,68 @@ public class DaLi_15 extends Application {
         });
         return pane;
     }
+
     public static Pane ex15() {//Geometry: add and remove points
         return new CreatePointPane();
     }
+
     public static Pane ex16() {//Two movable vertices and their distances
         return new MovableCirclesPane();
     }
+
     public static Pane ex17() {//Geometry: find the bounding rectangle
         CreatePointPane pane = new CreatePointPane();
         pane.activateBoundingRectangle(true);
         return pane;
     }
+
     public static Pane ex18() {//Move a rectangle using mouse
         Rectangle r = new Rectangle(100, 100, 100, 100);
         Pane pane = new Pane(r);
         r.setOnMouseDragged(event -> {
-            r.setX(event.getX() - r.getWidth()/2);
-            r.setY(event.getY() - r.getHeight()/2);
+            r.setX(event.getX() - r.getWidth() / 2);
+            r.setY(event.getY() - r.getHeight() / 2);
         });
         pane.setMinSize(600, 600);
         pane.setPadding(new Insets(5));
         return pane;
     }
+
     public static Pane ex19() {//Game: eye–hand coordination
-         return new CreatePointPane(3);
+        return new CreatePointPane(3);
     }
+
     public static Pane ex20() {//Geometry: display angles
         return new TaggedTrianglePane();
     }
+
     public static Pane ex21() {//Drag points
         return new TaggedTrianglePane(true);
     }
+
     public static Pane ex22() {//Auto resize cylinder
         return new MyCylinder();
     }
+
     public static Pane ex23() {//Auto resize slow sign
         return new StopPane();
     }
+
     public static Pane ex24() {//Animation: pendulum swing
         return new AnimatedPendulum();
     }
+
     public static Pane ex25() {//Animation: ball on curve
         return new MySineGraph();
     }
+
     public static Pane ex26() {//Change opacity
         return new AnimatedPendulum();
     }
+
     public static Pane ex27() {//Control a moving text marquee
         Text text = new Text(600, 300, "Welcome to Java");
-        Line line = new Line (-60, 300, 750, 300);
+        Line line = new Line(-60, 300, 750, 300);
         PathTransition pt = new PathTransition(Duration.millis(3000), line, text);
         pt.setCycleCount(Timeline.INDEFINITE);
         pt.play();
@@ -420,22 +448,31 @@ public class DaLi_15 extends Application {
         pane.setMinSize(600, 600);
         return pane;
     }
+
     public static void ex28() {//Display a running fan
     }
+
     public static void ex29() {//Racing car
     }
+
     public static void ex30() {//Slide show
     }
+
     public static void ex31() {//Geometry: pendulum
     }
+
     public static void ex32() {//Control a clock
     }
+
     public static void ex33() {//Game: bean-machine animation
     }
+
     public static void ex34() {//Simulation: self-avoiding random walk
     }
+
     public static void ex35() {//Animation: self-avoiding random walk
     }
+
     public static void ex36() {//Simulation: self-avoiding random walk
     }
 }

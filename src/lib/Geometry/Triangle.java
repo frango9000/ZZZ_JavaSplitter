@@ -37,12 +37,13 @@ public class Triangle extends GeometricObject {
             this.sideCA = sideCA;
         }
     }
+
     public Triangle(double x1, double y1, double x2, double y2) {
         this(new Point(x1, y1), new Point(x2, y2), new Point(0, 0));
     }
 
-    public Triangle(double x1, double y1, double x2, double y2, double x3, double y3){
-        this(new Point(x1,y1),new Point(x2,y2),new Point(x3,y3));
+    public Triangle(double x1, double y1, double x2, double y2, double x3, double y3) {
+        this(new Point(x1, y1), new Point(x2, y2), new Point(x3, y3));
     }
 
     public static double getArea(Point pointA, Point pointB, Point pointC) {

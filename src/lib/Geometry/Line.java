@@ -120,11 +120,11 @@ public class Line {
         } else return 180 - (Math.toDegrees(Math.atan(slope)));
     }
 
-    public double getAngle(Line line){
-        return Math.abs(getAngle()-line.getAngle());
+    public static double getAngle(Line line1, Line line2) {
+        return line1.getAngle(line2);
     }
 
-    public static double getAngle(Line line1, Line line2){
-        return line1.getAngle(line2);
+    public double getAngle(Line line) {
+        return Math.abs(getAngle() - line.getAngle());
     }
 }

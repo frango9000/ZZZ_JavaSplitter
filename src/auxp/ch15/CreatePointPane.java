@@ -17,33 +17,33 @@ import lib.MyFX.ToolFX;
 
 public class CreatePointPane extends Pane {
 
-    Group circles= new Group();
-    Rectangle rectangle= new Rectangle();
+    Group circles = new Group();
+    Rectangle rectangle = new Rectangle();
     final double radius = 10;
     boolean boundingRectangle = false;
     int tries;
 
-    public CreatePointPane(){
+    public CreatePointPane() {
         setMinSize(600, 600);
         setPadding(new Insets(5));
-        getChildren().addAll(circles,rectangle);
+        getChildren().addAll(circles, rectangle);
         ToolFX.setFillStroke(null, Color.BLACK, rectangle);
 
         setOnMouseClicked(event -> handle(event));
     }
 
-    public CreatePointPane(int trie){
+    public CreatePointPane(int trie) {
         setMinSize(600, 600);
         setPadding(new Insets(5));
-        this.tries = trie-1;
+        this.tries = trie - 1;
         Text text = new Text(300, 50, "Click to start");
-        Text time = new Text(500,50,"00:00:00");
+        Text time = new Text(500, 50, "00:00:00");
         Circle c = new Circle(Randomizer.randomInt(600), Randomizer.randomInt(600), radius, Color.GRAY);
         c.setVisible(false);
         StopWatch sw = new StopWatch();
 
         Pane p = new Pane();
-        p. setMinSize(600, 600);
+        p.setMinSize(600, 600);
 
 
         text.setOnMouseClicked(event -> {
@@ -60,23 +60,23 @@ public class CreatePointPane extends Pane {
 
             if (tries > 0) {
                 tries--;
-            }else{
+            } else {
                 sw.stop();
                 c.setVisible(false);
                 text.setVisible(true);
                 time.setText(sw.getElapsedFormat());
-                tries = trie-1;
+                tries = trie - 1;
 
 
             }
             System.out.println(tries);
         });
-        getChildren().addAll(text,time,c);
+        getChildren().addAll(text, time, c);
     }
 
-    void setBoundingRectangle(){
+    void setBoundingRectangle() {
         ObservableList<Node> list = circles.getChildren();
-        if(list.size() > 0) {
+        if (list.size() > 0) {
             rectangle.setVisible(true);
             double minX, maxX, minY, maxY;
             minX = minY = 10000;
@@ -91,15 +91,16 @@ public class CreatePointPane extends Pane {
                 maxY = maxY >= y ? maxY : y;
             }
 
-            rectangle.setX((minX)-10);
-            rectangle.setY((minY)-10);
-            rectangle.setWidth(maxX-minX+20);
-            rectangle.setHeight(maxY-minY+20);
-        }else{
+            rectangle.setX((minX) - 10);
+            rectangle.setY((minY) - 10);
+            rectangle.setWidth(maxX - minX + 20);
+            rectangle.setHeight(maxY - minY + 20);
+        } else {
             rectangle.setVisible(false);
         }
     }
-    public void activateBoundingRectangle(boolean bool){
+
+    public void activateBoundingRectangle(boolean bool) {
         boundingRectangle = bool;
     }
 

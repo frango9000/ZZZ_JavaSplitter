@@ -22,13 +22,13 @@ public class MovableRectanglePane extends BorderPane {
     final int LEFT = 2;
     final int RIGHT = 3;
 
-    public MovableRectanglePane(){
+    public MovableRectanglePane() {
         pane = new Pane();
-        pane.setMinWidth(size*2);
-        pane.setMinHeight(size*2);
+        pane.setMinWidth(size * 2);
+        pane.setMinHeight(size * 2);
 
 
-        rect = new Rectangle(10,10, size, size);
+        rect = new Rectangle(10, 10, size, size);
         ToolFX.setFillStroke(null, Color.BLACK, rect);
 
         pane.getChildren().add(rect);
@@ -43,24 +43,28 @@ public class MovableRectanglePane extends BorderPane {
         Button right = new Button("Right");
         right.setOnAction(event -> move(RIGHT));
 
-        HBox btns = new HBox(left,down,right);
+        HBox btns = new HBox(left, down, right);
         btns.setAlignment(Pos.CENTER);
-        VBox btns0 = new VBox(up,btns);
+        VBox btns0 = new VBox(up, btns);
         btns0.setAlignment(Pos.CENTER);
 
         setBottom(btns0);
     }
 
-    private void move(int direction){
-        switch (direction){
+    private void move(int direction) {
+        switch (direction) {
             case UP:
-                rect.setY(rect.getY() > 10 ? rect.getY() - 5 : 10);                             break;
+                rect.setY(rect.getY() > 10 ? rect.getY() - 5 : 10);
+                break;
             case DOWN:
-                rect.setY(rect.getY() < pane.getHeight()-size-10 ? rect.getY() + 5 : pane.getHeight()-size-10); break;
+                rect.setY(rect.getY() < pane.getHeight() - size - 10 ? rect.getY() + 5 : pane.getHeight() - size - 10);
+                break;
             case LEFT:
-                rect.setX(rect.getX() > 10 ? rect.getX() - 5 : 10);                             break;
+                rect.setX(rect.getX() > 10 ? rect.getX() - 5 : 10);
+                break;
             case RIGHT:
-                rect.setX(rect.getX() < pane.getWidth()-size-10 ? rect.getX() + 5 : pane.getWidth()-size-10);   break;
+                rect.setX(rect.getX() < pane.getWidth() - size - 10 ? rect.getX() + 5 : pane.getWidth() - size - 10);
+                break;
         }
     }
 }
