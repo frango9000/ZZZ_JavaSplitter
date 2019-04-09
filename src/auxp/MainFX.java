@@ -1,6 +1,6 @@
 package auxp;
 
-import auxp.ch14.MySineGraph;
+import auxp.ch15.AnimatedPendulum;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -12,7 +12,7 @@ public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        MySineGraph pane = new MySineGraph();
+        AnimatedPendulum pane = new AnimatedPendulum();
 
         Pane b = new StackPane(pane);
         b.setPadding(new Insets(10));
