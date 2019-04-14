@@ -1,3 +1,4 @@
+import auxp.ch14.ClockPane;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -25,7 +26,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex06();
+        Pane pane = ex07();
 
 
         Scene scene = new Scene(pane);
@@ -231,7 +232,35 @@ public class DaLi_16 extends Application{
 
         return new VBox(h1, new HBox(left,center,right,colsize,cols));
     }
-    public static void ex07() {//Set clock time
+    public static Pane ex07() {//Set clock time
+        BorderPane bp = new BorderPane();
+        ClockPane clock = new ClockPane();
+        bp.setCenter(clock);
+
+        Label hourLbl = new Label("Hour");
+        Label minuteLbl = new Label("Minute");
+        Label secondLbl = new Label("Second");
+
+        TextField htxt = new TextField();
+        htxt.setPrefColumnCount(2);
+        TextField mtxt = new TextField();
+        mtxt.setPrefColumnCount(2);
+        TextField stxt = new TextField();
+        stxt.setPrefColumnCount(2);
+
+        htxt.setOnAction(event -> {
+            clock.setHour(Integer.parseInt(htxt.getText()));
+        });
+        mtxt.setOnAction(event -> {
+            clock.setMinute(Integer.parseInt(mtxt.getText()));
+        });
+        stxt.setOnAction(event -> {
+            clock.setSecond(Integer.parseInt(stxt.getText()));
+        });
+
+        HBox bot = new HBox(hourLbl,htxt,minuteLbl,mtxt,secondLbl,stxt);
+        bp.setBottom(bot);
+        return bp;
     }
     public static void ex08() {//Geometry: two circles intersect?
     }
