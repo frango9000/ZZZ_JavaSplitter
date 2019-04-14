@@ -25,7 +25,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex05();
+        Pane pane = ex06();
 
 
         Scene scene = new Scene(pane);
@@ -209,7 +209,27 @@ public class DaLi_16 extends Application{
         });
         return grid;
     }
-    public static void ex06() {//Demonstrate TextField properties
+    public static Pane ex06() {//Demonstrate TextField properties
+        Label label = new Label("Text Field");
+        TextField tf = new TextField("JavaFX");
+        HBox h1 = new HBox(label,tf);
+
+        RadioButton left = new RadioButton("Left");
+        RadioButton center = new RadioButton("Center");
+        RadioButton right = new RadioButton("Right");
+        ToggleGroup tg = new ToggleGroup();
+        left.setToggleGroup(tg);
+        center.setToggleGroup(tg);
+        right.setToggleGroup(tg);
+        Label colsize = new Label("Column Size");
+        TextField cols = new TextField("12");
+
+        left.setOnAction(event -> tf.setAlignment(Pos.CENTER_LEFT));
+        center.setOnAction(event -> tf.setAlignment(Pos.CENTER));
+        right.setOnAction(event -> tf.setAlignment(Pos.CENTER_RIGHT));
+        cols.setOnAction(event -> tf.setPrefColumnCount(Integer.parseInt(cols.getText())));
+
+        return new VBox(h1, new HBox(left,center,right,colsize,cols));
     }
     public static void ex07() {//Set clock time
     }
