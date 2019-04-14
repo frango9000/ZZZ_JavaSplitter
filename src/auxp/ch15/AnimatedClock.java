@@ -20,7 +20,7 @@ public class AnimatedClock extends Application {
             clock.setCurrentTime();
         };
 
-        clock.setDetailed(true);
+        //clock.setDetailed(true);
         Timeline animation = new Timeline(new KeyFrame(Duration.millis(1000), eventHandler));
         animation.setCycleCount(Timeline.INDEFINITE);
         animation.play();

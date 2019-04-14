@@ -193,7 +193,7 @@ public class ClockPane extends Pane {
             }
         } else {
             int angle = 360 / 12;
-            for (int i = 1; i <= 12; i += 3) {
+            for (int i = 3; i <= 12; i += 3) {
                 getChildren().add(new Text(centerX - 3 + (clockRadius - 15) * Math.sin(Math.toRadians(-(i * angle) - 180)), centerY + 5 + (clockRadius - 15) * Math.cos(Math.toRadians(-(i * angle) - 180)), i + ""));
             }
         }
