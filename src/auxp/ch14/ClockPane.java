@@ -188,7 +188,6 @@ public class ClockPane extends Pane {
                     int t = j % 2 == 0 ? 5 : 0;
                     getChildren().add(new Line(centerX + clockRadius * Math.sin(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180)), centerY + clockRadius * Math.cos(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180)),
                             centerX + (clockRadius - 3 - t) * Math.sin(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180)), centerY + (clockRadius - 3 - t) * Math.cos(Math.toRadians((-(i * angleH) + (j * angleQ)) - 180))));
-
                 }
             }
         } else {
