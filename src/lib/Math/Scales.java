@@ -42,11 +42,11 @@ public abstract class Scales {
     }
 
     //temperature
-    public static float celsiusToFahrenheit(float celsius) {
+    public static double celsiusToFahrenheit(double celsius) {
         return celsius * 9 / 5 + 32;
     }
 
-    public static float fahrenheitToCelsius(float fahrenheit) {
+    public static double fahrenheitToCelsius(double fahrenheit) {
         return (fahrenheit - 32) * (5f / 9f);
     }
 

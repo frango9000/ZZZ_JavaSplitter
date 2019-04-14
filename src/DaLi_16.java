@@ -1,10 +1,8 @@
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -13,6 +11,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lib.Math.Scales;
 import lib.MyFX.ToolFX;
 
 public class DaLi_16 extends Application{
@@ -25,7 +24,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex03();
+        Pane pane = ex04();
 
 
         Scene scene = new Scene(pane);
@@ -162,7 +161,24 @@ public class DaLi_16 extends Application{
         return new VBox(stack,btns);
 
     }
-    public static void ex04() {//Traffic lights
+    public static Pane ex04() {//Create a Celsius/Fahrenheit converter
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10));
+        grid.add(new Label("Celcius"), 0, 0);
+        grid.add(new Label("Farenheit"), 0, 1);
+
+        TextField ctext = new TextField();
+        TextField ftext = new TextField();
+        grid.add(ctext, 1, 0);
+        grid.add(ftext, 1, 1);
+
+        ctext.setOnAction(event -> {
+            ftext.setText(""+Scales.celsiusToFahrenheit(Double.parseDouble(ctext.getText())));
+        });
+        ftext.setOnAction(event -> {
+            ctext.setText(""+Scales.fahrenheitToCelsius(Double.parseDouble(ftext.getText())));
+        });
+        return grid;
     }
     public static void ex05() {//Convert numbers
     }
