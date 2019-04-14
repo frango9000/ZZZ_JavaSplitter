@@ -11,6 +11,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lib.Math.NumberConverter;
 import lib.Math.Scales;
 import lib.MyFX.ToolFX;
 
@@ -24,7 +25,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex04();
+        Pane pane = ex05();
 
 
         Scene scene = new Scene(pane);
@@ -180,7 +181,33 @@ public class DaLi_16 extends Application{
         });
         return grid;
     }
-    public static void ex05() {//Convert numbers
+    public static Pane ex05() {//Convert numbers
+        GridPane grid = new GridPane();
+        grid.setPadding(new Insets(10));
+        grid.add(new Label("Decimal"), 0, 0);
+        grid.add(new Label("Hex"), 0, 1);
+        grid.add(new Label("Binary"), 0, 2);
+
+        TextField dtxt = new TextField();
+        TextField htxt = new TextField();
+        TextField btxt = new TextField();
+        grid.add(dtxt, 1, 0);
+        grid.add(htxt, 1, 1);
+        grid.add(btxt, 1, 2);
+
+        dtxt.setOnAction(event -> {
+            htxt.setText(""+ NumberConverter.decToHex(Integer.parseInt(dtxt.getText())));
+            btxt.setText(""+ NumberConverter.decToBin(Integer.parseInt(dtxt.getText())));
+        });
+        htxt.setOnAction(event -> {
+            dtxt.setText(""+ NumberConverter.hexToDec(dtxt.getText()));
+            btxt.setText(""+ NumberConverter.hexToBin(dtxt.getText()));
+        });
+        btxt.setOnAction(event -> {
+            dtxt.setText(""+ NumberConverter.binToDec(dtxt.getText()));
+            htxt.setText(""+ NumberConverter.binToHex(dtxt.getText()));
+        });
+        return grid;
     }
     public static void ex06() {//Demonstrate TextField properties
     }
