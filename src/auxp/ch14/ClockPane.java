@@ -20,7 +20,7 @@ public class ClockPane extends Pane {
     private double centerX;
     private double centerY;
 
-    Calendar calendar;
+
 
     private boolean hourHandVisible = true;
     private boolean minuteHandVisible = true;
@@ -35,8 +35,8 @@ public class ClockPane extends Pane {
      */
     public ClockPane() {
 
+        setMinSize(125, 150);
         // Construct a calendar for the current date and time
-        calendar = new GregorianCalendar();
         setCurrentTime();
     }
 
@@ -122,6 +122,7 @@ public class ClockPane extends Pane {
 
     /* Set the current time for the clock */
     public void setCurrentTime() {
+        Calendar calendar = new GregorianCalendar();
         // Set current hour, minute and second
         this.hour = calendar.get(Calendar.HOUR_OF_DAY);
         this.minute = calendar.get(Calendar.MINUTE);
@@ -133,6 +134,7 @@ public class ClockPane extends Pane {
      * Paint the clock
      */
     private void paintClock() {
+
 
         // Initialize clock parameters
         clockRadius = Math.min(getWidth(), getHeight()) * 0.8 * 0.5;
