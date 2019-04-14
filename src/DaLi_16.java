@@ -2,12 +2,15 @@ import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Ellipse;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -21,7 +24,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex01();
+        Pane pane = ex02();
 
 
         Scene scene = new Scene(pane);
@@ -54,11 +57,11 @@ public class DaLi_16 extends Application{
         orangeButton.setToggleGroup(tg);
         greenButton.setToggleGroup(tg);
 
-        redButton.setOnAction(event -> text.setStroke(Color.RED));
-        yellowButton.setOnAction(event -> text.setStroke(Color.YELLOW));
-        blackButton.setOnAction(event -> text.setStroke(Color.BLACK));
-        orangeButton.setOnAction(event -> text.setStroke(Color.ORANGE));
-        greenButton.setOnAction(event -> text.setStroke(Color.GREEN));
+        redButton.setOnAction(event -> text.setFill(Color.RED));
+        yellowButton.setOnAction(event -> text.setFill(Color.YELLOW));
+        blackButton.setOnAction(event -> text.setFill(Color.BLACK));
+        orangeButton.setOnAction(event -> text.setFill(Color.ORANGE));
+        greenButton.setOnAction(event -> text.setFill(Color.GREEN));
 
 
         HBox colors = new HBox(redButton,yellowButton,blackButton,orangeButton,greenButton);
@@ -80,7 +83,43 @@ public class DaLi_16 extends Application{
 
         return pane;
     }
-    public static void ex02() {//Select geometric figures
+    public static Pane ex02() {//Select geometric figures
+        StackPane figures = new StackPane();
+        figures.setMinSize(400, 500);
+
+        RadioButton circle = new RadioButton("Circle");
+        RadioButton square = new RadioButton("Square");
+        RadioButton ellipse = new RadioButton("Ellipse");
+        CheckBox fill = new CheckBox("Fill");
+
+
+        ToggleGroup tg = new ToggleGroup();
+        circle.setToggleGroup(tg);
+        square.setToggleGroup(tg);
+        ellipse.setToggleGroup(tg);
+
+        circle.setOnAction(event -> {
+            figures.getChildren().clear();
+            figures.getChildren().add(new Circle(100, Color.BLACK));
+        });
+        square.setOnAction(event -> {
+            figures.getChildren().clear();
+            figures.getChildren().add(new Rectangle(100,100, Color.BLACK));
+        });
+        ellipse.setOnAction(event -> {
+            figures.getChildren().clear();
+            figures.getChildren().add(new Ellipse(120, 80));
+        });
+        fill.setOnAction(event -> {
+            if(((CheckBox)event.getSource()).isSelected())
+                ((Shape) figures.getChildren().get(0)).setFill(Color.BLACK);
+            else ((Shape) figures.getChildren().get(0)).setFill(null);
+        });
+
+
+        HBox options = new HBox(circle,square,ellipse,fill);
+        return new VBox(figures,options);
+
     }
     public static void ex03() {//Traffic lights
     }
