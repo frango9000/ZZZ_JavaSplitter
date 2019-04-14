@@ -13,6 +13,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lib.MyFX.ToolFX;
 
 public class DaLi_16 extends Application{
 
@@ -24,7 +25,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex02();
+        Pane pane = ex03();
 
 
         Scene scene = new Scene(pane);
@@ -121,7 +122,45 @@ public class DaLi_16 extends Application{
         return new VBox(figures,options);
 
     }
-    public static void ex03() {//Traffic lights
+    public static Pane ex03() {//Traffic lights
+        Rectangle rect = new Rectangle(300, 200, null);
+        rect.setStroke(Color.BLACK);
+        Circle red = new Circle(50, 100, 25, null);
+        Circle yellow = new Circle(150, 100, 25, null);
+        Circle green = new Circle(250, 100, 25, null);
+        ToolFX.setFillStroke(null,Color.BLACK, red,yellow,green);
+
+        Pane stack = new Pane(rect,red,green,yellow);
+
+        RadioButton redbtn = new RadioButton("Red");
+        RadioButton yelbtn = new RadioButton("Yellow");
+        RadioButton grebtn = new RadioButton("Green");
+
+        HBox btns = new HBox(redbtn,yelbtn,grebtn);
+        redbtn.setOnAction(event -> {
+            red.setFill(Color.RED);
+            green.setFill(null);
+            yellow.setFill(null);
+        });
+
+        grebtn.setOnAction(event -> {
+            red.setFill(null);
+            green.setFill(Color.GREEN);
+            yellow.setFill(null);
+        });
+        yelbtn.setOnAction(event -> {
+            red.setFill(null);
+            green.setFill(null);
+            yellow.setFill(Color.YELLOW);
+        });
+
+        ToggleGroup tg = new ToggleGroup();
+        redbtn.setToggleGroup(tg);
+        yelbtn.setToggleGroup(tg);
+        grebtn.setToggleGroup(tg);
+
+        return new VBox(stack,btns);
+
     }
     public static void ex04() {//Traffic lights
     }
