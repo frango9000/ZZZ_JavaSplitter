@@ -1,16 +1,27 @@
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public abstract class DaLi_16 extends Application{
+public class DaLi_16 extends Application{
+
+    private static Stage stage;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        primaryStage.setTitle("C15");
+        stage = primaryStage;
+        primaryStage.setTitle("C16");
 
 
-        Pane pane = ex00();
+        Pane pane = ex01();
 
 
         Scene scene = new Scene(pane);
@@ -26,7 +37,48 @@ public abstract class DaLi_16 extends Application{
     public static Pane ex00() {
         return new Pane();
     }
-    public static void ex01() {//Use radio buttons
+    public static Pane ex01() {//Use radio buttons
+        Text text = new Text(75, 150, "Welcome to Java");
+
+        RadioButton redButton = new RadioButton("Red");
+        RadioButton yellowButton = new RadioButton("Yellow");
+        RadioButton blackButton = new RadioButton("Black");
+        RadioButton orangeButton = new RadioButton("Orange");
+        RadioButton greenButton = new RadioButton("Green");
+
+
+        ToggleGroup tg = new ToggleGroup();
+        redButton.setToggleGroup(tg);
+        yellowButton.setToggleGroup(tg);
+        blackButton.setToggleGroup(tg);
+        orangeButton.setToggleGroup(tg);
+        greenButton.setToggleGroup(tg);
+
+        redButton.setOnAction(event -> text.setStroke(Color.RED));
+        yellowButton.setOnAction(event -> text.setStroke(Color.YELLOW));
+        blackButton.setOnAction(event -> text.setStroke(Color.BLACK));
+        orangeButton.setOnAction(event -> text.setStroke(Color.ORANGE));
+        greenButton.setOnAction(event -> text.setStroke(Color.GREEN));
+
+
+        HBox colors = new HBox(redButton,yellowButton,blackButton,orangeButton,greenButton);
+        Pane center = new Pane(text);
+        center.setMinHeight(300);
+        center.setStyle("-fx-border-color: black");
+
+        Button leftButton = new Button("<");
+        Button rightButton = new Button(">");
+        leftButton.setOnAction(event -> text.setX(text.getX()-10>=0? text.getX()-10 : 0));
+        rightButton.setOnAction(event -> text.setX(text.getX()+10<=center.getWidth()-50?text.getX()+10:center.getWidth()-50));
+        HBox btns = new HBox(leftButton,rightButton);
+        btns.setAlignment(Pos.CENTER);
+
+        BorderPane pane = new BorderPane();
+        pane.setBottom(btns);
+        pane.setCenter(center);
+        pane.setTop(colors);
+
+        return pane;
     }
     public static void ex02() {//Select geometric figures
     }
