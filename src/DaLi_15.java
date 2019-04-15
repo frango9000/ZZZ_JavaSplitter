@@ -35,7 +35,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex27();
+        Pane pane = ex28();
 
 
         Scene scene = new Scene(pane);
@@ -449,7 +449,17 @@ public class DaLi_15 extends Application {
         return pane;
     }
 
-    public static void ex28() {//Display a running fan
+    public static Pane ex28() {//Display a running fan
+        RunningFan fan = new RunningFan();
+
+        Button pause = new Button("Pause");
+        Button play = new Button("Play");
+        Button reverse = new Button("reverse");
+
+        pause.setOnAction(e -> fan.pause());
+        play.setOnAction(event -> fan.play());
+        reverse.setOnAction(event -> fan.reverse());
+        return new VBox(fan, new HBox(pause, play, reverse));
     }
 
     public static void ex29() {//Racing car
