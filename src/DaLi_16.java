@@ -37,7 +37,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex11();
+        Pane pane = ex12();
 
 
         Scene scene = new Scene(pane);
@@ -340,7 +340,20 @@ public class DaLi_16 extends Application{
         
         return new Pane(bc);
     }
-    public static void ex12() {//Demonstrate TextArea properties
+    public static Pane ex12() {//Demonstrate TextArea properties
+        BorderPane bp = new BorderPane();
+        TextArea text = new TextArea();
+        bp.setCenter(text);
+
+        CheckBox edit = new CheckBox("Editable");
+        edit.setOnAction(event -> text.setEditable(((CheckBox)event.getSource()).isSelected()));
+        CheckBox wrap = new CheckBox("Wrap");
+        wrap.setOnAction(event ->text.setWrapText(((CheckBox)event.getSource()).isSelected()));
+        HBox bot = new HBox(edit,wrap);
+        bot.setAlignment(Pos.CENTER);
+        bp.setBottom(bot);
+
+        return bp;
     }
     public static void ex13() {//Compare loans with various interest rates
     }
