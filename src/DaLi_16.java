@@ -1,4 +1,5 @@
 import auxp.ch14.ClockPane;
+import auxp.ch15.RunningFan;
 import auxp.ch16.ColorSliders;
 import auxp.ch16.IntersectingCircles;
 import auxp.ch16.IntersectingSquares;
@@ -44,7 +45,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex17();
+        Pane pane = ex18();
 
 
         Scene scene = new Scene(pane);
@@ -492,7 +493,26 @@ public class DaLi_16 extends Application{
     public static Pane ex17() {//Use ScrollBar and Slider
         return new ColorSliders();
     }
-    public static void ex18() {//Simulation: a running fan
+    public static Pane ex18() {//Simulation: a running fan
+        Button pause = new Button("Pause");
+        Button play = new Button("Play");
+        Button reverse = new Button("reverse");
+
+        HBox controls = new HBox(pause,play,reverse);
+
+        RunningFan fan = new RunningFan();
+        pause.setOnAction(e -> fan.pause());
+        play.setOnAction(event -> fan.play());
+        reverse.setOnAction(event -> fan.reverse());
+
+        ScrollBar bar = new ScrollBar();
+        bar.setValue(100);
+        bar.valueProperty().addListener(observable -> fan.setSpeed(bar.getValue()));
+
+        BorderPane bp = new BorderPane(fan);
+        bp.setTop(controls);
+        bp.setBottom(bar);
+        return bp;
     }
     public static void ex19() {//Control a group of fans
     }
