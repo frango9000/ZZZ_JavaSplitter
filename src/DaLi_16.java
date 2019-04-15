@@ -45,7 +45,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex18();
+        Pane pane = ex19();
 
 
         Scene scene = new Scene(pane);
@@ -493,12 +493,13 @@ public class DaLi_16 extends Application{
     public static Pane ex17() {//Use ScrollBar and Slider
         return new ColorSliders();
     }
-    public static Pane ex18() {//Simulation: a running fan
+    public static BorderPane ex18() {//Simulation: a running fan
         Button pause = new Button("Pause");
         Button play = new Button("Play");
         Button reverse = new Button("reverse");
 
         HBox controls = new HBox(pause,play,reverse);
+        controls.setAlignment(Pos.CENTER);
 
         RunningFan fan = new RunningFan();
         pause.setOnAction(e -> fan.pause());
@@ -510,11 +511,39 @@ public class DaLi_16 extends Application{
         bar.valueProperty().addListener(observable -> fan.setSpeed(bar.getValue()));
 
         BorderPane bp = new BorderPane(fan);
+        bp.setPadding(new Insets(3));
         bp.setTop(controls);
         bp.setBottom(bar);
         return bp;
     }
-    public static void ex19() {//Control a group of fans
+    public static Pane ex19() {//Control a group of fans
+        BorderPane fan1 = ex18();
+        fan1.setStyle("-fx-border-color: black;");
+        BorderPane fan2 = ex18();
+        fan2.setStyle("-fx-border-color: black;");
+        BorderPane fan3 = ex18();
+        fan3.setStyle("-fx-border-color: black;");
+        HBox fans = new HBox(fan1,fan2,fan3);
+        fans.setSpacing(5);
+        fans.setPadding(new Insets(5));
+
+        Button startall = new Button ("Start all");
+        Button stopall = new Button ("Stop all");
+        HBox bot = new HBox(startall,stopall);
+        bot.setAlignment(Pos.CENTER);
+
+        startall.setOnAction(event -> {
+            ((RunningFan)fan1.getCenter()).play();
+            ((RunningFan)fan2.getCenter()).play();
+            ((RunningFan)fan3.getCenter()).play();
+        });
+        stopall.setOnAction(event -> {
+            ((RunningFan)fan1.getCenter()).pause();
+            ((RunningFan)fan2.getCenter()).pause();
+            ((RunningFan)fan3.getCenter()).pause();
+        });
+
+        return new VBox(fans,bot);
     }
     public static void ex20() {//Count-up stopwatch
     }
