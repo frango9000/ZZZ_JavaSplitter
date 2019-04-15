@@ -552,18 +552,31 @@ public class DaLi_16 extends Application{
     public static Pane ex20() {//Count-up stopwatch
         Text time = new Text("00:00:00");
         Button start = new Button("Start");
-        Button stop = new Button("Stop");
-        HBox buttons = new HBox(start,stop);
+        Button clear = new Button("Clear");
+        HBox buttons = new HBox(start,clear);
         StopWatch stopWatch = new StopWatch();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), event ->time.setText(stopWatch.getElapsedFormat())));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), event ->time.setText(stopWatch.getLapsedFormat())));
         timeline.setCycleCount(Timeline.INDEFINITE);
         start.setOnAction(event -> {
-            stopWatch.start();
-            timeline.play();
+            if(start.getText().equals("Start")) {
+                timeline.play();
+                stopWatch.start();
+                start.setText("Pause");
+            }else if((start.getText().equals("Pause"))){
+                stopWatch.stop();
+                time.setText(stopWatch.getElapsedFormat());
+                start.setText("Resume");
+            }else if((start.getText().equals("Resume"))){
+                timeline.play();
+                stopWatch.start();
+                start.setText("Pause");
+            }
         });
-        stop.setOnAction(event -> {
+        clear.setOnAction(event -> {
             stopWatch.reset();
-            timeline.stop();
+            stopWatch.stop();
+
+            start.setText("Start");
         });
         return new VBox(time,buttons);
     }

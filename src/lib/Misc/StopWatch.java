@@ -1,6 +1,7 @@
 package lib.Misc;
 
 public class StopWatch {
+    private long elapsedTime = 0;
     private long startTime;
     private long endTime;
 
@@ -15,20 +16,19 @@ public class StopWatch {
     public void reset() {
         start();
         stop();
+        elapsedTime = 0;
     }
 
     public void stop() {
         endTime = System.currentTimeMillis();
+        elapsedTime += startTime - endTime;
     }
 
     public long getElapsedTime() {
-        endTime = System.currentTimeMillis();
-        return endTime - startTime;
+        return elapsedTime;
     }
-
-    public String getElapsedFormat() {
-
-        long totalMilliseconds = getElapsedTime();
+    public String getElapsedFormat(long elapsed) {
+        long totalMilliseconds = elapsed;
         long currentMilliseconds = totalMilliseconds % 1000;
         long totalSeconds = totalMilliseconds / 1000;
         long currentSecond = totalSeconds % 60;
@@ -37,8 +37,16 @@ public class StopWatch {
         long totalHours = totalMinutes / 60;
         long currentHour = totalHours % 24;
         return String.format("%02d:%02d:%02d:%03d", currentHour, currentMinute, currentSecond, currentMilliseconds);
-
     }
+    public String getElapsedFormat(){
+        return getElapsedFormat(elapsedTime);
+    }
+    public String getLapsedFormat(){
+        long time = (startTime == endTime)? System.currentTimeMillis(): endTime-startTime;
+        return getElapsedFormat(elapsedTime+time-startTime);
+    }
+
+
 
     public void consoleOutElapsedTime() {
         System.out.println(getElapsedFormat());
