@@ -12,6 +12,7 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
@@ -42,7 +43,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex14();
+        Pane pane = ex15();
 
 
         Scene scene = new Scene(pane);
@@ -423,7 +424,47 @@ public class DaLi_16 extends Application{
         bp.setBottom(bot);
         return bp;
     }
-    public static void ex15() {//Demonstrate Label properties
+    public static Pane ex15() {//Demonstrate Label properties
+        String[] contents = {"TOP", "BOTTOM", "LEFT", "RIGHT"};
+        ObservableList<String> fcontents = FXCollections.observableArrayList(contents);
+        ComboBox<String> positions= new ComboBox<>(fcontents);
+        Label top1 = new Label("contentDiplay:", positions);
+        top1.setContentDisplay(ContentDisplay.RIGHT);
+
+        TextField gap = new TextField();
+        Label top2 = new Label("graphicTextGap:", gap);
+        top2.setContentDisplay(ContentDisplay.RIGHT);
+
+        HBox top = new HBox(top1,top2);
+
+        ImageView grapeimg = new ImageView("res/image/grapes.gif");
+        Label grape = new Label("Grapes", grapeimg);
+        grape.setMinHeight(200);
+
+
+        positions.setOnAction(event -> {
+            switch(positions.getValue()){
+                case "TOP":
+                    grape.setContentDisplay(ContentDisplay.TOP);
+                    break;
+                case "BOTTOM":
+                    grape.setContentDisplay(ContentDisplay.BOTTOM);
+                    break;
+                case "LEFT":
+                    grape.setContentDisplay(ContentDisplay.LEFT);
+                    break;
+                case "RIGHT":
+                    grape.setContentDisplay(ContentDisplay.RIGHT);
+                    break;
+            }
+        });
+
+        gap.setOnAction(event -> grape.setGraphicTextGap(Double.parseDouble(gap.getText())));
+
+        BorderPane bp = new BorderPane(grape);
+        bp.setTop(top);
+        bp.setPadding(new Insets(10));
+        return bp;
     }
     public static void ex16() {//Use ComboBox and ListView
     }
