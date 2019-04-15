@@ -3,6 +3,8 @@ import auxp.ch15.RunningFan;
 import auxp.ch16.ColorSliders;
 import auxp.ch16.IntersectingCircles;
 import auxp.ch16.IntersectingSquares;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -26,9 +28,11 @@ import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import lib.Data.ArrayManip;
 import lib.Math.NumberConverter;
 import lib.Math.Scales;
+import lib.Misc.StopWatch;
 import lib.MyFX.ToolFX;
 
 import java.io.File;
@@ -45,7 +49,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex19();
+        Pane pane = ex20();
 
 
         Scene scene = new Scene(pane);
@@ -545,7 +549,23 @@ public class DaLi_16 extends Application{
 
         return new VBox(fans,bot);
     }
-    public static void ex20() {//Count-up stopwatch
+    public static Pane ex20() {//Count-up stopwatch
+        Text time = new Text("00:00:00");
+        Button start = new Button("Start");
+        Button stop = new Button("Stop");
+        HBox buttons = new HBox(start,stop);
+        StopWatch stopWatch = new StopWatch();
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), event ->time.setText(stopWatch.getElapsedFormat())));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        start.setOnAction(event -> {
+            stopWatch.start();
+            timeline.play();
+        });
+        stop.setOnAction(event -> {
+            stopWatch.reset();
+            timeline.stop();
+        });
+        return new VBox(time,buttons);
     }
     public static void ex21() {//Count-down stopwatch
     }
