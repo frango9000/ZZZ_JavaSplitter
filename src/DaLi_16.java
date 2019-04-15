@@ -37,7 +37,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex12();
+        Pane pane = ex13();
 
 
         Scene scene = new Scene(pane);
@@ -355,7 +355,30 @@ public class DaLi_16 extends Application{
 
         return bp;
     }
-    public static void ex13() {//Compare loans with various interest rates
+    public static Pane ex13() {//Compare loans with various interest rates
+        Label amtLbl = new Label("Loan Amount");
+        TextField amtTxt = new TextField();
+        Label yrsLbl = new Label("Number of years");
+        TextField yrsTxt= new TextField();
+        Button show = new Button("Show");
+        HBox top = new HBox(amtLbl,amtTxt,yrsLbl,yrsTxt,show);
+
+        TextArea text = new TextArea();
+        text.setPrefColumnCount(30);
+
+        show.setOnAction(event -> {
+            text.appendText(String.format("%s %5s %5s\n", "Interest Rate", "Monthly Payment", "Total Payment"));
+            for (double i = 5.0; i <= 10; i += 0.25) {
+                double monthlyInterestRate = i / 1200.0;
+                double monthlyPayment = (Double.parseDouble(amtTxt.getText()) * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate, Integer.parseInt(yrsTxt.getText()) * 12)));
+                text.appendText(String.format( "%5.2f %5.2f %8.2f\n", i, monthlyPayment, (monthlyPayment * 12) * Integer.parseInt(yrsTxt.getText())));
+            }
+        });
+
+        BorderPane bp = new BorderPane();
+        bp.setTop(top);
+        bp.setCenter(text);
+        return bp;
     }
     public static void ex14() {//Select a font
     }
