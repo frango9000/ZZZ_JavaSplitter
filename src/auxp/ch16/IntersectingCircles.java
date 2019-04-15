@@ -73,8 +73,8 @@ public class IntersectingCircles extends VBox {
             if (c1.contains(e.getX(), e.getY())) {
                 c1.setCenterX(e.getX());
                 c1.setCenterY(e.getY());
-                c1x.setText(String.valueOf(e.getX()));
-                c1y.setText(String.valueOf(e.getY()));
+                c1x.setText(c1.getCenterX()+"");
+                c1y.setText(c1.getCenterY()+"");
                 bool.setText(isIntersect()+"");
             }
         });
@@ -83,8 +83,8 @@ public class IntersectingCircles extends VBox {
             if (c2.contains(e.getX(), e.getY())) {
                 c2.setCenterX(e.getX());
                 c2.setCenterY(e.getY());
-                c2x.setText(String.valueOf(e.getX()));
-                c2y.setText(String.valueOf(e.getY()));
+                c2x.setText(c2.getCenterX()+"");
+                c2y.setText(c2.getCenterY()+"");
                 bool.setText(isIntersect()+"");
             }
         });
