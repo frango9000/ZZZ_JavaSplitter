@@ -13,6 +13,10 @@ public class StopWatch {
         startTime = System.currentTimeMillis();
     }
 
+    public void pause(){
+        elapsedTime += System.currentTimeMillis() - startTime;
+    }
+
     public void reset() {
         start();
         stop();
@@ -42,8 +46,7 @@ public class StopWatch {
         return getElapsedFormat(elapsedTime);
     }
     public String getLapsedFormat(){
-        long time = (startTime == endTime)? System.currentTimeMillis(): endTime-startTime;
-        return getElapsedFormat(elapsedTime+time-startTime);
+        return getElapsedFormat(elapsedTime+System.currentTimeMillis()-startTime);
     }
 
 

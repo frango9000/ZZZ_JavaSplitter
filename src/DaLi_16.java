@@ -550,10 +550,16 @@ public class DaLi_16 extends Application{
         return new VBox(fans,bot);
     }
     public static Pane ex20() {//Count-up stopwatch
-        Text time = new Text("00:00:00");
+        Text time = new Text("00:00:00:000");
+        time.setStyle("-fx-font-size: 30;");
+        StackPane pane = new StackPane(time);
+
         Button start = new Button("Start");
         Button clear = new Button("Clear");
         HBox buttons = new HBox(start,clear);
+        buttons.setAlignment(Pos.CENTER);
+        buttons.setSpacing(10);
+
         StopWatch stopWatch = new StopWatch();
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), event ->time.setText(stopWatch.getLapsedFormat())));
         timeline.setCycleCount(Timeline.INDEFINITE);
@@ -563,7 +569,8 @@ public class DaLi_16 extends Application{
                 stopWatch.start();
                 start.setText("Pause");
             }else if((start.getText().equals("Pause"))){
-                stopWatch.stop();
+                timeline.pause();
+                stopWatch.pause();
                 time.setText(stopWatch.getElapsedFormat());
                 start.setText("Resume");
             }else if((start.getText().equals("Resume"))){
@@ -575,10 +582,13 @@ public class DaLi_16 extends Application{
         clear.setOnAction(event -> {
             stopWatch.reset();
             stopWatch.stop();
-
+            timeline.stop();
+            time.setText("00:00:00:000");
             start.setText("Start");
         });
-        return new VBox(time,buttons);
+        VBox vPane = new VBox(pane,buttons);
+        vPane.setPadding(new Insets(10));
+        return vPane;
     }
     public static void ex21() {//Count-down stopwatch
     }
