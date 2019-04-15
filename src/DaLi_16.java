@@ -18,6 +18,10 @@ import lib.Math.NumberConverter;
 import lib.Math.Scales;
 import lib.MyFX.ToolFX;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class DaLi_16 extends Application{
 
     private static Stage stage;
@@ -28,7 +32,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex09();
+        Pane pane = ex10();
 
 
         Scene scene = new Scene(pane);
@@ -270,7 +274,33 @@ public class DaLi_16 extends Application{
     public static Pane ex09() {//Geometry: two rectangles intersect?
         return new IntersectingSquares();
     }
-    public static void ex10() {//Text viewer
+    public static Pane ex10() {//Text viewer
+        BorderPane bp = new BorderPane();
+        TextArea text = new TextArea();
+        bp.setCenter(text);
+
+        Label label = new Label("Filename");
+        TextField filenameInput = new TextField();
+        Button entrButton = new Button("View");
+        HBox bot = new HBox(label,filenameInput,entrButton);
+        bot.setAlignment(Pos.CENTER);
+        bp.setBottom(bot);
+
+        entrButton.setOnAction(event -> {
+            File f = new File(filenameInput.getText());
+            if(f.exists()){
+                try(Scanner scan = new Scanner(f)){
+                    StringBuilder builder = new StringBuilder();
+                    while(scan.hasNextLine()){
+                        builder.append(scan.nextLine());
+                    }
+                    text.setText(builder.toString());
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        return bp;
     }
     public static void ex11() {//Create a histogram for occurrences of letters
     }
