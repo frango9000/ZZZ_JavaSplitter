@@ -1,4 +1,5 @@
 import auxp.ch14.ClockPane;
+import auxp.ch16.IntersectingCircles;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -26,7 +27,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex07();
+        Pane pane = ex08();
 
 
         Scene scene = new Scene(pane);
@@ -262,7 +263,8 @@ public class DaLi_16 extends Application{
         bp.setBottom(bot);
         return bp;
     }
-    public static void ex08() {//Geometry: two circles intersect?
+    public static Pane ex08() {//Geometry: two circles intersect?
+        return new IntersectingCircles();
     }
     public static void ex09() {//Geometry: two rectangles intersect?
     }
