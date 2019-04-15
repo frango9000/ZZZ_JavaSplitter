@@ -5,6 +5,10 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
@@ -14,6 +18,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+import lib.Data.ArrayManip;
 import lib.Math.NumberConverter;
 import lib.Math.Scales;
 import lib.MyFX.ToolFX;
@@ -32,7 +37,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex10();
+        Pane pane = ex11();
 
 
         Scene scene = new Scene(pane);
@@ -302,7 +307,38 @@ public class DaLi_16 extends Application{
         });
         return bp;
     }
-    public static void ex11() {//Create a histogram for occurrences of letters
+    public static Pane ex11() {//Create a histogram for occurrences of letters
+        final CategoryAxis xAxis= new CategoryAxis();
+        final NumberAxis yAxis= new NumberAxis();
+        final BarChart<String, Number> bc = new BarChart<String, Number>(xAxis,yAxis);
+        yAxis.setLabel("Appereances");
+        xAxis.setLabel("Letter");
+
+
+        int[] counts = new int['z'-'a'+1];
+        File file = new File("C:/audio.log");
+        try(Scanner scan = new Scanner(file)) {
+            while(scan.hasNextLine()){
+                String line = scan.nextLine();
+                for (int i = 0; i < line.length(); i++) {
+                    char ch = Character.toLowerCase(line.charAt(i));
+                    if(ch>='a' && ch<='z')
+                        counts[ch-'a']++;
+                }
+            }
+            ArrayManip.printArray(counts);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        
+        XYChart.Series s1 = new XYChart.Series();
+        s1.setName("Chars");
+        for (int i = 0; i < counts.length; i++) {
+            s1.getData().add(new XYChart.Data<String,Number>(""+(char)(i+'a'), counts[i]));
+        }
+        bc.getData().add(s1);
+        
+        return new Pane(bc);
     }
     public static void ex12() {//Demonstrate TextArea properties
     }
