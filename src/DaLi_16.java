@@ -1,4 +1,5 @@
 import auxp.ch14.ClockPane;
+import auxp.ch16.ColorSliders;
 import auxp.ch16.IntersectingCircles;
 import auxp.ch16.IntersectingSquares;
 import javafx.application.Application;
@@ -43,7 +44,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex16();
+        Pane pane = ex17();
 
 
         Scene scene = new Scene(pane);
@@ -488,7 +489,8 @@ public class DaLi_16 extends Application{
 
         return new VBox(top, countrieslist);
     }
-    public static void ex17() {//Use ScrollBar and Slider
+    public static Pane ex17() {//Use ScrollBar and Slider
+        return new ColorSliders();
     }
     public static void ex18() {//Simulation: a running fan
     }
