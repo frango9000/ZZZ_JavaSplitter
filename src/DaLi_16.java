@@ -2,6 +2,8 @@ import auxp.ch14.ClockPane;
 import auxp.ch16.IntersectingCircles;
 import auxp.ch16.IntersectingSquares;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -16,6 +18,9 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import lib.Data.ArrayManip;
@@ -37,7 +42,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex13();
+        Pane pane = ex14();
 
 
         Scene scene = new Scene(pane);
@@ -380,7 +385,43 @@ public class DaLi_16 extends Application{
         bp.setCenter(text);
         return bp;
     }
-    public static void ex14() {//Select a font
+    public static Pane ex14() {//Select a font
+        Text text = new Text("Programming is Fun.");
+
+        Label fontNameLbl = new Label("Font Name");
+        ObservableList<String> fitems = FXCollections.observableArrayList(Font.getFontNames());
+        ComboBox<String> fonts= new ComboBox<>(fitems);
+
+        Label fontSizeLbl = new Label("Font Size");
+        String[] sitems = {"10", "12", "14", "16", "18", "20", "22", "24", "26" };
+        ComboBox<String> sizes= new ComboBox<>(FXCollections.observableArrayList(sitems));
+
+        HBox top = new HBox(fontNameLbl,fonts,fontSizeLbl,sizes);
+        top.setSpacing(5);
+
+        StackPane pane = new StackPane(text);
+        pane.setMinSize(400, 300);
+
+        CheckBox boldCh = new CheckBox("Bold");
+        CheckBox italicCh = new CheckBox("Italic");
+        HBox bot = new HBox(boldCh,italicCh);
+        bot.setSpacing(5);
+        bot.setAlignment(Pos.CENTER);
+        fonts.setValue(fitems.get(0));
+        sizes.setValue("10");
+
+        fonts.setOnAction(event -> text.setFont(Font.font(fonts.getValue())));
+        sizes.setOnAction(event -> text.setFont(Font.font(Integer.parseInt(sizes.getValue()))));
+
+        boldCh.setOnAction(event -> text.setFont(Font.font(fonts.getValue(), boldCh.isSelected()? FontWeight.BOLD:FontWeight.NORMAL,italicCh.isSelected()?FontPosture.ITALIC:FontPosture.REGULAR , Integer.parseInt(sizes.getValue()))));
+        italicCh.setOnAction(event -> text.setFont(Font.font(fonts.getValue(), boldCh.isSelected()? FontWeight.BOLD:FontWeight.NORMAL,italicCh.isSelected()?FontPosture.ITALIC:FontPosture.REGULAR , Integer.parseInt(sizes.getValue()))));
+
+        BorderPane bp = new BorderPane();
+        bp.setPadding(new Insets(8));
+        bp.setTop(top);
+        bp.setCenter(pane);
+        bp.setBottom(bot);
+        return bp;
     }
     public static void ex15() {//Demonstrate Label properties
     }
