@@ -43,7 +43,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex15();
+        Pane pane = ex16();
 
 
         Scene scene = new Scene(pane);
@@ -466,7 +466,27 @@ public class DaLi_16 extends Application{
         bp.setPadding(new Insets(10));
         return bp;
     }
-    public static void ex16() {//Use ComboBox and ListView
+    public static Pane ex16() {//Use ComboBox and ListView
+        String[] options = {"Single", "Multiple"};
+        ComboBox<String> opt = new ComboBox<>(FXCollections.observableArrayList(options));
+        Label top = new Label("Selecction Mode:", opt);
+        top.setContentDisplay(ContentDisplay.RIGHT);
+
+        String[] flagTitles = {"Canada", "China", "Denmark", "France", "Germany", "India", "Norway", "United Kingdom", "United States of America"};
+        ListView<String> countrieslist= new ListView<>(FXCollections.observableArrayList(flagTitles));
+
+        opt.setOnAction(event -> {
+            switch(opt.getValue()){
+                case "Single":
+                    countrieslist.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+                    break;
+                case "Multiple":
+                    countrieslist.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+                    break;
+            }
+        });
+
+        return new VBox(top, countrieslist);
     }
     public static void ex17() {//Use ScrollBar and Slider
     }
