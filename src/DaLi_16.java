@@ -564,19 +564,23 @@ public class DaLi_16 extends Application{
         Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), event ->time.setText(stopWatch.getLapsedFormat())));
         timeline.setCycleCount(Timeline.INDEFINITE);
         start.setOnAction(event -> {
-            if(start.getText().equals("Start")) {
-                timeline.play();
-                stopWatch.start();
-                start.setText("Pause");
-            }else if((start.getText().equals("Pause"))){
-                timeline.pause();
-                stopWatch.pause();
-                time.setText(stopWatch.getElapsedFormat());
-                start.setText("Resume");
-            }else if((start.getText().equals("Resume"))){
-                timeline.play();
-                stopWatch.start();
-                start.setText("Pause");
+            switch (start.getText()) {
+                case "Start":
+                    timeline.play();
+                    stopWatch.start();
+                    start.setText("Pause");
+                    break;
+                case "Pause":
+                    timeline.pause();
+                    stopWatch.pause();
+                    time.setText(stopWatch.getElapsedFormat());
+                    start.setText("Resume");
+                    break;
+                case "Resume":
+                    timeline.play();
+                    stopWatch.start();
+                    start.setText("Pause");
+                    break;
             }
         });
         clear.setOnAction(event -> {
