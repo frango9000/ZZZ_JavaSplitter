@@ -35,7 +35,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex29();
+        Pane pane = ex30();
 
 
         Scene scene = new Scene(pane);
@@ -484,7 +484,8 @@ public class DaLi_15 extends Application {
         return cp;
     }
 
-    public static void ex30() {//Slide show
+    public static Pane ex30() {//Slide show
+        return new SimpleAnimationPane();
     }
 
     public static void ex31() {//Geometry: pendulum
