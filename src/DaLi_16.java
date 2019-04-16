@@ -1,4 +1,5 @@
 import auxp.ch14.ClockPane;
+import auxp.ch15.CarPane;
 import auxp.ch15.RunningFan;
 import auxp.ch16.*;
 import javafx.animation.Animation;
@@ -51,7 +52,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex24();
+        Pane pane = ex25();
 
 
         Scene scene = new Scene(pane);
@@ -641,7 +642,28 @@ public class DaLi_16 extends Application{
     public static Pane ex24() {//Revise Listing 16.14 MediaDemo.java
         return new MediaDemo();
     }
-    public static void ex25() {//Racing cars
+    public static Pane ex25() {//Racing cars
+        TextField c1 = new TextField("1");
+        TextField c2 = new TextField("2");
+        TextField c3 = new TextField("4");
+        TextField c4 = new TextField("8");
+        Button go  = new Button("Go");
+
+        HBox top = new HBox(new Label("Car 1"), c1,new Label("Car 2"), c2,new Label("Car 3"), c3,new Label("Car 4"), c4, go);
+
+        CarPane car1 = new CarPane();
+        CarPane car2 = new CarPane();
+        CarPane car3 = new CarPane();
+        CarPane car4 = new CarPane();
+
+        go.setOnAction(event -> {
+            car1.setSpeed(Integer.parseInt(c1.getText()));
+            car2.setSpeed(Integer.parseInt(c2.getText()));
+            car3.setSpeed(Integer.parseInt(c3.getText()));
+            car4.setSpeed(Integer.parseInt(c4.getText()));
+        });
+
+        return new VBox(top, car1,car2,car3,car4);
     }
     public static void ex26() {//Simulation: raise flag and play anthem
     }

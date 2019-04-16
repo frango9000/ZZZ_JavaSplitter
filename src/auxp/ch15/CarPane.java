@@ -51,6 +51,10 @@ public class CarPane extends Pane {
         animation.setRate(animation.getRate() > 0 ? animation.getRate() - 1 : 0);
     }
 
+    public void setSpeed(int rate) {
+        animation.setRate(rate);
+    }
+
     void moveCar() {
         if (x <= getWidth())
             x += 1;
