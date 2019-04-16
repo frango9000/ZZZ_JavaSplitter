@@ -35,7 +35,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex28();
+        Pane pane = ex29();
 
 
         Scene scene = new Scene(pane);
@@ -462,7 +462,26 @@ public class DaLi_15 extends Application {
         return new VBox(fan, new HBox(pause, play, reverse));
     }
 
-    public static void ex29() {//Racing car
+    public static Pane ex29() {//Racing car
+        CarPane cp = new CarPane();
+        cp.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                cp.pause();
+            }
+        });
+        cp.setOnKeyReleased(event -> {
+            if (event.getCode() == KeyCode.ENTER) {
+                cp.play();
+            }
+        });
+        cp.setOnKeyPressed(event -> {
+            if (event.getCode() == KeyCode.UP) {
+                cp.increaseSpeed();
+            } else if (event.getCode() == KeyCode.DOWN) {
+                cp.decreaseSpeed();
+            }
+        });
+        return cp;
     }
 
     public static void ex30() {//Slide show
