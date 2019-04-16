@@ -1,9 +1,6 @@
 import auxp.ch14.ClockPane;
 import auxp.ch15.RunningFan;
-import auxp.ch16.AnimationPane;
-import auxp.ch16.ColorSliders;
-import auxp.ch16.IntersectingCircles;
-import auxp.ch16.IntersectingSquares;
+import auxp.ch16.*;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -54,7 +51,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex23();
+        Pane pane = ex24();
 
 
         Scene scene = new Scene(pane);
@@ -641,7 +638,8 @@ public class DaLi_16 extends Application{
     public static Pane ex23() {//Create an image animator with audio
         return new AnimationPane();
     }
-    public static void ex24() {//Revise Listing 16.14 MediaDemo.java
+    public static Pane ex24() {//Revise Listing 16.14 MediaDemo.java
+        return new MediaDemo();
     }
     public static void ex25() {//Racing cars
     }

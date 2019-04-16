@@ -1,28 +1,45 @@
 package lib.Misc;
 
-public class Time {
-    // Obtain the total milliseconds since midnight, Jan 1, 1970
-    long totalMilliseconds = System.currentTimeMillis();
-    // Obtain the total seconds since midnight, Jan 1, 1970
-    long totalSeconds = totalMilliseconds / 1000;
-    // Compute the current second in the minute in the hour
-    long currentSecond = totalSeconds % 60;
-    // Obtain the total minutes
-    long totalMinutes = totalSeconds / 60;
-    // Compute the current minute in the hour
-    long currentMinute = totalMinutes % 60;
-    // Obtain the total hours
-    long totalHours = totalMinutes / 60;
-    // Compute the current hour
-    long currentHour = totalHours % 24;
+import javafx.util.Duration;
 
-    long totalDays = totalHours / 24;
+public class Time {
+    long totalMilliseconds;
+    long totalSeconds;
+    long currentSecond;
+    long totalMinutes;
+    long currentMinute;
+    long totalHours;
+    long currentHour;
+
+    long totalDays;
+    long currentDay;
 
     public Time() {
+        this(System.currentTimeMillis());
     }
 
     public Time(long totalMilliseconds) {
+        // Obtain the total milliseconds
         this.totalMilliseconds = totalMilliseconds;
+        // Obtain the total seconds
+        totalSeconds = totalMilliseconds / 1000;
+        // Compute the current second in the minute in the hour
+        currentSecond = totalSeconds % 60;
+        // Obtain the total minutes
+        totalMinutes = totalSeconds / 60;
+        // Compute the current minute in the hour
+        currentMinute = totalMinutes % 60;
+        // Obtain the total hours
+        totalHours = totalMinutes / 60;
+        // Compute the current hour
+        currentHour = totalHours % 24;
+        // Obtain the total days
+        totalDays = totalHours / 24;
+        // Compute the current day
+        currentDay = totalHours % 365;
+    }
+    public Time(Duration fxduration){
+        this((long)fxduration.toMillis());
     }
 
     public static String millisToTimeString(long millis) {
@@ -33,6 +50,11 @@ public class Time {
         long currentMinute = totalMinutes % 60;
         long totalHours = totalMinutes / 60;
         return totalHours + ":" + currentMinute + ":" + currentSecond;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%02d:%02d:%02d",totalHours,currentMinute,currentSecond);
     }
 
     public long getCurrentSecond() {
