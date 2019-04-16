@@ -4,6 +4,7 @@ import auxp.ch15.RunningFan;
 import auxp.ch16.*;
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
+import javafx.animation.PathTransition;
 import javafx.animation.Timeline;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -16,16 +17,14 @@ import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Ellipse;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
+import javafx.scene.shape.*;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
@@ -52,7 +51,7 @@ public class DaLi_16 extends Application {
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex25();
+        Pane pane = ex26();
 
 
         Scene scene = new Scene(pane);
@@ -691,7 +690,21 @@ public class DaLi_16 extends Application {
         return new VBox(top, car1, car2, car3, car4);
     }
 
-    public static void ex26() {//Simulation: raise flag and play anthem
+    public static Pane ex26() {//Simulation: raise flag and play anthem
+        Pane pane = new Pane();
+        pane.setMinSize(600, 600);
+
+        ImageView flag = new ImageView(new Image("res/image/denmark.gif"));
+
+        AudioClip anthem = new AudioClip(new File("src/res/audio/denmark.mp3").toURI().toString());
+
+        Line line = new Line(100, 500, 100, 50);
+        PathTransition pt = new PathTransition(Duration.millis(10000), line, flag);
+        pt.play();
+        anthem.play();
+
+        pane.getChildren().add(flag);
+        return pane;
     }
 
     public static void ex27() {//Display country flag and flag description
