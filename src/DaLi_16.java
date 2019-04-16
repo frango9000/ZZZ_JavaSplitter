@@ -3,6 +3,7 @@ import auxp.ch15.RunningFan;
 import auxp.ch16.ColorSliders;
 import auxp.ch16.IntersectingCircles;
 import auxp.ch16.IntersectingSquares;
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -49,7 +50,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex20();
+        Pane pane = ex21();
 
 
         Scene scene = new Scene(pane);
@@ -594,7 +595,20 @@ public class DaLi_16 extends Application{
         vPane.setPadding(new Insets(10));
         return vPane;
     }
-    public static void ex21() {//Count-down stopwatch
+    public static Pane ex21() {//Count-down stopwatch
+        TextField countdown = new TextField("30");
+        Timeline counting = new Timeline(new KeyFrame(Duration.millis(999), event -> {
+            int num = (Integer.parseInt(countdown.getText()));
+            if (num != 0)
+                countdown.setText( (num - 1) + "");
+        }));
+        counting.setCycleCount(Timeline.INDEFINITE);
+        countdown.setOnAction(event -> {
+            if(counting.getStatus() == Animation.Status.PAUSED || counting.getStatus() == Animation.Status.STOPPED ){
+                    counting.play();
+            }else counting.pause();
+        });
+        return new Pane(countdown);
     }
     public static void ex22() {//Play, loop, and stop a sound clip
     }
