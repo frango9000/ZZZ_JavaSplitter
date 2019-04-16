@@ -19,6 +19,8 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Ellipse;
@@ -597,12 +599,21 @@ public class DaLi_16 extends Application{
     }
     public static Pane ex21() {//Count-down stopwatch
         TextField countdown = new TextField("30");
-        Timeline counting = new Timeline(new KeyFrame(Duration.millis(999), event -> {
+        Timeline counting = new Timeline();
+        counting.setCycleCount(Timeline.INDEFINITE);
+        MediaPlayer mp = new MediaPlayer(new Media(new File("src/res/audio/front-desk-bells.mp3").toURI().toString()));
+        //MediaPlayer mp = new MediaPlayer(new Media("file:///D:/NarF/Documents/IdeaProjects/YYY_DaLi/src/res/audio/front-desk-bells.mp3"));
+
+        KeyFrame key = new KeyFrame(Duration.millis(999), event -> {
             int num = (Integer.parseInt(countdown.getText()));
             if (num != 0)
                 countdown.setText( (num - 1) + "");
-        }));
-        counting.setCycleCount(Timeline.INDEFINITE);
+            else{
+                mp.play();
+                counting.pause();
+            }
+        });
+        counting.getKeyFrames().add(key);
         countdown.setOnAction(event -> {
             if(counting.getStatus() == Animation.Status.PAUSED || counting.getStatus() == Animation.Status.STOPPED ){
                     counting.play();
