@@ -19,6 +19,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
@@ -52,7 +53,7 @@ public class DaLi_16 extends Application{
         primaryStage.setTitle("C16");
 
 
-        Pane pane = ex21();
+        Pane pane = ex22();
 
 
         Scene scene = new Scene(pane);
@@ -621,7 +622,20 @@ public class DaLi_16 extends Application{
         });
         return new Pane(countdown);
     }
-    public static void ex22() {//Play, loop, and stop a sound clip
+    public static Pane ex22() {//Play, loop, and stop a sound clip
+        AudioClip audio = new AudioClip(new File("src/res/audio/denmark.mp3").toURI().toString());
+
+        Button play = new Button("Play");
+        play.setOnAction(event -> audio.play());
+        Button loop = new Button("Loop");
+        loop.setOnAction(event -> audio.setCycleCount(Timeline.INDEFINITE));
+        Button stop = new Button("Stop");
+        stop.setOnAction(event -> audio.stop());
+
+        HBox h = new HBox(play,loop,stop);
+        h.setPadding(new Insets(10));
+        h.setSpacing(3);
+        return h;
     }
     public static void ex23() {//Create an image animator with audio
     }
