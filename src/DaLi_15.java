@@ -1,3 +1,4 @@
+import auxp.ch14.ClockPane;
 import auxp.ch14.MyCylinder;
 import auxp.ch14.MySineGraph;
 import auxp.ch14.StopPane;
@@ -35,7 +36,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex31();
+        Pane pane = ex32();
 
 
         Scene scene = new Scene(pane);
@@ -504,7 +505,14 @@ public class DaLi_15 extends Application {
         return pendu;
     }
 
-    public static void ex32() {//Control a clock
+    public static Pane ex32() {//Control a clock
+        ClockPane cp = new ClockPane(true);
+        Button stop = new Button("Stop");
+        stop.setOnAction(event -> cp.pauseAnimation());
+        Button play = new Button("Play");
+        play.setOnAction(event -> cp.playAnimation());
+        HBox btns = new HBox(stop,play);
+        return new VBox(cp,btns);
     }
 
     public static void ex33() {//Game: bean-machine animation

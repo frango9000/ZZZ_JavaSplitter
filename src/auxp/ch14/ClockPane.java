@@ -1,10 +1,15 @@
 package auxp.ch14;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Line;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -20,6 +25,7 @@ public class ClockPane extends Pane {
     private double centerX;
     private double centerY;
 
+    Timeline animation;
 
     private boolean hourHandVisible = true;
     private boolean minuteHandVisible = true;
@@ -33,6 +39,19 @@ public class ClockPane extends Pane {
         setMinSize(125, 150);
         // Construct a calendar for the current date and time
         setCurrentTime();
+    }
+
+    public ClockPane(boolean active) {
+        this();
+        EventHandler<ActionEvent> eventHandler = e -> {
+            setCurrentTime();
+        };
+
+        //clock.setDetailed(true);
+        animation = new Timeline(new KeyFrame(Duration.millis(1000), eventHandler));
+        animation.setCycleCount(Timeline.INDEFINITE);
+        animation.play();
+
     }
 
     /**
@@ -207,5 +226,16 @@ public class ClockPane extends Pane {
     public void setHeight(double height) {
         super.setHeight(height);
         paintClock();
+    }
+
+    public void playAnimation() {
+        animation.play();
+    }
+
+    public void stopAnimation() {
+    }
+
+    public void pauseAnimation() {
+        animation.pause();
     }
 }

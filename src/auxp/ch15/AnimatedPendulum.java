@@ -67,18 +67,15 @@ public class AnimatedPendulum extends Pane {
     public void playAnimation() {
         pt.play();
         ft.play();
-
     }
 
     public void stopAnimation() {
         pt.stop();
         ft.stop();
-
     }
 
     public void pauseAnimation() {
         pt.pause();
         ft.pause();
-
     }
 }
