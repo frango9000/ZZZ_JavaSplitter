@@ -435,7 +435,7 @@ public class DaLi_15 extends Application {
     }
 
     public static Pane ex26() {//Change opacity
-        return new AnimatedPendulum();
+        return new AnimatedPendulum(true);
     }
 
     public static Pane ex27() {//Control a moving text marquee
