@@ -35,7 +35,7 @@ public class DaLi_15 extends Application {
         //stage.setWidth(500);
 
 
-        Pane pane = ex30();
+        Pane pane = ex31();
 
 
         Scene scene = new Scene(pane);
@@ -488,7 +488,20 @@ public class DaLi_15 extends Application {
         return new SimpleAnimationPane();
     }
 
-    public static void ex31() {//Geometry: pendulum
+    public static Pane ex31() {//Geometry: pendulum
+        AnimatedPendulum pendu = new AnimatedPendulum();
+        pendu.setOnKeyPressed(event -> {
+            if(event.getCode() == KeyCode.UP){
+                pendu.increaseSpeed();
+            }else if(event.getCode() == KeyCode.DOWN){
+                pendu.decreaseSpeed();
+            }else if(event.getCode() == KeyCode.S){
+                pendu.stopAnimation();
+            }else if(event.getCode() == KeyCode.P){
+                pendu.playAnimation();
+            }
+        });
+        return pendu;
     }
 
     public static void ex32() {//Control a clock

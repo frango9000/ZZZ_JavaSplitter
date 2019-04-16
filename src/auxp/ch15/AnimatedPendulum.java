@@ -32,8 +32,8 @@ public class AnimatedPendulum extends Pane {
         pt.setAutoReverse(true);
         pt.play();
 
+        ft = new FadeTransition(Duration.millis(500), circle);
         if (canFade) {
-            ft = new FadeTransition(Duration.millis(500), circle);
             ft.setFromValue(1);
             ft.setToValue(0.1);
             ft.setCycleCount(Timeline.INDEFINITE);
