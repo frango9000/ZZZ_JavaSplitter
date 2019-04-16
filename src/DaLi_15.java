@@ -492,13 +492,13 @@ public class DaLi_15 extends Application {
     public static Pane ex31() {//Geometry: pendulum
         AnimatedPendulum pendu = new AnimatedPendulum();
         pendu.setOnKeyPressed(event -> {
-            if(event.getCode() == KeyCode.UP){
+            if (event.getCode() == KeyCode.UP) {
                 pendu.increaseSpeed();
-            }else if(event.getCode() == KeyCode.DOWN){
+            } else if (event.getCode() == KeyCode.DOWN) {
                 pendu.decreaseSpeed();
-            }else if(event.getCode() == KeyCode.S){
+            } else if (event.getCode() == KeyCode.S) {
                 pendu.stopAnimation();
-            }else if(event.getCode() == KeyCode.P){
+            } else if (event.getCode() == KeyCode.P) {
                 pendu.playAnimation();
             }
         });
@@ -511,8 +511,8 @@ public class DaLi_15 extends Application {
         stop.setOnAction(event -> cp.pauseAnimation());
         Button play = new Button("Play");
         play.setOnAction(event -> cp.playAnimation());
-        HBox btns = new HBox(stop,play);
-        return new VBox(cp,btns);
+        HBox btns = new HBox(stop, play);
+        return new VBox(cp, btns);
     }
 
     public static void ex33() {//Game: bean-machine animation
