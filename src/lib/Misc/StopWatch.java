@@ -13,7 +13,7 @@ public class StopWatch {
         startTime = System.currentTimeMillis();
     }
 
-    public void pause(){
+    public void pause() {
         elapsedTime += System.currentTimeMillis() - startTime;
     }
 
@@ -31,6 +31,7 @@ public class StopWatch {
     public long getElapsedTime() {
         return elapsedTime;
     }
+
     public String getElapsedFormat(long elapsed) {
         long totalMilliseconds = elapsed;
         long currentMilliseconds = totalMilliseconds % 1000;
@@ -42,13 +43,14 @@ public class StopWatch {
         long currentHour = totalHours % 24;
         return String.format("%02d:%02d:%02d:%03d", currentHour, currentMinute, currentSecond, currentMilliseconds);
     }
-    public String getElapsedFormat(){
+
+    public String getElapsedFormat() {
         return getElapsedFormat(elapsedTime);
     }
-    public String getLapsedFormat(){
-        return getElapsedFormat(elapsedTime+System.currentTimeMillis()-startTime);
-    }
 
+    public String getLapsedFormat() {
+        return getElapsedFormat(elapsedTime + System.currentTimeMillis() - startTime);
+    }
 
 
     public void consoleOutElapsedTime() {

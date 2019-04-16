@@ -14,9 +14,6 @@ import javafx.util.Duration;
 
 public class MySineGraph extends Pane {
 
-    private double width;
-    private double height;
-
     boolean showSine = true;
     boolean showCosine = true;
     boolean showTan = false;
@@ -24,6 +21,8 @@ public class MySineGraph extends Pane {
     PathTransition ptSin;
     boolean showCosineAnimation = true;
     PathTransition ptCos;
+    private double width;
+    private double height;
 
     public MySineGraph() {
         setMinSize(300, 200);

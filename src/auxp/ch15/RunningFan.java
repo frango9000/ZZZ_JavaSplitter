@@ -21,8 +21,8 @@ public class RunningFan extends StackPane {
 
     public RunningFan() {
         getChildren().addAll(getCircle(), blades);
-        fan = new Timeline(new KeyFrame(Duration.millis(1000/speed), event -> spinFan()));
-        fan.setRate(speed/100);
+        fan = new Timeline(new KeyFrame(Duration.millis(1000 / speed), event -> spinFan()));
+        fan.setRate(speed / 100);
         fan.setCycleCount(Timeline.INDEFINITE);
         fan.play();
     }
@@ -60,10 +60,10 @@ public class RunningFan extends StackPane {
         startAngle *= -1;
     }
 
-    public void setSpeed(double speed){
+    public void setSpeed(double speed) {
         speed = Math.min(speed, 100);
         speed = Math.max(0, speed);
-        fan.setRate(speed/100);
+        fan.setRate(speed / 100);
     }
 
     private Circle getCircle() {

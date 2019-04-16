@@ -54,7 +54,7 @@ public class MediaDemo extends BorderPane {
         slTime.setOnMouseClicked(event -> mediaPlayer.seek(Duration.millis(slTime.getValue() * (mediaPlayer.getTotalDuration().toMillis() / 100))));
         mediaPlayer.currentTimeProperty().addListener(observable -> {
             timeLbl.setText(new Time(mediaPlayer.getCurrentTime()).toString());
-            slTime.setValue( (mediaPlayer.getCurrentTime().toMillis()/mediaPlayer.getTotalDuration().toMillis() ) * 100 );
+            slTime.setValue((mediaPlayer.getCurrentTime().toMillis() / mediaPlayer.getTotalDuration().toMillis()) * 100);
         });
 
 

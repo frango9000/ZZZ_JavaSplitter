@@ -54,6 +54,10 @@ public class Triangle extends GeometricObject {
         return (((sideAB + sideBC) > sideCA) && ((sideBC + sideCA) > sideAB) && ((sideCA + sideAB) > sideBC));
     }
 
+    public static double angle(double a, double b, double c) {//in radians
+        return Math.acos((a * a - b * b - c * c) / (-2 * b * c));
+    }
+
     public double getArea() {
         double s = (sideAB + sideBC + sideCA) / 2;
         return Math.sqrt(s * (s - sideAB) * (s - sideBC) * (s - sideCA));
@@ -61,10 +65,6 @@ public class Triangle extends GeometricObject {
 
     public double getPerimeter() {
         return sideAB + sideBC + sideCA;
-    }
-
-    public static double angle(double a, double b, double c) {//in radians
-        return Math.acos((a * a - b * b - c * c) / (-2 * b * c));
     }
 
     public boolean contains(Point point) {

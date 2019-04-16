@@ -17,9 +17,9 @@ import lib.MyFX.ToolFX;
 
 public class CreatePointPane extends Pane {
 
+    final double radius = 10;
     Group circles = new Group();
     Rectangle rectangle = new Rectangle();
-    final double radius = 10;
     boolean boundingRectangle = false;
     int tries;
 

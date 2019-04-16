@@ -16,7 +16,7 @@ public class AnimatedClock extends Application {
     public void start(Stage primaryStage) throws Exception {
         ClockPane clock = new ClockPane();
 
-        EventHandler<ActionEvent> eventHandler= e-> {
+        EventHandler<ActionEvent> eventHandler = e -> {
             clock.setCurrentTime();
         };
 

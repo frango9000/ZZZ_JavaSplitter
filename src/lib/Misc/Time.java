@@ -38,8 +38,9 @@ public class Time {
         // Compute the current day
         currentDay = totalHours % 365;
     }
-    public Time(Duration fxduration){
-        this((long)fxduration.toMillis());
+
+    public Time(Duration fxduration) {
+        this((long) fxduration.toMillis());
     }
 
     public static String millisToTimeString(long millis) {
@@ -54,7 +55,7 @@ public class Time {
 
     @Override
     public String toString() {
-        return String.format("%02d:%02d:%02d",totalHours,currentMinute,currentSecond);
+        return String.format("%02d:%02d:%02d", totalHours, currentMinute, currentSecond);
     }
 
     public long getCurrentSecond() {

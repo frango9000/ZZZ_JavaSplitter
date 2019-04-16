@@ -21,14 +21,9 @@ public class ClockPane extends Pane {
     private double centerY;
 
 
-
     private boolean hourHandVisible = true;
     private boolean minuteHandVisible = true;
     private boolean secondHandVisible = true;
-
-    public void setDetailed(boolean detailed) {
-        this.detailed = detailed;
-    }
 
     /**
      * Construct a default clock with the current time
@@ -47,6 +42,10 @@ public class ClockPane extends Pane {
         this.hour = hour;
         this.minute = minute;
         this.second = second;
+    }
+
+    public void setDetailed(boolean detailed) {
+        this.detailed = detailed;
     }
 
     /**

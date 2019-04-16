@@ -15,17 +15,17 @@ public class ColorSliders extends VBox {
     protected Slider opacSlide;
     protected Text text = new Text("Show Colors");
 
-    public ColorSliders(){
+    public ColorSliders() {
         StackPane top = new StackPane(text);
         top.setMinSize(300, 300);
 
-        redSlide = new Slider(0.0, 1.0,1.0);
+        redSlide = new Slider(0.0, 1.0, 1.0);
         Label redL = new Label("Red");
-        greenSlide = new Slider(0.0, 1.0,1.0);
+        greenSlide = new Slider(0.0, 1.0, 1.0);
         Label greenL = new Label("Green");
-        blueSlide = new Slider(0.0, 1.0,1.0);
+        blueSlide = new Slider(0.0, 1.0, 1.0);
         Label blueL = new Label("Blue");
-        opacSlide = new Slider(0.0, 1.0,1.0);
+        opacSlide = new Slider(0.0, 1.0, 1.0);
         Label opacL = new Label("Opacity");
 
         redSlide.valueProperty().addListener(observable -> setColor());
@@ -34,14 +34,15 @@ public class ColorSliders extends VBox {
         opacSlide.valueProperty().addListener(observable -> setColor());
 
         GridPane grid = new GridPane();
-        grid.addRow(0,redL,redSlide);
-        grid.addRow(1,greenL,greenSlide);
-        grid.addRow(2,blueL,blueSlide);
-        grid.addRow(3,opacL,opacSlide);
+        grid.addRow(0, redL, redSlide);
+        grid.addRow(1, greenL, greenSlide);
+        grid.addRow(2, blueL, blueSlide);
+        grid.addRow(3, opacL, opacSlide);
         //redSlide.setOn
 
         getChildren().addAll(top, grid);
     }
+
     private void setColor() {
         text.setFill(new Color(redSlide.getValue(), greenSlide.getValue(), blueSlide.getValue(), opacSlide.getValue()));
     }

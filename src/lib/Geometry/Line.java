@@ -44,6 +44,10 @@ public class Line {
         return Algebra.linear2x2Equation(line1.a, line1.b, line2.a, line2.b, line1.c, line2.c);
     }
 
+    public static double getAngle(Line line1, Line line2) {
+        return line1.getAngle(line2);
+    }
+
     public double slope() {
         return (pointB.y - pointA.y) / (pointB.x - pointA.x);
     }
@@ -118,10 +122,6 @@ public class Line {
                 return -(Math.toDegrees(Math.atan(slope)));
             } else return 360 - (Math.toDegrees(Math.atan(slope)));
         } else return 180 - (Math.toDegrees(Math.atan(slope)));
-    }
-
-    public static double getAngle(Line line1, Line line2) {
-        return line1.getAngle(line2);
     }
 
     public double getAngle(Line line) {

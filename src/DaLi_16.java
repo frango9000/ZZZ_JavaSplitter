@@ -42,7 +42,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class DaLi_16 extends Application{
+public class DaLi_16 extends Application {
 
     private static Stage stage;
 
@@ -68,6 +68,7 @@ public class DaLi_16 extends Application{
     public static Pane ex00() {
         return new Pane();
     }
+
     public static Pane ex01() {//Use radio buttons
         Text text = new Text(75, 150, "Welcome to Java");
 
@@ -92,16 +93,16 @@ public class DaLi_16 extends Application{
         greenButton.setOnAction(event -> text.setFill(Color.GREEN));
 
 
-        HBox colors = new HBox(redButton,yellowButton,blackButton,orangeButton,greenButton);
+        HBox colors = new HBox(redButton, yellowButton, blackButton, orangeButton, greenButton);
         Pane center = new Pane(text);
         center.setMinHeight(300);
         center.setStyle("-fx-border-color: black");
 
         Button leftButton = new Button("<");
         Button rightButton = new Button(">");
-        leftButton.setOnAction(event -> text.setX(text.getX()-10>=0? text.getX()-10 : 0));
-        rightButton.setOnAction(event -> text.setX(text.getX()+10<=center.getWidth()-50?text.getX()+10:center.getWidth()-50));
-        HBox btns = new HBox(leftButton,rightButton);
+        leftButton.setOnAction(event -> text.setX(text.getX() - 10 >= 0 ? text.getX() - 10 : 0));
+        rightButton.setOnAction(event -> text.setX(text.getX() + 10 <= center.getWidth() - 50 ? text.getX() + 10 : center.getWidth() - 50));
+        HBox btns = new HBox(leftButton, rightButton);
         btns.setAlignment(Pos.CENTER);
 
         BorderPane pane = new BorderPane();
@@ -111,6 +112,7 @@ public class DaLi_16 extends Application{
 
         return pane;
     }
+
     public static Pane ex02() {//Select geometric figures
         StackPane figures = new StackPane();
         figures.setMinSize(400, 500);
@@ -132,38 +134,39 @@ public class DaLi_16 extends Application{
         });
         square.setOnAction(event -> {
             figures.getChildren().clear();
-            figures.getChildren().add(new Rectangle(100,100, Color.BLACK));
+            figures.getChildren().add(new Rectangle(100, 100, Color.BLACK));
         });
         ellipse.setOnAction(event -> {
             figures.getChildren().clear();
             figures.getChildren().add(new Ellipse(120, 80));
         });
         fill.setOnAction(event -> {
-            if(((CheckBox)event.getSource()).isSelected())
+            if (((CheckBox) event.getSource()).isSelected())
                 ((Shape) figures.getChildren().get(0)).setFill(Color.BLACK);
             else ((Shape) figures.getChildren().get(0)).setFill(null);
         });
 
 
-        HBox options = new HBox(circle,square,ellipse,fill);
-        return new VBox(figures,options);
+        HBox options = new HBox(circle, square, ellipse, fill);
+        return new VBox(figures, options);
 
     }
+
     public static Pane ex03() {//Traffic lights
         Rectangle rect = new Rectangle(300, 200, null);
         rect.setStroke(Color.BLACK);
         Circle red = new Circle(50, 100, 25, null);
         Circle yellow = new Circle(150, 100, 25, null);
         Circle green = new Circle(250, 100, 25, null);
-        ToolFX.setFillStroke(null,Color.BLACK, red,yellow,green);
+        ToolFX.setFillStroke(null, Color.BLACK, red, yellow, green);
 
-        Pane stack = new Pane(rect,red,green,yellow);
+        Pane stack = new Pane(rect, red, green, yellow);
 
         RadioButton redbtn = new RadioButton("Red");
         RadioButton yelbtn = new RadioButton("Yellow");
         RadioButton grebtn = new RadioButton("Green");
 
-        HBox btns = new HBox(redbtn,yelbtn,grebtn);
+        HBox btns = new HBox(redbtn, yelbtn, grebtn);
         redbtn.setOnAction(event -> {
             red.setFill(Color.RED);
             green.setFill(null);
@@ -186,9 +189,10 @@ public class DaLi_16 extends Application{
         yelbtn.setToggleGroup(tg);
         grebtn.setToggleGroup(tg);
 
-        return new VBox(stack,btns);
+        return new VBox(stack, btns);
 
     }
+
     public static Pane ex04() {//Create a Celsius/Fahrenheit converter
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10));
@@ -201,13 +205,14 @@ public class DaLi_16 extends Application{
         grid.add(ftext, 1, 1);
 
         ctext.setOnAction(event -> {
-            ftext.setText(""+Scales.celsiusToFahrenheit(Double.parseDouble(ctext.getText())));
+            ftext.setText("" + Scales.celsiusToFahrenheit(Double.parseDouble(ctext.getText())));
         });
         ftext.setOnAction(event -> {
-            ctext.setText(""+Scales.fahrenheitToCelsius(Double.parseDouble(ftext.getText())));
+            ctext.setText("" + Scales.fahrenheitToCelsius(Double.parseDouble(ftext.getText())));
         });
         return grid;
     }
+
     public static Pane ex05() {//Convert numbers
         GridPane grid = new GridPane();
         grid.setPadding(new Insets(10));
@@ -223,23 +228,24 @@ public class DaLi_16 extends Application{
         grid.add(btxt, 1, 2);
 
         dtxt.setOnAction(event -> {
-            htxt.setText(""+ NumberConverter.decToHex(Integer.parseInt(dtxt.getText())));
-            btxt.setText(""+ NumberConverter.decToBin(Integer.parseInt(dtxt.getText())));
+            htxt.setText("" + NumberConverter.decToHex(Integer.parseInt(dtxt.getText())));
+            btxt.setText("" + NumberConverter.decToBin(Integer.parseInt(dtxt.getText())));
         });
         htxt.setOnAction(event -> {
-            dtxt.setText(""+ NumberConverter.hexToDec(dtxt.getText()));
-            btxt.setText(""+ NumberConverter.hexToBin(dtxt.getText()));
+            dtxt.setText("" + NumberConverter.hexToDec(dtxt.getText()));
+            btxt.setText("" + NumberConverter.hexToBin(dtxt.getText()));
         });
         btxt.setOnAction(event -> {
-            dtxt.setText(""+ NumberConverter.binToDec(dtxt.getText()));
-            htxt.setText(""+ NumberConverter.binToHex(dtxt.getText()));
+            dtxt.setText("" + NumberConverter.binToDec(dtxt.getText()));
+            htxt.setText("" + NumberConverter.binToHex(dtxt.getText()));
         });
         return grid;
     }
+
     public static Pane ex06() {//Demonstrate TextField properties
         Label label = new Label("Text Field");
         TextField tf = new TextField("JavaFX");
-        HBox h1 = new HBox(label,tf);
+        HBox h1 = new HBox(label, tf);
 
         RadioButton left = new RadioButton("Left");
         RadioButton center = new RadioButton("Center");
@@ -256,8 +262,9 @@ public class DaLi_16 extends Application{
         right.setOnAction(event -> tf.setAlignment(Pos.CENTER_RIGHT));
         cols.setOnAction(event -> tf.setPrefColumnCount(Integer.parseInt(cols.getText())));
 
-        return new VBox(h1, new HBox(left,center,right,colsize,cols));
+        return new VBox(h1, new HBox(left, center, right, colsize, cols));
     }
+
     public static Pane ex07() {//Set clock time
         BorderPane bp = new BorderPane();
         ClockPane clock = new ClockPane();
@@ -284,16 +291,19 @@ public class DaLi_16 extends Application{
             clock.setSecond(Integer.parseInt(stxt.getText()));
         });
 
-        HBox bot = new HBox(hourLbl,htxt,minuteLbl,mtxt,secondLbl,stxt);
+        HBox bot = new HBox(hourLbl, htxt, minuteLbl, mtxt, secondLbl, stxt);
         bp.setBottom(bot);
         return bp;
     }
+
     public static Pane ex08() {//Geometry: two circles intersect?
         return new IntersectingCircles();
     }
+
     public static Pane ex09() {//Geometry: two rectangles intersect?
         return new IntersectingSquares();
     }
+
     public static Pane ex10() {//Text viewer
         BorderPane bp = new BorderPane();
         TextArea text = new TextArea();
@@ -302,16 +312,16 @@ public class DaLi_16 extends Application{
         Label label = new Label("Filename");
         TextField filenameInput = new TextField();
         Button entrButton = new Button("View");
-        HBox bot = new HBox(label,filenameInput,entrButton);
+        HBox bot = new HBox(label, filenameInput, entrButton);
         bot.setAlignment(Pos.CENTER);
         bp.setBottom(bot);
 
         entrButton.setOnAction(event -> {
             File f = new File(filenameInput.getText());
-            if(f.exists()){
-                try(Scanner scan = new Scanner(f)){
+            if (f.exists()) {
+                try (Scanner scan = new Scanner(f)) {
                     StringBuilder builder = new StringBuilder();
-                    while(scan.hasNextLine()){
+                    while (scan.hasNextLine()) {
                         builder.append(scan.nextLine());
                     }
                     text.setText(builder.toString());
@@ -322,61 +332,64 @@ public class DaLi_16 extends Application{
         });
         return bp;
     }
+
     public static Pane ex11() {//Create a histogram for occurrences of letters
-        final CategoryAxis xAxis= new CategoryAxis();
-        final NumberAxis yAxis= new NumberAxis();
-        final BarChart<String, Number> bc = new BarChart<String, Number>(xAxis,yAxis);
+        final CategoryAxis xAxis = new CategoryAxis();
+        final NumberAxis yAxis = new NumberAxis();
+        final BarChart<String, Number> bc = new BarChart<String, Number>(xAxis, yAxis);
         yAxis.setLabel("Appereances");
         xAxis.setLabel("Letter");
 
 
-        int[] counts = new int['z'-'a'+1];
+        int[] counts = new int['z' - 'a' + 1];
         File file = new File("C:/audio.log");
-        try(Scanner scan = new Scanner(file)) {
-            while(scan.hasNextLine()){
+        try (Scanner scan = new Scanner(file)) {
+            while (scan.hasNextLine()) {
                 String line = scan.nextLine();
                 for (int i = 0; i < line.length(); i++) {
                     char ch = Character.toLowerCase(line.charAt(i));
-                    if(ch>='a' && ch<='z')
-                        counts[ch-'a']++;
+                    if (ch >= 'a' && ch <= 'z')
+                        counts[ch - 'a']++;
                 }
             }
             ArrayManip.printArray(counts);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        
+
         XYChart.Series s1 = new XYChart.Series();
         s1.setName("Chars");
         for (int i = 0; i < counts.length; i++) {
-            s1.getData().add(new XYChart.Data<String,Number>(""+(char)(i+'a'), counts[i]));
+            s1.getData().add(new XYChart.Data<String, Number>("" + (char) (i + 'a'), counts[i]));
         }
         bc.getData().add(s1);
-        
+
         return new Pane(bc);
     }
+
     public static Pane ex12() {//Demonstrate TextArea properties
         BorderPane bp = new BorderPane();
         TextArea text = new TextArea();
         bp.setCenter(text);
 
         CheckBox edit = new CheckBox("Editable");
-        edit.setOnAction(event -> text.setEditable(((CheckBox)event.getSource()).isSelected()));
+        edit.setOnAction(event -> text.setEditable(((CheckBox) event.getSource()).isSelected()));
         CheckBox wrap = new CheckBox("Wrap");
-        wrap.setOnAction(event ->text.setWrapText(((CheckBox)event.getSource()).isSelected()));
-        HBox bot = new HBox(edit,wrap);
+        wrap.setOnAction(event -> text.setWrapText(((CheckBox) event.getSource()).isSelected()));
+        HBox bot = new HBox(edit, wrap);
         bot.setAlignment(Pos.CENTER);
         bp.setBottom(bot);
 
         return bp;
     }
+
     public static Pane ex13() {//Compare loans with various interest rates
         Label amtLbl = new Label("Loan Amount");
         TextField amtTxt = new TextField();
         Label yrsLbl = new Label("Number of years");
-        TextField yrsTxt= new TextField();
+        TextField yrsTxt = new TextField();
         Button show = new Button("Show");
-        HBox top = new HBox(amtLbl,amtTxt,yrsLbl,yrsTxt,show);
+        HBox top = new HBox(amtLbl, amtTxt, yrsLbl, yrsTxt, show);
 
         TextArea text = new TextArea();
         text.setPrefColumnCount(30);
@@ -386,7 +399,7 @@ public class DaLi_16 extends Application{
             for (double i = 5.0; i <= 10; i += 0.25) {
                 double monthlyInterestRate = i / 1200.0;
                 double monthlyPayment = (Double.parseDouble(amtTxt.getText()) * monthlyInterestRate / (1 - 1 / Math.pow(1 + monthlyInterestRate, Integer.parseInt(yrsTxt.getText()) * 12)));
-                text.appendText(String.format( "%5.2f %5.2f %8.2f\n", i, monthlyPayment, (monthlyPayment * 12) * Integer.parseInt(yrsTxt.getText())));
+                text.appendText(String.format("%5.2f %5.2f %8.2f\n", i, monthlyPayment, (monthlyPayment * 12) * Integer.parseInt(yrsTxt.getText())));
             }
         });
 
@@ -395,18 +408,19 @@ public class DaLi_16 extends Application{
         bp.setCenter(text);
         return bp;
     }
+
     public static Pane ex14() {//Select a font
         Text text = new Text("Programming is Fun.");
 
         Label fontNameLbl = new Label("Font Name");
         ObservableList<String> fitems = FXCollections.observableArrayList(Font.getFontNames());
-        ComboBox<String> fonts= new ComboBox<>(fitems);
+        ComboBox<String> fonts = new ComboBox<>(fitems);
 
         Label fontSizeLbl = new Label("Font Size");
-        String[] sitems = {"10", "12", "14", "16", "18", "20", "22", "24", "26" };
-        ComboBox<String> sizes= new ComboBox<>(FXCollections.observableArrayList(sitems));
+        String[] sitems = {"10", "12", "14", "16", "18", "20", "22", "24", "26"};
+        ComboBox<String> sizes = new ComboBox<>(FXCollections.observableArrayList(sitems));
 
-        HBox top = new HBox(fontNameLbl,fonts,fontSizeLbl,sizes);
+        HBox top = new HBox(fontNameLbl, fonts, fontSizeLbl, sizes);
         top.setSpacing(5);
 
         StackPane pane = new StackPane(text);
@@ -414,7 +428,7 @@ public class DaLi_16 extends Application{
 
         CheckBox boldCh = new CheckBox("Bold");
         CheckBox italicCh = new CheckBox("Italic");
-        HBox bot = new HBox(boldCh,italicCh);
+        HBox bot = new HBox(boldCh, italicCh);
         bot.setSpacing(5);
         bot.setAlignment(Pos.CENTER);
         fonts.setValue(fitems.get(0));
@@ -423,8 +437,8 @@ public class DaLi_16 extends Application{
         fonts.setOnAction(event -> text.setFont(Font.font(fonts.getValue())));
         sizes.setOnAction(event -> text.setFont(Font.font(Integer.parseInt(sizes.getValue()))));
 
-        boldCh.setOnAction(event -> text.setFont(Font.font(fonts.getValue(), boldCh.isSelected()? FontWeight.BOLD:FontWeight.NORMAL,italicCh.isSelected()?FontPosture.ITALIC:FontPosture.REGULAR , Integer.parseInt(sizes.getValue()))));
-        italicCh.setOnAction(event -> text.setFont(Font.font(fonts.getValue(), boldCh.isSelected()? FontWeight.BOLD:FontWeight.NORMAL,italicCh.isSelected()?FontPosture.ITALIC:FontPosture.REGULAR , Integer.parseInt(sizes.getValue()))));
+        boldCh.setOnAction(event -> text.setFont(Font.font(fonts.getValue(), boldCh.isSelected() ? FontWeight.BOLD : FontWeight.NORMAL, italicCh.isSelected() ? FontPosture.ITALIC : FontPosture.REGULAR, Integer.parseInt(sizes.getValue()))));
+        italicCh.setOnAction(event -> text.setFont(Font.font(fonts.getValue(), boldCh.isSelected() ? FontWeight.BOLD : FontWeight.NORMAL, italicCh.isSelected() ? FontPosture.ITALIC : FontPosture.REGULAR, Integer.parseInt(sizes.getValue()))));
 
         BorderPane bp = new BorderPane();
         bp.setPadding(new Insets(8));
@@ -433,10 +447,11 @@ public class DaLi_16 extends Application{
         bp.setBottom(bot);
         return bp;
     }
+
     public static Pane ex15() {//Demonstrate Label properties
         String[] contents = {"TOP", "BOTTOM", "LEFT", "RIGHT"};
         ObservableList<String> fcontents = FXCollections.observableArrayList(contents);
-        ComboBox<String> positions= new ComboBox<>(fcontents);
+        ComboBox<String> positions = new ComboBox<>(fcontents);
         Label top1 = new Label("contentDiplay:", positions);
         top1.setContentDisplay(ContentDisplay.RIGHT);
 
@@ -444,7 +459,7 @@ public class DaLi_16 extends Application{
         Label top2 = new Label("graphicTextGap:", gap);
         top2.setContentDisplay(ContentDisplay.RIGHT);
 
-        HBox top = new HBox(top1,top2);
+        HBox top = new HBox(top1, top2);
 
         ImageView grapeimg = new ImageView("res/image/grapes.gif");
         Label grape = new Label("Grapes", grapeimg);
@@ -452,7 +467,7 @@ public class DaLi_16 extends Application{
 
 
         positions.setOnAction(event -> {
-            switch(positions.getValue()){
+            switch (positions.getValue()) {
                 case "TOP":
                     grape.setContentDisplay(ContentDisplay.TOP);
                     break;
@@ -475,6 +490,7 @@ public class DaLi_16 extends Application{
         bp.setPadding(new Insets(10));
         return bp;
     }
+
     public static Pane ex16() {//Use ComboBox and ListView
         String[] options = {"Single", "Multiple"};
         ComboBox<String> opt = new ComboBox<>(FXCollections.observableArrayList(options));
@@ -482,10 +498,10 @@ public class DaLi_16 extends Application{
         top.setContentDisplay(ContentDisplay.RIGHT);
 
         String[] flagTitles = {"Canada", "China", "Denmark", "France", "Germany", "India", "Norway", "United Kingdom", "United States of America"};
-        ListView<String> countrieslist= new ListView<>(FXCollections.observableArrayList(flagTitles));
+        ListView<String> countrieslist = new ListView<>(FXCollections.observableArrayList(flagTitles));
 
         opt.setOnAction(event -> {
-            switch(opt.getValue()){
+            switch (opt.getValue()) {
                 case "Single":
                     countrieslist.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
                     break;
@@ -497,15 +513,17 @@ public class DaLi_16 extends Application{
 
         return new VBox(top, countrieslist);
     }
+
     public static Pane ex17() {//Use ScrollBar and Slider
         return new ColorSliders();
     }
+
     public static BorderPane ex18() {//Simulation: a running fan
         Button pause = new Button("Pause");
         Button play = new Button("Play");
         Button reverse = new Button("reverse");
 
-        HBox controls = new HBox(pause,play,reverse);
+        HBox controls = new HBox(pause, play, reverse);
         controls.setAlignment(Pos.CENTER);
 
         RunningFan fan = new RunningFan();
@@ -523,6 +541,7 @@ public class DaLi_16 extends Application{
         bp.setBottom(bar);
         return bp;
     }
+
     public static Pane ex19() {//Control a group of fans
         BorderPane fan1 = ex18();
         fan1.setStyle("-fx-border-color: black;");
@@ -530,28 +549,29 @@ public class DaLi_16 extends Application{
         fan2.setStyle("-fx-border-color: black;");
         BorderPane fan3 = ex18();
         fan3.setStyle("-fx-border-color: black;");
-        HBox fans = new HBox(fan1,fan2,fan3);
+        HBox fans = new HBox(fan1, fan2, fan3);
         fans.setSpacing(5);
         fans.setPadding(new Insets(5));
 
-        Button startall = new Button ("Start all");
-        Button stopall = new Button ("Stop all");
-        HBox bot = new HBox(startall,stopall);
+        Button startall = new Button("Start all");
+        Button stopall = new Button("Stop all");
+        HBox bot = new HBox(startall, stopall);
         bot.setAlignment(Pos.CENTER);
 
         startall.setOnAction(event -> {
-            ((RunningFan)fan1.getCenter()).play();
-            ((RunningFan)fan2.getCenter()).play();
-            ((RunningFan)fan3.getCenter()).play();
+            ((RunningFan) fan1.getCenter()).play();
+            ((RunningFan) fan2.getCenter()).play();
+            ((RunningFan) fan3.getCenter()).play();
         });
         stopall.setOnAction(event -> {
-            ((RunningFan)fan1.getCenter()).pause();
-            ((RunningFan)fan2.getCenter()).pause();
-            ((RunningFan)fan3.getCenter()).pause();
+            ((RunningFan) fan1.getCenter()).pause();
+            ((RunningFan) fan2.getCenter()).pause();
+            ((RunningFan) fan3.getCenter()).pause();
         });
 
-        return new VBox(fans,bot);
+        return new VBox(fans, bot);
     }
+
     public static Pane ex20() {//Count-up stopwatch
         Text time = new Text("00:00:00:000");
         time.setStyle("-fx-font-size: 30;");
@@ -559,12 +579,12 @@ public class DaLi_16 extends Application{
 
         Button start = new Button("Start");
         Button clear = new Button("Clear");
-        HBox buttons = new HBox(start,clear);
+        HBox buttons = new HBox(start, clear);
         buttons.setAlignment(Pos.CENTER);
         buttons.setSpacing(10);
 
         StopWatch stopWatch = new StopWatch();
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), event ->time.setText(stopWatch.getLapsedFormat())));
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(10), event -> time.setText(stopWatch.getLapsedFormat())));
         timeline.setCycleCount(Timeline.INDEFINITE);
         start.setOnAction(event -> {
             switch (start.getText()) {
@@ -593,10 +613,11 @@ public class DaLi_16 extends Application{
             time.setText("00:00:00:000");
             start.setText("Start");
         });
-        VBox vPane = new VBox(pane,buttons);
+        VBox vPane = new VBox(pane, buttons);
         vPane.setPadding(new Insets(10));
         return vPane;
     }
+
     public static Pane ex21() {//Count-down stopwatch
         TextField countdown = new TextField("30");
         Timeline counting = new Timeline();
@@ -607,20 +628,21 @@ public class DaLi_16 extends Application{
         KeyFrame key = new KeyFrame(Duration.millis(999), event -> {
             int num = (Integer.parseInt(countdown.getText()));
             if (num != 0)
-                countdown.setText( (num - 1) + "");
-            else{
+                countdown.setText((num - 1) + "");
+            else {
                 mp.play();
                 counting.pause();
             }
         });
         counting.getKeyFrames().add(key);
         countdown.setOnAction(event -> {
-            if(counting.getStatus() == Animation.Status.PAUSED || counting.getStatus() == Animation.Status.STOPPED ){
-                    counting.play();
-            }else counting.pause();
+            if (counting.getStatus() == Animation.Status.PAUSED || counting.getStatus() == Animation.Status.STOPPED) {
+                counting.play();
+            } else counting.pause();
         });
         return new Pane(countdown);
     }
+
     public static Pane ex22() {//Play, loop, and stop a sound clip
         AudioClip audio = new AudioClip(new File("src/res/audio/denmark.mp3").toURI().toString());
 
@@ -631,25 +653,28 @@ public class DaLi_16 extends Application{
         Button stop = new Button("Stop");
         stop.setOnAction(event -> audio.stop());
 
-        HBox h = new HBox(play,loop,stop);
+        HBox h = new HBox(play, loop, stop);
         h.setPadding(new Insets(10));
         h.setSpacing(3);
         return h;
     }
+
     public static Pane ex23() {//Create an image animator with audio
         return new AnimationPane();
     }
+
     public static Pane ex24() {//Revise Listing 16.14 MediaDemo.java
         return new MediaDemo();
     }
+
     public static Pane ex25() {//Racing cars
         TextField c1 = new TextField("1");
         TextField c2 = new TextField("2");
         TextField c3 = new TextField("4");
         TextField c4 = new TextField("8");
-        Button go  = new Button("Go");
+        Button go = new Button("Go");
 
-        HBox top = new HBox(new Label("Car 1"), c1,new Label("Car 2"), c2,new Label("Car 3"), c3,new Label("Car 4"), c4, go);
+        HBox top = new HBox(new Label("Car 1"), c1, new Label("Car 2"), c2, new Label("Car 3"), c3, new Label("Car 4"), c4, go);
 
         CarPane car1 = new CarPane();
         CarPane car2 = new CarPane();
@@ -663,18 +688,24 @@ public class DaLi_16 extends Application{
             car4.setSpeed(Integer.parseInt(c4.getText()));
         });
 
-        return new VBox(top, car1,car2,car3,car4);
+        return new VBox(top, car1, car2, car3, car4);
     }
+
     public static void ex26() {//Simulation: raise flag and play anthem
     }
+
     public static void ex27() {//Display country flag and flag description
     }
+
     public static void ex28() {//Slide show
     }
+
     public static void ex29() {//Display a calendar
     }
+
     public static void ex30() {//Pattern recognition: consecutive four equal numbers
     }
+
     public static void ex31() {//Game: connect four
     }
 }

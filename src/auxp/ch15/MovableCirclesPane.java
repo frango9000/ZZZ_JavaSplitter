@@ -37,17 +37,6 @@ public class MovableCirclesPane extends Pane {
 
     }
 
-    private class MoveCircleHandler implements EventHandler<MouseEvent> {
-
-        @Override
-        public void handle(MouseEvent event) {
-            Circle c = (Circle) event.getSource();
-            c.setCenterX(event.getX());
-            c.setCenterY(event.getY());
-            updateLabelPane();
-        }
-    }
-
     private void updateLabelPane() {
         labelPane.getChildren().clear();
         Point middlePoint1 = new lib.Geometry.Line(c1.getCenterX(), c1.getCenterY(), c2.getCenterX(), c2.getCenterY()).middlePoint();
@@ -57,6 +46,17 @@ public class MovableCirclesPane extends Pane {
         line.setStroke(Color.BLACK);
         labelPane.getChildren().addAll(label1, line);
 
+    }
+
+    private class MoveCircleHandler implements EventHandler<MouseEvent> {
+
+        @Override
+        public void handle(MouseEvent event) {
+            Circle c = (Circle) event.getSource();
+            c.setCenterX(event.getX());
+            c.setCenterY(event.getY());
+            updateLabelPane();
+        }
     }
 
 }

@@ -12,15 +12,13 @@ import lib.MyFX.ToolFX;
 
 public class MovableRectanglePane extends BorderPane {
 
-    private double size = 50;
-    Rectangle rect;
-    Pane pane;
-
-
     final int UP = 0;
     final int DOWN = 1;
     final int LEFT = 2;
     final int RIGHT = 3;
+    Rectangle rect;
+    Pane pane;
+    private double size = 50;
 
     public MovableRectanglePane() {
         pane = new Pane();
