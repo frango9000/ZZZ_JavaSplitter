@@ -7,7 +7,7 @@ import java.util.Scanner;
 public abstract class DaLi_17 {
 
     public static void main(String[] args) {
-        ex05();
+        ex07();
 
     }
 
@@ -80,13 +80,25 @@ public abstract class DaLi_17 {
         File file = new File("src/auxp/ch17/Exercise17_06.dat");
         try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
             for (int i = 0; i < 5; i++) {
-                out.writeObject(new MyLoan(5,i,10000));
+                out.writeObject(new MyLoan(5,i+1,10000));
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     public static void ex07() {//Restore objects from a file
+        File file = new File("src/auxp/ch17/Exercise17_06.dat");
+        try(ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
+            MyLoan loan;
+            while( (loan = (MyLoan)in.readObject()) != null){
+                System.out.println(loan.getTotalPayment());
+            }
+        } catch(EOFException ex){
+            System.out.println("EOF");
+        } catch (IOException | ClassNotFoundException e ) {
+            e.printStackTrace();
+        }
+
     }
     public static void ex08() {//Update count
     }
