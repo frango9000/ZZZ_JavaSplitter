@@ -7,7 +7,7 @@ import java.util.Scanner;
 public abstract class DaLi_17 {
 
     public static void main(String[] args) {
-        ex07();
+        ex08();
 
     }
 
@@ -101,6 +101,20 @@ public abstract class DaLi_17 {
 
     }
     public static void ex08() {//Update count
+        File file = new File("src/auxp/ch17/Exercise17_08.dat");
+        int count = 0;
+        try(DataInputStream in = new DataInputStream( new FileInputStream(file))){
+            count = in.readInt();
+            System.out.println(count);
+        } catch (IOException e) {
+            //e.printStackTrace();
+        }
+        try( DataOutputStream out = new DataOutputStream(new FileOutputStream(file))) {
+            out.writeInt(++count);
+            System.out.println("Runned " + count + " times.");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex09() {//Address book
     }
