@@ -1,9 +1,10 @@
 import java.io.*;
+import java.util.Scanner;
 
 public abstract class DaLi_17 {
 
     public static void main(String[] args) {
-        ex03();
+        ex04();
 
     }
 
@@ -44,6 +45,20 @@ public abstract class DaLi_17 {
         }
     }
     public static void ex04() {//Convert a text file into UTF
+        File textfile = new File("src/auxp/ch12/e24data.txt");
+        File binfile = new File("src/auxp/ch17/Exercise17_04.dat");
+        try(
+                Scanner in = new Scanner(textfile);
+                DataOutputStream out = new DataOutputStream(new FileOutputStream(binfile))
+        ){
+            while(in.hasNextLine()){
+                out.writeUTF(in.nextLine());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Text size = " + textfile.length());
+        System.out.println("Bin copy size = " + binfile.length());
     }
     public static void ex05() {//Store objects and arrays in a file
     }
