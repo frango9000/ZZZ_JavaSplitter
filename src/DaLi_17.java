@@ -3,7 +3,7 @@ import java.io.*;
 public abstract class DaLi_17 {
 
     public static void main(String[] args) {
-        ex01();
+        ex03();
 
     }
 
