@@ -32,6 +32,16 @@ public abstract class DaLi_17 {
         }
     }
     public static void ex03() {//Sum all the floating points in a binary data file
+        File file = new File("src/auxp/ch17/Exercise17_02.dat");
+        try(DataInputStream in = new DataInputStream(new FileInputStream(file))) {
+            double sum = 0;
+            while(in.available() != 0){
+                sum += in.readDouble();
+            }
+            System.out.println("Sum is : " + sum);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex04() {//Convert a text file into UTF
     }
