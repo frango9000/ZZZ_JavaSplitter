@@ -1,7 +1,4 @@
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 
 public abstract class DaLi_17 {
 
@@ -25,6 +22,14 @@ public abstract class DaLi_17 {
 
     }
     public static void ex02() {//Create a binary data file
+        File file = new File("src/auxp/ch17/Exercise17_02.dat");
+        try(DataOutputStream out = new DataOutputStream(new FileOutputStream(file))) {
+            for (int i = 0; i < 50; i++) {
+                out.writeDouble(((int)(Math.random()*10000))/100);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex03() {//Sum all the floating points in a binary data file
     }
