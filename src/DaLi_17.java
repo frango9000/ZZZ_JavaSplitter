@@ -1,3 +1,5 @@
+import auxp.ch10.MyLoan;
+
 import java.io.*;
 import java.util.Date;
 import java.util.Scanner;
@@ -75,6 +77,14 @@ public abstract class DaLi_17 {
         }
     }
     public static void ex06() {//Store Loan objects
+        File file = new File("src/auxp/ch17/Exercise17_06.dat");
+        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))) {
+            for (int i = 0; i < 5; i++) {
+                out.writeObject(new MyLoan(5,i,10000));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex07() {//Restore objects from a file
     }
