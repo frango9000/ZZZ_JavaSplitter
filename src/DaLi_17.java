@@ -1,10 +1,11 @@
 import java.io.*;
+import java.util.Date;
 import java.util.Scanner;
 
 public abstract class DaLi_17 {
 
     public static void main(String[] args) {
-        ex04();
+        ex05();
 
     }
 
@@ -61,6 +62,17 @@ public abstract class DaLi_17 {
         System.out.println("Bin copy size = " + binfile.length());
     }
     public static void ex05() {//Store objects and arrays in a file
+        int[] nums = {1,2,3,4,5,6};
+        Date date = new Date(System.currentTimeMillis());
+        double dbl = 10.5;
+        File file = new File("src/auxp/ch17/Exercise17_05.dat");
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(file))){
+            out.writeObject(nums);
+            out.writeObject(date);
+            out.writeDouble(dbl);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     public static void ex06() {//Store Loan objects
     }
