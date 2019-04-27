@@ -1,14 +1,34 @@
 import auxp.ch10.MyLoan;
+import auxp.ch17.AddressBook;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.Date;
 import java.util.Scanner;
 
-public abstract class DaLi_17 {
+public class DaLi_17 extends Application {
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("C17");
+
+
+        Pane pane = ex09();
+
+
+        pane.setPadding(new Insets(5));
+        Scene scene = new Scene(pane);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+        pane.requestFocus();
+    }
 
     public static void main(String[] args) {
-        ex08();
-
+        //ex08();
+        Application.launch(args);
     }
 
     public static void ex00() {
@@ -116,7 +136,8 @@ public abstract class DaLi_17 {
             e.printStackTrace();
         }
     }
-    public static void ex09() {//Address book
+    public static Pane ex09() {//Address book
+        return new AddressBook();
     }
     public static void ex10() {//Split files
     }

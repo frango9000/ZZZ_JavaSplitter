@@ -1,6 +1,6 @@
 package auxp;
 
-import auxp.ch15.AnimatedPendulum;
+import auxp.ch17.AddressBook;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
@@ -11,18 +11,19 @@ import javafx.stage.Stage;
 public class MainFX extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
+        primaryStage.setTitle("MainFX Test");
 
-        AnimatedPendulum pane = new AnimatedPendulum();
 
-        Pane b = new StackPane(pane);
-        b.setPadding(new Insets(10));
+        AddressBook pane = new AddressBook();
 
-        Scene scene = new Scene(b);
-        primaryStage.setTitle("Test");
+
+
+        Pane padded = new StackPane(pane);
+        padded.setPadding(new Insets(10));
+        Scene scene = new Scene(padded);
         //primaryStage.setWidth(400);
         //primaryStage.setHeight(400);
         primaryStage.setScene(scene);
         primaryStage.show();
-
     }
 }
