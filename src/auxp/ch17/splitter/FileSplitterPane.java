@@ -11,14 +11,13 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
-public class FileSplitterPane extends VBox {
+public class FileSplitterPane extends BorderPane {
     File file;
     TextField numOfSplitsTF;
     TextField sizeOfSplitsTF;
 
     public FileSplitterPane() {
         setPadding(new Insets(5));
-        setSpacing(5);
 
 
         FileChooser fileChooser = new FileChooser();
@@ -55,9 +54,10 @@ public class FileSplitterPane extends VBox {
         pickSizeOfSplitsRadio.setToggleGroup(pickSplitType);
 
         GridPane grid = new GridPane();
+        BorderPane.setMargin(grid, new Insets(5));
         grid.setHgap(3);
         grid.setVgap(5);
-        grid.addRow(0, new Label("Output Name: "), newName);
+        grid.addRow(0, new Label("Output Name"), newName);
         grid.addRow(1, new Label("Total Size (bytes)"), totalSize);
         grid.addRow(2, new Label("Num of Pieces"), numOfSplitsTF,pickNumOfSplitsRadio,finalSizeOfSplits);
         grid.addRow(3, new Label("Size of Pieces (bytes)"), sizeOfSplitsTF,pickSizeOfSplitsRadio,finalNumOfSplits);
@@ -97,7 +97,9 @@ public class FileSplitterPane extends VBox {
         });
         splitButton.setOnAction(event -> split());
 
-        getChildren().addAll(browsePane, grid, bot);
+        setTop(browsePane);
+        setLeft(grid);
+        setBottom(bot);
     }
 
     private void split(){

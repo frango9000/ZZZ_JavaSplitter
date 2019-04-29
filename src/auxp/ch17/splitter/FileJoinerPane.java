@@ -12,12 +12,12 @@ import javafx.stage.Stage;
 
 import java.io.File;
 
-public class FileJoinerPane extends VBox {
+public class FileJoinerPane extends BorderPane {
     File file;
 
     public FileJoinerPane() {
         setPadding(new Insets(5));
-        setSpacing(5);
+
 
 
         FileChooser fileChooser = new FileChooser();
@@ -41,6 +41,7 @@ public class FileJoinerPane extends VBox {
         pieceSize.setEditable(false);
 
         GridPane grid = new GridPane();
+        BorderPane.setMargin(grid, new Insets(5));
         grid.setHgap(3);
         grid.setVgap(5);
         grid.addRow(0, new Label("Output Name"), newName);
@@ -67,7 +68,9 @@ public class FileJoinerPane extends VBox {
             join();
         });
 
-        getChildren().addAll(browsePane, grid, bot);
+        setTop(browsePane);
+        setLeft(grid);
+        setBottom(bot);
     }
 
     private void join(){

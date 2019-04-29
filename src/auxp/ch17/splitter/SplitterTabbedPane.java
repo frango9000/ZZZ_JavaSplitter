@@ -14,6 +14,7 @@ public class SplitterTabbedPane extends TabPane {
 
 
 
+
         setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
         setTabDragPolicy(TabDragPolicy.FIXED);
         getTabs().addAll(split,join);
