@@ -31,7 +31,12 @@ public class FileSplitterPane extends BorderPane {
         browsePane.setPadding(new Insets(10));
         browsePane.setBorder(new Border(new BorderStroke(Color.LIGHTGRAY, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 
+
         TextField newName = new TextField();
+
+        TextField newExt = new TextField();
+        newExt.setPrefColumnCount(4);
+        newExt.setEditable(false);
         TextField totalSize = new TextField();
         totalSize.setEditable(false);
 
@@ -57,7 +62,7 @@ public class FileSplitterPane extends BorderPane {
         BorderPane.setMargin(grid, new Insets(5));
         grid.setHgap(3);
         grid.setVgap(5);
-        grid.addRow(0, new Label("Output Name"), newName);
+        grid.addRow(0, new Label("Output Name"), new HBox(newName,newExt));
         grid.addRow(1, new Label("Total Size (bytes)"), totalSize);
         grid.addRow(2, new Label("Num of Pieces"), numOfSplitsTF,pickNumOfSplitsRadio,finalSizeOfSplits);
         grid.addRow(3, new Label("Size of Pieces (bytes)"), sizeOfSplitsTF,pickSizeOfSplitsRadio,finalNumOfSplits);
@@ -71,7 +76,7 @@ public class FileSplitterPane extends BorderPane {
             file = fileChooser.showOpenDialog(new Stage());
             if(file!=null) {
                 fileDir.setText(file.getAbsolutePath());
-                newName.setText(FileSplitter.byteSizeFormatter(file.length()));
+                totalSize.setText(FileSplitter.byteSizeFormatter(file.length()));
                 numOfSplitsTF.setText("1");
                 sizeOfSplitsTF.setText(file.length()+"");
             }

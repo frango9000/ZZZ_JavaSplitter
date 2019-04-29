@@ -33,6 +33,9 @@ public class FileJoinerPane extends BorderPane {
 
 
         TextField newName = new TextField();
+        TextField newExt = new TextField();
+        newExt.setPrefColumnCount(4);
+        newExt.setEditable(false);
         TextField totalSize = new TextField();
         totalSize.setEditable(false);
         TextField numOfPieces = new TextField();
@@ -44,7 +47,7 @@ public class FileJoinerPane extends BorderPane {
         BorderPane.setMargin(grid, new Insets(5));
         grid.setHgap(3);
         grid.setVgap(5);
-        grid.addRow(0, new Label("Output Name"), newName);
+        grid.addRow(0, new Label("Output Name"), new HBox(newName, new Label("."),newExt));
         grid.addRow(1, new Label("Total Size (bytes)"), totalSize);
         grid.addRow(2, new Label("Num of Pieces"), numOfPieces);
         grid.addRow(3, new Label("Size of Pieces (bytes)"), pieceSize);
