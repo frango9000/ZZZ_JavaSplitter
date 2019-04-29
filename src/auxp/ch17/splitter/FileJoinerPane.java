@@ -1,12 +1,12 @@
 package auxp.ch17.splitter;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -18,7 +18,6 @@ public class FileJoinerPane extends VBox {
     public FileJoinerPane() {
         setPadding(new Insets(5));
         setSpacing(5);
-        Label title = new Label("File Joiner");
 
 
         FileChooser fileChooser = new FileChooser();
@@ -27,23 +26,31 @@ public class FileJoinerPane extends VBox {
         fileDir.setEditable(false);
         Button browseButton = new Button("Browse");
         HBox browsePane = new HBox(new Label("Pick a File"), fileDir, browseButton);
+        browsePane.setSpacing(5);
+        browsePane.setAlignment(Pos.BASELINE_LEFT);
+        browsePane.setPadding(new Insets(10));
+        browsePane.setBorder(new Border(new BorderStroke(Color.LIGHTGRAY, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 
 
         TextField newName = new TextField();
+        TextField totalSize = new TextField();
+        totalSize.setEditable(false);
         TextField numOfPieces = new TextField();
         numOfPieces.setEditable(false);
         TextField pieceSize = new TextField();
         pieceSize.setEditable(false);
-        TextField totalSize = new TextField();
-        totalSize.setEditable(false);
 
         GridPane grid = new GridPane();
-        grid.addRow(0, new Label("New Name"), newName);
-        grid.addRow(1, new Label("Num of Pieces"), numOfPieces);
-        grid.addRow(2, new Label("Size of Pieces (bytes)"), pieceSize);
-        grid.addRow(3, new Label("Total Size (bytes)"), totalSize);
+        grid.setHgap(3);
+        grid.setVgap(5);
+        grid.addRow(0, new Label("Output Name"), newName);
+        grid.addRow(1, new Label("Total Size (bytes)"), totalSize);
+        grid.addRow(2, new Label("Num of Pieces"), numOfPieces);
+        grid.addRow(3, new Label("Size of Pieces (bytes)"), pieceSize);
 
-        Button join = new Button("Join");
+        Button joinButton = new Button("Join");
+        HBox bot = new HBox(joinButton);
+        bot.setAlignment(Pos.CENTER);
 
         browseButton.setOnAction(event -> {
             file = fileChooser.showOpenDialog(new Stage());
@@ -55,12 +62,12 @@ public class FileJoinerPane extends VBox {
             }
         });
 
-        join.setOnAction(event -> {
+        joinButton.setOnAction(event -> {
             file = new File(fileDir.getText());
             join();
         });
 
-        getChildren().addAll(title, browsePane, grid, join);
+        getChildren().addAll(browsePane, grid, bot);
     }
 
     private void join(){
