@@ -86,9 +86,9 @@ public class FileSplitPane extends BorderPane {
             if (numOfPieces.getText().length() > 0) {
                 long pieces = Long.parseLong(numOfPieces.getText());
                 if (pieces > 0) {
-                    newExt.setText(getExtString(pieces));
+                    newExt.setText(getExtensionMask(pieces - 1));
                     long bytes = (file.length() / pieces) + (file.length() % pieces == 0 ? 0 : 1);
-                    sizeOfPieces.setText(bytes + "");
+                    //sizeOfPieces.setText(bytes + "");
                     finalSizeOfPieces.setText(FileSplitter.byteSizeFormatter(bytes) + " bytes per file"); // if length % n != 0 1 more byte per file.
                 } else
                     finalSizeOfPieces.setText("0 bytes per file");
@@ -170,7 +170,7 @@ public class FileSplitPane extends BorderPane {
         });
     }
 
-    private String getExtString(long pieces) {
+    private String getExtensionMask(long pieces) {
         int digits = (pieces + "").length();
         StringBuilder ext = new StringBuilder();
         for (int i = 0; i < digits; i++) {
