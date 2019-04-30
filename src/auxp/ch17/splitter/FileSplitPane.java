@@ -148,18 +148,20 @@ public class FileSplitPane extends BorderPane {
             if (pickNumOfPiecesRadio.isSelected()) {
                 if (numOfPieces.getText().length() > 0) {
                     int piecesValue = Integer.parseInt(numOfPieces.getText());
-                    if (piecesValue > 0)
+                    if (piecesValue > 0) {
                         FileSplitter.splitByPieces(file, piecesValue);
-                    else
+                        JOptionPane.showMessageDialog(null, "Success");
+                    } else
                         JOptionPane.showMessageDialog(null, "Invalid value");
                 } else JOptionPane.showMessageDialog(null, "Invalid value");
 
             } else if (pickSizeOfSplitsRadio.isSelected()) {
                 if (sizeOfPieces.getText().length() > 0) {
                     long sizeValue = Long.parseLong(sizeOfPieces.getText());
-                    if (sizeValue > 0)
+                    if (sizeValue > 0) {
                         FileSplitter.splitBySize(file, sizeValue);
-                    else
+                        JOptionPane.showMessageDialog(null, "Success");
+                    } else
                         JOptionPane.showMessageDialog(null, "Invalid value");
                 } else JOptionPane.showMessageDialog(null, "Invalid value");
 
@@ -205,8 +207,10 @@ public class FileSplitPane extends BorderPane {
                 JOptionPane.showMessageDialog(null, "Invalid file");
             else if (newName.getText().length() == 0)
                 JOptionPane.showMessageDialog(null, "Invalid filename");
-            else
+            else {
                 FileSplitter.join(files, newName.getText() + "." + newExt.getText());
+                JOptionPane.showMessageDialog(null, "Success");
+            }
         });
     }
 
