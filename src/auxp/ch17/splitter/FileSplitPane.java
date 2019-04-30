@@ -49,8 +49,6 @@ public class FileSplitPane extends BorderPane {
 
         if (split) {
             execButton.setText("Split");
-            numOfPieces.setEditable(true);
-            sizeOfPieces.setEditable(true);
 
             pickNumOfSplitsRadio = new RadioButton();
             pickSizeOfSplitsRadio = new RadioButton();
@@ -89,12 +87,22 @@ public class FileSplitPane extends BorderPane {
                 totalSize.setText(FileSplitter.byteSizeFormatter(file.length()));
                 numOfPieces.setText("1");
                 sizeOfPieces.setText(file.length() + "");
+                numOfPieces.setEditable(true);
+                sizeOfPieces.setEditable(true);
+
+                pickNumOfSplitsRadio.setSelected(true);
+                finalSizeOfSplits.setVisible(true);
             }
         });
 
-        numOfPieces.textProperty().addListener(observable -> {
-            int n = Integer.parseInt(numOfPieces.getText());
-            finalSizeOfSplits.setText(FileSplitter.byteSizeFormatter((file.length() / n) + (file.length() % n == 0 ? 0 : 1)) + " bytes per file"); // if length % n != 0 1 more byte per file.
+        numOfPieces.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*")) {
+                numOfPieces.setText(newValue.replaceAll("[^\\d]", ""));
+            }
+            if (numOfPieces.getText().length() > 0) {
+                int n = Integer.parseInt(numOfPieces.getText());
+                finalSizeOfSplits.setText(FileSplitter.byteSizeFormatter((file.length() / n) + (file.length() % n == 0 ? 0 : 1)) + " bytes per file"); // if length % n != 0 1 more byte per file.
+            }
         });
 
         sizeOfPieces.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -124,7 +132,7 @@ public class FileSplitPane extends BorderPane {
             file = fileChooser.showOpenDialog(new Stage());
             if (file != null) {
                 fileDir.setText(file.getAbsolutePath());
-                newName.setText(file.getName().substring(0, file.getName().length() - 5));
+                newName.setText(file.getName().substring(0, file.getName().length() - 4));
                 newExt.setText("000");
 
                 sizeOfPieces.setText(FileSplitter.byteSizeFormatter(file.length()));

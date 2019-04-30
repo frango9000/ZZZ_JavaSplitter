@@ -38,7 +38,7 @@ public class FileSplitter {
             while(raf.getFilePointer() != raf.length()){
                 byte[] split = new byte[(int)(raf.getFilePointer()+bytes <= raf.length() ? bytes : raf.length()-raf.getFilePointer())];
                 raf.read(split);
-                File piece = new File(file.getParent()+file.getName()+"."+String.format("%03d", count++));
+                File piece = new File(file.getAbsolutePath()+"."+String.format("%03d", count++));
 
                 try(FileOutputStream out = new FileOutputStream(piece)){
                     out.write(split);
