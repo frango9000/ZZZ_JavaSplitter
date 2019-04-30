@@ -12,11 +12,8 @@ public class SplitterTabbedPane extends TabPane {
         split.setContent(new FileSplitPane(true));
 
 
-
-
-
         setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
         setTabDragPolicy(TabDragPolicy.FIXED);
-        getTabs().addAll(split,join);
+        getTabs().addAll(split, join);
     }
 }
