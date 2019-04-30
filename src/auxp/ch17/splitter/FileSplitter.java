@@ -32,6 +32,8 @@ public class FileSplitter {
     }
 
     public static void splitBySize(File file, long bytes) {
+        int pieces = (int)(file.length() / bytes);
+        int digits = (pieces + "").length();
         int count = 0;
         try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(file))) {
             while (in.available() > 0) {
@@ -39,7 +41,7 @@ public class FileSplitter {
                 byte[] split = new byte[(int) size];//TODO fix casting
                 in.read(split);
 
-                File piece = new File(file.getAbsolutePath() + "." + String.format("%03d", count++));
+                File piece = new File(file.getAbsolutePath() + "." + String.format("%0"+digits+"d", count++));
 
                 try (FileOutputStream out = new FileOutputStream(piece)) {
                     out.write(split);

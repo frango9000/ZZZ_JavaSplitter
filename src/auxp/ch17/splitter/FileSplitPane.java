@@ -84,15 +84,10 @@ public class FileSplitPane extends BorderPane {
                 numOfPieces.setText(newValue.replaceAll("[^\\d]", ""));
             }
             if (numOfPieces.getText().length() > 0) {
-                long n = Long.parseLong(numOfPieces.getText());
-                if (n > 0) {
-                    int digits = (n + "").length();
-                    StringBuilder ext = new StringBuilder();
-                    for (int i = 0; i < digits; i++) {
-                        ext.append("0");
-                    }
-                    newExt.setText(ext.toString());
-                    long bytes = (file.length() / n) + (file.length() % n == 0 ? 0 : 1);
+                long pieces = Long.parseLong(numOfPieces.getText());
+                if (pieces > 0) {
+                    newExt.setText(getExtString(pieces));
+                    long bytes = (file.length() / pieces) + (file.length() % pieces == 0 ? 0 : 1);
                     sizeOfPieces.setText(bytes + "");
                     finalSizeOfPieces.setText(FileSplitter.byteSizeFormatter(bytes) + " bytes per file"); // if length % n != 0 1 more byte per file.
                 } else
@@ -105,9 +100,9 @@ public class FileSplitPane extends BorderPane {
                 sizeOfPieces.setText(newValue.replaceAll("[^\\d]", ""));
             }
             if (sizeOfPieces.getText().length() > 0) {
-                long n = Long.parseLong(sizeOfPieces.getText());
-                if (n > 0) {
-                    long pieces = (file.length() % n == 0 ? file.length() / n : (file.length() / n) + 1);
+                long size = Long.parseLong(sizeOfPieces.getText());
+                if (size > 0) {
+                    long pieces = (file.length() % size == 0 ? file.length() / size : (file.length() / size) + 1);
                     numOfPieces.setText(pieces + "");
                     finalNumOfSplits.setText(pieces + " piece(s)");
                 } else
@@ -171,6 +166,15 @@ public class FileSplitPane extends BorderPane {
             } else
                 JOptionPane.showMessageDialog(null, "Invalid option");
         });
+    }
+
+    private String getExtString(long pieces) {
+        int digits = (pieces + "").length();
+        StringBuilder ext = new StringBuilder();
+        for (int i = 0; i < digits; i++) {
+            ext.append("0");
+        }
+        return ext.toString();
     }
 
     private void setJoinActions() {
