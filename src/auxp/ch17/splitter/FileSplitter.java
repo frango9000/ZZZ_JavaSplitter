@@ -26,17 +26,17 @@ public class FileSplitter {
         return byteSizeFormatter(bytes+"");
     }
 
-    public void splitByPieces(int pieces){
-
+    public static void splitByPieces(File file, int pieces){
+        long bytes =(file.length() / pieces) + (file.length() % pieces == 0 ? 0 : 1);
+        splitBySize(file,bytes);
     }
 
-    public static void splitBySize(File file, int bytes){
-
+    public static void splitBySize(File file, long bytes){
         int count = 0;
         try(BufferedInputStream in = new BufferedInputStream(new FileInputStream(file))) {
             while(in.available() > 0){
-                int size = in.available() >= bytes ? bytes : in.available();
-                byte[] split = new byte[size];
+                long size = in.available() >= bytes ? bytes : in.available();
+                byte[] split = new byte[(int)size];//TODO fix casting
                 in.read(split);
 
                 File piece = new File(file.getAbsolutePath()+"."+String.format("%03d", count++));
@@ -50,7 +50,6 @@ public class FileSplitter {
             e.printStackTrace();
         }
     }
-
 
     public static void join(ArrayList<File> files, String newName){
         File jointFile = new File(files.get(0).getParent()+"/"+newName);

@@ -78,24 +78,6 @@ public class FileSplitPane extends BorderPane {
     }
 
     private void setSplitActions() {
-        browseButton.setOnAction(event -> {
-            file = fileChooser.showOpenDialog(new Stage());
-            if (file != null) {
-                fileDir.setText(file.getAbsolutePath());
-
-                newName.setText(file.getName());
-                newName.setEditable(true);
-                newExt.setText("000");
-
-                totalSize.setText(FileSplitter.byteSizeFormatter(file.length()));
-                numOfPieces.setText("1");
-                sizeOfPieces.setText(file.length() + "");
-
-                numOfPieces.setEditable(true);
-                pickNumOfPiecesRadio.setSelected(true);
-                finalSizeOfPieces.setVisible(true);
-            }
-        });
 
         numOfPieces.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("\\d*")) {
@@ -103,9 +85,17 @@ public class FileSplitPane extends BorderPane {
             }
             if (numOfPieces.getText().length() > 0  ) {
                 long n = Long.parseLong(numOfPieces.getText());
-                if(n>0)
-                    finalSizeOfPieces.setText(FileSplitter.byteSizeFormatter((file.length() / n) + (file.length() % n == 0 ? 0 : 1)) + " bytes per file"); // if length % n != 0 1 more byte per file.
-                else
+                if(n>0) {
+                    int digits = (n + "").length();
+                    StringBuilder ext = new StringBuilder();
+                    for (int i = 0; i < digits; i++) {
+                        ext.append("0");
+                    }
+                    newExt.setText(ext.toString());
+                    long bytes = (file.length() / n) + (file.length() % n == 0 ? 0 : 1);
+                    sizeOfPieces.setText(bytes+"");
+                    finalSizeOfPieces.setText(FileSplitter.byteSizeFormatter(bytes) + " bytes per file"); // if length % n != 0 1 more byte per file.
+                }else
                     finalSizeOfPieces.setText("0 bytes per file");
             }else   finalSizeOfPieces.setText("0 bytes per file");
         });
@@ -116,11 +106,30 @@ public class FileSplitPane extends BorderPane {
             }
             if (sizeOfPieces.getText().length() > 0 ) {
                 long n = Long.parseLong(sizeOfPieces.getText());
-                if(n>0)
-                    finalNumOfSplits.setText((file.length() % n == 0 ? file.length() / n : (file.length() / n) + 1)+" piece(s)");
-                else
+                if(n>0) {
+                    long pieces = (file.length() % n == 0 ? file.length() / n : (file.length() / n) + 1);
+                    numOfPieces.setText(pieces+"");
+                    finalNumOfSplits.setText( pieces + " piece(s)");
+                }else
                     finalNumOfSplits.setText("0 piece(s)");
             }else   finalNumOfSplits.setText("0 piece(s)");
+        });
+        browseButton.setOnAction(event -> {
+            file = fileChooser.showOpenDialog(new Stage());
+            if (file != null) {
+                fileDir.setText(file.getAbsolutePath());
+
+                newName.setText(file.getName());
+                newExt.setText("000");
+
+                totalSize.setText(FileSplitter.byteSizeFormatter(file.length()));
+                numOfPieces.setText("1");
+                sizeOfPieces.setText(file.length() + "");
+
+                numOfPieces.setEditable(true);
+                pickNumOfPiecesRadio.setSelected(true);
+                finalSizeOfPieces.setVisible(true);
+            }
         });
         pickNumOfPiecesRadio.setOnAction(event -> {
             if(file != null && file.exists()) {
@@ -141,7 +150,26 @@ public class FileSplitPane extends BorderPane {
             }
         });
         execButton.setOnAction(event -> {
-            FileSplitter.splitBySize(file, Integer.parseInt(sizeOfPieces.getText()));
+            if (pickNumOfPiecesRadio.isSelected()) {
+                if (numOfPieces.getText().length() > 0) {
+                    int piecesValue = Integer.parseInt(numOfPieces.getText());
+                    if (piecesValue > 0)
+                        FileSplitter.splitByPieces(file, piecesValue);
+                    else
+                        JOptionPane.showMessageDialog(null, "Invalid value");
+                } else  JOptionPane.showMessageDialog(null, "Invalid value");
+
+            } else if (pickSizeOfSplitsRadio.isSelected()) {
+                if (sizeOfPieces.getText().length() > 0) {
+                    long sizeValue = Long.parseLong(sizeOfPieces.getText());
+                    if (sizeValue > 0)
+                        FileSplitter.splitBySize(file, sizeValue);
+                    else
+                        JOptionPane.showMessageDialog(null, "Invalid value");
+                } else  JOptionPane.showMessageDialog(null, "Invalid value");
+
+            } else
+                JOptionPane.showMessageDialog(null, "Invalid option");
         });
     }
 
