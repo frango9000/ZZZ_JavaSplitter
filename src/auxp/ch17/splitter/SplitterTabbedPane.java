@@ -7,9 +7,9 @@ public class SplitterTabbedPane extends TabPane {
 
     public SplitterTabbedPane() {
         Tab join = new Tab("Join");
-        join.setContent(new FileJoinerPane());
+        join.setContent(new FileSplitPane());
         Tab split = new Tab("Split ");
-        split.setContent(new FileSplitterPane());
+        split.setContent(new FileSplitPane(true));
 
 
 
