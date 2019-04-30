@@ -1,6 +1,7 @@
 package auxp.ch17.splitter;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class FileSplitter {
 
@@ -21,23 +22,23 @@ public class FileSplitter {
         return sb.toString();
     }
 
-    static String byteSizeFormatter(long bytes){
+    public static String byteSizeFormatter(long bytes){
         return byteSizeFormatter(bytes+"");
     }
 
-    void splitByPieces(int pieces){
+    public void splitByPieces(int pieces){
 
     }
 
-    static void splitBySize(File file, int bytes){
+    public static void splitBySize(File file, int bytes){
 
         int count = 0;
-        try(RandomAccessFile raf = new RandomAccessFile(file, "rw")
-        ) {
+        try(BufferedInputStream in = new BufferedInputStream(new FileInputStream(file))) {
+            while(in.available() > 0){
+                int size = in.available() >= bytes ? bytes : in.available();
+                byte[] split = new byte[size];
+                in.read(split);
 
-            while(raf.getFilePointer() != raf.length()){
-                byte[] split = new byte[(int)(raf.getFilePointer()+bytes <= raf.length() ? bytes : raf.length()-raf.getFilePointer())];
-                raf.read(split);
                 File piece = new File(file.getAbsolutePath()+"."+String.format("%03d", count++));
 
                 try(FileOutputStream out = new FileOutputStream(piece)){
@@ -50,26 +51,14 @@ public class FileSplitter {
         }
     }
 
-    static void join(File file0, String newFileName){
-        String fullName = file0.getName().substring(0, file0.getName().length()-4);
 
-        File orig = new File(file0.getParent()+fullName);
-        File jointFile;
-        if(newFileName == null || newFileName.length() == 0 )
-            jointFile = orig;
-        else
-        jointFile = new File(file0.getParent() + newFileName);
+    public static void join(ArrayList<File> files, String newName){
+        File jointFile = new File(files.get(0).getParent()+"/"+newName);
+
         try(BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(jointFile))) {
-            int count = 0;
-            File actual;
-            while (true) {
-                actual = new File(orig.getAbsolutePath() + "." + String.format("%03d", count++));
-                System.out.println(actual.exists());
-                if (!actual.exists())
-                    break;
-                try(BufferedInputStream in = new BufferedInputStream(new FileInputStream(actual))){
-                    System.out.println(in.available());
-                    while(in.available() != 0){
+            for (File file : files) {
+                try (BufferedInputStream in = new BufferedInputStream(new FileInputStream(file))) {
+                    while (in.available() != 0) {
                         out.write(in.read());
                     }
                 }
@@ -78,4 +67,66 @@ public class FileSplitter {
             e.printStackTrace();
         }
     }
+    public static void join(ArrayList<File> files){
+        String originalName = getCleanName(files.get(0));
+        String originalExt = getFileExtension(originalName);
+        String newName = getCleanName(originalName)+"-[joint]."+originalExt;
+        join(files, newName);
+    }
+    public static void join(File file0){
+        join(getSplitFiles(file0));
+    }
+
+
+    public static String getFileExtension(File file) {
+        return getFileExtension(file.getName());
+    }
+
+    public static String getFileExtension(String filename) {
+        int lastIndexOf = filename.lastIndexOf(".");
+        if (lastIndexOf == -1)
+            return ""; // empty extension
+        return filename.substring(lastIndexOf+1);
+    }
+
+    public static String getCleanName(File file) {
+        return getCleanName(file.getName());
+    }
+
+    public static String getCleanName(String filename) {
+        int lastIndexOf = filename.lastIndexOf(".");
+        if (lastIndexOf == -1) {
+            return ""; // empty extension
+        }
+        return filename.substring(0, lastIndexOf);
+    }
+
+    public static ArrayList<File> getSplitFiles(File file0){
+        ArrayList<File> splitFiles = new ArrayList<>();
+        int extensionSize = getFileExtension(file0).length();
+
+        String baseName = getCleanName(file0);
+
+            int count = 0;
+            File actual;
+            while (true) {
+                actual = new File(file0.getParent()+"/" +baseName+ "." + String.format("%0"+ extensionSize +"d", count++));
+                //System.out.println(actual.getAbsolutePath() + actual.exists());
+                if (!actual.exists())
+                    break;
+                else
+                    splitFiles.add(actual);
+            }
+
+        return splitFiles;
+    }
+
+    public static long getSizeOfFilesList(ArrayList<File> files){
+        long size = 0;
+        for(File file : files){
+            size += file.length();
+        }
+        return size;
+    }
+
 }
